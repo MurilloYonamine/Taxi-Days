@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DIALOGUE
@@ -17,11 +18,11 @@ namespace DIALOGUE
             this.textArchitect = textArchitect;
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
         }
+        // Event for when the user prompts the next line
         private void OnUserPrompt_Next()
         {
             userPrompt = true;
         }
-
         public void StartConversation(List<string> conversation)
         {
             StopConversation();
@@ -34,6 +35,7 @@ namespace DIALOGUE
             dialogueSystem.StopCoroutine(process);
             process = null;
         }
+        // Run the conversation
         IEnumerator RunningConversation(List<string> conversation)
         {
             for (int i = 0; i < conversation.Count; i++)
@@ -49,32 +51,58 @@ namespace DIALOGUE
                 if (dIALOGUE_LINE.hasCommands) yield return Line_RunCommands(dIALOGUE_LINE);
             }
         }
-
+        // Run the dialogue
         private IEnumerator Line_RunDialogue(DIALOGUE_LINE dIALOGUE_LINE)
         {
             if (dIALOGUE_LINE.hasSpeaker)
             {
                 dialogueSystem.ShowSpeakerName(dIALOGUE_LINE.speaker);
             }
-            else
-            {
-                dialogueSystem.HideSpeakerName();
-            }
-            yield return BuildDialogue(dIALOGUE_LINE.dialogue);
+            yield return BuildLineSegments(dIALOGUE_LINE.dialogue);
 
             // Wait for user input
             yield return WaitForUserInput();
         }
-
+        // Run any commands
         private IEnumerator Line_RunCommands(DIALOGUE_LINE dIALOGUE_LINE)
         {
             Debug.Log(dIALOGUE_LINE.commands);
             yield return null;
         }
-        private IEnumerator BuildDialogue(string dialogue)
+        // Build the line segments
+        private IEnumerator BuildLineSegments(DL_DIALOGUE_DATA line)
         {
-            textArchitect.Build(dialogue);
+            for (int i = 0; i < line.segments.Count; i++)
+            {
+                DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment = line.segments[i];
+                yield return WaitForDialogueSegmentSignalToBeTriggered(segment);
+                yield return BuildDialogue(segment.dialogue, segment.appendText);
+            }
+        }
+        private IEnumerator WaitForDialogueSegmentSignalToBeTriggered(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment)
+        {
+            // Wait for the signal to be triggered
+            switch (segment.startSignal)
+            {
+                case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.C:
+                case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.A:
+                    yield return WaitForUserInput();
+                    break;
+                case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.WC:
+                case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.WA:
+                    yield return new WaitForSeconds(segment.signalDelay);
+                    break;
+                default:
+                    break;
+            }
+        }
+        private IEnumerator BuildDialogue(string dialogue, bool append = false)
+        {
+            // build the dialogue
+            if (!append) textArchitect.Build(dialogue);
+            else textArchitect.Append(dialogue);
 
+            // wait for the dialogue to complete
             while (textArchitect.isBuilding)
             {
                 if (userPrompt)
