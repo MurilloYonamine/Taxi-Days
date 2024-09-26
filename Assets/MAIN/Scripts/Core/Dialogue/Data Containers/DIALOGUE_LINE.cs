@@ -11,19 +11,19 @@ namespace DIALOGUE
         that has been parsed and ripped from a string
         */
 
-        public string speaker;
-        public DL_DIALOGUE_DATA dialogue;
-        public string commands;
+        public DL_SPEAKER_DATA speakerData;
+        public DL_DIALOGUE_DATA dialogueData;
+        public DL_COMMAND_DATA commandData;
 
-        public bool hasSpeaker => speaker != string.Empty;
-        public bool hasDialogue => dialogue.hasDialogue;
-        public bool hasCommands => commands != string.Empty;
+        public bool hasSpeaker => speakerData != null;
+        public bool hasDialogue => dialogueData != null;
+        public bool hasCommands => commandData != null;
 
         public DIALOGUE_LINE(string speaker, string dialogue, string commands)
         {
-            this.speaker = speaker;
-            this.dialogue = new DL_DIALOGUE_DATA(dialogue);
-            this.commands = commands;
+            this.speakerData = string.IsNullOrWhiteSpace(speaker) ? null : new DL_SPEAKER_DATA(speaker);
+            this.dialogueData = string.IsNullOrEmpty(dialogue) ? null : new DL_DIALOGUE_DATA(dialogue);
+            this.commandData = string.IsNullOrWhiteSpace(commands) ? null : new DL_COMMAND_DATA(commands);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DIALOGUE
         to converset strings into DIALOGUE_LINES
         */
 
-        private const string commandRegexPattern = "\\w*[^\\s]\\(";
+        private const string commandRegexPattern = @"\w*[^\s]\(";
 
         public static DIALOGUE_LINE Parse(string rawLine)
         {
@@ -76,7 +76,7 @@ namespace DIALOGUE
             {
                 // we know that we have valid dialogue
                 speaker = rawLine.Substring(0, dialogueStart).Trim();
-                dialogue = rawLine.Substring(dialogueStart + 1, dialogueEnd - dialogueStart - 1).Replace("\\\"","\"");
+                dialogue = rawLine.Substring(dialogueStart + 1, dialogueEnd - dialogueStart - 1).Replace("\\\"", "\"");
                 if (commandStart != -1)
                 {
                     commands = rawLine.Substring(commandStart).Trim();

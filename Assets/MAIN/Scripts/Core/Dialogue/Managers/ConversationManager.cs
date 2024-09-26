@@ -52,21 +52,19 @@ namespace DIALOGUE
             }
         }
         // Run the dialogue
-        private IEnumerator Line_RunDialogue(DIALOGUE_LINE dIALOGUE_LINE)
+        private IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
         {
-            if (dIALOGUE_LINE.hasSpeaker)
-            {
-                dialogueSystem.ShowSpeakerName(dIALOGUE_LINE.speaker);
-            }
-            yield return BuildLineSegments(dIALOGUE_LINE.dialogue);
+            if (line.hasSpeaker) dialogueSystem.ShowSpeakerName(line.speakerData.displayName);
+
+            yield return BuildLineSegments(line.dialogueData);
 
             // Wait for user input
             yield return WaitForUserInput();
         }
         // Run any commands
-        private IEnumerator Line_RunCommands(DIALOGUE_LINE dIALOGUE_LINE)
+        private IEnumerator Line_RunCommands(DIALOGUE_LINE line)
         {
-            Debug.Log(dIALOGUE_LINE.commands);
+            Debug.Log(line.commandData);
             yield return null;
         }
         // Build the line segments
