@@ -12,15 +12,15 @@ namespace DIALOGUE
         to converset strings into DIALOGUE_LINES
         */
 
-        private const string commandRegexPattern = @"\w*[^\s]\(";
+        private const string commandRegexPattern = @"[\w\[\]]*[^\s]\(";
 
         public static DIALOGUE_LINE Parse(string rawLine)
         {
-            Debug.Log($"Analisando a linha: '{rawLine}'");
+            // Debug.Log($"Analisando a linha: '{rawLine}'");
 
             (string speaker, string dialogue, string commands) = RipContent(rawLine);
 
-            Debug.Log($"Falante: '{speaker}'\nDiálogo = '{dialogue}'\nComandos = '{commands}'");
+            // Debug.Log($"Falante: '{speaker}'\nDiálogo = '{dialogue}'\nComandos = '{commands}'");
 
             return new DIALOGUE_LINE(speaker, dialogue, commands);
         }

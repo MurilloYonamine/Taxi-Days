@@ -26,7 +26,7 @@ public class TestDialogueFiles : MonoBehaviour
             }
         }
 
-        //DialogueSystem.instance.Say(lines);
+        DialogueSystem.instance.Say(lines);
     }
 
 }

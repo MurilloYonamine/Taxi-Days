@@ -42,29 +42,39 @@ namespace DIALOGUE
             {
                 // Don't show any blank lines or try to run any logic of them
                 if (string.IsNullOrWhiteSpace(conversation[i])) continue;
-                DIALOGUE_LINE dIALOGUE_LINE = DialogueParser.Parse(conversation[i]);
+                DIALOGUE_LINE line = DialogueParser.Parse(conversation[i]);
 
                 // Show dialogue
-                if (dIALOGUE_LINE.hasDialogue) yield return Line_RunDialogue(dIALOGUE_LINE);
+                if (line.hasDialogue) yield return Line_RunDialogue(line);
 
                 // Run any commands
-                if (dIALOGUE_LINE.hasCommands) yield return Line_RunCommands(dIALOGUE_LINE);
+                if (line.hasCommands) yield return Line_RunCommands(line);
+
+                // Wait for user input
+                if (line.hasDialogue) yield return WaitForUserInput();
             }
         }
         // Run the dialogue
         private IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
         {
+            // show or hide the speaker name if there is one present.
             if (line.hasSpeaker) dialogueSystem.ShowSpeakerName(line.speakerData.displayName);
 
+            // build dialogue
             yield return BuildLineSegments(line.dialogueData);
-
-            // Wait for user input
-            yield return WaitForUserInput();
         }
         // Run any commands
         private IEnumerator Line_RunCommands(DIALOGUE_LINE line)
         {
-            Debug.Log(line.commandData);
+            List<DL_COMMAND_DATA.Command> commands = line.commandData.commands;
+
+            foreach (DL_COMMAND_DATA.Command command in commands)
+            {
+                if (command.waitForCompletion)
+                    yield return CommandManager.instance.Execute(command.name, command.arguments);
+                else
+                    CommandManager.instance.Execute(command.name, command.arguments);
+            }
             yield return null;
         }
         // Build the line segments
