@@ -12,6 +12,8 @@ namespace DIALOGUE
         dialogue and conversations on screen
         */
 
+        [SerializeField] private DialogueSystemConfigurationSO _config;
+        public DialogueSystemConfigurationSO config => _config;
         public DialogueContainer dialogueContainer = new DialogueContainer();
         private ConversationManager conversationManager;
         private TextArchitect textArchitect;

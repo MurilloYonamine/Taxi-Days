@@ -2,31 +2,33 @@ using System.Collections.Generic;
 using DIALOGUE;
 using UnityEngine;
 
-public class TestDialogueFiles : MonoBehaviour
+namespace TESTING
 {
-    [SerializeField] private TextAsset fileToRead = null;
-    void Start()
+    public class TestDialogueFiles : MonoBehaviour
     {
-        StartConversation();
-    }
-    void StartConversation()
-    {
-        List<string> lines = FileManager.ReadTextAsset(fileToRead);
-
-        foreach (string line in lines)
+        [SerializeField] private TextAsset fileToRead = null;
+        void Start()
         {
-            if (string.IsNullOrEmpty(line)) continue;
-
-            DIALOGUE_LINE dl = DialogueParser.Parse(line);
-
-            for (int i = 0; i < dl.commandData.commands.Count; i++)
-            {
-                DL_COMMAND_DATA.Command command = dl.commandData.commands[i];
-                Debug.Log($"comando [{i}] '{command.name}' tem argumentos: [{string.Join(", ", command.arguments)}]");
-            }
+            StartConversation();
         }
+        void StartConversation()
+        {
+            List<string> lines = FileManager.ReadTextAsset(fileToRead);
 
-        DialogueSystem.instance.Say(lines);
+            foreach (string line in lines)
+            {
+                if (string.IsNullOrEmpty(line)) continue;
+
+                DIALOGUE_LINE dl = DialogueParser.Parse(line);
+
+                for (int i = 0; i < dl.commandData.commands.Count; i++)
+                {
+                    DL_COMMAND_DATA.Command command = dl.commandData.commands[i];
+                    Debug.Log($"comando [{i}] '{command.name}' tem argumentos: [{string.Join(", ", command.arguments)}]");
+                }
+            }
+
+            DialogueSystem.instance.Say(lines);
+        }
     }
-
 }
