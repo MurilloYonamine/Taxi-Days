@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CHARACTERS;
+using DIALOGUE;
 
 namespace TESTING
 {
@@ -9,17 +10,44 @@ namespace TESTING
     {
         void Start()
         {
-            Character Fada_emo = CharacterManager.instance.CreateCharacter("Fada Emo");
-            Character Fada_emo2 = CharacterManager.instance.CreateCharacter("Fada Emo");
-            Character Narrator = CharacterManager.instance.CreateCharacter("Narrator");
-            Character Gato_de_Botas = CharacterManager.instance.CreateCharacter("Gato de Botas");
+            //Character Fada_emo2 = CharacterManager.instance.CreateCharacter("Fada Emo");
+            //Character Narrator = CharacterManager.instance.CreateCharacter("Narrator");
+            //Character Gato_de_Botas = CharacterManager.instance.CreateCharacter("Gato de Botas");
 
-            Character Lissima = CharacterManager.instance.CreateCharacter("Lissima");
+            //Character Lissima = CharacterManager.instance.CreateCharacter("Lissima");
+
+            StartCoroutine(Test());
         }
 
-        void Update()
+        IEnumerator Test()
         {
+            Character Fada_emo = CharacterManager.instance.CreateCharacter("Fada emo");
+            Character Gato_de_Botas = CharacterManager.instance.CreateCharacter("Gato de Botas");
+            Character Generic = CharacterManager.instance.CreateCharacter("Generic");
 
+            List<string> lines = new List<string>()
+            {
+                "Hi, there!",
+                "My name is Fada emo.",
+                "What's your name?",
+                "Oh,{wa 1} that's very nice."
+            };
+
+            foreach (string line in lines) { yield return Fada_emo.Say(line); }
+
+            lines = new List<string>()
+            {
+                "I am Gato de Botas.",
+                "More lines{c}Here."
+            };
+
+            foreach (string line in lines) { yield return Gato_de_Botas.Say(line); }
+
+            yield return Generic.Say("This is a line that I want to say.{a} It is a simple line.");
+
+            Debug.Log("Finished");
         }
+
+
     }
 }
