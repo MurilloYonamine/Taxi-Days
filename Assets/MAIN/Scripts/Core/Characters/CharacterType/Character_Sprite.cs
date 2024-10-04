@@ -10,7 +10,7 @@ namespace CHARACTERS
         A character that uses sprites or
         sprite sheets to render its display
         */
-        public Character_Sprite(string name) : base(name)
+        public Character_Sprite(string name, CharacterConfigData config) : base(name, config)
         {
             Debug.Log($"Foi criado um personagem do tipo 'Sprite' chamado: '{name}'.");
         }

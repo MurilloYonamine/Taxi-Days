@@ -16,21 +16,28 @@ MonoBehaviour:
   - name: Fada Emo
     alias: fada
     characterType: 1
-    nameColor: {r: 0.57254905, g: 0.22352943, b: 0.30980393, a: 0}
-    dialogueColor: {r: 1, g: 1, b: 1, a: 0}
-    nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    nameColor: {r: 0.57254905, g: 0.22352943, b: 0.30980393, a: 1}
+    dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 11400000, guid: 1f9987afb925cfc46ad034ca97acfba8, type: 2}
+    dialogueFont: {fileID: 11400000, guid: e94f9ea549dac6348b79fb33e9451f34, type: 2}
   - name: Narrator
     alias: narr
     characterType: 0
-    nameColor: {r: 1, g: 1, b: 1, a: 0}
-    dialogueColor: {r: 1, g: 1, b: 1, a: 0}
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   - name: Gato de Botas
     alias: gato
     characterType: 1
-    nameColor: {r: 0.5803922, g: 0.47058827, b: 0.28235295, a: 0}
-    dialogueColor: {r: 1, g: 1, b: 1, a: 0}
+    nameColor: {r: 0.5803922, g: 0.47058827, b: 0.28235295, a: 1}
+    dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - name: Benjamin
+    alias: ben
+    characterType: 1
+    nameColor: {r: 0.14438558, g: 1, b: 0, a: 1}
+    dialogueColor: {r: 0.48584908, g: 0.8546142, b: 1, a: 1}
+    nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
+    dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}

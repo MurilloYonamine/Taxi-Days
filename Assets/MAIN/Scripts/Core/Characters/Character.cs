@@ -13,12 +13,14 @@ namespace CHARACTERS
         public string name = "";
         public string displayName = "";
         public RectTransform root = null;
+        public CharacterConfigData config;
 
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
 
-        public Character(string name)
+        public Character(string name, CharacterConfigData config)
         {
             this.name = name;
+            this.config = config;
             displayName = name;
         }
 
@@ -26,6 +28,7 @@ namespace CHARACTERS
         private Coroutine Say(List<string> dialogue)
         {
             dialogueSystem.ShowSpeakerName(displayName);
+            dialogueSystem.ApplySpeakerDataToDialogueContainer(name);
             return DialogueSystem.instance.Say(dialogue);
         }
 

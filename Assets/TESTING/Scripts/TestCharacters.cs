@@ -23,7 +23,8 @@ namespace TESTING
         {
             Character Fada_emo = CharacterManager.instance.CreateCharacter("Fada emo");
             Character Gato_de_Botas = CharacterManager.instance.CreateCharacter("Gato de Botas");
-            Character Generic = CharacterManager.instance.CreateCharacter("Generic");
+            Character Ben = CharacterManager.instance.CreateCharacter("Benjamin");
+            Character Adam = CharacterManager.instance.CreateCharacter("Adam");
 
             List<string> lines = new List<string>()
             {
@@ -43,7 +44,15 @@ namespace TESTING
 
             foreach (string line in lines) { yield return Gato_de_Botas.Say(line); }
 
-            yield return Generic.Say("This is a line that I want to say.{a} It is a simple line.");
+            lines = new List<string>()
+            {
+                "I am Adam.",
+                "More lines{c}Here."
+            };
+
+            foreach (string line in lines) { yield return Adam.Say(line); }
+
+            yield return Ben.Say("This is a line that I want to say.{a} It is a simple line.");
 
             Debug.Log("Finished");
         }

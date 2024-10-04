@@ -36,7 +36,7 @@ namespace CHARACTERS
             result.dialogueFont = dialogueFont;
 
             result.nameColor = new Color(nameColor.r, nameColor.g, nameColor.b, nameColor.a);
-            result.dialogueColor = new Color(nameColor.r, nameColor.g, nameColor.b, nameColor.a);
+            result.dialogueColor = new Color(dialogueColor.r, dialogueColor.g, dialogueColor.b, dialogueColor.a);
 
             return result;
         }
