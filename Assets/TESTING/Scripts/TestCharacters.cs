@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using CHARACTERS;
 using DIALOGUE;
+using TMPro;
 
 namespace TESTING
 {
     public class TestCharacters : MonoBehaviour
     {
+        public TMP_FontAsset tempFont;
         void Start()
         {
             //Character Fada_emo2 = CharacterManager.instance.CreateCharacter("Fada Emo");
@@ -36,6 +38,15 @@ namespace TESTING
 
             foreach (string line in lines) { yield return Fada_emo.Say(line); }
 
+            Fada_emo.SetNameColor(Color.red);
+            Fada_emo.SetDialogueColor(Color.green);
+            Fada_emo.SetNameFont(tempFont);
+            Fada_emo.SetDialogueFont(tempFont);
+            foreach (string line in lines) { yield return Fada_emo.Say(line); }
+
+            Fada_emo.ResetConfiguration();
+            foreach (string line in lines) { yield return Fada_emo.Say(line); }
+            
             lines = new List<string>()
             {
                 "I am Gato de Botas.",
