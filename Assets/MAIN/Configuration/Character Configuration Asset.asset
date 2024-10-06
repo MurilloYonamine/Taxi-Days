@@ -34,13 +34,6 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  - name: Benjamin
-    alias: ben
-    characterType: 1
-    nameColor: {r: 0.14438558, g: 1, b: 0, a: 1}
-    dialogueColor: {r: 0.48584908, g: 0.8546142, b: 1, a: 1}
-    nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
-    dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
   - name: Cind
     alias: cind
     characterType: 1
@@ -50,6 +43,13 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
   - name: Lissima
     alias: lis
+    characterType: 1
+    nameColor: {r: 1, g: 0.87925386, b: 0, a: 1}
+    dialogueColor: {r: 0.3408938, g: 0.509434, b: 0.30998576, a: 1}
+    nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
+    dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
+  - name: Generic
+    alias: gen
     characterType: 1
     nameColor: {r: 1, g: 0.87925386, b: 0, a: 1}
     dialogueColor: {r: 0.3408938, g: 0.509434, b: 0.30998576, a: 1}
