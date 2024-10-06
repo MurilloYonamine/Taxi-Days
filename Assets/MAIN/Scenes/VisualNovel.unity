@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27014e1e6e071aa46a6f6451f93b4604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterPanel: {fileID: 1604960286}
 --- !u!1 &334298120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,6 +3259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character - [Cind]
       objectReference: {fileID: 0}
+    - target: {fileID: 7510532147425834270, guid: e843eaca872d00741a7c83f143e88609, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3772,6 +3777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character - [Lissima]
       objectReference: {fileID: 0}
+    - target: {fileID: 2251259560985678825, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6407373422965081011, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3954,6 +3963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character - [Fada Emo]
       objectReference: {fileID: 0}
+    - target: {fileID: 8969806487956316369, guid: b05af1ed507d49749a83a2e40151bbe9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3970,6 +3983,10 @@ PrefabInstance:
     - target: {fileID: 3116008305728063124, guid: 85cd43b59d8d7d041bbc91e3df4f29db, type: 3}
       propertyPath: m_Name
       value: Character - [Gato de Botas]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116008305728063124, guid: 85cd43b59d8d7d041bbc91e3df4f29db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4095014296369826179, guid: 85cd43b59d8d7d041bbc91e3df4f29db, type: 3}
       propertyPath: m_Pivot.x

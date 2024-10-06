@@ -10,7 +10,7 @@ namespace CHARACTERS
         A character with no graphical art.
         Text Operations only.
         */
-        public Character_Text(string name, CharacterConfigData config) : base(name, config)
+        public Character_Text(string name, CharacterConfigData config) : base(name, config, prefab: null)
         {
             Debug.Log($"Foi criado um personagem do tipo 'Texto' chamado: '{name}'.");
         }

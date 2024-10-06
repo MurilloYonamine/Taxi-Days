@@ -12,60 +12,28 @@ namespace TESTING
         public TMP_FontAsset tempFont;
         void Start()
         {
-            //Character Fada_emo2 = CharacterManager.instance.CreateCharacter("Fada Emo");
+            //Character Fada_emo = CharacterManager.instance.CreateCharacter("Fada Emo");
             //Character Narrator = CharacterManager.instance.CreateCharacter("Narrator");
             //Character Gato_de_Botas = CharacterManager.instance.CreateCharacter("Gato de Botas");
 
             //Character Lissima = CharacterManager.instance.CreateCharacter("Lissima");
+            //Character Cind = CharacterManager.instance.CreateCharacter("Cind");
 
             StartCoroutine(Test());
         }
 
         IEnumerator Test()
         {
-            Character Fada_emo = CharacterManager.instance.CreateCharacter("Fada emo");
-            Character Gato_de_Botas = CharacterManager.instance.CreateCharacter("Gato de Botas");
-            Character Ben = CharacterManager.instance.CreateCharacter("Benjamin");
-            Character Adam = CharacterManager.instance.CreateCharacter("Adam");
+            yield return new WaitForSeconds(1f);
+            Character Fada_emo = CharacterManager.instance.CreateCharacter("Fada Emo");
 
-            List<string> lines = new List<string>()
-            {
-                "Hi, there!",
-                "My name is Fada emo.",
-                "What's your name?",
-                "Oh,{wa 1} that's very nice."
-            };
+            yield return new WaitForSeconds(1f);
+            yield return Fada_emo.Hide();
 
-            foreach (string line in lines) { yield return Fada_emo.Say(line); }
+            yield return new WaitForSeconds(0.5f);
+            yield return Fada_emo.Show();
 
-            Fada_emo.SetNameColor(Color.red);
-            Fada_emo.SetDialogueColor(Color.green);
-            Fada_emo.SetNameFont(tempFont);
-            Fada_emo.SetDialogueFont(tempFont);
-            foreach (string line in lines) { yield return Fada_emo.Say(line); }
-
-            Fada_emo.ResetConfiguration();
-            foreach (string line in lines) { yield return Fada_emo.Say(line); }
-            
-            lines = new List<string>()
-            {
-                "I am Gato de Botas.",
-                "More lines{c}Here."
-            };
-
-            foreach (string line in lines) { yield return Gato_de_Botas.Say(line); }
-
-            lines = new List<string>()
-            {
-                "I am Adam.",
-                "More lines{c}Here."
-            };
-
-            foreach (string line in lines) { yield return Adam.Say(line); }
-
-            yield return Ben.Say("This is a line that I want to say.{a} It is a simple line.");
-
-            Debug.Log("Finished");
+            yield return Fada_emo.Say("Olá, eu sou a Fada Emo.");
         }
 
 
