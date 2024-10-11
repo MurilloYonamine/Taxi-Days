@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355b9f67f8acfc242b3a32bc11a3b12e, type: 3}
   m_Name: Taxista
   m_EditorClassIdentifier: 
-  speakerName: 
-  textColor: {r: 0, g: 0, b: 0, a: 0}
+  speakerName: Taxista
+  textColor: {r: 0.7830189, g: 0.52091515, b: 0, a: 1}
