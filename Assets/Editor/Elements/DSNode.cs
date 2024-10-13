@@ -29,9 +29,9 @@ namespace TaxiDays.Elements
             // Título do node
             TextField dialogueNameTextField = new TextField() { value = DialogueName };
 
-            dialogueNameTextField.AddToClassList("ds-node__textfield");
+            dialogueNameTextField.AddToClassList("ds-node__text-field");
             dialogueNameTextField.AddToClassList("ds-node__filename-textfield");
-            dialogueNameTextField.AddToClassList("ds-node__textfield__hidden");
+            dialogueNameTextField.AddToClassList("ds-node__text-field__hidden");
 
             titleContainer.Insert(0, dialogueNameTextField);
 
