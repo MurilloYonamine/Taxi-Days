@@ -16,6 +16,7 @@ namespace TaxiDays.Windows
             AddGraphView();
             AddStyle();
         }
+        #region Adição de Elementos
         private void AddGraphView() // Método que adiciona a view do grafo de diálogo na janela
         {
             DSGraphView graphView = new DSGraphView();
@@ -29,5 +30,6 @@ namespace TaxiDays.Windows
             StyleSheet styleSheet = (StyleSheet)EditorGUIUtility.Load("Dialogue System/DSVariables.uss");
             rootVisualElement.styleSheets.Add(styleSheet);
         }
+        #endregion
     }
 }
