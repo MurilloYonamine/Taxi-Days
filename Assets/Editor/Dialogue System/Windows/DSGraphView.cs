@@ -22,12 +22,12 @@ namespace TaxiDays.Windows
             List<Port> compatiblePorts = new List<Port>();
             ports.ForEach(port =>
             {
-                if(startPort == port) return;
-                if(startPort.node == port.node) return;
-                if(startPort.direction == port.direction) return;
+                if (startPort == port) return;
+                if (startPort.node == port.node) return;
+                if (startPort.direction == port.direction) return;
 
                 compatiblePorts.Add(port);
-            }
+            });
             return compatiblePorts;
         }
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
@@ -40,13 +40,35 @@ namespace TaxiDays.Windows
 
             this.AddManipulator(CreateNodeContextualMenu("Adicionar Diálogo (Escolha Única)", DSDialogueType.SingleChoice));
             this.AddManipulator(CreateNodeContextualMenu("Adicionar Diálogo (Escolhas Múltiplas)", DSDialogueType.MultipleChoice));
+
+            this.AddManipulator(CreateGroupContextualMenu());
+        }
+        private IManipulator CreateGroupContextualMenu() // Método que cria o menu contextual do grupo
+        {
+            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
+    menuEvent => menuEvent.menu.AppendAction("Adicionar Grupo", actionEvent => AddElement(
+        CreateGroup("DialogueGroup", actionEvent.eventInfo.localMousePosition))
+        )
+);
+            return contextualMenuManipulator;
         }
         private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType) // Método que cria o menu contextual do node
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode(dialogueType, actionEvent.eventInfo.localMousePosition))) // Adiciona um node na view do grafo
+                // Adiciona um node na view do grafo
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode(dialogueType, actionEvent.eventInfo.localMousePosition)))
             );
             return contextualMenuManipulator;
+        }
+        private Group CreateGroup(string title, Vector2 localMousePosition) // Método que cria um grupo na view do grafo
+        {
+            Group group = new Group
+            {
+                title = title,
+            };
+            group.SetPosition(new Rect(localMousePosition, Vector2.zero));
+
+            return group;
         }
         private DSNode CreateNode(DSDialogueType dialogueType, Vector2 position) // Método que cria um node na view do grafo
         {
