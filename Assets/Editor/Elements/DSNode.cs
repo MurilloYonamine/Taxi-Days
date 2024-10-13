@@ -8,18 +8,20 @@ namespace TaxiDays.Elements
 {
     public class DSNode : Node // Essa classe é responsável por criar um node no grafo de diálogo
     {
-        [SerializeField] private string DialogueName { get; set; }
-        [SerializeField] private List<string> Choices { get; set; }
-        [SerializeField] private string Text { get; set; }
-        [SerializeField] private DSDialogueType Type { get; set; }
+        [SerializeField] protected string DialogueName { get; set; }
+        [SerializeField] protected List<string> Choices { get; set; }
+        [SerializeField] protected string Text { get; set; }
+        [SerializeField] protected DSDialogueType DialogueType { get; set; }
 
-        public void Initialize() // Método que inicializa o node
+        public virtual void Initialize(Vector2 position) // Método que inicializa o node
         {
-            DialogueName = "DialogueName";
+            DialogueName = "Nome do Diálogo";
             Choices = new List<string>();
             Text = "Texto do Diálogo.";
+
+            SetPosition(new Rect(position, Vector2.zero));
         }
-        public void Draw() // Método que desenha o node
+        public virtual void Draw() // Método que desenha o node
         {
             // Título do node
             TextField dialogueNameTextField = new TextField() { value = DialogueName };
@@ -40,7 +42,6 @@ namespace TaxiDays.Elements
             customDataContainer.Add(textFoldout);
             extensionContainer.Add(customDataContainer);
 
-            RefreshExpandedState();
         }
     }
 }
