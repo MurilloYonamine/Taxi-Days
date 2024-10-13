@@ -18,6 +18,9 @@ namespace TaxiDays.Windows
         {
             DSNode node = new DSNode();
 
+            node.Initialize();
+            node.Draw();
+
             AddElement(node);
         }
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
