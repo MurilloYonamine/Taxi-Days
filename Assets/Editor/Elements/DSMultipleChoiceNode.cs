@@ -30,6 +30,7 @@ namespace TaxiDays.Elements
 
                 Button deleteChoiceButton = new Button() { text = "X" };
                 TextField choiceTextField = new TextField() { value = choice };
+                choiceTextField.style.flexDirection = FlexDirection.Column;
 
                 choicesPort.contentContainer.Add(choiceTextField);
                 choicesPort.contentContainer.Add(deleteChoiceButton);
