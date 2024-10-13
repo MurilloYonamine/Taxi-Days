@@ -1,8 +1,10 @@
+using UnityEngine;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using TaxiDays.Elements;
-using UnityEngine;
+using TaxiDays.Enumerations;
+using System;
 
 namespace TaxiDays.Windows
 {
@@ -14,15 +16,6 @@ namespace TaxiDays.Windows
             AddGridBackground();
             AddStyles();
         }
-        private DSNode CreateNode(Vector2 position) // Método que cria um node na view do grafo
-        {
-            DSNode node = new DSNode();
-
-            node.Initialize(position);
-            node.Draw();
-
-            return node;
-        }
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
         {
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -31,14 +24,25 @@ namespace TaxiDays.Windows
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
 
-            this.AddManipulator(CreateNodeContextualMenu());
+            this.AddManipulator(CreateNodeContextualMenu("Adicionar Diálogo (Escolha Única)", DSDialogueType.SingleChoice));
+            this.AddManipulator(CreateNodeContextualMenu("Adicionar Diálogo (Escolhas Múltiplas)", DSDialogueType.MultipleChoice));
         }
-        private IManipulator CreateNodeContextualMenu() // Método que cria o menu contextual do node
+        private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType) // Método que cria o menu contextual do node
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction("Adicionar Node", actionEvent => AddElement(CreateNode(actionEvent.eventInfo.localMousePosition))) // Adiciona um node na view do grafo
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode(dialogueType, actionEvent.eventInfo.localMousePosition))) // Adiciona um node na view do grafo
             );
             return contextualMenuManipulator;
+        }
+        private DSNode CreateNode(DSDialogueType dialogueType, Vector2 position) // Método que cria um node na view do grafo
+        {
+            Type nodeType = Type.GetType($"TaxiDays.Elements.DS{dialogueType}Node");
+            DSNode node = (DSNode)Activator.CreateInstance(nodeType);
+
+            node.Initialize(position);
+            node.Draw();
+
+            return node;
         }
         private void AddGridBackground() // Método que adiciona o fundo quadriculado na view do grafo
         {
