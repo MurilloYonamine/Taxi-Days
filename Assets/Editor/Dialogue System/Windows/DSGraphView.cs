@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using TaxiDays.Elements;
+using UnityEngine;
 
 namespace TaxiDays.Windows
 {
@@ -11,22 +12,33 @@ namespace TaxiDays.Windows
         {
             AddManipulators();
             AddGridBackground();
-            CreateNode();
             AddStyles();
         }
-        private void CreateNode() // Método que cria um node na view do grafo
+        private DSNode CreateNode(Vector2 position) // Método que cria um node na view do grafo
         {
             DSNode node = new DSNode();
 
-            node.Initialize();
+            node.Initialize(position);
             node.Draw();
 
-            AddElement(node);
+            return node;
         }
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
         {
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
+
             this.AddManipulator(new ContentDragger());
+            this.AddManipulator(new SelectionDragger());
+            this.AddManipulator(new RectangleSelector());
+
+            this.AddManipulator(CreateNodeContextualMenu());
+        }
+        private IManipulator CreateNodeContextualMenu() // Método que cria o menu contextual do node
+        {
+            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
+                menuEvent => menuEvent.menu.AppendAction("Adicionar Node", actionEvent => AddElement(CreateNode(actionEvent.eventInfo.localMousePosition))) // Adiciona um node na view do grafo
+            );
+            return contextualMenuManipulator;
         }
         private void AddGridBackground() // Método que adiciona o fundo quadriculado na view do grafo
         {
