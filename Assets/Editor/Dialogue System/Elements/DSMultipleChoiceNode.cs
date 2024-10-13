@@ -3,14 +3,15 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using TaxiDays.Enumerations;
 using TaxiDays.Utilities;
+using TaxiDays.Windows;
 
 namespace TaxiDays.Elements
 {
     public class DSMultipleChoiceNode : DSNode
     {
-        public override void Initialize(Vector2 position)
+        public override void Initialize(DSGraphView dsGraphView, Vector2 position)
         {
-            base.Initialize(position);
+            base.Initialize(dsGraphView, position);
 
             DialogueType = DSDialogueType.MultipleChoice;
             Choices.Add("Nova Escolha");
