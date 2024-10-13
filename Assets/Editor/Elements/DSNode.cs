@@ -20,11 +20,19 @@ namespace TaxiDays.Elements
             Text = "Texto do Diálogo.";
 
             SetPosition(new Rect(position, Vector2.zero));
+
+            mainContainer.AddToClassList("ds-node__main-container");
+            extensionContainer.AddToClassList("ds-node__extension-container");
         }
         public virtual void Draw() // Método que desenha o node
         {
             // Título do node
             TextField dialogueNameTextField = new TextField() { value = DialogueName };
+
+            dialogueNameTextField.AddToClassList("ds-node__textfield");
+            dialogueNameTextField.AddToClassList("ds-node__filename-textfield");
+            dialogueNameTextField.AddToClassList("ds-node__textfield__hidden");
+
             titleContainer.Insert(0, dialogueNameTextField);
 
             // Container do input
@@ -35,8 +43,13 @@ namespace TaxiDays.Elements
             // Extensões do Container
             VisualElement customDataContainer = new VisualElement();
 
+            customDataContainer.AddToClassList("ds-node__custom-data-container");
+
             Foldout textFoldout = new Foldout() { text = "Texto do Diálogo" };
             TextField textTextField = new TextField() { value = Text };
+
+            textTextField.AddToClassList("ds-node__textfield");
+            textTextField.AddToClassList("ds-node__quote-textfield");
 
             textFoldout.Add(textTextField);
             customDataContainer.Add(textFoldout);
