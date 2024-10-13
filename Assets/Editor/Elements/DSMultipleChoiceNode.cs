@@ -40,7 +40,7 @@ namespace TaxiDays.Elements
             }
             RefreshExpandedState();
         }
-        #region Criação de Elementos
+        #region Elements Creation
         private Port CreateChoicePort(string choice)
         {
             Port choicesPort = this.CreatePort();
