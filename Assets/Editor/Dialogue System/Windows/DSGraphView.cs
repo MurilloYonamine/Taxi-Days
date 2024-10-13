@@ -18,7 +18,7 @@ namespace TaxiDays.Windows
             AddGridBackground();
             AddStyles();
         }
-        #region Métodos Overrides
+        #region Override Methods
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
         {
             List<Port> compatiblePorts = new List<Port>();
@@ -33,7 +33,7 @@ namespace TaxiDays.Windows
             return compatiblePorts;
         }
         #endregion
-        #region Métodos Manipuladores
+        #region Manipulators Method
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
         {
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -65,7 +65,7 @@ namespace TaxiDays.Windows
             return contextualMenuManipulator;
         }
         #endregion
-        #region Criador de Elementos
+        #region Elements Creation
         private Group CreateGroup(string title, Vector2 localMousePosition) // Método que cria um grupo na view do grafo
         {
             Group group = new Group
@@ -87,7 +87,7 @@ namespace TaxiDays.Windows
             return node;
         }
         #endregion
-        #region Adição de Elementos
+        #region Adding Elements
         private void AddGridBackground() // Método que adiciona o fundo quadriculado na view do grafo
         {
             GridBackground gridBackground = new GridBackground();
