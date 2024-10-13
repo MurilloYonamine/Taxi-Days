@@ -10,11 +10,15 @@ namespace TaxiDays.Elements
     {
         public override void Initialize(Vector2 position)
         {
+            base.Initialize(position);
+
             DialogueType = DSDialogueType.SingleChoice;
             Choices.Add("Próximo Diálogo");
         }
-        public override void Blur()
+        public override void Draw()
         {
+            base.Draw();
+
             // Output Container
             foreach (string choice in Choices)
             {
