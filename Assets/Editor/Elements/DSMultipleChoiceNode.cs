@@ -20,6 +20,9 @@ namespace TaxiDays.Elements
 
             // Main Container
             Button addChoiceButton = new Button() { text = "Adicionar Escolha" };
+
+            addChoiceButton.AddToClassList("ds-node__button");
+
             mainContainer.Insert(1, addChoiceButton);
 
             // Output Container
@@ -29,8 +32,15 @@ namespace TaxiDays.Elements
                 choicesPort.portName = "";
 
                 Button deleteChoiceButton = new Button() { text = "X" };
+
+                deleteChoiceButton.AddToClassList("ds-node__button");
+
                 TextField choiceTextField = new TextField() { value = choice };
+
                 choiceTextField.style.flexDirection = FlexDirection.Column;
+                choiceTextField.AddToClassList("ds-node__textfield");
+                choiceTextField.AddToClassList("ds-node__choice-textfield");
+                choiceTextField.AddToClassList("ds-node__textfield__hidden");
 
                 choicesPort.contentContainer.Add(choiceTextField);
                 choicesPort.contentContainer.Add(deleteChoiceButton);

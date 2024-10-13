@@ -54,8 +54,11 @@ namespace TaxiDays.Windows
         }
         private void AddStyles() // Método que adiciona o estilo da view do grafo
         {
-            StyleSheet styleSheet = (StyleSheet)EditorGUIUtility.Load("Dialogue System/DSGraphViewStyles.uss");
-            styleSheets.Add(styleSheet);
+            StyleSheet graphViewStyleSheet = (StyleSheet)EditorGUIUtility.Load("Dialogue System/DSGraphViewStyles.uss");
+            StyleSheet nodeStyleSheet = (StyleSheet)EditorGUIUtility.Load("Dialogue System/DSNodeStyles.uss");
+
+            styleSheets.Add(graphViewStyleSheet);
+            styleSheets.Add(nodeStyleSheet);
         }
     }
 }
