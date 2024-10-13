@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TaxiDays.Enumerations;
+using TaxiDays.Utilities;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -22,7 +21,7 @@ namespace TaxiDays.Elements
             // Output Container
             foreach (string choice in Choices)
             {
-                Port choicesPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+                Port choicesPort = this.CreatePort(choice);
                 choicesPort.portName = choice;
                 outputContainer.Add(choicesPort);
             }

@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using TaxiDays.Enumerations;
 using UnityEngine.UIElements;
+using TaxiDays.Enumerations;
+using TaxiDays.Utilities;
 
 namespace TaxiDays.Elements
 {
@@ -27,17 +28,18 @@ namespace TaxiDays.Elements
         public virtual void Draw() // Método que desenha o node
         {
             // Título do node
-            TextField dialogueNameTextField = new TextField() { value = DialogueName };
+            TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName);
 
-            dialogueNameTextField.AddToClassList("ds-node__text-field");
-            dialogueNameTextField.AddToClassList("ds-node__filename-textfield");
-            dialogueNameTextField.AddToClassList("ds-node__text-field__hidden");
+            dialogueNameTextField.AddClasses(
+                "ds-node__text-field",
+                "ds-node__filename-textfield",
+                "ds-node__text-field__hidden"
+            );
 
             titleContainer.Insert(0, dialogueNameTextField);
 
             // Container do input
-            Port inputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
-            inputPort.portName = "Conexão do Diálogo";
+            Port inputPort = this.CreatePort("Conexão de Diálogo", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
             inputContainer.Add(inputPort);
 
             // Extensões do Container
@@ -45,11 +47,13 @@ namespace TaxiDays.Elements
 
             customDataContainer.AddToClassList("ds-node__custom-data-container");
 
-            Foldout textFoldout = new Foldout() { text = "Texto do Diálogo" };
-            TextField textTextField = new TextField() { value = Text };
+            Foldout textFoldout = DSElementUtility.CreateFoldout("Texto do Diálogo");
+            TextField textTextField = DSElementUtility.CreateTextArea(Text);
 
-            textTextField.AddToClassList("ds-node__textfield");
-            textTextField.AddToClassList("ds-node__quote-textfield");
+            textTextField.AddClasses(
+                "ds-node__text-field",
+                "ds-node__quote-text-field"
+            );
 
             textFoldout.Add(textTextField);
             customDataContainer.Add(textFoldout);

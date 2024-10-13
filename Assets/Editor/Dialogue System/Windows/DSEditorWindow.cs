@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine.UIElements;
+using TaxiDays.Utilities;
 
 namespace TaxiDays.Windows
 {
@@ -25,11 +26,7 @@ namespace TaxiDays.Windows
 
             rootVisualElement.Add(graphView);
         }
-        private void AddStyle() // Método que adiciona o estilo da janela
-        {
-            StyleSheet styleSheet = (StyleSheet)EditorGUIUtility.Load("Dialogue System/DSVariables.uss");
-            rootVisualElement.styleSheets.Add(styleSheet);
-        }
+        private void AddStyle() => rootVisualElement.AddStyleSheets("Dialogue System/DSVariables.uss"); // Método que adiciona o estilo da janela
         #endregion
     }
 }
