@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using TaxiDays.Elements;
 using TaxiDays.Enumerations;
 using System;
+using System.Collections.Generic;
 
 namespace TaxiDays.Windows
 {
@@ -15,6 +16,19 @@ namespace TaxiDays.Windows
             AddManipulators();
             AddGridBackground();
             AddStyles();
+        }
+        public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
+        {
+            List<Port> compatiblePorts = new List<Port>();
+            ports.ForEach(port =>
+            {
+                if(startPort == port) return;
+                if(startPort.node == port.node) return;
+                if(startPort.direction == port.direction) return;
+
+                compatiblePorts.Add(port);
+            }
+            return compatiblePorts;
         }
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
         {
