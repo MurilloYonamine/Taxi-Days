@@ -12,10 +12,16 @@ namespace TaxiDays.Windows
 {
     public class DSGraphView : GraphView // Essa classe é responsável por criar a view do grafo de diálogo
     {
-        public DSGraphView() // Construtor da classe
+        private DSEditorWindow editorWindow;
+        private DSSearchWindow searchWindow;
+        public DSGraphView(DSEditorWindow dSEditorWindow) // Construtor da classe
         {
+            editorWindow = dSEditorWindow;
+
             AddManipulators();
+            AddSearchWindow();
             AddGridBackground();
+
             AddStyles();
         }
         #region Override Methods
@@ -33,7 +39,7 @@ namespace TaxiDays.Windows
             return compatiblePorts;
         }
         #endregion
-        #region Manipulators Method
+        #region Manipulators
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
         {
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -51,7 +57,7 @@ namespace TaxiDays.Windows
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
     menuEvent => menuEvent.menu.AppendAction("Adicionar Grupo", actionEvent => AddElement(
-        CreateGroup("DialogueGroup", actionEvent.eventInfo.localMousePosition))
+        CreateGroup("DialogueGroup", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition)))
         )
 );
             return contextualMenuManipulator;
@@ -60,13 +66,13 @@ namespace TaxiDays.Windows
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
                 // Adiciona um node na view do grafo
-                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode(dialogueType, actionEvent.eventInfo.localMousePosition)))
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode(dialogueType, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
             );
             return contextualMenuManipulator;
         }
         #endregion
         #region Elements Creation
-        private Group CreateGroup(string title, Vector2 localMousePosition) // Método que cria um grupo na view do grafo
+        public Group CreateGroup(string title, Vector2 localMousePosition) // Método que cria um grupo na view do grafo
         {
             Group group = new Group
             {
@@ -76,7 +82,7 @@ namespace TaxiDays.Windows
 
             return group;
         }
-        private DSNode CreateNode(DSDialogueType dialogueType, Vector2 position) // Método que cria um node na view do grafo
+        public DSNode CreateNode(DSDialogueType dialogueType, Vector2 position) // Método que cria um node na view do grafo
         {
             Type nodeType = Type.GetType($"TaxiDays.Elements.DS{dialogueType}Node");
             DSNode node = (DSNode)Activator.CreateInstance(nodeType);
@@ -87,7 +93,16 @@ namespace TaxiDays.Windows
             return node;
         }
         #endregion
-        #region Adding Elements
+        #region Elements Addition
+        private void AddSearchWindow() // Método que adiciona a janela de busca na view do grafo
+        {
+            if (searchWindow == null)
+            {
+                searchWindow = ScriptableObject.CreateInstance<DSSearchWindow>();
+                searchWindow.Initialize(this);
+            }
+            nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), searchWindow);
+        }
         private void AddGridBackground() // Método que adiciona o fundo quadriculado na view do grafo
         {
             GridBackground gridBackground = new GridBackground();
@@ -102,6 +117,19 @@ namespace TaxiDays.Windows
                 "Dialogue System/DSGraphViewStyles.uss",
                 "Dialogue System/DSNodeStyles.uss"
                 );
+        }
+        #endregion
+        #region Utilities
+        public Vector2 GetLocalMousePosition(Vector2 mousePosition, bool isSearchWindow = false)
+        {
+            Vector2 worldMousePosition = mousePosition;
+
+            if (isSearchWindow)
+            {
+                worldMousePosition -= editorWindow.position.position;
+            }
+            Vector2 localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition);
+            return localMousePosition;
         }
         #endregion
     }

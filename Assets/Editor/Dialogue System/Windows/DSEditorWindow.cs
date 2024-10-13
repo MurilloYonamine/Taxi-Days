@@ -20,7 +20,7 @@ namespace TaxiDays.Windows
         #region Adição de Elementos
         private void AddGraphView() // Método que adiciona a view do grafo de diálogo na janela
         {
-            DSGraphView graphView = new DSGraphView();
+            DSGraphView graphView = new DSGraphView(this);
 
             graphView.StretchToParentSize();
 
