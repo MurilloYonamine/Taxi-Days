@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
-using UnityEngine;
 using UnityEngine.UIElements;
+using TaxiDays.Elements;
 
 namespace TaxiDays.Windows
 {
@@ -13,7 +11,14 @@ namespace TaxiDays.Windows
         {
             AddManipulators();
             AddGridBackground();
+            CreateNode();
             AddStyles();
+        }
+        private void CreateNode() // Método que cria um node na view do grafo
+        {
+            DSNode node = new DSNode();
+
+            AddElement(node);
         }
         private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
         {
