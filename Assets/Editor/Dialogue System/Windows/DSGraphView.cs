@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
-using TaxiDays.Elements;
-using TaxiDays.Enumerations;
 using System;
 using System.Collections.Generic;
+using TaxiDays.Elements;
+using TaxiDays.Enumerations;
+using TaxiDays.Utilities;
 
 namespace TaxiDays.Windows
 {
@@ -97,11 +98,10 @@ namespace TaxiDays.Windows
         }
         private void AddStyles() // Método que adiciona o estilo da view do grafo
         {
-            StyleSheet graphViewStyleSheet = (StyleSheet)EditorGUIUtility.Load("Dialogue System/DSGraphViewStyles.uss");
-            StyleSheet nodeStyleSheet = (StyleSheet)EditorGUIUtility.Load("Dialogue System/DSNodeStyles.uss");
-
-            styleSheets.Add(graphViewStyleSheet);
-            styleSheets.Add(nodeStyleSheet);
+            this.AddStyleSheets(
+                "Dialogue System/DSGraphViewStyles.uss",
+                "Dialogue System/DSNodeStyles.uss"
+                );
         }
         #endregion
     }
