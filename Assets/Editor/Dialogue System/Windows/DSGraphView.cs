@@ -71,9 +71,10 @@ namespace TaxiDays.Windows
         private IManipulator CreateGroupContextualMenu() // Método que cria o menu contextual do grupo
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-            menuEvent => menuEvent.menu.AppendAction("Adicionar Grupo", actionEvent => CreateGroup("DialogueGroup", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))
+    menuEvent => menuEvent.menu.AppendAction("Adicionar Grupo", actionEvent => AddElement(
+        CreateGroup("DialogueGroup", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition)))
         )
-        );
+);
             return contextualMenuManipulator;
         }
         private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType) // Método que cria o menu contextual do node
@@ -92,16 +93,7 @@ namespace TaxiDays.Windows
 
             AddGroup(group);
 
-            AddElement(group);
-
-            foreach (GraphElement selectedElement in selection)
-            {
-                if (!(selectedElement is DSNode)) continue;
-                DSNode node = (DSNode)selectedElement;
-                group.AddElement(node);
-            }
-
-            //group.SetPosition(new Rect(localMousePosition, Vector2.zero));
+            group.SetPosition(new Rect(localMousePosition, Vector2.zero));
 
             return group;
         }
@@ -139,22 +131,12 @@ namespace TaxiDays.Windows
 
                     DSGroup group = (DSGroup)element;
 
+                    RemoveGroup(group);
+
                     groupsToDelete.Add(group);
                 }
 
-                foreach (DSGroup group in groupsToDelete)
-                {
-                    List<DSNode> groupNodes = new List<DSNode>();
-                    foreach (GraphElement groupElements in group.containedElements)
-                    {
-                        if (!(groupElements is DSNode)) continue;
-                        DSNode node = (DSNode)groupElements;
-                        groupNodes.Add(node);
-                    }
-                    group.RemoveElements(groupNodes);
-                    RemoveGroup(group);
-                    RemoveElement(group);
-                }
+                foreach (DSGroup group in groupsToDelete) RemoveElement(group);
 
                 foreach (DSNode node in nodesToDelete)
                 {

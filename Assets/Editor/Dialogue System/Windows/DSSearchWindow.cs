@@ -64,7 +64,8 @@ namespace TaxiDays.Windows
                     }
                 case DSGroup _group:
                     {
-                        graphView.CreateGroup("Grupo de Diálogo", localMousePosition);
+                        DSGroup group = graphView.CreateGroup("Grupo de Diálogo", localMousePosition);
+                        graphView.AddElement(group);
                         return true;
                     }
                 default: { return false; }
