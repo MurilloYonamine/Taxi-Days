@@ -62,9 +62,9 @@ namespace TaxiDays.Windows
                         graphView.AddElement(multipleChoiceNode);
                         return true;
                     }
-                case Group _group:
+                case DSGroup _group:
                     {
-                        Group group = graphView.CreateGroup("Grupo de Diálogo", localMousePosition);
+                        DSGroup group = graphView.CreateGroup("Grupo de Diálogo", localMousePosition);
                         graphView.AddElement(group);
                         return true;
                     }
