@@ -16,12 +16,15 @@ namespace TaxiDays.Windows
         private DSEditorWindow editorWindow;
         private DSSearchWindow searchWindow;
         private SerializableDictionary<string, DSNodeErrorData> ungroupedNodes;
+        private SerializableDictionary<string, DSGroupErrorData> groups;
         private SerializableDictionary<Group, SerializableDictionary<string, DSNodeErrorData>> groupedNodes;
+
         public DSGraphView(DSEditorWindow dSEditorWindow) // Construtor da classe
         {
             editorWindow = dSEditorWindow;
 
             ungroupedNodes = new SerializableDictionary<string, DSNodeErrorData>();
+            groups = new SerializableDictionary<string, DSGroupErrorData>();
             groupedNodes = new SerializableDictionary<Group, SerializableDictionary<string, DSNodeErrorData>>();
 
             AddManipulators();
@@ -31,6 +34,7 @@ namespace TaxiDays.Windows
             OnElementsDeleted();
             OnGroupElementsAdded();
             OnGroupElementsRemoved();
+            OnGroupRenamed();
 
             AddStyles();
         }
@@ -83,12 +87,12 @@ namespace TaxiDays.Windows
         }
         #endregion
         #region Elements Creation
-        public Group CreateGroup(string title, Vector2 localMousePosition) // Método que cria um grupo na view do grafo
+        public DSGroup CreateGroup(string title, Vector2 localMousePosition) // Método que cria um grupo na view do grafo
         {
-            Group group = new Group
-            {
-                title = title,
-            };
+            DSGroup group = new DSGroup(title, localMousePosition);
+
+            AddGroup(group);
+
             group.SetPosition(new Rect(localMousePosition, Vector2.zero));
 
             return group;
@@ -107,11 +111,15 @@ namespace TaxiDays.Windows
         }
         #endregion
         #region Callbacks
-        public void OnElementsDeleted() // Método que é chamado quando um elemento é deletado
+        public void OnElementsDeleted()
         {
             deleteSelection = (operationName, askUser) =>
             {
+                Type groupType = typeof(DSGroup);
+
+                List<DSGroup> groupsToDelete = new List<DSGroup>();
                 List<DSNode> nodesToDelete = new List<DSNode>();
+
                 foreach (GraphElement element in selection)
                 {
                     if (element is DSNode)
@@ -119,7 +127,17 @@ namespace TaxiDays.Windows
                         nodesToDelete.Add((DSNode)element);
                         continue;
                     }
+                    if (element.GetType() != groupType) continue;
+
+                    DSGroup group = (DSGroup)element;
+
+                    RemoveGroup(group);
+
+                    groupsToDelete.Add(group);
                 }
+
+                foreach (DSGroup group in groupsToDelete) RemoveElement(group);
+
                 foreach (DSNode node in nodesToDelete)
                 {
                     if (node.Group != null) node.Group.RemoveElement(node);
@@ -136,10 +154,11 @@ namespace TaxiDays.Windows
                 {
                     if (!(element is DSNode)) continue;
 
+                    DSGroup nodeGroup = (DSGroup)group;
                     DSNode node = (DSNode)element;
 
                     RemoveUngroupedNode(node);
-                    AddGroupedNode(node, group);
+                    AddGroupedNode(node, nodeGroup);
                 }
             };
         }
@@ -156,6 +175,16 @@ namespace TaxiDays.Windows
                     RemoveGroupedNode(node, group);
                     AddUngroupedNode(node);
                 }
+            };
+        }
+        private void OnGroupRenamed()
+        {
+            groupTitleChanged = (group, newTitle) =>
+            {
+                DSGroup dSGroup = (DSGroup)group;
+                RemoveGroup(dSGroup);
+                dSGroup.oldTitle = newTitle;
+                AddGroup(dSGroup);
             };
         }
         #endregion
@@ -196,7 +225,42 @@ namespace TaxiDays.Windows
 
             if (ungroupedNodesList.Count == 0) ungroupedNodes.Remove(nodeName);
         }
-        public void AddGroupedNode(DSNode node, Group group)
+        public void AddGroup(DSGroup group)
+        {
+            string groupName = group.title;
+
+            if (!groups.ContainsKey(groupName))
+            {
+                DSGroupErrorData groupErrorData = new DSGroupErrorData();
+                groupErrorData.Groups.Add(group);
+                groups.Add(groupName, groupErrorData);
+                return;
+            }
+            List<DSGroup> groupsList = groups[groupName].Groups;
+
+            groupsList.Add(group);
+
+            Color errorColor = groups[groupName].ErrorData.Color;
+
+            group.SetErrorStyle(errorColor);
+
+            if (groupsList.Count == 2) groupsList[0].SetErrorStyle(errorColor);
+        }
+        public void RemoveGroup(DSGroup group)
+        {
+            string oldGroupName = group.oldTitle;
+
+            List<DSGroup> groupsList = groups[oldGroupName].Groups;
+
+            groupsList.Remove(group);
+
+            group.ResetStyle();
+
+            if (groupsList.Count == 1) groupsList[0].ResetStyle();
+
+            if (groupsList.Count == 0) groups.Remove(oldGroupName);
+        }
+        public void AddGroupedNode(DSNode node, DSGroup group)
         {
             string nodeName = node.DialogueName;
 
