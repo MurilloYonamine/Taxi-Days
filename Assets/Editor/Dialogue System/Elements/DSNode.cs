@@ -33,6 +33,15 @@ namespace TaxiDays.Elements
             mainContainer.AddToClassList("ds-node__main-container");
             extensionContainer.AddToClassList("ds-node__extension-container");
         }
+        #region Overrided Methods
+        public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
+        {
+            evt.menu.AppendAction("Desconectar as Portas de Entrada", actionEvent => DisconnectInputPorts());
+            evt.menu.AppendAction("Desconectar as Portas de Saída", actionEvent => DisconnectOutputPorts());
+
+            base.BuildContextualMenu(evt);
+        }
+        #endregion
         public virtual void Draw() // Método que desenha o node
         {
             // Título do node
@@ -80,8 +89,24 @@ namespace TaxiDays.Elements
             customDataContainer.Add(textFoldout);
             extensionContainer.Add(customDataContainer);
         }
-
+        #region Utility Methods
+        public void DisconecctAllPorts()
+        {
+            DisconnectInputPorts();
+            DisconnectOutputPorts();
+        }
+        private void DisconnectInputPorts() => DisconnectPorts(inputContainer);
+        private void DisconnectOutputPorts() => DisconnectPorts(outputContainer);
+        private void DisconnectPorts(VisualElement container)
+        {
+            foreach (Port port in container.Children())
+            {
+                if(!port.connected) continue;
+                graphView.DeleteElements(port.connections);
+            }
+        }
         public void SetErrorStyle(Color color) => mainContainer.style.backgroundColor = color;
         public void ResetStyle() => mainContainer.style.backgroundColor = defaultBackgroundColor;
+        #endregion
     }
 }

@@ -124,8 +124,10 @@ namespace TaxiDays.Windows
             deleteSelection = (operationName, askUser) =>
             {
                 Type groupType = typeof(DSGroup);
+                Type edgeType = typeof(Edge);
 
                 List<DSGroup> groupsToDelete = new List<DSGroup>();
+                List<Edge> edgesToDelete = new List<Edge>();
                 List<DSNode> nodesToDelete = new List<DSNode>();
 
                 foreach (GraphElement element in selection)
@@ -133,6 +135,14 @@ namespace TaxiDays.Windows
                     if (element is DSNode)
                     {
                         nodesToDelete.Add((DSNode)element);
+                        continue;
+                    }
+                    if (element.GetType() == edgeType)
+                    {
+                        Edge edge = (Edge)element;
+
+                        edgesToDelete.Add(edge);
+
                         continue;
                     }
                     if (element.GetType() != groupType) continue;
@@ -155,11 +165,13 @@ namespace TaxiDays.Windows
                     RemoveGroup(group);
                     RemoveElement(group);
                 }
+                DeleteElements(edgesToDelete);
 
                 foreach (DSNode node in nodesToDelete)
                 {
                     if (node.Group != null) node.Group.RemoveElement(node);
                     RemoveUngroupedNode(node);
+                    node.DisconecctAllPorts();
                     RemoveElement(node);
                 }
             };
