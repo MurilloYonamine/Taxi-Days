@@ -15,9 +15,22 @@ namespace TaxiDays.Windows
     {
         private DSEditorWindow editorWindow;
         private DSSearchWindow searchWindow;
+
         private SerializableDictionary<string, DSNodeErrorData> ungroupedNodes;
         private SerializableDictionary<string, DSGroupErrorData> groups;
         private SerializableDictionary<Group, SerializableDictionary<string, DSNodeErrorData>> groupedNodes;
+
+        private int repeatedNameAmount;
+        public int RepeatedNameAmount
+        {
+            get { return repeatedNameAmount; }
+            set
+            {
+                repeatedNameAmount = value;
+                if (repeatedNameAmount == 0) editorWindow.EnableSaving();
+                if (repeatedNameAmount == 1) editorWindow.DisableSaving();
+            }
+        }
 
         public DSGraphView(DSEditorWindow dSEditorWindow) // Construtor da classe
         {
@@ -239,7 +252,11 @@ namespace TaxiDays.Windows
 
             node.SetErrorStyle(errorColor);
 
-            if (ungroupedNodesList.Count == 2) ungroupedNodesList[0].SetErrorStyle(errorColor);
+            if (ungroupedNodesList.Count == 2)
+            {
+                ++RepeatedNameAmount;
+                ungroupedNodesList[0].SetErrorStyle(errorColor);
+            }
         }
         public void RemoveUngroupedNode(DSNode node)
         {
@@ -251,7 +268,12 @@ namespace TaxiDays.Windows
 
             node.ResetStyle();
 
-            if (ungroupedNodesList.Count == 1) ungroupedNodesList[0].ResetStyle();
+            if (ungroupedNodesList.Count == 1)
+            {
+                --RepeatedNameAmount;
+                ungroupedNodesList[0].ResetStyle();
+                return;
+            }
 
             if (ungroupedNodesList.Count == 0) ungroupedNodes.Remove(nodeName);
         }
@@ -274,7 +296,11 @@ namespace TaxiDays.Windows
 
             group.SetErrorStyle(errorColor);
 
-            if (groupsList.Count == 2) groupsList[0].SetErrorStyle(errorColor);
+            if (groupsList.Count == 2)
+            {
+                ++RepeatedNameAmount;
+                groupsList[0].SetErrorStyle(errorColor);
+            }
         }
         public void RemoveGroup(DSGroup group)
         {
@@ -286,7 +312,12 @@ namespace TaxiDays.Windows
 
             group.ResetStyle();
 
-            if (groupsList.Count == 1) groupsList[0].ResetStyle();
+            if (groupsList.Count == 1)
+            {
+                --RepeatedNameAmount;
+                groupsList[0].ResetStyle();
+                return;
+            }
 
             if (groupsList.Count == 0) groups.Remove(oldGroupName);
         }
@@ -314,7 +345,11 @@ namespace TaxiDays.Windows
 
             node.SetErrorStyle(errorColor);
 
-            if (groupedNodesList.Count == 2) groupedNodesList[0].SetErrorStyle(errorColor);
+            if (groupedNodesList.Count == 2)
+            {
+                ++RepeatedNameAmount;
+                groupedNodesList[0].SetErrorStyle(errorColor);
+            }
         }
         public void RemoveGroupedNode(DSNode node, Group group)
         {
@@ -330,6 +365,7 @@ namespace TaxiDays.Windows
 
             if (groupedNodesList.Count == 1)
             {
+                --RepeatedNameAmount;
                 groupedNodesList[0].ResetStyle();
                 return;
             }

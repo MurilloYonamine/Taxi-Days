@@ -45,7 +45,7 @@ namespace TaxiDays.Elements
         public virtual void Draw() // Método que desenha o node
         {
             // Título do node
-            TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName, callback =>
+            TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName, null, callback =>
             {
                 if (Group == null)
                 {
