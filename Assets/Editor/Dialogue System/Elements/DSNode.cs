@@ -47,16 +47,25 @@ namespace TaxiDays.Elements
             // Título do node
             TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName, null, callback =>
             {
+                TextField target = (TextField)callback.target;
+                target.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
+
                 if (Group == null)
                 {
                     graphView.RemoveUngroupedNode(this);
-                    DialogueName = callback.newValue;
+
+                    DialogueName = target.value;
+
                     graphView.AddUngroupedNode(this);
+
                     return;
                 }
                 DSGroup currentGroup = Group;
+
                 graphView.RemoveGroupedNode(this, Group);
-                DialogueName = callback.newValue;
+
+                DialogueName = target.value;
+                
                 graphView.AddGroupedNode(this, currentGroup);
             });
 
@@ -101,7 +110,7 @@ namespace TaxiDays.Elements
         {
             foreach (Port port in container.Children())
             {
-                if(!port.connected) continue;
+                if (!port.connected) continue;
                 graphView.DeleteElements(port.connections);
             }
         }

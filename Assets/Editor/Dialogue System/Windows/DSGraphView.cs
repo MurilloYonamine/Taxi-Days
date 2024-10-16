@@ -225,8 +225,9 @@ namespace TaxiDays.Windows
             groupTitleChanged = (group, newTitle) =>
             {
                 DSGroup dSGroup = (DSGroup)group;
+                dSGroup.title = newTitle.RemoveWhitespaces().RemoveSpecialCharacters();
                 RemoveGroup(dSGroup);
-                dSGroup.oldTitle = newTitle;
+                dSGroup.oldTitle = dSGroup.title;
                 AddGroup(dSGroup);
             };
         }
@@ -234,7 +235,7 @@ namespace TaxiDays.Windows
         #region Repeated Elements
         public void AddUngroupedNode(DSNode node)
         {
-            string nodeName = node.DialogueName;
+            string nodeName = node.DialogueName.ToLower();
 
             if (!ungroupedNodes.ContainsKey(nodeName))
             {
@@ -260,7 +261,7 @@ namespace TaxiDays.Windows
         }
         public void RemoveUngroupedNode(DSNode node)
         {
-            string nodeName = node.DialogueName;
+            string nodeName = node.DialogueName.ToLower();
 
             List<DSNode> ungroupedNodesList = ungroupedNodes[nodeName].Nodes;
 
@@ -279,7 +280,7 @@ namespace TaxiDays.Windows
         }
         public void AddGroup(DSGroup group)
         {
-            string groupName = group.title;
+            string groupName = group.title.ToLower();
 
             if (!groups.ContainsKey(groupName))
             {
@@ -304,7 +305,7 @@ namespace TaxiDays.Windows
         }
         public void RemoveGroup(DSGroup group)
         {
-            string oldGroupName = group.oldTitle;
+            string oldGroupName = group.oldTitle.ToLower();
 
             List<DSGroup> groupsList = groups[oldGroupName].Groups;
 
@@ -323,7 +324,7 @@ namespace TaxiDays.Windows
         }
         public void AddGroupedNode(DSNode node, DSGroup group)
         {
-            string nodeName = node.DialogueName;
+            string nodeName = node.DialogueName.ToLower();
 
             node.Group = group;
 
@@ -353,7 +354,7 @@ namespace TaxiDays.Windows
         }
         public void RemoveGroupedNode(DSNode node, Group group)
         {
-            string nodeName = node.DialogueName;
+            string nodeName = node.DialogueName.ToLower();
 
             node.Group = null;
 
