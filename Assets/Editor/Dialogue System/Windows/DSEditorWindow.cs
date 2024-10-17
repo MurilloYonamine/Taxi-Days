@@ -7,7 +7,7 @@ namespace TaxiDays.Windows
 {
     public class DSEditorWindow : EditorWindow // Essa classe é responsável por criar a janela de edição do diálogo
     {
-        private readonly string defaultFileName = "Nome do Arquivo de Diálogo";
+        private readonly string defaultFileName = "NomeDoArquivoDeDialogo";
         private TextField fileNameTextField;
         private Button saveButton;
         [MenuItem("Window/DS/Dialogue Graph")]
@@ -42,7 +42,9 @@ namespace TaxiDays.Windows
             saveButton = DSElementUtility.CreateButton("Salvar");
 
             toolbar.Add(fileNameTextField);
+
             toolbar.Add(saveButton);
+
             toolbar.AddStyleSheets("Dialogue System/DSToolbarStyles.uss");
 
             rootVisualElement.Add(toolbar);

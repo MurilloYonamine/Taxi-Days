@@ -186,7 +186,7 @@ namespace TaxiDays.Windows
                 {
                     if (node.Group != null) node.Group.RemoveElement(node);
                     RemoveUngroupedNode(node);
-                    node.DisconecctAllPorts();
+                    node.DisconnectAllPorts();
                     RemoveElement(node);
                 }
             };

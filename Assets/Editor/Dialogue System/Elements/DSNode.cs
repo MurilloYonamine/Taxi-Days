@@ -23,7 +23,7 @@ namespace TaxiDays.Elements
         public virtual void Initialize(DSGraphView dsGraphView, Vector2 position) // Método que inicializa o node
         {
             ID = System.Guid.NewGuid().ToString();
-            DialogueName = "Nome do Diálogo";
+            DialogueName = "NomedoDialogo";
             Choices = new List<DSChoiceSaveData>();
             Text = "Texto do Diálogo.";
 
@@ -98,11 +98,13 @@ namespace TaxiDays.Elements
             );
 
             textFoldout.Add(textTextField);
+
             customDataContainer.Add(textFoldout);
+            
             extensionContainer.Add(customDataContainer);
         }
         #region Utility Methods
-        public void DisconecctAllPorts()
+        public void DisconnectAllPorts()
         {
             DisconnectInputPorts();
             DisconnectOutputPorts();
