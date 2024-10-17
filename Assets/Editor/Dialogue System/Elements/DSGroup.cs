@@ -7,11 +7,13 @@ namespace TaxiDays.Elements
 {
     public class DSGroup : Group
     {
-        public string oldTitle;
+        private string ID { get; set; }
+        public string oldTitle { get; set; }
         private Color defaultBorderColor;
         private float defaultBorderWidth;
         public DSGroup(string groupTitle, Vector2 position)
         {
+            ID = System.Guid.NewGuid().ToString();
             title = groupTitle;
             oldTitle = groupTitle;
             

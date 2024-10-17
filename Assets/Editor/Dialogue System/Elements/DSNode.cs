@@ -10,6 +10,7 @@ namespace TaxiDays.Elements
 {
     public class DSNode : Node // Essa classe é responsável por criar um node no grafo de diálogo
     {
+        private string ID { get; set; }
         public string DialogueName { get; set; }
         public List<string> Choices { get; set; }
         public string Text { get; set; }
@@ -20,6 +21,7 @@ namespace TaxiDays.Elements
 
         public virtual void Initialize(DSGraphView dsGraphView, Vector2 position) // Método que inicializa o node
         {
+            ID = System.Guid.NewGuid().ToString();
             DialogueName = "Nome do Diálogo";
             Choices = new List<string>();
             Text = "Texto do Diálogo.";
