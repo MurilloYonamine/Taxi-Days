@@ -5,25 +5,26 @@ using UnityEngine.UIElements;
 using TaxiDays.Enumerations;
 using TaxiDays.Utilities;
 using TaxiDays.Windows;
+using TaxiDays.Data.Save;
 
 namespace TaxiDays.Elements
 {
     public class DSNode : Node // Essa classe é responsável por criar um node no grafo de diálogo
     {
-        private string ID { get; set; }
+        public string ID { get; set; }
         public string DialogueName { get; set; }
-        public List<string> Choices { get; set; }
+        public List<DSChoiceSaveData> Choices { get; set; }
         public string Text { get; set; }
         public DSDialogueType DialogueType { get; set; }
         public DSGroup Group { get; set; }
-        private DSGraphView graphView;
+        protected DSGraphView graphView;
         private Color defaultBackgroundColor;
 
         public virtual void Initialize(DSGraphView dsGraphView, Vector2 position) // Método que inicializa o node
         {
             ID = System.Guid.NewGuid().ToString();
             DialogueName = "Nome do Diálogo";
-            Choices = new List<string>();
+            Choices = new List<DSChoiceSaveData>();
             Text = "Texto do Diálogo.";
 
             graphView = dsGraphView;

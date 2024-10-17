@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 using TaxiDays.Enumerations;
 using TaxiDays.Utilities;
 using TaxiDays.Windows;
+using TaxiDays.Data.Save;
 
 namespace TaxiDays.Elements
 {
@@ -14,7 +15,13 @@ namespace TaxiDays.Elements
             base.Initialize(dsGraphView, position);
 
             DialogueType = DSDialogueType.MultipleChoice;
-            Choices.Add("Nova Escolha");
+
+            DSChoiceSaveData choiceData = new DSChoiceSaveData()
+            {
+                Text = "Nova Escolha"
+            };
+
+            Choices.Add(choiceData);
         }
         public override void Draw()
         {
@@ -23,8 +30,15 @@ namespace TaxiDays.Elements
             // Main Container
             Button addChoiceButton = DSElementUtility.CreateButton("Adicionar Escolha", () =>
             {
-                Port choicesPort = CreateChoicePort("Nova Escolha");
-                Choices.Add("Nova Escolha");
+                DSChoiceSaveData choiceData = new DSChoiceSaveData()
+                {
+                    Text = "Nova Escolha"
+                };
+
+                Choices.Add(choiceData);
+
+                Port choicesPort = CreateChoicePort(choiceData);
+
                 outputContainer.Add(choicesPort);
             });
 
@@ -33,7 +47,7 @@ namespace TaxiDays.Elements
             mainContainer.Insert(1, addChoiceButton);
 
             // Output Container
-            foreach (string choice in Choices)
+            foreach (DSChoiceSaveData choice in Choices)
             {
                 Port choicesPort = CreateChoicePort(choice);
 
@@ -42,15 +56,30 @@ namespace TaxiDays.Elements
             RefreshExpandedState();
         }
         #region Elements Creation
-        private Port CreateChoicePort(string choice)
+        private Port CreateChoicePort(object userData)
         {
             Port choicesPort = this.CreatePort();
 
-            Button deleteChoiceButton = DSElementUtility.CreateButton("X");
+            choicesPort.userData = userData;
+
+            DSChoiceSaveData choiceData = (DSChoiceSaveData)userData;
+
+            Button deleteChoiceButton = DSElementUtility.CreateButton("X", () =>
+            {
+                if (Choices.Count == 1) return;
+                if (choicesPort.connected) graphView.DeleteElements(choicesPort.connections);
+
+                Choices.Remove(choiceData);
+
+                graphView.RemoveElement(choicesPort);
+            });
 
             deleteChoiceButton.AddToClassList("ds-node__button");
 
-            TextField choiceTextField = DSElementUtility.CreateTextField(choice);
+            TextField choiceTextField = DSElementUtility.CreateTextField(choiceData.Text, null, callback =>
+            {
+                choiceData.Text = callback.newValue;
+            });
 
             choiceTextField.style.flexDirection = FlexDirection.Column;
 

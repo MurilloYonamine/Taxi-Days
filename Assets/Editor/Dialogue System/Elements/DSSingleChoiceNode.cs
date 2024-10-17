@@ -1,5 +1,6 @@
 using TaxiDays.Enumerations;
 using TaxiDays.Utilities;
+using TaxiDays.Data.Save;
 using TaxiDays.Windows;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -13,17 +14,25 @@ namespace TaxiDays.Elements
             base.Initialize(dsGraphView, position);
 
             DialogueType = DSDialogueType.SingleChoice;
-            Choices.Add("Próximo Diálogo");
+
+            DSChoiceSaveData choiceData = new DSChoiceSaveData()
+            {
+                Text = "Próximo Diálogo"
+            };
+
+            Choices.Add(choiceData);
         }
         public override void Draw()
         {
             base.Draw();
 
             // Output Container
-            foreach (string choice in Choices)
+            foreach (DSChoiceSaveData choice in Choices)
             {
-                Port choicesPort = this.CreatePort(choice);
-                choicesPort.portName = choice;
+                Port choicesPort = this.CreatePort(choice.Text);
+
+                choicesPort.userData = choice;
+
                 outputContainer.Add(choicesPort);
             }
             RefreshExpandedState();

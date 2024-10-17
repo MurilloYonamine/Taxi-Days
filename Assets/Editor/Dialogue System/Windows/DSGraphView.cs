@@ -8,6 +8,7 @@ using TaxiDays.Elements;
 using TaxiDays.Enumerations;
 using TaxiDays.Utilities;
 using TaxiDays.Data.Error;
+using TaxiDays.Data.Save;
 
 namespace TaxiDays.Windows
 {
@@ -48,6 +49,7 @@ namespace TaxiDays.Windows
             OnGroupElementsAdded();
             OnGroupElementsRemoved();
             OnGroupRenamed();
+            OnGraphViewChanged();
 
             AddStyles();
         }
@@ -229,6 +231,38 @@ namespace TaxiDays.Windows
                 RemoveGroup(dSGroup);
                 dSGroup.oldTitle = dSGroup.title;
                 AddGroup(dSGroup);
+            };
+        }
+        private void OnGraphViewChanged()
+        {
+            graphViewChanged = (changes) =>
+            {
+                if (changes.edgesToCreate != null)
+                {
+                    foreach (Edge edge in changes.edgesToCreate)
+                    {
+                        DSNode nextNode = (DSNode)edge.input.node;
+
+                        DSChoiceSaveData choiceData = (DSChoiceSaveData)edge.output.userData;
+
+                        choiceData.NodeID = nextNode.ID;
+                    }
+                }
+                if (changes.elementsToRemove != null)
+                {
+                    Type edgeType = typeof(Edge);
+                    foreach (GraphElement element in changes.elementsToRemove)
+                    {
+                        if (element.GetType() != edgeType) continue;
+
+                        Edge edge = (Edge)element;
+
+                        DSChoiceSaveData choiceData = (DSChoiceSaveData)edge.output.userData;
+
+                        choiceData.NodeID = "";
+                    }
+                }
+                return changes;
             };
         }
         #endregion
