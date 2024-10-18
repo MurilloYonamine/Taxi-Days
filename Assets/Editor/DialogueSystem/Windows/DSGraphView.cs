@@ -433,8 +433,8 @@ namespace TaxiDays.Windows
         private void AddStyles() // Método que adiciona o estilo da view do grafo
         {
             this.AddStyleSheets(
-                "Dialogue System/DSGraphViewStyles.uss",
-                "Dialogue System/DSNodeStyles.uss"
+                "DialogueSystem/DSGraphViewStyles.uss",
+                "DialogueSystem/DSNodeStyles.uss"
                 );
         }
         #endregion

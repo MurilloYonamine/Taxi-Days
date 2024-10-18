@@ -45,11 +45,11 @@ namespace TaxiDays.Windows
 
             toolbar.Add(saveButton);
 
-            toolbar.AddStyleSheets("Dialogue System/DSToolbarStyles.uss");
+            toolbar.AddStyleSheets("DialogueSystem/DSToolbarStyles.uss");
 
             rootVisualElement.Add(toolbar);
         }
-        private void AddStyle() => rootVisualElement.AddStyleSheets("Dialogue System/DSVariables.uss"); // Método que adiciona o estilo da janela
+        private void AddStyle() => rootVisualElement.AddStyleSheets("DialogueSystem/DSVariables.uss"); // Método que adiciona o estilo da janela
         #endregion
         #region Utility Methods
         public void EnableSaving() => saveButton.SetEnabled(true);
