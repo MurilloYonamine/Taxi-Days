@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a1d1c12f592104cacbf3c55fc3c66c, type: 3}
+  m_Name: testGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: test
+  <Groups>k__BackingField:
+  - <ID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <Name>k__BackingField: Test
+    <Position>k__BackingField: {x: -343.00003, y: -131}
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: 2b03e9fb-4ebd-4fa0-ac43-480d96eb4ce1
+    <Name>k__BackingField: DialogueName
+    <Text>k__BackingField: "Ela est\xE1 a viagem inteira observando a cidade, a mente
+      dela deve estar afogada em pensamentos e preocupa\xE7\xF5es."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: f9db61b8-59db-4805-a024-5eee7793a055
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -253, y: -72}
+  - <ID>k__BackingField: 29e16ba5-ebfc-45d3-9b76-05071c8a1d78
+    <Name>k__BackingField: DialogueName3
+    <Text>k__BackingField: "Senhora Nicoxx, laxxto xxm@@r, mas a exxxxxega da nova
+      xxxx\xE3o para @@ baleias @x@ adiada. @ @xxxxxis\xE3o x qxxexxxxue somxxxxnte
+      na pr\xF3xxxxxxxxxna."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: cf70e8ad-54e0-4ba9-8097-e3d1edf2ce14
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -253, y: 321}
+  - <ID>k__BackingField: f9db61b8-59db-4805-a024-5eee7793a055
+    <Name>k__BackingField: DialogueName2
+    <Text>k__BackingField: "Ol\xE1, o que h\xE1 de novo?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 29e16ba5-ebfc-45d3-9b76-05071c8a1d78
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -253, y: 131}
+  - <ID>k__BackingField: ab076b23-f4d7-4f80-be13-1f5e38f61a3a
+    <Name>k__BackingField: DialogueName5
+    <Text>k__BackingField: "Entendo. Mas precisamos encontrar uma solu\xE7\xE3o.
+      Elas precisam disso urgentemente. H\xE1 algo que voc\xEA possa fazer para resolver
+      isso?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 7a7817c8-a2a7-41a8-9b18-23b977170ba8
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -253, y: 714}
+  - <ID>k__BackingField: cf70e8ad-54e0-4ba9-8097-e3d1edf2ce14
+    <Name>k__BackingField: DialogueName4
+    <Text>k__BackingField: "Nossa n\xE3o consegui entender nada. O nome dela \xE9
+      Nicole? Como assim \"baleias\"?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: ab076b23-f4d7-4f80-be13-1f5e38f61a3a
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -253, y: 524}
+  - <ID>k__BackingField: 7a7817c8-a2a7-41a8-9b18-23b977170ba8
+    <Name>k__BackingField: DialogueName6
+    <Text>k__BackingField: "Todo dia parece ter uma not\xEDcia ruim no meu trabalho..."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -253, y: 917}
+  - <ID>k__BackingField: 9c32d8b7-bfcb-4f83-8322-1b2e7c76d582
+    <Name>k__BackingField: DialogueName7
+    <Text>k__BackingField: Dialogue text.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Dizer Alguma coisa
+      <NodeID>k__BackingField: 25e535f2-f9e5-40d7-94dd-fd726a01121f
+    - <Text>k__BackingField: Tentar Aconselhar
+      <NodeID>k__BackingField: 8f587051-3b03-4a2a-be91-11c4e9884497
+    - <Text>k__BackingField: Fazer Pouco Caso
+      <NodeID>k__BackingField: 2fd1e613-bca5-44dd-9d74-f50c24bf4b0d
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 1
+    <Position>k__BackingField: {x: -110, y: 1107}
+  - <ID>k__BackingField: 8f587051-3b03-4a2a-be91-11c4e9884497
+    <Name>k__BackingField: DialogueName10
+    <Text>k__BackingField: Tentar Aconselhar
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -62, y: 1395}
+  - <ID>k__BackingField: 2fd1e613-bca5-44dd-9d74-f50c24bf4b0d
+    <Name>k__BackingField: DialogueName9
+    <Text>k__BackingField: Fazer Pouco Caso
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 194, y: 1395}
+  - <ID>k__BackingField: 25e535f2-f9e5-40d7-94dd-fd726a01121f
+    <Name>k__BackingField: DialogueName8
+    <Text>k__BackingField: Dizer Alguma coisa
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: b0eb93cc-66cf-4116-a537-bdcfd3bc8818
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: -318, y: 1395}
+  <OldGroupNames>k__BackingField:
+  - Test
+  <OldUngroupedNodeNames>k__BackingField: []
+  <OldGroupedNodeNames>k__BackingField:
+    list:
+    - Key: Test
+      Value:
+      - DialogueName
+      - DialogueName3
+      - DialogueName2
+      - DialogueName5
+      - DialogueName4
+      - DialogueName6
+      - DialogueName7
+      - DialogueName10
+      - DialogueName9
+      - DialogueName8

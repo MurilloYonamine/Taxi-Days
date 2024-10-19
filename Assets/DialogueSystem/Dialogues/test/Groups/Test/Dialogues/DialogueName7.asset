@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5341baa4e2a4fc947984d750e093e025, type: 3}
+  m_Name: DialogueName7
+  m_EditorClassIdentifier: 
+  <DialogueName>k__BackingField: DialogueName7
+  <Text>k__BackingField: Dialogue text.
+  <Choices>k__BackingField:
+  - <Text>k__BackingField: Dizer Alguma coisa
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: d5cc392e0d7079046bdd40b43c5d9400, type: 2}
+  - <Text>k__BackingField: Tentar Aconselhar
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: b81adf6541c5aa1449fb6ef330886885, type: 2}
+  - <Text>k__BackingField: Fazer Pouco Caso
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 5af32acd65011f3439074028d10d6e25, type: 2}
+  <DialogueType>k__BackingField: 1
+  <IsStartingDialogue>k__BackingField: 1

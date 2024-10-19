@@ -9,32 +9,35 @@ namespace TaxiDays.Elements
 {
     public class DSSingleChoiceNode : DSNode
     {
-        public override void Initialize(DSGraphView dsGraphView, Vector2 position)
+        public override void Initialize(string nodeName, DSGraphView dsGraphView, Vector2 position)
         {
-            base.Initialize(dsGraphView, position);
+            base.Initialize(nodeName, dsGraphView, position);
 
             DialogueType = DSDialogueType.SingleChoice;
 
             DSChoiceSaveData choiceData = new DSChoiceSaveData()
             {
-                Text = "Próximo Diálogo"
+                Text = "Next Dialogue"
             };
 
             Choices.Add(choiceData);
         }
+
         public override void Draw()
         {
             base.Draw();
 
-            // Output Container
+            /* OUTPUT CONTAINER */
+
             foreach (DSChoiceSaveData choice in Choices)
             {
-                Port choicesPort = this.CreatePort(choice.Text);
+                Port choicePort = this.CreatePort(choice.Text);
 
-                choicesPort.userData = choice;
+                choicePort.userData = choice;
 
-                outputContainer.Add(choicesPort);
+                outputContainer.Add(choicePort);
             }
+
             RefreshExpandedState();
         }
     }

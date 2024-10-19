@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TaxiDays.Enumerations;
@@ -7,16 +6,15 @@ using TaxiDays.Data;
 
 namespace TaxiDays.ScriptableObjects
 {
-    [Serializable]
     public class DSDialogueSO : ScriptableObject
     {
-        [field: SerializeField] private string DialogueName { get; set; }
-        [field: SerializeField][field: TextArea()] private string Text { get; set; }
-        [field: SerializeField] private List<DSDialogueChoiceData> Choices { get; set; }
-        [field: SerializeField] private DSDialogueType DialogueType { get; set; }
-        [field: SerializeField] private bool IsStartingDialogue { get; set; }
+        [field: SerializeField] public string DialogueName { get; set; }
+        [field: SerializeField][field: TextArea()] public string Text { get; set; }
+        [field: SerializeField] public List<DSDialogueChoiceData> Choices { get; set; }
+        [field: SerializeField] public DSDialogueType DialogueType { get; set; }
+        [field: SerializeField] public bool IsStartingDialogue { get; set; }
 
-        private void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType, bool isStartingDialogue)
+        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType, bool isStartingDialogue)
         {
             DialogueName = dialogueName;
             Text = text;

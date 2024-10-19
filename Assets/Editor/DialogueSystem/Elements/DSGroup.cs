@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -7,26 +8,31 @@ namespace TaxiDays.Elements
 {
     public class DSGroup : Group
     {
-        private string ID { get; set; }
-        public string oldTitle { get; set; }
+        public string ID { get; set; }
+        public string OldTitle { get; set; }
+
         private Color defaultBorderColor;
         private float defaultBorderWidth;
+
         public DSGroup(string groupTitle, Vector2 position)
         {
-            ID = System.Guid.NewGuid().ToString();
+            ID = Guid.NewGuid().ToString();
+
             title = groupTitle;
-            oldTitle = groupTitle;
-            
+            OldTitle = groupTitle;
+
             SetPosition(new Rect(position, Vector2.zero));
 
             defaultBorderColor = contentContainer.style.borderBottomColor.value;
             defaultBorderWidth = contentContainer.style.borderBottomWidth.value;
         }
+
         public void SetErrorStyle(Color color)
         {
             contentContainer.style.borderBottomColor = color;
-            contentContainer.style.borderBottomWidth = 2;
+            contentContainer.style.borderBottomWidth = 2f;
         }
+
         public void ResetStyle()
         {
             contentContainer.style.borderBottomColor = defaultBorderColor;

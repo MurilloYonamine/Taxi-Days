@@ -6,10 +6,12 @@ using TaxiDays.Enumerations;
 using TaxiDays.Utilities;
 using TaxiDays.Windows;
 using TaxiDays.Data.Save;
+using System.Linq;
+using System;
 
 namespace TaxiDays.Elements
 {
-    public class DSNode : Node // Essa classe é responsável por criar um node no grafo de diálogo
+    public class DSNode : Node
     {
         public string ID { get; set; }
         public string DialogueName { get; set; }
@@ -17,41 +19,59 @@ namespace TaxiDays.Elements
         public string Text { get; set; }
         public DSDialogueType DialogueType { get; set; }
         public DSGroup Group { get; set; }
+
         protected DSGraphView graphView;
         private Color defaultBackgroundColor;
 
-        public virtual void Initialize(DSGraphView dsGraphView, Vector2 position) // Método que inicializa o node
+        public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
-            ID = System.Guid.NewGuid().ToString();
-            DialogueName = "NomedoDialogo";
+            evt.menu.AppendAction("Disconnect Input Ports", actionEvent => DisconnectInputPorts());
+            evt.menu.AppendAction("Disconnect Output Ports", actionEvent => DisconnectOutputPorts());
+
+            base.BuildContextualMenu(evt);
+        }
+
+        public virtual void Initialize(string nodeName, DSGraphView dsGraphView, Vector2 position)
+        {
+            ID = Guid.NewGuid().ToString();
+
+            DialogueName = nodeName;
             Choices = new List<DSChoiceSaveData>();
-            Text = "Texto do Diálogo.";
-
-            graphView = dsGraphView;
-
-            defaultBackgroundColor = new Color(29f / 255f, 29f / 255f, 30f / 255f);
+            Text = "Dialogue text.";
 
             SetPosition(new Rect(position, Vector2.zero));
+
+            graphView = dsGraphView;
+            defaultBackgroundColor = new Color(29f / 255f, 29f / 255f, 30f / 255f);
 
             mainContainer.AddToClassList("ds-node__main-container");
             extensionContainer.AddToClassList("ds-node__extension-container");
         }
-        #region Overrided Methods
-        public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
-        {
-            evt.menu.AppendAction("Desconectar as Portas de Entrada", actionEvent => DisconnectInputPorts());
-            evt.menu.AppendAction("Desconectar as Portas de Saída", actionEvent => DisconnectOutputPorts());
 
-            base.BuildContextualMenu(evt);
-        }
-        #endregion
-        public virtual void Draw() // Método que desenha o node
+        public virtual void Draw()
         {
-            // Título do node
+            /* TITLE CONTAINER */
+
             TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName, null, callback =>
             {
                 TextField target = (TextField)callback.target;
+
                 target.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
+
+                if (string.IsNullOrEmpty(target.value))
+                {
+                    if (!string.IsNullOrEmpty(DialogueName))
+                    {
+                        ++graphView.NameErrorsAmount;
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(DialogueName))
+                    {
+                        --graphView.NameErrorsAmount;
+                    }
+                }
 
                 if (Group == null)
                 {
@@ -63,34 +83,39 @@ namespace TaxiDays.Elements
 
                     return;
                 }
+
                 DSGroup currentGroup = Group;
 
                 graphView.RemoveGroupedNode(this, Group);
 
                 DialogueName = target.value;
-                
+
                 graphView.AddGroupedNode(this, currentGroup);
             });
 
             dialogueNameTextField.AddClasses(
                 "ds-node__text-field",
-                "ds-node__filename-textfield",
-                "ds-node__text-field__hidden"
+                "ds-node__text-field__hidden",
+                "ds-node__filename-text-field"
             );
 
             titleContainer.Insert(0, dialogueNameTextField);
 
-            // Container do input
-            Port inputPort = this.CreatePort("Conexão de Diálogo", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
+            /* INPUT CONTAINER */
+
+            Port inputPort = this.CreatePort("Dialogue Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
+
             inputContainer.Add(inputPort);
 
-            // Extensões do Container
+            /* EXTENSION CONTAINER */
+
             VisualElement customDataContainer = new VisualElement();
 
             customDataContainer.AddToClassList("ds-node__custom-data-container");
 
-            Foldout textFoldout = DSElementUtility.CreateFoldout("Texto do Diálogo");
-            TextField textTextField = DSElementUtility.CreateTextArea(Text);
+            Foldout textFoldout = DSElementUtility.CreateFoldout("Dialogue Text");
+
+            TextField textTextField = DSElementUtility.CreateTextArea(Text, null, callback => Text = callback.newValue);
 
             textTextField.AddClasses(
                 "ds-node__text-field",
@@ -100,10 +125,10 @@ namespace TaxiDays.Elements
             textFoldout.Add(textTextField);
 
             customDataContainer.Add(textFoldout);
-            
+
             extensionContainer.Add(customDataContainer);
         }
-        #region Utility Methods
+
         public void DisconnectAllPorts()
         {
             DisconnectInputPorts();
@@ -111,16 +136,30 @@ namespace TaxiDays.Elements
         }
         private void DisconnectInputPorts() => DisconnectPorts(inputContainer);
         private void DisconnectOutputPorts() => DisconnectPorts(outputContainer);
+        
+
         private void DisconnectPorts(VisualElement container)
         {
             foreach (Port port in container.Children())
             {
-                if (!port.connected) continue;
+                if (!port.connected)
+                {
+                    continue;
+                }
+
                 graphView.DeleteElements(port.connections);
             }
         }
+
+        public bool IsStartingNode()
+        {
+            Port inputPort = (Port)inputContainer.Children().First();
+
+            return !inputPort.connected;
+        }
+
         public void SetErrorStyle(Color color) => mainContainer.style.backgroundColor = color;
         public void ResetStyle() => mainContainer.style.backgroundColor = defaultBackgroundColor;
-        #endregion
+        
     }
 }

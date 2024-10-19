@@ -9,18 +9,18 @@ namespace TaxiDays.Data.Save
     [Serializable]
     public class DSGraphSaveDataSO : ScriptableObject
     {
-        [field: SerializeField] private string FileName { get; set; }
-        [field: SerializeField] private List<DSNodeSaveData> Groups { get; set; }
-        [field: SerializeField] private List<DSNodeSaveData> Nodes { get; set; }
-        [field: SerializeField] private List<string> OldGroupNames { get; set; }
-        [field: SerializeField] private List<string> OldUngroupedNodeNames { get; set; }
-        [field: SerializeField] private SerializableDictionary<string, List<string>> OldGroupedNodeNames { get; set; }
+        [field: SerializeField] public string FileName { get; set; }
+        [field: SerializeField] public List<DSGroupSaveData> Groups { get; set; }
+        [field: SerializeField] public List<DSNodeSaveData> Nodes { get; set; }
+        [field: SerializeField] public List<string> OldGroupNames { get; set; }
+        [field: SerializeField] public List<string> OldUngroupedNodeNames { get; set; }
+        [field: SerializeField] public SerializableDictionary<string, List<string>> OldGroupedNodeNames { get; set; }
 
-        private void Initialize()
+        public void Initialize(string fileName)
         {
-            FileName = FileName;
+            FileName = fileName;
 
-            Groups = new List<DSNodeSaveData>();
+            Groups = new List<DSGroupSaveData>();
             Nodes = new List<DSNodeSaveData>();
         }
     }

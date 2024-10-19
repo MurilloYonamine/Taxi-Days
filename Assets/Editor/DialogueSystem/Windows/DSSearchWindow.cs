@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+
 using TaxiDays.Enumerations;
 using TaxiDays.Elements;
 
@@ -12,63 +12,79 @@ namespace TaxiDays.Windows
         private DSGraphView graphView;
         private Texture2D indentationIcon;
 
-        public void Initialize(DSGraphView dSGraphView)
+        public void Initialize(DSGraphView dsGraphView)
         {
-            graphView = dSGraphView;
+            graphView = dsGraphView;
+
             indentationIcon = new Texture2D(1, 1);
             indentationIcon.SetPixel(0, 0, Color.clear);
             indentationIcon.Apply();
         }
+
         public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
         {
             List<SearchTreeEntry> searchTreeEntries = new List<SearchTreeEntry>()
             {
-                new SearchTreeGroupEntry(new GUIContent("Criar Elemento")),
-                new SearchTreeGroupEntry(new GUIContent("Bloco de Diálogo"), 1),
-                new SearchTreeEntry(new GUIContent("Escolha Simples", indentationIcon))
+                new SearchTreeGroupEntry(new GUIContent("Create Elements")),
+                new SearchTreeGroupEntry(new GUIContent("Dialogue Nodes"), 1),
+                new SearchTreeEntry(new GUIContent("Single Choice", indentationIcon))
                 {
-                    level = 2,
-                    userData = DSDialogueType.SingleChoice
+                    userData = DSDialogueType.SingleChoice,
+                    level = 2
                 },
-                new SearchTreeEntry(new GUIContent("Escolha Múltipla", indentationIcon))
+                new SearchTreeEntry(new GUIContent("Multiple Choice", indentationIcon))
                 {
-                    level = 2,
-                    userData = DSDialogueType.SingleChoice
+                    userData = DSDialogueType.MultipleChoice,
+                    level = 2
                 },
-                new SearchTreeGroupEntry(new GUIContent("Grupos de Diálogo"), 1),
-                new SearchTreeEntry(new GUIContent("Grupo Simples", indentationIcon))
+                new SearchTreeGroupEntry(new GUIContent("Dialogue Groups"), 1),
+                new SearchTreeEntry(new GUIContent("Single Group", indentationIcon))
                 {
-                    level = 2,
-                    userData = new Group()
+                    userData = new Group(),
+                    level = 2
                 }
             };
+
             return searchTreeEntries;
         }
 
         public bool OnSelectEntry(SearchTreeEntry SearchTreeEntry, SearchWindowContext context)
         {
             Vector2 localMousePosition = graphView.GetLocalMousePosition(context.screenMousePosition, true);
+
             switch (SearchTreeEntry.userData)
             {
                 case DSDialogueType.SingleChoice:
                     {
-                        DSSingleChoiceNode singleChoiceNode = (DSSingleChoiceNode)graphView.CreateNode(DSDialogueType.SingleChoice, localMousePosition);
+                        DSSingleChoiceNode singleChoiceNode = (DSSingleChoiceNode)graphView.CreateNode("DialogueName", DSDialogueType.SingleChoice, localMousePosition);
+
                         graphView.AddElement(singleChoiceNode);
+
                         return true;
                     }
+
                 case DSDialogueType.MultipleChoice:
                     {
-                        DSMultipleChoiceNode multipleChoiceNode = (DSMultipleChoiceNode)graphView.CreateNode(DSDialogueType.MultipleChoice, localMousePosition);
+                        DSMultipleChoiceNode multipleChoiceNode = (DSMultipleChoiceNode)graphView.CreateNode("DialogueName", DSDialogueType.MultipleChoice, localMousePosition);
+
                         graphView.AddElement(multipleChoiceNode);
+
                         return true;
                     }
-                case DSGroup _group:
+
+                case Group _:
                     {
-                        graphView.CreateGroup("Grupo de Diálogo", localMousePosition);
+                        graphView.CreateGroup("DialogueGroup", localMousePosition);
+
                         return true;
                     }
-                default: { return false; }
+
+                default:
+                    {
+                        return false;
+                    }
             }
         }
     }
 }
+

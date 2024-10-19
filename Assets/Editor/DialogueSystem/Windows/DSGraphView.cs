@@ -1,9 +1,9 @@
-using UnityEngine;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.UIElements;
+
 using TaxiDays.Elements;
 using TaxiDays.Enumerations;
 using TaxiDays.Utilities;
@@ -12,38 +12,54 @@ using TaxiDays.Data.Save;
 
 namespace TaxiDays.Windows
 {
-    public class DSGraphView : GraphView // Essa classe é responsável por criar a view do grafo de diálogo
+    public class DSGraphView : GraphView
     {
         private DSEditorWindow editorWindow;
         private DSSearchWindow searchWindow;
+
+        private MiniMap miniMap;
 
         private SerializableDictionary<string, DSNodeErrorData> ungroupedNodes;
         private SerializableDictionary<string, DSGroupErrorData> groups;
         private SerializableDictionary<Group, SerializableDictionary<string, DSNodeErrorData>> groupedNodes;
 
-        private int repeatedNameAmount;
-        public int RepeatedNameAmount
+        private int nameErrorsAmount;
+
+        public int NameErrorsAmount
         {
-            get { return repeatedNameAmount; }
+            get
+            {
+                return nameErrorsAmount;
+            }
+
             set
             {
-                repeatedNameAmount = value;
-                if (repeatedNameAmount == 0) editorWindow.EnableSaving();
-                if (repeatedNameAmount == 1) editorWindow.DisableSaving();
+                nameErrorsAmount = value;
+
+                if (nameErrorsAmount == 0)
+                {
+                    editorWindow.EnableSaving();
+                }
+
+                if (nameErrorsAmount == 1)
+                {
+                    editorWindow.DisableSaving();
+                }
             }
         }
 
-        public DSGraphView(DSEditorWindow dSEditorWindow) // Construtor da classe
+        public DSGraphView(DSEditorWindow dsEditorWindow)
         {
-            editorWindow = dSEditorWindow;
+            editorWindow = dsEditorWindow;
 
             ungroupedNodes = new SerializableDictionary<string, DSNodeErrorData>();
             groups = new SerializableDictionary<string, DSGroupErrorData>();
             groupedNodes = new SerializableDictionary<Group, SerializableDictionary<string, DSNodeErrorData>>();
 
             AddManipulators();
-            AddSearchWindow();
             AddGridBackground();
+            AddSearchWindow();
+            AddMiniMap();
 
             OnElementsDeleted();
             OnGroupElementsAdded();
@@ -52,25 +68,37 @@ namespace TaxiDays.Windows
             OnGraphViewChanged();
 
             AddStyles();
+            AddMiniMapStyles();
         }
 
-        #region Override Methods
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
         {
             List<Port> compatiblePorts = new List<Port>();
+
             ports.ForEach(port =>
             {
-                if (startPort == port) return;
-                if (startPort.node == port.node) return;
-                if (startPort.direction == port.direction) return;
+                if (startPort == port)
+                {
+                    return;
+                }
+
+                if (startPort.node == port.node)
+                {
+                    return;
+                }
+
+                if (startPort.direction == port.direction)
+                {
+                    return;
+                }
 
                 compatiblePorts.Add(port);
             });
+
             return compatiblePorts;
         }
-        #endregion
-        #region Manipulators
-        private void AddManipulators() // Método que adiciona os manipuladores na view do grafo
+
+        private void AddManipulators()
         {
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
 
@@ -78,32 +106,33 @@ namespace TaxiDays.Windows
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
 
-            this.AddManipulator(CreateNodeContextualMenu("Adicionar Diálogo (Escolha Única)", DSDialogueType.SingleChoice));
-            this.AddManipulator(CreateNodeContextualMenu("Adicionar Diálogo (Escolhas Múltiplas)", DSDialogueType.MultipleChoice));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node (Single Choice)", DSDialogueType.SingleChoice));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node (Multiple Choice)", DSDialogueType.MultipleChoice));
 
             this.AddManipulator(CreateGroupContextualMenu());
         }
-        private IManipulator CreateGroupContextualMenu() // Método que cria o menu contextual do grupo
+
+        private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType)
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-            menuEvent => menuEvent.menu.AppendAction("Adicionar Grupo", actionEvent => CreateGroup("DialogueGroup", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))
-        )
-        );
-            return contextualMenuManipulator;
-        }
-        private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType) // Método que cria o menu contextual do node
-        {
-            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                // Adiciona um node na view do grafo
-                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode(dialogueType, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode("DialogueName", dialogueType, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
             );
+
             return contextualMenuManipulator;
         }
-        #endregion
-        #region Elements Creation
-        public DSGroup CreateGroup(string title, Vector2 localMousePosition) // Método que cria um grupo na view do grafo
+
+        private IManipulator CreateGroupContextualMenu()
         {
-            DSGroup group = new DSGroup(title, localMousePosition);
+            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
+                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => CreateGroup("DialogueGroup", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition)))
+            );
+
+            return contextualMenuManipulator;
+        }
+
+        public DSGroup CreateGroup(string title, Vector2 position)
+        {
+            DSGroup group = new DSGroup(title, position);
 
             AddGroup(group);
 
@@ -111,30 +140,38 @@ namespace TaxiDays.Windows
 
             foreach (GraphElement selectedElement in selection)
             {
-                if (!(selectedElement is DSNode)) continue;
+                if (!(selectedElement is DSNode))
+                {
+                    continue;
+                }
+
                 DSNode node = (DSNode)selectedElement;
+
                 group.AddElement(node);
             }
 
-            //group.SetPosition(new Rect(localMousePosition, Vector2.zero));
-
             return group;
         }
-        public DSNode CreateNode(DSDialogueType dialogueType, Vector2 position) // Método que cria um node na view do grafo
+
+        public DSNode CreateNode(string nodeName, DSDialogueType dialogueType, Vector2 position, bool shouldDraw = true)
         {
             Type nodeType = Type.GetType($"TaxiDays.Elements.DS{dialogueType}Node");
+
             DSNode node = (DSNode)Activator.CreateInstance(nodeType);
 
-            node.Initialize(this, position);
-            node.Draw();
+            node.Initialize(nodeName, this, position);
+
+            if (shouldDraw)
+            {
+                node.Draw();
+            }
 
             AddUngroupedNode(node);
 
             return node;
         }
-        #endregion
-        #region Callbacks
-        public void OnElementsDeleted()
+
+        private void OnElementsDeleted()
         {
             deleteSelection = (operationName, askUser) =>
             {
@@ -142,97 +179,149 @@ namespace TaxiDays.Windows
                 Type edgeType = typeof(Edge);
 
                 List<DSGroup> groupsToDelete = new List<DSGroup>();
-                List<Edge> edgesToDelete = new List<Edge>();
                 List<DSNode> nodesToDelete = new List<DSNode>();
+                List<Edge> edgesToDelete = new List<Edge>();
 
-                foreach (GraphElement element in selection)
+                foreach (GraphElement selectedElement in selection)
                 {
-                    if (element is DSNode)
+                    if (selectedElement is DSNode node)
                     {
-                        nodesToDelete.Add((DSNode)element);
+                        nodesToDelete.Add(node);
+
                         continue;
                     }
-                    if (element.GetType() == edgeType)
+
+                    if (selectedElement.GetType() == edgeType)
                     {
-                        Edge edge = (Edge)element;
+                        Edge edge = (Edge)selectedElement;
 
                         edgesToDelete.Add(edge);
 
                         continue;
                     }
-                    if (element.GetType() != groupType) continue;
 
-                    DSGroup group = (DSGroup)element;
+                    if (selectedElement.GetType() != groupType)
+                    {
+                        continue;
+                    }
+
+                    DSGroup group = (DSGroup)selectedElement;
 
                     groupsToDelete.Add(group);
                 }
 
-                foreach (DSGroup group in groupsToDelete)
+                foreach (DSGroup groupToDelete in groupsToDelete)
                 {
                     List<DSNode> groupNodes = new List<DSNode>();
-                    foreach (GraphElement groupElements in group.containedElements)
+
+                    foreach (GraphElement groupElement in groupToDelete.containedElements)
                     {
-                        if (!(groupElements is DSNode)) continue;
-                        DSNode node = (DSNode)groupElements;
-                        groupNodes.Add(node);
+                        if (!(groupElement is DSNode))
+                        {
+                            continue;
+                        }
+
+                        DSNode groupNode = (DSNode)groupElement;
+
+                        groupNodes.Add(groupNode);
                     }
-                    group.RemoveElements(groupNodes);
-                    RemoveGroup(group);
-                    RemoveElement(group);
+
+                    groupToDelete.RemoveElements(groupNodes);
+
+                    RemoveGroup(groupToDelete);
+
+                    RemoveElement(groupToDelete);
                 }
+
                 DeleteElements(edgesToDelete);
 
-                foreach (DSNode node in nodesToDelete)
+                foreach (DSNode nodeToDelete in nodesToDelete)
                 {
-                    if (node.Group != null) node.Group.RemoveElement(node);
-                    RemoveUngroupedNode(node);
-                    node.DisconnectAllPorts();
-                    RemoveElement(node);
+                    if (nodeToDelete.Group != null)
+                    {
+                        nodeToDelete.Group.RemoveElement(nodeToDelete);
+                    }
+
+                    RemoveUngroupedNode(nodeToDelete);
+
+                    nodeToDelete.DisconnectAllPorts();
+
+                    RemoveElement(nodeToDelete);
                 }
             };
         }
+
         private void OnGroupElementsAdded()
         {
             elementsAddedToGroup = (group, elements) =>
             {
                 foreach (GraphElement element in elements)
                 {
-                    if (!(element is DSNode)) continue;
+                    if (!(element is DSNode))
+                    {
+                        continue;
+                    }
 
-                    DSGroup nodeGroup = (DSGroup)group;
+                    DSGroup dsGroup = (DSGroup)group;
                     DSNode node = (DSNode)element;
 
                     RemoveUngroupedNode(node);
-                    AddGroupedNode(node, nodeGroup);
+                    AddGroupedNode(node, dsGroup);
                 }
             };
         }
+
         private void OnGroupElementsRemoved()
         {
             elementsRemovedFromGroup = (group, elements) =>
             {
                 foreach (GraphElement element in elements)
                 {
-                    if (!(element is DSNode)) continue;
+                    if (!(element is DSNode))
+                    {
+                        continue;
+                    }
 
+                    DSGroup dsGroup = (DSGroup)group;
                     DSNode node = (DSNode)element;
 
-                    RemoveGroupedNode(node, group);
+                    RemoveGroupedNode(node, dsGroup);
                     AddUngroupedNode(node);
                 }
             };
         }
+
         private void OnGroupRenamed()
         {
             groupTitleChanged = (group, newTitle) =>
             {
-                DSGroup dSGroup = (DSGroup)group;
-                dSGroup.title = newTitle.RemoveWhitespaces().RemoveSpecialCharacters();
-                RemoveGroup(dSGroup);
-                dSGroup.oldTitle = dSGroup.title;
-                AddGroup(dSGroup);
+                DSGroup dsGroup = (DSGroup)group;
+
+                dsGroup.title = newTitle.RemoveWhitespaces().RemoveSpecialCharacters();
+
+                if (string.IsNullOrEmpty(dsGroup.title))
+                {
+                    if (!string.IsNullOrEmpty(dsGroup.OldTitle))
+                    {
+                        ++NameErrorsAmount;
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(dsGroup.OldTitle))
+                    {
+                        --NameErrorsAmount;
+                    }
+                }
+
+                RemoveGroup(dsGroup);
+
+                dsGroup.OldTitle = dsGroup.title;
+
+                AddGroup(dsGroup);
             };
         }
+
         private void OnGraphViewChanged()
         {
             graphViewChanged = (changes) =>
@@ -248,12 +337,17 @@ namespace TaxiDays.Windows
                         choiceData.NodeID = nextNode.ID;
                     }
                 }
+
                 if (changes.elementsToRemove != null)
                 {
                     Type edgeType = typeof(Edge);
+
                     foreach (GraphElement element in changes.elementsToRemove)
                     {
-                        if (element.GetType() != edgeType) continue;
+                        if (element.GetType() != edgeType)
+                        {
+                            continue;
+                        }
 
                         Edge edge = (Edge)element;
 
@@ -262,11 +356,11 @@ namespace TaxiDays.Windows
                         choiceData.NodeID = "";
                     }
                 }
+
                 return changes;
             };
         }
-        #endregion
-        #region Repeated Elements
+
         public void AddUngroupedNode(DSNode node)
         {
             string nodeName = node.DialogueName.ToLower();
@@ -274,8 +368,11 @@ namespace TaxiDays.Windows
             if (!ungroupedNodes.ContainsKey(nodeName))
             {
                 DSNodeErrorData nodeErrorData = new DSNodeErrorData();
+
                 nodeErrorData.Nodes.Add(node);
+
                 ungroupedNodes.Add(nodeName, nodeErrorData);
+
                 return;
             }
 
@@ -289,10 +386,12 @@ namespace TaxiDays.Windows
 
             if (ungroupedNodesList.Count == 2)
             {
-                ++RepeatedNameAmount;
+                ++NameErrorsAmount;
+
                 ungroupedNodesList[0].SetErrorStyle(errorColor);
             }
         }
+
         public void RemoveUngroupedNode(DSNode node)
         {
             string nodeName = node.DialogueName.ToLower();
@@ -305,24 +404,34 @@ namespace TaxiDays.Windows
 
             if (ungroupedNodesList.Count == 1)
             {
-                --RepeatedNameAmount;
+                --NameErrorsAmount;
+
                 ungroupedNodesList[0].ResetStyle();
+
                 return;
             }
 
-            if (ungroupedNodesList.Count == 0) ungroupedNodes.Remove(nodeName);
+            if (ungroupedNodesList.Count == 0)
+            {
+                ungroupedNodes.Remove(nodeName);
+            }
         }
-        public void AddGroup(DSGroup group)
+
+        private void AddGroup(DSGroup group)
         {
             string groupName = group.title.ToLower();
 
             if (!groups.ContainsKey(groupName))
             {
                 DSGroupErrorData groupErrorData = new DSGroupErrorData();
+
                 groupErrorData.Groups.Add(group);
+
                 groups.Add(groupName, groupErrorData);
+
                 return;
             }
+
             List<DSGroup> groupsList = groups[groupName].Groups;
 
             groupsList.Add(group);
@@ -333,13 +442,15 @@ namespace TaxiDays.Windows
 
             if (groupsList.Count == 2)
             {
-                ++RepeatedNameAmount;
+                ++NameErrorsAmount;
+
                 groupsList[0].SetErrorStyle(errorColor);
             }
         }
-        public void RemoveGroup(DSGroup group)
+
+        private void RemoveGroup(DSGroup group)
         {
-            string oldGroupName = group.oldTitle.ToLower();
+            string oldGroupName = group.OldTitle.ToLower();
 
             List<DSGroup> groupsList = groups[oldGroupName].Groups;
 
@@ -349,20 +460,30 @@ namespace TaxiDays.Windows
 
             if (groupsList.Count == 1)
             {
-                --RepeatedNameAmount;
+                --NameErrorsAmount;
+
                 groupsList[0].ResetStyle();
+
                 return;
             }
 
-            if (groupsList.Count == 0) groups.Remove(oldGroupName);
+            if (groupsList.Count == 0)
+            {
+                groups.Remove(oldGroupName);
+            }
         }
+
         public void AddGroupedNode(DSNode node, DSGroup group)
         {
             string nodeName = node.DialogueName.ToLower();
 
             node.Group = group;
 
-            if (!groupedNodes.ContainsKey(group)) groupedNodes.Add(group, new SerializableDictionary<string, DSNodeErrorData>());
+            if (!groupedNodes.ContainsKey(group))
+            {
+                groupedNodes.Add(group, new SerializableDictionary<string, DSNodeErrorData>());
+            }
+
             if (!groupedNodes[group].ContainsKey(nodeName))
             {
                 DSNodeErrorData nodeErrorData = new DSNodeErrorData();
@@ -370,8 +491,10 @@ namespace TaxiDays.Windows
                 nodeErrorData.Nodes.Add(node);
 
                 groupedNodes[group].Add(nodeName, nodeErrorData);
+
                 return;
             }
+
             List<DSNode> groupedNodesList = groupedNodes[group][nodeName].Nodes;
 
             groupedNodesList.Add(node);
@@ -382,11 +505,13 @@ namespace TaxiDays.Windows
 
             if (groupedNodesList.Count == 2)
             {
-                ++RepeatedNameAmount;
+                ++NameErrorsAmount;
+
                 groupedNodesList[0].SetErrorStyle(errorColor);
             }
         }
-        public void RemoveGroupedNode(DSNode node, Group group)
+
+        public void RemoveGroupedNode(DSNode node, DSGroup group)
         {
             string nodeName = node.DialogueName.ToLower();
 
@@ -400,29 +525,25 @@ namespace TaxiDays.Windows
 
             if (groupedNodesList.Count == 1)
             {
-                --RepeatedNameAmount;
+                --NameErrorsAmount;
+
                 groupedNodesList[0].ResetStyle();
+
                 return;
             }
 
             if (groupedNodesList.Count == 0)
             {
                 groupedNodes[group].Remove(nodeName);
-                if (groupedNodes[group].Count == 0) groupedNodes.Remove(group);
+
+                if (groupedNodes[group].Count == 0)
+                {
+                    groupedNodes.Remove(group);
+                }
             }
         }
-        #endregion
-        #region Elements Addition
-        private void AddSearchWindow() // Método que adiciona a janela de busca na view do grafo
-        {
-            if (searchWindow == null)
-            {
-                searchWindow = ScriptableObject.CreateInstance<DSSearchWindow>();
-                searchWindow.Initialize(this);
-            }
-            nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), searchWindow);
-        }
-        private void AddGridBackground() // Método que adiciona o fundo quadriculado na view do grafo
+
+        private void AddGridBackground()
         {
             GridBackground gridBackground = new GridBackground();
 
@@ -430,26 +551,81 @@ namespace TaxiDays.Windows
 
             Insert(0, gridBackground);
         }
-        private void AddStyles() // Método que adiciona o estilo da view do grafo
+
+        private void AddSearchWindow()
+        {
+            if (searchWindow == null)
+            {
+                searchWindow = ScriptableObject.CreateInstance<DSSearchWindow>();
+            }
+
+            searchWindow.Initialize(this);
+
+            nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), searchWindow);
+        }
+
+        private void AddMiniMap()
+        {
+            miniMap = new MiniMap()
+            {
+                anchored = true
+            };
+
+            miniMap.SetPosition(new Rect(15, 50, 200, 180));
+
+            Add(miniMap);
+
+            miniMap.visible = false;
+        }
+
+        private void AddStyles()
         {
             this.AddStyleSheets(
                 "DialogueSystem/DSGraphViewStyles.uss",
                 "DialogueSystem/DSNodeStyles.uss"
-                );
+            );
         }
-        #endregion
-        #region Utilities
+
+        private void AddMiniMapStyles()
+        {
+            StyleColor backgroundColor = new StyleColor(new Color32(29, 29, 30, 255));
+            StyleColor borderColor = new StyleColor(new Color32(51, 51, 51, 255));
+
+            miniMap.style.backgroundColor = backgroundColor;
+            miniMap.style.borderTopColor = borderColor;
+            miniMap.style.borderRightColor = borderColor;
+            miniMap.style.borderBottomColor = borderColor;
+            miniMap.style.borderLeftColor = borderColor;
+        }
+
         public Vector2 GetLocalMousePosition(Vector2 mousePosition, bool isSearchWindow = false)
         {
             Vector2 worldMousePosition = mousePosition;
 
             if (isSearchWindow)
             {
-                worldMousePosition -= editorWindow.position.position;
+                worldMousePosition = editorWindow.rootVisualElement.ChangeCoordinatesTo(editorWindow.rootVisualElement.parent, mousePosition - editorWindow.position.position);
             }
+
             Vector2 localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition);
+
             return localMousePosition;
         }
-        #endregion
+
+        public void ClearGraph()
+        {
+            graphElements.ForEach(graphElement => RemoveElement(graphElement));
+
+            groups.Clear();
+            groupedNodes.Clear();
+            ungroupedNodes.Clear();
+
+            NameErrorsAmount = 0;
+        }
+
+        public void ToggleMiniMap()
+        {
+            miniMap.visible = !miniMap.visible;
+        }
     }
 }

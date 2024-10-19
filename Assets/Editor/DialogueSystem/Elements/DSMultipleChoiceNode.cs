@@ -10,68 +10,79 @@ namespace TaxiDays.Elements
 {
     public class DSMultipleChoiceNode : DSNode
     {
-        public override void Initialize(DSGraphView dsGraphView, Vector2 position)
+        public override void Initialize(string nodeName, DSGraphView dsGraphView, Vector2 position)
         {
-            base.Initialize(dsGraphView, position);
+            base.Initialize(nodeName, dsGraphView, position);
 
             DialogueType = DSDialogueType.MultipleChoice;
 
             DSChoiceSaveData choiceData = new DSChoiceSaveData()
             {
-                Text = "Nova Escolha"
+                Text = "New Choice"
             };
 
             Choices.Add(choiceData);
         }
+
         public override void Draw()
         {
             base.Draw();
 
-            // Main Container
-            Button addChoiceButton = DSElementUtility.CreateButton("Adicionar Escolha", () =>
+            /* MAIN CONTAINER */
+
+            Button addChoiceButton = DSElementUtility.CreateButton("Add Choice", () =>
             {
                 DSChoiceSaveData choiceData = new DSChoiceSaveData()
                 {
-                    Text = "Nova Escolha"
+                    Text = "New Choice"
                 };
 
                 Choices.Add(choiceData);
 
-                Port choicesPort = CreateChoicePort(choiceData);
+                Port choicePort = CreateChoicePort(choiceData);
 
-                outputContainer.Add(choicesPort);
+                outputContainer.Add(choicePort);
             });
 
             addChoiceButton.AddToClassList("ds-node__button");
 
             mainContainer.Insert(1, addChoiceButton);
 
-            // Output Container
+            /* OUTPUT CONTAINER */
+
             foreach (DSChoiceSaveData choice in Choices)
             {
-                Port choicesPort = CreateChoicePort(choice);
+                Port choicePort = CreateChoicePort(choice);
 
-                outputContainer.Add(choicesPort);
+                outputContainer.Add(choicePort);
             }
+
             RefreshExpandedState();
         }
-        #region Elements Creation
+
         private Port CreateChoicePort(object userData)
         {
-            Port choicesPort = this.CreatePort();
+            Port choicePort = this.CreatePort();
 
-            choicesPort.userData = userData;
+            choicePort.userData = userData;
 
             DSChoiceSaveData choiceData = (DSChoiceSaveData)userData;
 
             Button deleteChoiceButton = DSElementUtility.CreateButton("X", () =>
             {
-                if (Choices.Count == 1) return;
-                if (choicesPort.connected) graphView.DeleteElements(choicesPort.connections);
+                if (Choices.Count == 1)
+                {
+                    return;
+                }
+
+                if (choicePort.connected)
+                {
+                    graphView.DeleteElements(choicePort.connections);
+                }
 
                 Choices.Remove(choiceData);
 
-                graphView.RemoveElement(choicesPort);
+                graphView.RemoveElement(choicePort);
             });
 
             deleteChoiceButton.AddToClassList("ds-node__button");
@@ -81,20 +92,16 @@ namespace TaxiDays.Elements
                 choiceData.Text = callback.newValue;
             });
 
-            choiceTextField.style.flexDirection = FlexDirection.Column;
-
             choiceTextField.AddClasses(
-                "ds-node__textfield",
-                "ds-node__choice-textfield",
-                "ds-node__textfield__hidden"
+                "ds-node__text-field",
+                "ds-node__text-field__hidden",
+                "ds-node__choice-text-field"
             );
 
-            choicesPort.contentContainer.Add(choiceTextField);
-            choicesPort.contentContainer.Add(deleteChoiceButton);
+            choicePort.Add(choiceTextField);
+            choicePort.Add(deleteChoiceButton);
 
-            outputContainer.Add(choicesPort);
-            return choicesPort;
+            return choicePort;
         }
-        #endregion
     }
 }
