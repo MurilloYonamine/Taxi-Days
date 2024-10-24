@@ -59,7 +59,6 @@ namespace TESTING
 
             CharacterManager.instance.SortCharacters(new string[] { "Gato de Botas", "Cind Red", "Cind", "Lissima" });
 
-
             yield return null;
         }
     }
