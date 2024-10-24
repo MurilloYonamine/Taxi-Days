@@ -11,6 +11,8 @@ namespace CHARACTERS
         /*
         The base class from witch all characers types devire from.
         */
+        public const bool ENABLE_ON_START = true;
+
         public string name = "";
         public string displayName = "";
         public RectTransform root = null;
@@ -26,13 +28,13 @@ namespace CHARACTERS
         public bool isRevealing => co_revealing != null;
         public bool isHiding => co_hiding != null;
         public bool isMoving => co_moving != null;
-        public virtual bool isVisible => false;
+        public virtual bool isVisible { get; set; }
 
         public Character(string name, CharacterConfigData config, GameObject prefab)
         {
             this.name = name;
-            this.config = config;
             displayName = name;
+            this.config = config;
 
             if (prefab != null)
             {
@@ -138,6 +140,7 @@ namespace CHARACTERS
 
             return (minArchorTarget, maxArchorTarget);
         }
+
         public enum CharacterType
         {
             Text, // No graphics on the screen

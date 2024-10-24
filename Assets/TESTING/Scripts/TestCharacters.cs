@@ -4,6 +4,7 @@ using UnityEngine;
 using CHARACTERS;
 using DIALOGUE;
 using TMPro;
+using UnityEditor.U2D;
 
 namespace TESTING
 {
@@ -24,36 +25,25 @@ namespace TESTING
 
         IEnumerator Test()
         {
-            Character Fada_emo = CreateCharacter("Fada Emo");
+            //Character_Sprite Fada_emo = CreateCharacter("Fada Emo") as Character_Sprite;
             //Character Narrator = CreateCharacter("Narrator");
-            Character Gato_de_Botas = CreateCharacter("Gato de Botas");
-            Character Lissima = CreateCharacter("Lissima");
-            Character Cind = CreateCharacter("Cind");
+            //Character_Sprite Gato_de_Botas = CreateCharacter("Gato de Botas") as Character_Sprite;
 
-            Cind.SetPosition(Vector2.zero);
-            Fada_emo.SetPosition(new Vector2(0.5f, 0.5f));
-            Gato_de_Botas.SetPosition(Vector2.one);
-            Lissima.SetPosition(new Vector2(2, 1));
+            Character_Sprite Lissima = CreateCharacter("Lissima") as Character_Sprite;
+            Character_Sprite Cind = CreateCharacter("Cind") as Character_Sprite;
 
-            yield return Cind.MoveToPosition(Vector2.one);
+            Lissima.isVisible = false;
 
-            Fada_emo.Show();
-            Cind.Show();
-            Gato_de_Botas.Show();
+            yield return new WaitForSeconds(1f);
+            Sprite s1 = Cind.GetSprite("Second Form/cind_3");
+            Cind.TransitionSprite(s1);
 
-            Fada_emo.Say("Olá, eu sou a Fada Emo.");
-            yield return new WaitForSeconds(2f);
-            Gato_de_Botas.Say("Eu sou o Gato de Botas.");
-            yield return new WaitForSeconds(2f);
-            //Lissima.Say("Eu sou a Lissima.");
-            //yield return new WaitForSeconds(2f);
-            Cind.Say("Eu sou a Cind.");
-            //yield return new WaitForSeconds(2f);
-            //Narrator.Say("Era uma vez...");
-            yield return new WaitForSeconds(2f);
-            yield return Cind.MoveToPosition(Vector2.zero);
+            Cind.MoveToPosition(new Vector2(0, 0), 1f);
+            yield return Lissima.Show();
 
+            yield return new WaitForSeconds(1f);
 
+            Cind.TransitionSprite(Cind.GetSprite("First Form/cind"));
 
             yield return null;
         }

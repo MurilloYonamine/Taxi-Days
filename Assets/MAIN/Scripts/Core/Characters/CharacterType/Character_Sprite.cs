@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,14 +13,21 @@ namespace CHARACTERS
         sprite sheets to render its display
         */
         private const string SPRITE_RENDERERD_PARENT_NAME = "Renderers";
+        private const string SPRITESHEET_DEFAULT_SHEETNAME = "Default";
+        private const char SPRITESHEET_TEX_SPRITE_DELIMITTER = '-';
         private CanvasGroup rootCG => root.GetComponent<CanvasGroup>();
         private List<CharacterSpriteLayer> layers = new List<CharacterSpriteLayer>();
         private string artAssetsDirectory = "";
+
+        public override bool isVisible { get { return isRevealing || rootCG.alpha == 1; } set { rootCG.alpha = value ? 1 : 0; } }
+
         public Character_Sprite(string name, CharacterConfigData config, GameObject prefab, string rootAssetsFolder) : base(name, config, prefab)
         {
-            rootCG.alpha = 0;
+            rootCG.alpha = ENABLE_ON_START ? 1 : 0;
             artAssetsDirectory = rootAssetsFolder + "/Images";
+
             GetLayers();
+            
             Debug.Log($"Foi criado um personagem do tipo 'Sprite' chamado: '{name}'.");
         }
         private void GetLayers()
@@ -40,25 +48,44 @@ namespace CHARACTERS
                     layers.Add(layer);
                     child.name = $"Layer: {i}";
                 };
-
             }
         }
         public void SetSprite(Sprite sprite, int layer = 0)
         {
-            if (layer < 0 || layer >= layers.Count) return;
-
             layers[layer].SetSprite(sprite);
         }
         public Sprite GetSprite(string spriteName)
         {
             if (config.characterType == CharacterType.SpriteSheet)
             {
-                return Resources.Load<Sprite>($"{artAssetsDirectory}/{spriteName}");
+                string[] data = spriteName.Split(SPRITESHEET_TEX_SPRITE_DELIMITTER);
+                Sprite[] spriteArray = new Sprite[0];
+
+                if (data.Length == 2)
+                {
+                    string textureName = data[0];
+                    spriteName = data[1];
+                    spriteArray = Resources.LoadAll<Sprite>($"{artAssetsDirectory}/{textureName}");
+                }
+                else
+                {
+                    spriteArray = Resources.LoadAll<Sprite>($"{artAssetsDirectory}/{SPRITESHEET_DEFAULT_SHEETNAME}");
+                }
+
+                if (spriteArray.Length == 0) Debug.LogError($"Character: '{name}'. Nenhuma sprite encontrado no diretório chamado: {SPRITESHEET_DEFAULT_SHEETNAME}");
+
+                return Array.Find(spriteArray, sprite => sprite.name == spriteName);
             }
             else
             {
                 return Resources.Load<Sprite>($"{artAssetsDirectory}/{spriteName}");
             }
+        }
+        public Coroutine TransitionSprite(Sprite sprite, int layer = 0, float speed = 1f)
+        {
+            CharacterSpriteLayer spriteLayer = layers[layer];
+
+            return spriteLayer.TransitionSprite(sprite, speed);
         }
         public override IEnumerator ShowingOrHiding(bool show)
         {
