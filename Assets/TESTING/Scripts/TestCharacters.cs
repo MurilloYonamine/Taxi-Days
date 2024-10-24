@@ -24,13 +24,36 @@ namespace TESTING
 
         IEnumerator Test()
         {
-            Character guard1 = CreateCharacter("Guard1 as Generic");
-            Character guard2 = CreateCharacter("Guard2 as Generic");
-            Character guard3 = CreateCharacter("Guard3 as Generic");
+            Character Fada_emo = CreateCharacter("Fada Emo");
+            //Character Narrator = CreateCharacter("Narrator");
+            Character Gato_de_Botas = CreateCharacter("Gato de Botas");
+            Character Lissima = CreateCharacter("Lissima");
+            Character Cind = CreateCharacter("Cind");
 
-            guard1.Show();
-            guard2.Show();
-            guard3.Show();
+            Cind.SetPosition(Vector2.zero);
+            Fada_emo.SetPosition(new Vector2(0.5f, 0.5f));
+            Gato_de_Botas.SetPosition(Vector2.one);
+            Lissima.SetPosition(new Vector2(2, 1));
+
+            yield return Cind.MoveToPosition(Vector2.one);
+
+            Fada_emo.Show();
+            Cind.Show();
+            Gato_de_Botas.Show();
+
+            Fada_emo.Say("Olá, eu sou a Fada Emo.");
+            yield return new WaitForSeconds(2f);
+            Gato_de_Botas.Say("Eu sou o Gato de Botas.");
+            yield return new WaitForSeconds(2f);
+            //Lissima.Say("Eu sou a Lissima.");
+            //yield return new WaitForSeconds(2f);
+            Cind.Say("Eu sou a Cind.");
+            //yield return new WaitForSeconds(2f);
+            //Narrator.Say("Era uma vez...");
+            yield return new WaitForSeconds(2f);
+            yield return Cind.MoveToPosition(Vector2.zero);
+
+
 
             yield return null;
         }

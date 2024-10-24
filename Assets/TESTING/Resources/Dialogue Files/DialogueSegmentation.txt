@@ -1,11 +1,9 @@
-print_1p("This is a command running straight from our dialogue file!")
+Lissima "We need to find the hidden treasure!" print_1p("Lissima is determined")
 
-John "Move Left and then Right." print_1p("Start Moving"), [wait]moveCharDemo(left), [wait]moveCharDemo(right), print_1p("Done Moving")
+Fada emo "I sense something magical nearby." playSong("Mystic Winds" -v 0.5 -p 1), setMood(mysterious)
 
-John "Let's play some music!" playSong("Funky Beets" -v 0.75 -p 1), setMood(chill)
+Cind "Stay alert, everyone." playVoice("c_alert_v1" -v 1.0), setBackground(Forest -t "Dense Trees" -s 4.0)
 
-Elen "You have odd taste in music." playVoice("e_dl_v2" -v 1.5), setBackground(Room1 -t "Diagonal Lines" -s 3.5)
+Gato de Botas "I will protect you all!" playVoice("g_brave_v1" -v 1.2), setCLI(Gato de Botas 0:Heroic 1:Ready -s 2.0 -l true)
 
-setAccomplishment("A Legendary Boombox" true), setCLI(Elen 0:Anglel 1:Intrigued -s 2.3 -l true)
-
-showScene(false), StopMusic(all -s 1.5)
+setAccomplishment("Found the Hidden Treasure" false), showScene(true), StopMusic(all -s 2.0)

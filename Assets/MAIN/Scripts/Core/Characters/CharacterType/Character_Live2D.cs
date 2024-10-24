@@ -10,7 +10,7 @@ namespace CHARACTERS
         A character that uses Live2D technology
         to render an animated graphical display.
         */
-        public Character_Live2D(string name, CharacterConfigData config, GameObject prefab) : base(name, config, prefab)
+        public Character_Live2D(string name, CharacterConfigData config, GameObject prefab, string rootAssetsFolder) : base(name, config, prefab)
         {
             Debug.Log($"Foi criado um personagem do tipo 'Live2D' chamado: '{name}'.");
         }

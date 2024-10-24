@@ -10,7 +10,7 @@ namespace CHARACTERS
         A character that uses a 3D model
         to render their display in the scene.
         */
-        public Character_Model3D(string name, CharacterConfigData config, GameObject prefab) : base(name, config, prefab)
+        public Character_Model3D(string name, CharacterConfigData config, GameObject prefab, string rootAssetsFolder) : base(name, config, prefab)
         {
             Debug.Log($"Foi criado um personagem do tipo 'Modelo 3D' chamado: '{name}'.");
         }

@@ -32,7 +32,7 @@ namespace TESTING
             database.AddCommand("process_mp", new Func<string[], IEnumerator>(MultiLineProcess));
 
             // demo
-            database.AddCommand("moveCharDemo", new Func<string, IEnumerator>(MoveCharacter));
+            //database.AddCommand("moveCharDemo", new Func<string, IEnumerator>(MoveCharacter));
         }
         private static void PrintDefaultMessage()
         {
@@ -77,12 +77,12 @@ namespace TESTING
                 yield return new WaitForSeconds(0.5f);
             }
         }
-        private static IEnumerator MoveCharacter(string direction)
+        /*private static IEnumerator MoveCharacter(string direction)
         {
             bool left = direction.ToLower() == "left";
 
             // Get the variables I need. This would be defined somewhere else.
-            Transform character = GameObject.FindGameObjectWithTag("Test").transform;
+            //Transform character = GameObject.FindGameObjectWithTag("Test").transform;
             float moveSpeed = 15;
 
             // Calculate the target position for the image
@@ -98,6 +98,6 @@ namespace TESTING
                 character.position = new Vector2(currentX, character.position.y);
                 yield return null;
             }
-        }
+        }*/
     }
 }
