@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace CHARACTERS
         private const string SPRITESHEET_DEFAULT_SHEETNAME = "Default";
         private const char SPRITESHEET_TEX_SPRITE_DELIMITTER = '-';
         private CanvasGroup rootCG => root.GetComponent<CanvasGroup>();
-        private List<CharacterSpriteLayer> layers = new List<CharacterSpriteLayer>();
+        public List<CharacterSpriteLayer> layers = new List<CharacterSpriteLayer>();
         private string artAssetsDirectory = "";
 
         public override bool isVisible { get { return isRevealing || rootCG.alpha == 1; } set { rootCG.alpha = value ? 1 : 0; } }
@@ -109,6 +110,16 @@ namespace CHARACTERS
             {
                 layer.SetColor(color);
             }
+        }
+        public override IEnumerator ChangingColor(Color color, float speed)
+        {
+            foreach (CharacterSpriteLayer layer in layers) layer.TransitionColor(color, speed);
+
+            yield return null;
+
+            while (layers.Any(l => l.isChangingColor)) yield return null;
+
+            co_changingColor = null;
         }
     }
 }

@@ -20,12 +20,15 @@ namespace CHARACTERS
         public Animator animator;
         public Color color { get; protected set; } = Color.white;
 
-        protected CharacterManager manager => CharacterManager.instance;
+        protected CharacterManager characterManager => CharacterManager.instance;
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
 
         // Coroutines
         protected Coroutine co_revealing, co_hiding;
         protected Coroutine co_moving;
+        protected Coroutine co_changingColor;
+        public bool isChangingColor => co_changingColor != null;
+
         public bool isRevealing => co_revealing != null;
         public bool isHiding => co_hiding != null;
         public bool isMoving => co_moving != null;
@@ -39,8 +42,8 @@ namespace CHARACTERS
 
             if (prefab != null)
             {
-                GameObject ob = Object.Instantiate(prefab, manager.characterPanel);
-                ob.name = manager.FormatCharacterPath(manager.characterPrefabNameFormat, name);
+                GameObject ob = Object.Instantiate(prefab, characterManager.characterPanel);
+                ob.name = characterManager.FormatCharacterPath(characterManager.characterPrefabNameFormat, name);
                 ob.SetActive(true);
                 root = ob.GetComponent<RectTransform>();
                 animator = root.GetComponentInChildren<Animator>();
@@ -64,9 +67,9 @@ namespace CHARACTERS
         {
             if (isRevealing) return co_revealing;
 
-            if (isHiding) manager.StopCoroutine(co_hiding);
+            if (isHiding) characterManager.StopCoroutine(co_hiding);
 
-            co_revealing = manager.StartCoroutine(ShowingOrHiding(true));
+            co_revealing = characterManager.StartCoroutine(ShowingOrHiding(true));
 
             return co_revealing;
         }
@@ -74,9 +77,9 @@ namespace CHARACTERS
         {
             if (isHiding) return co_hiding;
 
-            if (isRevealing) manager.StopCoroutine(co_hiding);
+            if (isRevealing) characterManager.StopCoroutine(co_hiding);
 
-            co_hiding = manager.StartCoroutine(ShowingOrHiding(false));
+            co_hiding = characterManager.StartCoroutine(ShowingOrHiding(false));
 
             return co_hiding;
         }
@@ -99,9 +102,9 @@ namespace CHARACTERS
         {
             if (root == null) return null;
 
-            if (isMoving) manager.StopCoroutine(co_moving);
+            if (isMoving) characterManager.StopCoroutine(co_moving);
 
-            co_moving = manager.StartCoroutine(MovingToPosition(position, speed, smooth));
+            co_moving = characterManager.StartCoroutine(MovingToPosition(position, speed, smooth));
 
             return co_moving;
         }
@@ -144,6 +147,22 @@ namespace CHARACTERS
         public virtual void SetColor(Color color)
         {
             this.color = color;
+        }
+        public Coroutine TransitionColor(Color color, float speed = 1f)
+        {
+            this.color = color;
+            
+            if(isChangingColor) characterManager.StopCoroutine(co_changingColor);
+
+            co_changingColor = characterManager.StartCoroutine(ChangingColor(color, speed));
+
+            return co_changingColor;
+        }
+
+        public virtual IEnumerator ChangingColor(Color color, float speed)
+        {
+            Debug.Log("Mudando a cor do personagem não é aplicável ao tipo de personagem.");
+            yield return null;
         }
 
         public enum CharacterType
