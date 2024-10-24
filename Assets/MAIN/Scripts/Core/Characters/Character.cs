@@ -18,6 +18,7 @@ namespace CHARACTERS
         public RectTransform root = null;
         public CharacterConfigData config;
         public Animator animator;
+        public Color color { get; protected set; } = Color.white;
 
         protected CharacterManager manager => CharacterManager.instance;
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
@@ -139,6 +140,10 @@ namespace CHARACTERS
             Vector2 maxArchorTarget = minArchorTarget + padding;
 
             return (minArchorTarget, maxArchorTarget);
+        }
+        public virtual void SetColor(Color color)
+        {
+            this.color = color;
         }
 
         public enum CharacterType

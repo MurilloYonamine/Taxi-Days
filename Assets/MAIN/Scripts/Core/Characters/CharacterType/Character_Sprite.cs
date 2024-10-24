@@ -27,7 +27,7 @@ namespace CHARACTERS
             artAssetsDirectory = rootAssetsFolder + "/Images";
 
             GetLayers();
-            
+
             Debug.Log($"Foi criado um personagem do tipo 'Sprite' chamado: '{name}'.");
         }
         private void GetLayers()
@@ -100,6 +100,15 @@ namespace CHARACTERS
 
             co_revealing = null;
             co_hiding = null;
+        }
+        public override void SetColor(Color color)
+        {
+            base.SetColor(color);
+
+            foreach (CharacterSpriteLayer layer in layers)
+            {
+                layer.SetColor(color);
+            }
         }
     }
 }

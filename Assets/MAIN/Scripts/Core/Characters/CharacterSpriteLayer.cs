@@ -98,7 +98,16 @@ namespace CHARACTERS
                 }
                 yield return null;
             }
-            co_transitioningLayer = null;
+            co_levelingAlpha = null;
+        }
+        public void SetColor(Color color)
+        {
+            renderer.color = color;
+
+            foreach (CanvasGroup oldCG in oldRenderers)
+            {
+                oldCG.GetComponent<Image>().color = color;
+            }
         }
     }
 }
