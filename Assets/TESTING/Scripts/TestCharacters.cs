@@ -27,11 +27,20 @@ namespace TESTING
         {
             //Character_Sprite Fada_emo = CreateCharacter("Fada Emo") as Character_Sprite;
             //Character Narrator = CreateCharacter("Narrator");
-            //Character_Sprite Gato_de_Botas = CreateCharacter("Gato de Botas") as Character_Sprite;
+            Character_Sprite Gato_de_Botas = CreateCharacter("Gato de Botas") as Character_Sprite;
             Character_Sprite Lissima = CreateCharacter("Lissima") as Character_Sprite;
             //Character_Sprite Cind = CreateCharacter("Cind") as Character_Sprite;
 
+            Gato_de_Botas.SetPosition(new Vector2(0.6f, 0.5f));
+            Lissima.SetPosition(new Vector2(0.3f, 0.5f));
+
             yield return new WaitForSeconds(1);
+
+            yield return Lissima.Flip(0.3f);
+
+            yield return Gato_de_Botas.FaceRight(immediate: false);
+
+            yield return Gato_de_Botas.FaceLeft(immediate: false);
 
             yield return Lissima.UnHighlight();
 

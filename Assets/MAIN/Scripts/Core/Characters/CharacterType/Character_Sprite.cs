@@ -105,7 +105,7 @@ namespace CHARACTERS
         public override void SetColor(Color color)
         {
             base.SetColor(color);
-            
+
             color = displayColor;
 
             foreach (CharacterSpriteLayer layer in layers)
@@ -135,6 +135,20 @@ namespace CHARACTERS
             while (layers.Any(l => l.isChangingColor)) yield return null;
 
             co_changingColor = null;
+        }
+        public override IEnumerator FaceDirection(bool faceLeft, float speedMultiplier, bool immediate)
+        {
+            foreach (CharacterSpriteLayer layer in layers)
+            {
+                if (faceLeft) layer.FaceLeft(speedMultiplier, immediate);
+                else layer.FaceRight(speedMultiplier, immediate);
+            }
+
+            yield return null;
+
+            while (layers.Any(l => l.isFlipping)) yield return null;
+
+            co_flipping = null;
         }
     }
 }
