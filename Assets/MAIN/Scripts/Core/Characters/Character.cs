@@ -11,10 +11,13 @@ namespace CHARACTERS
         /*
         The base class from witch all characers types devire from.
         */
+
+        // Constants
         public const bool ENABLE_ON_START = true;
         private const float UNHIGHLIGHTED_DARKEN_STRENGHT = 0.65F;
         public const bool DEFAULT_ORIENTATION_IS_FACING_LEFT = true;
 
+        // Fields
         public string name = "";
         public string displayName = "";
         public RectTransform root = null;
@@ -39,6 +42,8 @@ namespace CHARACTERS
         protected Coroutine co_highlighting;
         protected Coroutine co_flipping;
 
+
+        // Properties
         public bool isRevealing => co_revealing != null;
         public bool isHiding => co_hiding != null;
         public bool isMoving => co_moving != null;
@@ -66,6 +71,7 @@ namespace CHARACTERS
             }
         }
 
+        #region Dialogue Methods
         public Coroutine Say(string dialogue) => Say(new List<string> { dialogue });
         private Coroutine Say(List<string> dialogue)
         {
@@ -79,6 +85,10 @@ namespace CHARACTERS
         public void SetDialogueColor(Color color) => config.dialogueColor = color;
         public void ResetConfiguration() => config = CharacterManager.instance.GetCharacterConfig(name);
         public void UpdateTextCustomizationsOnScreen() => dialogueSystem.ApplySpeakerDataToDialogueContainer(config);
+
+        #endregion
+
+        #region Visibility Methods
         public virtual Coroutine Show()
         {
             if (isRevealing) return co_revealing;
@@ -104,7 +114,9 @@ namespace CHARACTERS
             Debug.Log("Aparecendo ou desaparecendo não pode ser chamado por uma base de personagem.");
             yield return null;
         }
+        #endregion
 
+        #region Position Methods
         public virtual void SetPosition(Vector2 position)
         {
             if (root == null) return;
@@ -160,6 +172,9 @@ namespace CHARACTERS
 
             return (minArchorTarget, maxArchorTarget);
         }
+        #endregion
+
+        #region Color Methods
         public virtual void SetColor(Color color)
         {
             this.color = color;
@@ -180,6 +195,9 @@ namespace CHARACTERS
             Debug.Log("Mudando a cor do personagem não é aplicável ao tipo de personagem.");
             yield return null;
         }
+        #endregion
+
+        #region Highlight Methods
         public Coroutine Highlight(float speed = 1f)
         {
             if (isHighlighting) return co_highlighting;
@@ -208,9 +226,12 @@ namespace CHARACTERS
             Debug.Log("Highlighting não está disponível para este tipo de personagem.");
             yield return null;
         }
+        #endregion
+
+        #region Flip Methods
         public Coroutine Flip(float speed = 1, bool immediate = false)
         {
-              if (isFacingLeft) return FaceRight(speed, immediate);
+            if (isFacingLeft) return FaceRight(speed, immediate);
             else return FaceLeft(speed, immediate);
         }
         public Coroutine FaceLeft(float speed = 1, bool immediate = false)
@@ -235,6 +256,8 @@ namespace CHARACTERS
             Debug.Log("Não pode flippar o personagem desse tipo!");
             yield return null;
         }
+        #endregion
+
         public enum CharacterType
         {
             Text, // No graphics on the screen
@@ -243,5 +266,6 @@ namespace CHARACTERS
             Live2D,
             Model3D
         }
+
     }
 }
