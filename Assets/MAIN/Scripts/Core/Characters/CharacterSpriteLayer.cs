@@ -119,6 +119,14 @@ namespace CHARACTERS
 
             return co_changingColor;
         }
+        public void StopChangingColor()
+        {
+            if (isChangingColor) return;
+
+            characterManager.StopCoroutine(co_changingColor);
+            
+            co_changingColor = null;
+        }
         private IEnumerator ChangingColor(Color color, float speedMultiplier)
         {
             Color oldColor = renderer.color;

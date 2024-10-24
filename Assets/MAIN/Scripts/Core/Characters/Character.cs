@@ -12,13 +12,19 @@ namespace CHARACTERS
         The base class from witch all characers types devire from.
         */
         public const bool ENABLE_ON_START = true;
+        private const float UNHIGHLIGHTED_DARKEN_STRENGHT = 0.65F;
 
         public string name = "";
         public string displayName = "";
         public RectTransform root = null;
         public CharacterConfigData config;
         public Animator animator;
+
         public Color color { get; protected set; } = Color.white;
+        protected Color displayColor => highlighted ? highlightedColor : unhighlightedColor;
+        protected Color highlightedColor => color;
+        protected Color unhighlightedColor => new Color(color.r * UNHIGHLIGHTED_DARKEN_STRENGHT, color.g * UNHIGHLIGHTED_DARKEN_STRENGHT, color.b * UNHIGHLIGHTED_DARKEN_STRENGHT, color.a);
+        public bool highlighted { get; protected set; } = true;
 
         protected CharacterManager characterManager => CharacterManager.instance;
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
@@ -27,11 +33,13 @@ namespace CHARACTERS
         protected Coroutine co_revealing, co_hiding;
         protected Coroutine co_moving;
         protected Coroutine co_changingColor;
-        public bool isChangingColor => co_changingColor != null;
-
+        protected Coroutine co_highlighting;
         public bool isRevealing => co_revealing != null;
         public bool isHiding => co_hiding != null;
         public bool isMoving => co_moving != null;
+        public bool isChangingColor => co_changingColor != null;
+        public bool isHighlighting => (highlighted && co_highlighting != null);
+        public bool isUnHighlighting => (!highlighted && co_highlighting != null);
         public virtual bool isVisible { get; set; }
 
         public Character(string name, CharacterConfigData config, GameObject prefab)
@@ -151,10 +159,10 @@ namespace CHARACTERS
         public Coroutine TransitionColor(Color color, float speed = 1f)
         {
             this.color = color;
-            
-            if(isChangingColor) characterManager.StopCoroutine(co_changingColor);
 
-            co_changingColor = characterManager.StartCoroutine(ChangingColor(color, speed));
+            if (isChangingColor) characterManager.StopCoroutine(co_changingColor);
+
+            co_changingColor = characterManager.StartCoroutine(ChangingColor(displayColor, speed));
 
             return co_changingColor;
         }
@@ -162,6 +170,34 @@ namespace CHARACTERS
         public virtual IEnumerator ChangingColor(Color color, float speed)
         {
             Debug.Log("Mudando a cor do personagem não é aplicável ao tipo de personagem.");
+            yield return null;
+        }
+        public Coroutine Highlight(float speed = 1f)
+        {
+            if (isHighlighting) return co_highlighting;
+
+            if (isUnHighlighting) characterManager.StopCoroutine(co_highlighting);
+
+            highlighted = true;
+            co_highlighting = characterManager.StartCoroutine(Highlighting(highlighted, speed));
+
+            return co_highlighting;
+        }
+        public Coroutine UnHighlight(float speed = 1f)
+        {
+            if (isUnHighlighting) return co_highlighting;
+
+            if (isHighlighting) characterManager.StopCoroutine(co_highlighting);
+
+            highlighted = false;
+            co_highlighting = characterManager.StartCoroutine(Highlighting(highlighted, speed));
+
+            return co_highlighting;
+        }
+
+        public virtual IEnumerator Highlighting(bool highlight, float speedMultiplier)
+        {
+            Debug.Log("Highlighting não está disponível para este tipo de personagem.");
             yield return null;
         }
 

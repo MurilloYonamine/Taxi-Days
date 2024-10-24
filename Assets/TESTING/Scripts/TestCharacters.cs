@@ -33,8 +33,19 @@ namespace TESTING
 
             yield return new WaitForSeconds(1);
 
-            Lissima.TransitionColor(Color.red, speed: 0.3f);
-            Lissima.TransitionColor(Color.blue);
+            yield return Lissima.UnHighlight();
+
+            yield return new WaitForSeconds(1);
+
+            yield return Lissima.TransitionColor(Color.red);
+
+            yield return new WaitForSeconds(1);
+
+            yield return Lissima.Highlight();
+
+            yield return new WaitForSeconds(1);
+
+            yield return Lissima.TransitionColor(Color.white);
 
             Lissima.Say("Hello, I'm Lissima!");
 
