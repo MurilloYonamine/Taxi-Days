@@ -113,6 +113,8 @@ namespace CHARACTERS
                 layer.StopChangingColor();
                 layer.SetColor(color);
             }
+
+            
         }
         public override IEnumerator ChangingColor(Color color, float speed)
         {

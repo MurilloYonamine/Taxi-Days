@@ -125,7 +125,7 @@ namespace CHARACTERS
         }
         public void StopChangingColor()
         {
-            if (isChangingColor) return;
+            if (!isChangingColor) return;
 
             characterManager.StopCoroutine(co_changingColor);
 

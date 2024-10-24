@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DIALOGUE;
 using UnityEngine;
 
@@ -39,24 +40,14 @@ namespace CHARACTERS
         {
             return config.GetConfig(characterName);
         }
+
         public Character GetCharacter(string characterName, bool createIfDoesNotExist = false)
         {
-            if (characters.ContainsKey(characterName.ToLower()))
-            {
-                return characters[characterName.ToLower()];
-            }
-            else
-            {
-                if (createIfDoesNotExist)
-                {
-                    return CreateCharacter(characterName);
-                }
-                else
-                {
-                    Debug.LogWarning($"Personagem com o nome: '{characterName}' não existe.");
-                    return null;
-                }
-            }
+            if (characters.ContainsKey(characterName.ToLower())) return characters[characterName.ToLower()];
+
+            else if (createIfDoesNotExist) return CreateCharacter(characterName);
+
+            return null;
         }
 
         public Character CreateCharacter(string characterName)
@@ -71,7 +62,7 @@ namespace CHARACTERS
 
             Character character = CreateCharacterFromInfo(info);
 
-            characters.Add(characterName.ToLower(), character);
+            characters.Add(info.name.ToLower(), character);
 
             return character;
         }
@@ -120,6 +111,53 @@ namespace CHARACTERS
 
                 default:
                     return null;
+            }
+        }
+
+        public void SortCharacters()
+        {
+            List<Character> activeCharacters = characters.Values.Where(c => c.root.gameObject.activeInHierarchy && c.isVisible).ToList();
+            List<Character> inactiveCharacters = characters.Values.Except(activeCharacters).ToList();
+
+            activeCharacters.Sort((a, b) => a.priority.CompareTo(b.priority));
+            activeCharacters.Concat(inactiveCharacters);
+
+            SortCharacters(activeCharacters);
+        }
+        public void SortCharacters(string[] characterNames)
+        {
+            List<Character> sortedCharacter = new List<Character>();
+
+            sortedCharacter = characterNames
+            .Select(name => GetCharacter(name))
+            .Where(character => character != null)
+            .ToList();
+
+            List<Character> remainingCharacters = characters.Values
+            .Except(sortedCharacter)
+            .OrderBy(Character => Character.priority)
+            .ToList();
+
+            sortedCharacter.Reverse();
+
+            int startingPriority = remainingCharacters.Count > 0 ? remainingCharacters.Max(c => c.priority) : 0;
+            for (int i = 0; i < sortedCharacter.Count; i++)
+            {
+                Character character = sortedCharacter[i];
+                character.SetPriority(startingPriority + i + 1, autoSortCharactersOnUI: false);
+            }
+
+            List<Character> allCharacters = remainingCharacters.Concat(remainingCharacters).ToList();
+            SortCharacters(allCharacters);
+        }
+
+        private void SortCharacters(List<Character> charactersSortingOrder)
+        {
+            int i = 0;
+            foreach (Character character in charactersSortingOrder)
+            {
+                Debug.Log($"Prioridade de {character.name} é: {i}");
+                character.root.SetSiblingIndex(i++);
             }
         }
 

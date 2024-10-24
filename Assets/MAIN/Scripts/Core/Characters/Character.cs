@@ -32,6 +32,8 @@ namespace CHARACTERS
         public bool highlighted { get; protected set; } = true;
         protected bool facingLeft = DEFAULT_ORIENTATION_IS_FACING_LEFT;
 
+        public int priority { get; protected set; }
+
         protected CharacterManager characterManager => CharacterManager.instance;
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
 
@@ -87,7 +89,7 @@ namespace CHARACTERS
         public void UpdateTextCustomizationsOnScreen() => dialogueSystem.ApplySpeakerDataToDialogueContainer(config);
 
         #endregion
-
+        
         #region Visibility Methods
         public virtual Coroutine Show()
         {
@@ -258,6 +260,11 @@ namespace CHARACTERS
         }
         #endregion
 
+        public void SetPriority(int priority, bool autoSortCharactersOnUI = true)
+        {
+            this.priority = priority;
+            if(autoSortCharactersOnUI) characterManager.SortCharacters();
+        }
         public enum CharacterType
         {
             Text, // No graphics on the screen

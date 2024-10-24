@@ -5,6 +5,7 @@ using CHARACTERS;
 using DIALOGUE;
 using TMPro;
 using UnityEditor.U2D;
+using System;
 
 namespace TESTING
 {
@@ -29,38 +30,37 @@ namespace TESTING
             //Character Narrator = CreateCharacter("Narrator");
             Character_Sprite Gato_de_Botas = CreateCharacter("Gato de Botas") as Character_Sprite;
             Character_Sprite Lissima = CreateCharacter("Lissima") as Character_Sprite;
-            //Character_Sprite Cind = CreateCharacter("Cind") as Character_Sprite;
+            Character_Sprite Cind = CreateCharacter("Cind") as Character_Sprite;
+            Character_Sprite CindRed = CreateCharacter("Cind Red as Generic") as Character_Sprite;
 
-            Gato_de_Botas.SetPosition(new Vector2(0.6f, 0.5f));
-            Lissima.SetPosition(new Vector2(0.3f, 0.5f));
+            //Gato_de_Botas.SetPosition(new Vector2(0.6f, 0.5f));
+            //Lissima.SetPosition(new Vector2(0.3f, 0.5f));
+
+            CindRed.SetColor(Color.red);
+
+            Gato_de_Botas.SetPosition(new Vector2(0.3f, 0.5f));
+            Lissima.SetPosition(new Vector2(0.45f, 0.5f));
+            Cind.SetPosition(new Vector2(0.6f, 0.5f));
+            CindRed.SetPosition(new Vector2(0.75f, 0.5f));
+
+            CindRed.SetPriority(1000);
+            Lissima.SetPriority(15);
+            Gato_de_Botas.SetPriority(8);
+            Cind.SetPriority(30);
+
+            yield return new WaitForSeconds(1);
+            CharacterManager.instance.SortCharacters(new string[] { "Lissima", "Gato de Botas" });
 
             yield return new WaitForSeconds(1);
 
-            yield return Lissima.Flip(0.3f);
-
-            yield return Gato_de_Botas.FaceRight(immediate: false);
-
-            yield return Gato_de_Botas.FaceLeft(immediate: false);
-
-            yield return Lissima.UnHighlight();
+            CharacterManager.instance.SortCharacters();
 
             yield return new WaitForSeconds(1);
 
-            yield return Lissima.TransitionColor(Color.red);
+            CharacterManager.instance.SortCharacters(new string[] { "Gato de Botas", "Cind Red", "Cind", "Lissima" });
 
-            yield return new WaitForSeconds(1);
-
-            yield return Lissima.Highlight();
-
-            yield return new WaitForSeconds(1);
-
-            yield return Lissima.TransitionColor(Color.white);
-
-            Lissima.Say("Hello, I'm Lissima!");
 
             yield return null;
         }
-
-
     }
 }
