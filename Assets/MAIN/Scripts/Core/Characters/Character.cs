@@ -13,7 +13,7 @@ namespace CHARACTERS
         */
 
         // Constants
-        public const bool ENABLE_ON_START = true;
+        public const bool ENABLE_ON_START = false;
         private const float UNHIGHLIGHTED_DARKEN_STRENGHT = 0.65F;
         public const bool DEFAULT_ORIENTATION_IS_FACING_LEFT = true;
 
@@ -89,7 +89,7 @@ namespace CHARACTERS
         public void UpdateTextCustomizationsOnScreen() => dialogueSystem.ApplySpeakerDataToDialogueContainer(config);
 
         #endregion
-        
+
         #region Visibility Methods
         public virtual Coroutine Show()
         {
@@ -263,7 +263,15 @@ namespace CHARACTERS
         public void SetPriority(int priority, bool autoSortCharactersOnUI = true)
         {
             this.priority = priority;
-            if(autoSortCharactersOnUI) characterManager.SortCharacters();
+            if (autoSortCharactersOnUI) characterManager.SortCharacters();
+        }
+        public virtual void OnSort(int sortingIndex)
+        {
+            return;
+        }
+        public virtual void OnReceiveExpression(int layer, string expression)
+        {
+            return;
         }
         public enum CharacterType
         {

@@ -21,11 +21,11 @@ namespace TESTING
 
                 DIALOGUE_LINE dl = DialogueParser.Parse(line);
 
-                for (int i = 0; i < dl.commandData.commands.Count; i++)
+                /*for (int i = 0; i < dl.commandData.commands.Count; i++)
                 {
                     DL_COMMAND_DATA.Command command = dl.commandData.commands[i];
                     Debug.Log($"comando [{i}] '{command.name}' tem argumentos: [{string.Join(", ", command.arguments)}]");
-                }
+                }*/
             }
 
             DialogueSystem.instance.Say(lines);

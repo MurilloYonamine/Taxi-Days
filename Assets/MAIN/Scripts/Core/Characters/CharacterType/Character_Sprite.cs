@@ -152,5 +152,16 @@ namespace CHARACTERS
 
             co_flipping = null;
         }
+        public override void OnReceiveExpression(int layer, string expression)
+        {
+            Sprite sprite = GetSprite(expression);
+
+            if (sprite == null)
+            {
+                Debug.LogError($"Sprite '{expression}' não pode ser encontrado para o personagem '{name}'.");
+                return;
+            }
+            TransitionSprite(sprite, layer);
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace CHARACTERS
             return null;
         }
 
-        public Character CreateCharacter(string characterName)
+        public Character CreateCharacter(string characterName, bool revealAfterCreation = false)
         {
             if (characters.ContainsKey(characterName.ToLower()))
             {
@@ -63,6 +63,8 @@ namespace CHARACTERS
             Character character = CreateCharacterFromInfo(info);
 
             characters.Add(info.name.ToLower(), character);
+
+            if (revealAfterCreation) character.Show();
 
             return character;
         }

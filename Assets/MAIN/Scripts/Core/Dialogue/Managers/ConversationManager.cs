@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using CHARACTERS;
 using COMMANDS;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DIALOGUE
@@ -45,6 +44,7 @@ namespace DIALOGUE
             {
                 // Don't show any blank lines or try to run any logic of them
                 if (string.IsNullOrWhiteSpace(conversation[i])) continue;
+
                 DIALOGUE_LINE line = DialogueParser.Parse(conversation[i]);
 
                 // Show dialogue
@@ -61,10 +61,31 @@ namespace DIALOGUE
         private IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
         {
             // show or hide the speaker name if there is one present.
-            if (line.hasSpeaker) dialogueSystem.ShowSpeakerName(line.speakerData.displayName);
+            if (line.hasSpeaker) HandleSpeakerLogic(line.speakerData);
 
             // build dialogue
             yield return BuildLineSegments(line.dialogueData);
+        }
+        private void HandleSpeakerLogic(DL_SPEAKER_DATA speakerData)
+        {
+            bool characterMustBeCreated = (speakerData.makeCharacterEnter || speakerData.isCastingPosition || speakerData.isCastingExpressions);
+
+            Character character = CharacterManager.instance.GetCharacter(speakerData.name, createIfDoesNotExist: characterMustBeCreated);
+
+            if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing)) character.Show();
+
+            dialogueSystem.ShowSpeakerName(speakerData.displayName);
+            DialogueSystem.instance.ApplySpeakerDataToDialogueContainer(speakerData.name);
+
+            if (speakerData.isCastingPosition) character.MoveToPosition(speakerData.castPosition);
+
+            // Cast Expression
+            if (speakerData.isCastingExpressions)
+            {
+                foreach (var ce in speakerData.CastExpressions) character.OnReceiveExpression(ce.layer, ce.expression);
+
+            }
+
         }
         // Run any commands
         private IEnumerator Line_RunCommands(DIALOGUE_LINE line)
