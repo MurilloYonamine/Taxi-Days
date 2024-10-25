@@ -1,4 +1,10 @@
-enter Lissima as ??? "Como você está?"
+CreateCharacter(Lissima -enabled true)
+
+Show(Lissima Cind Gato de Botas -immediate false)
+
+Lissima.Show()
+
+Lissima as ??? "Como você está?"
 
 Cind "Estou... {wa 0.1} bem."
 
