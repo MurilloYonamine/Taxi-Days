@@ -11,7 +11,6 @@ namespace TESTING
 {
     public class TestCharacters : MonoBehaviour
     {
-        public TMP_FontAsset tempFont;
         private Character CreateCharacter(string name) => CharacterManager.instance.CreateCharacter(name);
         void Start()
         {
@@ -31,33 +30,32 @@ namespace TESTING
             Character_Sprite Gato_de_Botas = CreateCharacter("Gato de Botas") as Character_Sprite;
             Character_Sprite Lissima = CreateCharacter("Lissima") as Character_Sprite;
             Character_Sprite Cind = CreateCharacter("Cind") as Character_Sprite;
-            Character_Sprite CindRed = CreateCharacter("Cind Red as Generic") as Character_Sprite;
 
-            //Gato_de_Botas.SetPosition(new Vector2(0.6f, 0.5f));
-            //Lissima.SetPosition(new Vector2(0.3f, 0.5f));
+            Cind.SetPosition(new Vector2(0.2f, 0.5f));
+            Lissima.SetPosition(new Vector2(0.8f, 0.5f));
 
-            CindRed.SetColor(Color.red);
+            Lissima.Show();
+            Cind.Show();
 
-            Gato_de_Botas.SetPosition(new Vector2(0.3f, 0.5f));
-            Lissima.SetPosition(new Vector2(0.45f, 0.5f));
-            Cind.SetPosition(new Vector2(0.6f, 0.5f));
-            CindRed.SetPosition(new Vector2(0.75f, 0.5f));
+            Gato_de_Botas.SetPriority(1);
+            Lissima.SetPriority(2);
+            Cind.SetPriority(3);
 
-            CindRed.SetPriority(1000);
-            Lissima.SetPriority(15);
-            Gato_de_Botas.SetPriority(8);
-            Cind.SetPriority(30);
+            yield return Lissima.Say("Como você está?");
+            yield return Cind.Say("Estou... bem.");
+            yield return Lissima.Say("Sério mesmo?");
 
-            yield return new WaitForSeconds(1);
-            CharacterManager.instance.SortCharacters(new string[] { "Lissima", "Gato de Botas" });
+            Gato_de_Botas.Show();
+            yield return Gato_de_Botas.Say("Olá, Jovens, qual o nome de vocês?");
 
-            yield return new WaitForSeconds(1);
+            Cind.TransitionSprite(Cind.GetSprite("cind_1"));
+            yield return Cind.Say("Meu nome é Cind!");
 
-            CharacterManager.instance.SortCharacters();
+            Lissima.TransitionSprite(Lissima.GetSprite("lissima_pretty_2"));
+            yield return Lissima.Say("Me chamo Lissima.");
 
-            yield return new WaitForSeconds(1);
-
-            CharacterManager.instance.SortCharacters(new string[] { "Gato de Botas", "Cind Red", "Cind", "Lissima" });
+            yield return Gato_de_Botas.Say("Entendi. Posso me juntar a vocês?");
+            yield return Lissima.Say("Claro, quanto mais, melhor!");
 
             yield return null;
         }

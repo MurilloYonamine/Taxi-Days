@@ -44,10 +44,8 @@ namespace DIALOGUE
             textArchitect = new TextArchitect(dialogueContainer.dialogueText);
             conversationManager = new ConversationManager(textArchitect);
         }
-        public void OnUserPrompt_Next()
-        {
-            onUserPrompt_Next?.Invoke();
-        }
+        public void OnUserPrompt_Next() => onUserPrompt_Next?.Invoke();
+
         public void ApplySpeakerDataToDialogueContainer(string speakerName)
         {
             Character character = CharacterManager.instance.GetCharacter(speakerName);
@@ -79,10 +77,6 @@ namespace DIALOGUE
             List<string> conversation = new List<string>() { $"{speaker} \"{dialogue}\"" };
             return Say(conversation);
         }
-
-        public Coroutine Say(List<string> conversation)
-        {
-            return conversationManager.StartConversation(conversation);
-        }
+        public Coroutine Say(List<string> conversation) => conversationManager.StartConversation(conversation);
     }
 }

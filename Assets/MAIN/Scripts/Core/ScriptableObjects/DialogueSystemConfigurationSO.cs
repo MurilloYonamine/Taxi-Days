@@ -14,5 +14,6 @@ namespace DIALOGUE
         public CharacterConfigSO characterConfigurationAsset;
         public Color defaultTextColor = Color.white;
         public TMP_FontAsset defaultFont;
+        public Vector2 defaultDialoguePosition;
     }
 }

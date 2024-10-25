@@ -19,10 +19,8 @@ namespace DIALOGUE
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
         }
         // Event for when the user prompts the next line
-        private void OnUserPrompt_Next()
-        {
-            userPrompt = true;
-        }
+        private void OnUserPrompt_Next() => userPrompt = true;
+
         public Coroutine StartConversation(List<string> conversation)
         {
             StopConversation();
@@ -71,7 +69,6 @@ namespace DIALOGUE
             bool characterMustBeCreated = (speakerData.makeCharacterEnter || speakerData.isCastingPosition || speakerData.isCastingExpressions);
 
             Character character = CharacterManager.instance.GetCharacter(speakerData.name, createIfDoesNotExist: characterMustBeCreated);
-
             if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing)) character.Show();
 
             dialogueSystem.ShowSpeakerName(speakerData.displayName);
@@ -83,7 +80,6 @@ namespace DIALOGUE
             if (speakerData.isCastingExpressions)
             {
                 foreach (var ce in speakerData.CastExpressions) character.OnReceiveExpression(ce.layer, ce.expression);
-
             }
 
         }

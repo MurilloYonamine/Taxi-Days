@@ -79,7 +79,16 @@ namespace CHARACTERS
         {
             dialogueSystem.ShowSpeakerName(displayName);
             UpdateTextCustomizationsOnScreen();
+
+            SetRootContainerPosition();
+
             return DialogueSystem.instance.Say(dialogue);
+        }
+        private void SetRootContainerPosition()
+        {
+            GameObject gameObject = GameObject.Find($"Character - [{displayName}]");
+            Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
+            dialogueSystem.dialogueContainer.rootContainer.transform.position = containerPosition;
         }
         public void SetNameFont(TMP_FontAsset font) => config.nameFont = font;
         public void SetDialogueFont(TMP_FontAsset font) => config.dialogueFont = font;
@@ -174,6 +183,7 @@ namespace CHARACTERS
 
             return (minArchorTarget, maxArchorTarget);
         }
+
         #endregion
 
         #region Color Methods
@@ -259,7 +269,6 @@ namespace CHARACTERS
             yield return null;
         }
         #endregion
-
         public void SetPriority(int priority, bool autoSortCharactersOnUI = true)
         {
             this.priority = priority;
@@ -273,6 +282,7 @@ namespace CHARACTERS
         {
             return;
         }
+
         public enum CharacterType
         {
             Text, // No graphics on the screen

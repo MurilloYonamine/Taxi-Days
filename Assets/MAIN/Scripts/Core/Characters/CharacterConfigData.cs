@@ -25,6 +25,8 @@ namespace CHARACTERS
         public TMP_FontAsset nameFont;
         public TMP_FontAsset dialogueFont;
 
+        public Vector2 dialoguePosition;
+
         public CharacterConfigData Copy()
         {
             CharacterConfigData result = new CharacterConfigData();
@@ -34,6 +36,7 @@ namespace CHARACTERS
             result.characterType = characterType;
             result.nameFont = nameFont;
             result.dialogueFont = dialogueFont;
+            result.dialoguePosition = dialoguePosition;
 
             result.nameColor = new Color(nameColor.r, nameColor.g, nameColor.b, nameColor.a);
             result.dialogueColor = new Color(dialogueColor.r, dialogueColor.g, dialogueColor.b, dialogueColor.a);
@@ -42,6 +45,7 @@ namespace CHARACTERS
         }
         private static Color defaultColor => DialogueSystem.instance.config.defaultTextColor;
         private static TMP_FontAsset defaultFont => DialogueSystem.instance.config.defaultFont;
+        private static Vector2 defaultPosition => DialogueSystem.instance.config.defaultDialoguePosition;
         public static CharacterConfigData Default
         {
             get
@@ -54,6 +58,8 @@ namespace CHARACTERS
 
                 result.nameFont = defaultFont;
                 result.dialogueFont = defaultFont;
+
+                result.dialoguePosition = defaultPosition;
 
                 result.nameColor = new Color(defaultColor.r, defaultColor.g, defaultColor.b, defaultColor.a);
                 result.dialogueColor = new Color(defaultColor.r, defaultColor.g, defaultColor.b, defaultColor.a);

@@ -18,6 +18,7 @@ namespace CHARACTERS
 
         private const string CHARACTER_CASTING_ID = " as ";
         private const string CHARACTER_NAME_ID = "<charname>";
+
         public string characterRootPathFormat => $"Characters/{CHARACTER_NAME_ID}";
         public string characterPrefabNameFormat => $"Character - [{CHARACTER_NAME_ID}]";
         public string characterPrefabPathFormat => $"{characterRootPathFormat}/{characterPrefabNameFormat}";
@@ -115,7 +116,6 @@ namespace CHARACTERS
                     return null;
             }
         }
-
         public void SortCharacters()
         {
             List<Character> activeCharacters = characters.Values.Where(c => c.root.gameObject.activeInHierarchy && c.isVisible).ToList();
@@ -158,11 +158,10 @@ namespace CHARACTERS
             int i = 0;
             foreach (Character character in charactersSortingOrder)
             {
-                Debug.Log($"Prioridade de {character.name} é: {i}");
+                // Debug.Log($"Prioridade de {character.name} é: {i}");
                 character.root.SetSiblingIndex(i++);
             }
         }
-
         private class CHARACTER_INFO
         {
             public string name = "";
@@ -171,7 +170,6 @@ namespace CHARACTERS
             public string rootCharacterFolder;
 
             public CharacterConfigData config = null;
-
             public GameObject prefab = null;
         }
     }

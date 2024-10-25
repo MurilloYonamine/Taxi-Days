@@ -14,6 +14,7 @@ namespace DIALOGUE
         different looks
         */
         public GameObject root;
+        public GameObject rootContainer;
         public NameContainer nameContainer;
         public TextMeshProUGUI dialogueText;
 
