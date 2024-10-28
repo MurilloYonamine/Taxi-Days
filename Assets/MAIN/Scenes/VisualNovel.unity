@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795094646}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36bc7273df929bf40af04ddee394687d, type: 3}
   m_Name: 
@@ -1290,7 +1290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795094646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86f5ed5b44a64b245b65955ed145d00c, type: 3}
   m_Name: 
@@ -3734,10 +3734,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character - [Lissima]
       objectReference: {fileID: 0}
-    - target: {fileID: 2251259560985678825, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6407373422965081011, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3768,7 +3764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407373422965081011, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 584.7
+      value: 584.69995
       objectReference: {fileID: 0}
     - target: {fileID: 6407373422965081011, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3800,7 +3796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407373422965081011, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -258
+      value: -257
       objectReference: {fileID: 0}
     - target: {fileID: 6407373422965081011, guid: 5c625d6d19f2d1248af86932418a9688, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3944,11 +3940,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3116008305728063124, guid: 85cd43b59d8d7d041bbc91e3df4f29db, type: 3}
       propertyPath: m_Name
-      value: Character - [Gato de Botas]
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116008305728063124, guid: 85cd43b59d8d7d041bbc91e3df4f29db, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Character - [Gato]
       objectReference: {fileID: 0}
     - target: {fileID: 4095014296369826179, guid: 85cd43b59d8d7d041bbc91e3df4f29db, type: 3}
       propertyPath: m_Pivot.x

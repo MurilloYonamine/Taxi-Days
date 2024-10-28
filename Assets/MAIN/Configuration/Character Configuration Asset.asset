@@ -29,7 +29,7 @@ MonoBehaviour:
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialoguePosition: {x: 0, y: 0}
-  - name: Gato de Botas
+  - name: Gato
     alias: gato
     characterType: 1
     nameColor: {r: 0.5803922, g: 0.47058827, b: 0.28235295, a: 1}

@@ -1,13 +1,21 @@
+wait(1), CreateCharacter(Lissima -e true), CreateCharacter(Cind), CreateCharacter(Gato -e true -i true)
+
+MoveCharacter(Lissima 0.2 0.5 0.75 -sm false -i true)
+
+Show(Lissima Cind Gato -immediate false)
+
+Narrator "Mostrando os personagens."
+
 enter Lissima as ??? "Como você está?"
 
 Cind "Estou... {wa 0.1} bem."
 
 enter Lissima as ??? [lissima_undressed_1] "Sério mesmo?"
 
-enter Gato de Botas as ??? [0:0.5] "Olá, caro cavaleiro, qual o seu nome?"
+enter Gato as ??? "Olá, caro cavaleiro, qual o seu nome?"
 
 enter Cind [cind_1] "Meu nome é cind!"
 
-Gato de Botas "Entendi. {wa 0.1} Posso me juntar a vocês?"
+Gato "Entendi. {wa 0.1} Posso me juntar a vocês?"
 
 Lissima "Claro, quanto mais, melhor!"

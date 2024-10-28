@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 4353399956636721422}
   - component: {fileID: 7424743949233682747}
   m_Layer: 5
-  m_Name: Character - [Gato de Botas]
+  m_Name: Character - [Gato]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4095014296369826179
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace COMMANDS
 {
@@ -11,12 +12,13 @@ namespace COMMANDS
         */
         private const char PARAMETER_IDENTIFIER = '-';
         private Dictionary<string, string> parameters = new Dictionary<string, string>();
+        private List<string> unlabledParameters = new List<string>();
 
         public CommandParameters(string[] parameterArray)
         {
             for (int i = 0; i < parameterArray.Length; i++)
             {
-                if (parameterArray[i].StartsWith(PARAMETER_IDENTIFIER))
+                if (parameterArray[i].StartsWith(PARAMETER_IDENTIFIER) && !float.TryParse(parameterArray[i], out _))
                 {
                     string parameterName = parameterArray[i];
                     string parameterValue = "";
@@ -29,6 +31,10 @@ namespace COMMANDS
 
                     parameters.Add(parameterName, parameterValue);
                 }
+                else
+                {
+                    unlabledParameters.Add(parameterArray[i]);
+                }
             }
         }
         public bool TryGetValue<T>(string parameterName, out T value, T defaultValue = default(T)) => TryGetValue(new string[] { parameterName }, out value, defaultValue);
@@ -37,9 +43,17 @@ namespace COMMANDS
         {
             foreach (string parameterName in parameterNames)
             {
-                if (parameters.TryGetValue(parameterName, out string valueString))
+                if (parameters.TryGetValue(parameterName, out string parameterValue))
                 {
-                    if (TryCastParameter(parameterName, out value)) return true;
+                    if (TryCastParameter(parameterValue, out value)) return true;
+                }
+            }
+            foreach (string parameterName in unlabledParameters)
+            {
+                if (TryCastParameter(parameterName, out value))
+                {
+                    unlabledParameters.Remove(parameterName);
+                    return true;
                 }
             }
             value = defaultValue;
@@ -49,7 +63,7 @@ namespace COMMANDS
         {
             if (typeof(T) == typeof(bool))
             {
-                if(bool.TryParse(parameterValue, out bool boolValue))
+                if (bool.TryParse(parameterValue, out bool boolValue))
                 {
                     value = (T)(object)boolValue;
                     return true;
@@ -57,7 +71,7 @@ namespace COMMANDS
             }
             else if (typeof(T) == typeof(int))
             {
-                if(int.TryParse(parameterValue, out int intValue))
+                if (int.TryParse(parameterValue, out int intValue))
                 {
                     value = (T)(object)intValue;
                     return true;
@@ -65,7 +79,7 @@ namespace COMMANDS
             }
             else if (typeof(T) == typeof(float))
             {
-                if(float.TryParse(parameterValue, out float floatValue))
+                if (float.TryParse(parameterValue, NumberStyles.Float, CultureInfo.InvariantCulture, out float floatValue))
                 {
                     value = (T)(object)floatValue;
                     return true;
