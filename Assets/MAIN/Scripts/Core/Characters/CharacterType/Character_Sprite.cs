@@ -31,6 +31,8 @@ namespace CHARACTERS
 
             Debug.Log($"Foi criado um personagem do tipo 'Sprite' chamado: '{name}'.");
         }
+
+        #region Layer Management
         private void GetLayers()
         {
             Transform rendererRoot = animator.transform.Find(SPRITE_RENDERERD_PARENT_NAME);
@@ -51,10 +53,14 @@ namespace CHARACTERS
                 };
             }
         }
+        #endregion
+
+        #region Sprite Management
         public void SetSprite(Sprite sprite, int layer = 0)
         {
             layers[layer].SetSprite(sprite);
         }
+
         public Sprite GetSprite(string spriteName)
         {
             if (config.characterType == CharacterType.SpriteSheet)
@@ -82,26 +88,33 @@ namespace CHARACTERS
                 return Resources.Load<Sprite>($"{artAssetsDirectory}/{spriteName}");
             }
         }
+
         public Coroutine TransitionSprite(Sprite sprite, int layer = 0, float speed = 1f)
         {
             CharacterSpriteLayer spriteLayer = layers[layer];
 
             return spriteLayer.TransitionSprite(sprite, speed);
         }
-        public override IEnumerator ShowingOrHiding(bool show)
+        #endregion
+
+        #region Visibility Management
+        public override IEnumerator ShowingOrHiding(bool show, float speedMultiplier = 1f)
         {
             float targetAlpha = show ? 1f : 0;
             CanvasGroup self = rootCG;
 
             while (self.alpha != targetAlpha)
             {
-                self.alpha = Mathf.MoveTowards(self.alpha, targetAlpha, Time.deltaTime * 3f);
+                self.alpha = Mathf.MoveTowards(self.alpha, targetAlpha, 3f * Time.deltaTime * speedMultiplier);
                 yield return null;
             }
 
             co_revealing = null;
             co_hiding = null;
         }
+        #endregion
+
+        #region Color Management
         public override void SetColor(Color color)
         {
             base.SetColor(color);
@@ -113,9 +126,8 @@ namespace CHARACTERS
                 layer.StopChangingColor();
                 layer.SetColor(color);
             }
-
-            
         }
+
         public override IEnumerator ChangingColor(Color color, float speed)
         {
             foreach (CharacterSpriteLayer layer in layers) layer.TransitionColor(color, speed);
@@ -126,6 +138,7 @@ namespace CHARACTERS
 
             co_changingColor = null;
         }
+
         public override IEnumerator Highlighting(bool highlight, float speedMultiplier)
         {
             Color targetColor = displayColor;
@@ -138,6 +151,9 @@ namespace CHARACTERS
 
             co_changingColor = null;
         }
+        #endregion
+
+        #region Direction Management
         public override IEnumerator FaceDirection(bool faceLeft, float speedMultiplier, bool immediate)
         {
             foreach (CharacterSpriteLayer layer in layers)
@@ -152,6 +168,9 @@ namespace CHARACTERS
 
             co_flipping = null;
         }
+        #endregion
+
+        #region Expression Management
         public override void OnReceiveExpression(int layer, string expression)
         {
             Sprite sprite = GetSprite(expression);
@@ -163,5 +182,6 @@ namespace CHARACTERS
             }
             TransitionSprite(sprite, layer);
         }
+        #endregion
     }
 }

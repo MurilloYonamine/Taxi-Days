@@ -100,27 +100,27 @@ namespace CHARACTERS
         #endregion
 
         #region Visibility Methods
-        public virtual Coroutine Show()
+        public virtual Coroutine Show(float speedMultiplier = 1f)
         {
             if (isRevealing) return co_revealing;
 
             if (isHiding) characterManager.StopCoroutine(co_hiding);
 
-            co_revealing = characterManager.StartCoroutine(ShowingOrHiding(true));
+            co_revealing = characterManager.StartCoroutine(ShowingOrHiding(true, speedMultiplier));
 
             return co_revealing;
         }
-        public virtual Coroutine Hide()
+        public virtual Coroutine Hide(float speedMultiplier = 1f)
         {
             if (isHiding) return co_hiding;
 
             if (isRevealing) characterManager.StopCoroutine(co_hiding);
 
-            co_hiding = characterManager.StartCoroutine(ShowingOrHiding(false));
+            co_hiding = characterManager.StartCoroutine(ShowingOrHiding(false, speedMultiplier));
 
             return co_hiding;
         }
-        public virtual IEnumerator ShowingOrHiding(bool show)
+        public virtual IEnumerator ShowingOrHiding(bool show, float speedMultiplier = 1f)
         {
             Debug.Log("Aparecendo ou desaparecendo não pode ser chamado por uma base de personagem.");
             yield return null;
