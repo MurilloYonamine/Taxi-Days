@@ -18,7 +18,9 @@ namespace GRAPHICS
             yield return new WaitForSeconds(1f);
 
             Texture blendTex = Resources.Load<Texture>("Graphics/Transition Effects/hurricane");
-            layer.SetTexture("Graphics/BG Images/2", blendingTexture: blendTex);
+            //layer.SetTexture("Graphics/BG Images/2", blendingTexture: blendTex);
+
+            layer.SetVideo("Graphics/BG Videos/Fantasy Landscape", transitionSpeed: 0.01f, useAudio: true);
         }
     }
 }

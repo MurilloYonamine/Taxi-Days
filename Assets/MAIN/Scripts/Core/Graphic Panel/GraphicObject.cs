@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -15,7 +16,7 @@ namespace GRAPHICS
         private const string MATERIAL_PATH = "Materials/layerTransitionMaterial";
         private const string MATERIAL_FIELD_COLOR = "_Color";
         private const string MATERIAL_FIELD_MAINTEXT = "_MainTex";
-        private const string MATERIAL_FIELD_BLENDTEXT = "_BlendText";
+        private const string MATERIAL_FIELD_BLENDTEXT = "_BlendTex";
         private const string MATERIAL_FIELD_BLEND = "_Blend";
         private const string MATERIAL_FIELD_ALPHA = "_Alpha";
         public RawImage renderer;
@@ -46,6 +47,44 @@ namespace GRAPHICS
 
             renderer.texture = texture;
             renderer.material.SetTexture(MATERIAL_FIELD_MAINTEXT, texture);
+        }
+        public GraphicObject(GraphicLayer layer, string graphicPath, VideoClip clip, bool useAudio)
+        {
+            this.graphicPath = graphicPath;
+
+            GameObject ob = new GameObject();
+            ob.transform.SetParent(layer.panel);
+            renderer = ob.AddComponent<RawImage>();
+
+            graphicName = clip.name;
+
+            InitGraphic();
+
+            RenderTexture texture = new RenderTexture(Mathf.RoundToInt(clip.width), Mathf.RoundToInt(clip.height), 0);
+            renderer.material.SetTexture(MATERIAL_FIELD_MAINTEXT, texture);
+
+            video = renderer.AddComponent<VideoPlayer>();
+            video.playOnAwake = true;
+            video.source = VideoSource.VideoClip;
+            video.clip = clip;
+            video.renderMode = VideoRenderMode.RenderTexture;
+            video.targetTexture = texture;
+            video.isLooping = true;
+
+            video.audioOutputMode = VideoAudioOutputMode.AudioSource;
+            audio = video.AddComponent<AudioSource>();
+
+            audio.volume = 0;
+            if(!useAudio) audio.mute = true;
+
+            video.SetTargetAudioSource(0, audio);
+
+            video.frame = 0;
+            video.Prepare();
+            video.Play();
+
+            video.enabled = false;
+            video.enabled = true;
         }
         private void InitGraphic()
         {
@@ -109,6 +148,9 @@ namespace GRAPHICS
             {
                 float opacity = Mathf.MoveTowards(renderer.material.GetFloat(opacityParam), target, Time.deltaTime * speed);
                 renderer.material.SetFloat(opacityParam, opacity);
+
+                if(isVideo) audio.volume = opacity;
+
                 yield return null;
             }
             co_fadingIn = null;
