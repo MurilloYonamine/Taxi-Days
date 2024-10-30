@@ -80,15 +80,20 @@ namespace CHARACTERS
             dialogueSystem.ShowSpeakerName(displayName);
             UpdateTextCustomizationsOnScreen();
 
-            SetRootContainerPosition();
+    
+                SetRootContainerPosition();
+            
 
             return DialogueSystem.instance.Say(dialogue);
         }
         private void SetRootContainerPosition()
         {
-            GameObject gameObject = GameObject.Find($"Character - [{displayName}]");
-            Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
-            dialogueSystem.dialogueContainer.rootContainer.transform.position = containerPosition;
+            if (config.characterType != CharacterType.Text)
+            {
+                GameObject gameObject = GameObject.Find($"Character - [{displayName}]");
+                Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
+                dialogueSystem.dialogueContainer.rootContainer.transform.position = containerPosition;
+            }
         }
         public void SetNameFont(TMP_FontAsset font) => config.nameFont = font;
         public void SetDialogueFont(TMP_FontAsset font) => config.dialogueFont = font;

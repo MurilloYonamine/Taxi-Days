@@ -15,6 +15,7 @@ public class AudioTesting : MonoBehaviour
     IEnumerator Running()
     {
         Character_Sprite lissima = CreateCharacter("Lissima") as Character_Sprite;
+        Character me = CreateCharacter("Me");
         lissima.Show();
 
         yield return new WaitForSeconds(0.5f);
@@ -24,9 +25,11 @@ public class AudioTesting : MonoBehaviour
         AudioManager.instance.PlaySoundEffect("Audio/SFX/RadioStatic", loop: true);
 
         yield return lissima.Say("U gay.");
-        
-        AudioManager.instance.StopSoundEffect("RadioStatic");
+        yield return me.Say("no u are.");
 
-        lissima.Say("nah. i think u are not.");
+        AudioManager.instance.StopSoundEffect("RadioStatic");
+        AudioManager.instance.PlayVoice("Audio/Voices/exclamation");
+
+        lissima.Say("nah. i think u are.");
     }
 }

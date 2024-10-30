@@ -68,6 +68,14 @@ namespace AUDIO
 
             return effectSource;
         }
+        public AudioSource PlayVoice(string filePath, float volume = 1f, float pitch = 1, bool loop = false)
+        {
+            return PlaySoundEffect(filePath, voicesMixer, volume, pitch, loop);
+        }
+        public AudioSource PlayVoice(AudioClip clip, float volume = 1f, float pitch = 1, bool loop = false)
+        {
+            return PlaySoundEffect(clip, voicesMixer, volume, pitch, loop);
+        }
         public void StopSoundEffect(AudioClip clip) => StopSoundEffect(clip.name);
         public void StopSoundEffect(string soundName)
         {
