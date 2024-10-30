@@ -2,34 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using AUDIO;
 using CHARACTERS;
+using DIALOGUE;
+using GRAPHICS;
 using UnityEngine;
 
-public class AudioTesting : MonoBehaviour
+namespace TESTING
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AudioTesting : MonoBehaviour
     {
-        StartCoroutine(Running());
-    }
-    Character CreateCharacter(string name) => CharacterManager.instance.CreateCharacter(name);
-    IEnumerator Running()
-    {
-        Character_Sprite lissima = CreateCharacter("Lissima") as Character_Sprite;
-        Character me = CreateCharacter("Me");
-        lissima.Show();
+        // Start is called before the first frame update
+        void Start()
+        {
+            StartCoroutine(Running());
+        }
+        Character CreateCharacter(string name) => CharacterManager.instance.CreateCharacter(name);
+        IEnumerator Running()
+        {
+            Character_Sprite lissima = CreateCharacter("Lissima") as Character_Sprite;
+            lissima.Show();
 
-        yield return new WaitForSeconds(0.5f);
+            yield return DialogueSystem.instance.Say("Narrator", "Can we see your ship?");
 
-        yield return new WaitForSeconds(1f);
+            GraphicPanelManager.instance.GetPanel("background").GetLayer(0, true).SetTexture("Graphics/Background Images/5");
+            AudioManager.instance.PlayTrack("Audio/Music/Calm", startingVolume: 0.7f);
+            AudioManager.instance.PlayVoice("Audio/Voices/exclamation");
 
-        AudioManager.instance.PlaySoundEffect("Audio/SFX/RadioStatic", loop: true);
+            yield return lissima.Say("Of course!");
 
-        yield return lissima.Say("U gay.");
-        yield return me.Say("no u are.");
-
-        AudioManager.instance.StopSoundEffect("RadioStatic");
-        AudioManager.instance.PlayVoice("Audio/Voices/exclamation");
-
-        lissima.Say("nah. i think u are.");
+            yield return null;
+        }
     }
 }
