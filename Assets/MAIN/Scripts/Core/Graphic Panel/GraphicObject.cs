@@ -77,7 +77,7 @@ namespace GRAPHICS
             video.audioOutputMode = VideoAudioOutputMode.AudioSource;
             audio = video.AddComponent<AudioSource>();
 
-            audio.volume = 0;
+            audio.volume = immediate ? 1 : 0;
             if (!useAudio) audio.mute = true;
 
             video.SetTargetAudioSource(0, audio);
@@ -103,8 +103,8 @@ namespace GRAPHICS
             renderer.material = GetTransitionMaterial();
 
             float startingOpacity = immediate ? 1 : 0;
-            renderer.material.SetFloat(MATERIAL_FIELD_BLEND, 0);
-            renderer.material.SetFloat(MATERIAL_FIELD_ALPHA, 0);
+            renderer.material.SetFloat(MATERIAL_FIELD_BLEND, startingOpacity);
+            renderer.material.SetFloat(MATERIAL_FIELD_ALPHA, startingOpacity);
         }
         private Material GetTransitionMaterial()
         {
