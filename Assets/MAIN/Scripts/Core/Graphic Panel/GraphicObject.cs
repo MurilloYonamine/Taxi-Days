@@ -33,7 +33,7 @@ namespace GRAPHICS
         private Coroutine co_fadingIn = null;
         private Coroutine co_fadingOut = null;
 
-        public GraphicObject(GraphicLayer layer, string graphicPath, Texture texture)
+        public GraphicObject(GraphicLayer layer, string graphicPath, Texture texture, bool immediate)
         {
             this.graphicPath = graphicPath;
             this.layer = layer;
@@ -44,14 +44,14 @@ namespace GRAPHICS
 
             graphicName = texture.name;
 
-            InitGraphic();
+            InitGraphic(immediate);
 
             renderer.name = string.Format(NAME_FORMAT, graphicName);
 
             renderer.texture = texture;
             renderer.material.SetTexture(MATERIAL_FIELD_MAINTEXT, texture);
         }
-        public GraphicObject(GraphicLayer layer, string graphicPath, VideoClip clip, bool useAudio)
+        public GraphicObject(GraphicLayer layer, string graphicPath, VideoClip clip, bool useAudio, bool immediate)
         {
             this.graphicPath = graphicPath;
             this.layer = layer;
@@ -61,7 +61,7 @@ namespace GRAPHICS
             renderer = ob.AddComponent<RawImage>();
             ob.name = clip.name;
 
-            InitGraphic();
+            InitGraphic(immediate);
 
             RenderTexture texture = new RenderTexture(Mathf.RoundToInt(clip.width), Mathf.RoundToInt(clip.height), 0);
             renderer.material.SetTexture(MATERIAL_FIELD_MAINTEXT, texture);
@@ -89,7 +89,7 @@ namespace GRAPHICS
             video.enabled = false;
             video.enabled = true;
         }
-        private void InitGraphic()
+        private void InitGraphic(bool immediate)
         {
             renderer.transform.localPosition = Vector3.zero;
             renderer.transform.localScale = Vector3.one;
@@ -102,6 +102,7 @@ namespace GRAPHICS
 
             renderer.material = GetTransitionMaterial();
 
+            float startingOpacity = immediate ? 1 : 0;
             renderer.material.SetFloat(MATERIAL_FIELD_BLEND, 0);
             renderer.material.SetFloat(MATERIAL_FIELD_ALPHA, 0);
         }
@@ -162,11 +163,13 @@ namespace GRAPHICS
             else DestroyBackgroundGraphicsOnLayer();
         }
         #endregion
-        private void Destroy() {
-            if(layer.currentGraphic != null && layer.currentGraphic.renderer == renderer) layer.currentGraphic = null;
+        private void Destroy()
+        {
+            if (layer.currentGraphic != null && layer.currentGraphic.renderer == renderer) layer.currentGraphic = null;
             Object.Destroy(renderer.gameObject);
         }
-        private void DestroyBackgroundGraphicsOnLayer() {
+        private void DestroyBackgroundGraphicsOnLayer()
+        {
             layer.DestroyOldGraphics();
         }
     }

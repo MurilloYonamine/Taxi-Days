@@ -1,4 +1,14 @@
-CreateCharacter(Lissima 1 -e true -i true), CreateCharacter(Cind -e true -i true), CreateCharacter(Gato -e true -i true)
+wait(1)
+
+SetLayerMedia(background "Fantasy Landscape" -aud true -spd 0.7 -blend hurricane)
+
+CreateCharacter(Lissima -e true -i true)
+
+Lissima "Welcome to the barracks!"
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/flower")
+
+CreateCharacter(Cind -e true -i true), CreateCharacter(Gato -e true -i true)
 
 wait(1), Sort(Lissima Cind Gato), wait(1)
 

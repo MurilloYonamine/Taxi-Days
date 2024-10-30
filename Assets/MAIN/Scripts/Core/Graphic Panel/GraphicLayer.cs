@@ -19,52 +19,55 @@ namespace GRAPHICS
         public GraphicObject currentGraphic = null;
         private List<GraphicObject> oldGraphics = new List<GraphicObject>();
 
-        public void SetTexture(string filePath, float transitionSpeed = 1f, Texture blendingTexture = null)
+        public Coroutine SetTexture(string filePath, float transitionSpeed = 1f, Texture blendingTexture = null, bool immediate = false)
         {
             Texture texture = Resources.Load<Texture2D>(filePath);
 
             if (texture == null)
             {
                 Debug.LogError($"Não pode ser carregado o graphic texture do caminho: {filePath}. Por favor veja se realmente existe.");
-                return;
+                return null;
             }
-            SetTexture(texture, transitionSpeed, blendingTexture, filePath);
+            return SetTexture(texture, transitionSpeed, blendingTexture, filePath, immediate);
         }
-        public void SetTexture(Texture texture, float transitionSpeed = 1f, Texture blendingTexture = null, string filePath = "")
+        public Coroutine SetTexture(Texture texture, float transitionSpeed = 1f, Texture blendingTexture = null, string filePath = "", bool immediate = false)
         {
-            CreateGraphic(texture, transitionSpeed, filePath, blendingTexture: blendingTexture);
+            return CreateGraphic(texture, transitionSpeed, filePath, blendingTexture: blendingTexture, immediate: immediate);
         }
-        public void SetVideo(string filePath, float transitionSpeed = 1f, bool useAudio = true, Texture blendingTexture = null)
+        public Coroutine SetVideo(string filePath, float transitionSpeed = 1f, bool useAudio = true, Texture blendingTexture = null, bool immediate = false)
         {
             VideoClip clip = Resources.Load<VideoClip>(filePath);
 
             if (clip == null)
             {
                 Debug.LogError($"Não pode ser carregado o video clip do caminho: {filePath}. Por favor veja se realmente existe.");
-                return;
+                return null;
             }
-            SetVideo(clip, transitionSpeed, useAudio, blendingTexture, filePath);
+            return SetVideo(clip, transitionSpeed, useAudio, blendingTexture, filePath, immediate);
         }
-        public void SetVideo(VideoClip video, float transitionSpeed = 1f, bool useAudio = true, Texture blendingTexture = null, string filePath = "")
+        public Coroutine SetVideo(VideoClip video, float transitionSpeed = 1f, bool useAudio = true, Texture blendingTexture = null, string filePath = "", bool immediate = false)
         {
-            CreateGraphic(video, transitionSpeed, filePath, useAudio, blendingTexture: blendingTexture);
+            return CreateGraphic(video, transitionSpeed, filePath, useAudio, blendingTexture: blendingTexture, immediate: immediate);
         }
-        private void CreateGraphic<T>(T graphicData, float transitionSpeed, string filePath, bool useAudioForVideo = true, Texture blendingTexture = null)
+        private Coroutine CreateGraphic<T>(T graphicData, float transitionSpeed, string filePath, bool useAudioForVideo = true, Texture blendingTexture = null, bool immediate = false)
         {
             GraphicObject newGraphic = null;
             if (graphicData is Texture)
             {
-                newGraphic = new GraphicObject(this, filePath, graphicData as Texture);
+                newGraphic = new GraphicObject(this, filePath, graphicData as Texture, immediate);
             }
             else if (graphicData is VideoClip)
             {
-                newGraphic = new GraphicObject(this, filePath, graphicData as VideoClip, useAudioForVideo);
+                newGraphic = new GraphicObject(this, filePath, graphicData as VideoClip, useAudioForVideo, immediate);
             }
             if (currentGraphic != null && oldGraphics.Contains(currentGraphic)) oldGraphics.Add(currentGraphic);
 
             currentGraphic = newGraphic;
 
-            currentGraphic.FadeIn(transitionSpeed, blendingTexture);
+            if(!immediate) return currentGraphic.FadeIn(transitionSpeed, blendingTexture);
+
+            DestroyOldGraphics();
+            return null;
         }
         public void DestroyOldGraphics()
         {
