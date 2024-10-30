@@ -29,6 +29,46 @@ namespace COMMANDS
         new public static void Extend(CommandDatabase database)
         {
             database.AddCommand("setlayermedia", new Func<string[], IEnumerator>(SetLayerMedia));
+            database.AddCommand("clearlayermedia", new Func<string[], IEnumerator>(ClearLayerMedia));
+        }
+        private static IEnumerator ClearLayerMedia(string[] data)
+        {
+            string panelName = "";
+            int layer = 0;
+            float transitionSpeed = 0f;
+            bool immediate = false;
+            string blendTexName = "";
+
+            Texture blendTex = null;
+
+            var parameters = ConvertDataToParameters(data);
+
+            parameters.TryGetValue(PARAM_PANEL, out panelName);
+            GraphicPanel panel = GraphicPanelManager.instance.GetPanel(panelName);
+
+            if (panel == null)
+            {
+                Debug.LogError($"Incapaz de encontrar o painel: '{panelName}', porque não é um painél válido. Por favor cheque o nome do painel e ajuste o comando.");
+                yield break;
+            }
+            parameters.TryGetValue(PARAM_LAYER, out layer, defaultValue: -1);
+            parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
+            if (!immediate) parameters.TryGetValue(PARAM_SPEED, out transitionSpeed, defaultValue: 1f);
+            parameters.TryGetValue(PARAM_BLENDTEX, out blendTexName);
+
+            if (!immediate && blendTexName != string.Empty) blendTex = Resources.Load<Texture>(FilePaths.resources_blendTextures + blendTexName);
+
+            if (layer == -1) panel.Clear(transitionSpeed, blendTex, immediate);
+            else
+            {
+                GraphicLayer graphicLayer = panel.GetLayer(layer);
+                if (graphicLayer == null)
+                {
+                    Debug.LogError($"Não pode limpar a camada [{layer}] do painel '{panelName}'.");
+                    yield break;
+                }
+                graphicLayer.Clear(transitionSpeed, blendTex, immediate);
+            }
         }
         private static IEnumerator SetLayerMedia(string[] data)
         {

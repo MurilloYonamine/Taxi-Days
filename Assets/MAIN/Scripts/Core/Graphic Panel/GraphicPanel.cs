@@ -50,9 +50,9 @@ namespace GRAPHICS
 
             return layer;
         }
-        public void Clear()
+        public void Clear(float transitionSpeed = 1f, Texture blendTexture = null, bool immediate = false)
         {
-            foreach(GraphicLayer layer in layers) layer.Clear();
+            foreach(GraphicLayer layer in layers) layer.Clear(transitionSpeed, blendTexture, immediate);
         }
     }
 }

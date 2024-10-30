@@ -8,6 +8,12 @@ Lissima "Welcome to the barracks!"
 
 SetLayerMedia(cinematic -m "~/Graphics/Gallery/flower")
 
+Lissima "AAAA"
+
+ClearLayerMedia(cinematic)
+
+Lissima "Tá limpo."
+
 CreateCharacter(Cind -e true -i true), CreateCharacter(Gato -e true -i true)
 
 wait(1), Sort(Lissima Cind Gato), wait(1)

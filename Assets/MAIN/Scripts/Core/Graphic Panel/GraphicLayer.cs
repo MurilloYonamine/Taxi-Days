@@ -64,7 +64,7 @@ namespace GRAPHICS
 
             currentGraphic = newGraphic;
 
-            if(!immediate) return currentGraphic.FadeIn(transitionSpeed, blendingTexture);
+            if (!immediate) return currentGraphic.FadeIn(transitionSpeed, blendingTexture);
 
             DestroyOldGraphics();
             return null;
@@ -78,11 +78,18 @@ namespace GRAPHICS
             }
             oldGraphics.Clear();
         }
-        public void Clear()
+        public void Clear(float transitionSpeed = 1f, Texture blendTexture = null, bool immediate = false)
         {
-            if(currentGraphic != null) currentGraphic.FadeOut();
+            if (currentGraphic != null)
+            {
+                if(!immediate) currentGraphic.FadeOut(transitionSpeed, blendTexture);
+                else currentGraphic.Destroy();
+            }
 
-            foreach(GraphicObject graphic in oldGraphics) graphic.FadeOut();
+            foreach (GraphicObject graphic in oldGraphics) {
+                if (!immediate) graphic.FadeOut(transitionSpeed, blendTexture);
+                else graphic.Destroy();
+            }
         }
     }
 }
