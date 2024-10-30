@@ -12,7 +12,7 @@ namespace COMMANDS
         available for the CommandManager to use.
         */
         private Dictionary<string, Delegate> database = new Dictionary<string, Delegate>();
-        public bool HasCommand(string commandName) => database.ContainsKey(commandName);
+        public bool HasCommand(string commandName) => database.ContainsKey(commandName.ToLower());
 
         public void AddCommand(string commandName, Delegate command)
         {

@@ -1,7 +1,16 @@
-wait(5), CreateCharacter(Lissima -e true), CreateCharacter(Cind), CreateCharacter(Gato -e true -i true)
+CreateCharacter(Lissima 1 -e true -i true), CreateCharacter(Cind -e true -i true), CreateCharacter(Gato -e true -i true)
 
-[wait]MoveCharacter(Lissima 0.2 0.5 -sm true -spd 0.1)
-[wait]MoveCharacter(Gato 0.8 0.5 -sm true -spd 0.1)
+wait(1), Sort(Lissima Cind Gato), wait(1)
+
+Lissima.SetColor(red)
+
+Lissima.SetPriority(5), wait(1), Cind.SetPriority(6)
+
+[wait]MoveCharacter(Lissima 1 0.8 -spd 0.5)
+
+[wait]Lissima.Hide(), [wait]Lissima.Show()
+
+[wait]Lissima.Move(0 1 -spd 0.5)
 
 Hide(Lissima Cind Gato -spd 0.1)
 

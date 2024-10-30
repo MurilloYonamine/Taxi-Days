@@ -14,6 +14,7 @@ namespace CHARACTERS
         */
         public static CharacterManager instance { get; private set; }
         private Dictionary<string, Character> characters = new Dictionary<string, Character>();
+        public Character[] allCharacters => characters.Values.ToArray();
         private CharacterConfigSO config => DialogueSystem.instance.config.characterConfigurationAsset;
 
         private const string CHARACTER_CASTING_ID = " as ";
@@ -50,6 +51,8 @@ namespace CHARACTERS
 
             return null;
         }
+
+        public bool HasCharacter(string characterName) => characters.ContainsKey(characterName.ToLower());
 
         public Character CreateCharacter(string characterName, bool revealAfterCreation = false)
         {
