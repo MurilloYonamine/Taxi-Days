@@ -16,7 +16,8 @@ namespace GRAPHICS
         public int layerDepth = 0;
         public Transform panel;
 
-        public GraphicObject currentGraphic { get; private set; } = null;
+        public GraphicObject currentGraphic = null;
+        private List<GraphicObject> oldGraphics = new List<GraphicObject>();
 
         public void SetTexture(string filePath, float transitionSpeed = 1f, Texture blendingTexture = null)
         {
@@ -59,9 +60,26 @@ namespace GRAPHICS
             {
                 newGraphic = new GraphicObject(this, filePath, graphicData as VideoClip, useAudioForVideo);
             }
+            if (currentGraphic != null && oldGraphics.Contains(currentGraphic)) oldGraphics.Add(currentGraphic);
+
             currentGraphic = newGraphic;
 
             currentGraphic.FadeIn(transitionSpeed, blendingTexture);
+        }
+        public void DestroyOldGraphics()
+        {
+
+            foreach (GraphicObject graphic in oldGraphics)
+            {
+                Object.Destroy(graphic.renderer.gameObject);
+            }
+            oldGraphics.Clear();
+        }
+        public void Clear()
+        {
+            if(currentGraphic != null) currentGraphic.FadeOut();
+
+            foreach(GraphicObject graphic in oldGraphics) graphic.FadeOut();
         }
     }
 }

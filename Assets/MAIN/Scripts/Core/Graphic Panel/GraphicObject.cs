@@ -21,6 +21,8 @@ namespace GRAPHICS
         private const string MATERIAL_FIELD_ALPHA = "_Alpha";
         public RawImage renderer;
 
+        private GraphicLayer layer;
+
         public bool isVideo { get { return video != null; } }
         public VideoPlayer video = null;
         public AudioSource audio = null;
@@ -34,6 +36,7 @@ namespace GRAPHICS
         public GraphicObject(GraphicLayer layer, string graphicPath, Texture texture)
         {
             this.graphicPath = graphicPath;
+            this.layer = layer;
 
             GameObject ob = new GameObject();
             ob.transform.SetParent(layer.panel);
@@ -51,12 +54,12 @@ namespace GRAPHICS
         public GraphicObject(GraphicLayer layer, string graphicPath, VideoClip clip, bool useAudio)
         {
             this.graphicPath = graphicPath;
+            this.layer = layer;
 
             GameObject ob = new GameObject();
             ob.transform.SetParent(layer.panel);
             renderer = ob.AddComponent<RawImage>();
-
-            graphicName = clip.name;
+            ob.name = clip.name;
 
             InitGraphic();
 
@@ -75,7 +78,7 @@ namespace GRAPHICS
             audio = video.AddComponent<AudioSource>();
 
             audio.volume = 0;
-            if(!useAudio) audio.mute = true;
+            if (!useAudio) audio.mute = true;
 
             video.SetTargetAudioSource(0, audio);
 
@@ -101,7 +104,6 @@ namespace GRAPHICS
 
             renderer.material.SetFloat(MATERIAL_FIELD_BLEND, 0);
             renderer.material.SetFloat(MATERIAL_FIELD_ALPHA, 0);
-
         }
         private Material GetTransitionMaterial()
         {
@@ -113,7 +115,7 @@ namespace GRAPHICS
         }
         #region Fade Methods
         GraphicPanelManager panelManager => GraphicPanelManager.instance;
-        public Coroutine FadeIn(float speed, Texture blend = null)
+        public Coroutine FadeIn(float speed = 1f, Texture blend = null)
         {
             if (co_fadingOut != null) panelManager.StopCoroutine(co_fadingOut);
 
@@ -123,7 +125,7 @@ namespace GRAPHICS
 
             return co_fadingIn;
         }
-        public Coroutine FadeOut(float speed, Texture blend = null)
+        public Coroutine FadeOut(float speed = 1f, Texture blend = null)
         {
             if (co_fadingIn != null) panelManager.StopCoroutine(co_fadingIn);
 
@@ -149,13 +151,23 @@ namespace GRAPHICS
                 float opacity = Mathf.MoveTowards(renderer.material.GetFloat(opacityParam), target, Time.deltaTime * speed);
                 renderer.material.SetFloat(opacityParam, opacity);
 
-                if(isVideo) audio.volume = opacity;
+                if (isVideo) audio.volume = opacity;
 
                 yield return null;
             }
             co_fadingIn = null;
             co_fadingOut = null;
+
+            if (target == 0) Destroy();
+            else DestroyBackgroundGraphicsOnLayer();
         }
         #endregion
+        private void Destroy() {
+            if(layer.currentGraphic != null && layer.currentGraphic.renderer == renderer) layer.currentGraphic = null;
+            Object.Destroy(renderer.gameObject);
+        }
+        private void DestroyBackgroundGraphicsOnLayer() {
+            layer.DestroyOldGraphics();
+        }
     }
 }

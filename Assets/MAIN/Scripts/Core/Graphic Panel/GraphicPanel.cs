@@ -23,7 +23,7 @@ namespace GRAPHICS
                 if (layers[i].layerDepth == layerDepth) return layers[i];
             }
             if (createIfDoesNotExist) return CreateLayer(layerDepth);
-            
+
             return null;
         }
         private GraphicLayer CreateLayer(int layerDepth)
@@ -49,6 +49,10 @@ namespace GRAPHICS
             for (int i = 0; i < layers.Count; i++) layers[i].panel.SetSiblingIndex(layers[i].layerDepth);
 
             return layer;
+        }
+        public void Clear()
+        {
+            foreach(GraphicLayer layer in layers) layer.Clear();
         }
     }
 }
