@@ -59,8 +59,13 @@ namespace DIALOGUE
         {
             dialogueContainer.SetDialogueColor(config.dialogueColor);
             dialogueContainer.SetDialogueFont(config.dialogueFont);
+            float fontSize = this.config.defaultDialogueFontSize * this.config.dialogueFontScale * config.dialogueFontScale;
+            dialogueContainer.SetDialogueFontText(fontSize);
+
             dialogueContainer.nameContainer.SetNameColor(config.nameColor);
             dialogueContainer.nameContainer.SetNameFont(config.nameFont);
+            fontSize = this.config.defaultNameFontSize * config.nameFontScale;
+            dialogueContainer.nameContainer.SetNameFontSize(fontSize);
         }
         public void ShowSpeakerName(string speakerName = "")
         {
