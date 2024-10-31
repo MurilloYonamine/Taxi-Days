@@ -179,6 +179,7 @@ namespace GRAPHICS
         public void Destroy()
         {
             if (layer.currentGraphic != null && layer.currentGraphic.renderer == renderer) layer.currentGraphic = null;
+            if(layer.oldGraphics.Contains(this)) layer.oldGraphics.Remove(this);
             Object.Destroy(renderer.gameObject);
         }
         private void DestroyBackgroundGraphicsOnLayer()
