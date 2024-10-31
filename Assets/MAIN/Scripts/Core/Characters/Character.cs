@@ -92,7 +92,7 @@ namespace CHARACTERS
             {
                 GameObject gameObject = GameObject.Find($"Character - [{displayName}]");
                 Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
-                dialogueSystem.dialogueContainer.rootContainer.transform.position = containerPosition;
+                dialogueSystem.dialogueContainer.root.transform.position = containerPosition;
             }
         }
         public void SetNameFont(TMP_FontAsset font) => config.nameFont = font;

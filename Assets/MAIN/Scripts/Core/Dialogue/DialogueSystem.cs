@@ -18,6 +18,9 @@ namespace DIALOGUE
         public DialogueContainer dialogueContainer = new DialogueContainer();
         private ConversationManager conversationManager;
         private TextArchitect textArchitect;
+
+        [SerializeField] private CanvasGroup mainCanvas;
+
         public static DialogueSystem instance { get; private set; }
 
         public delegate void DialogueSystemEvent();
@@ -26,6 +29,8 @@ namespace DIALOGUE
         public bool isRunningConversation => conversationManager.isRunning;
 
         public DialogueContinuePrompt prompt;
+        private CanvasGroupController cgController;
+
         private void Awake()
         {
             if (instance == null)
@@ -45,6 +50,9 @@ namespace DIALOGUE
             if (_initialized) return;
             textArchitect = new TextArchitect(dialogueContainer.dialogueText);
             conversationManager = new ConversationManager(textArchitect);
+
+            cgController = new CanvasGroupController(this, mainCanvas);
+            dialogueContainer.Initialize();
         }
         public void OnUserPrompt_Next() => onUserPrompt_Next?.Invoke();
 
@@ -85,5 +93,9 @@ namespace DIALOGUE
             return Say(conversation);
         }
         public Coroutine Say(List<string> conversation) => conversationManager.StartConversation(conversation);
+
+        public bool isVisible => cgController.isVisible;
+        public Coroutine Show(float speed = 1f, bool immediate = false) => cgController.Show(speed, immediate);
+        public Coroutine Hide(float speed = 1f, bool immediate = false) => cgController.Hide(speed, immediate);
     }
 }

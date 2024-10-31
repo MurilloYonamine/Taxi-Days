@@ -1,7 +1,7 @@
 PlayAmbience(RainyMood)
 PlayVoice(exclamation)
 enter Lissima "Yeee, funcionou!"
-HideDB()
+HideDB(-spd 0.1)
 enter Cind "Pois é"
 Lissima "Estou feliz"
 Cind "Eu também!"
@@ -9,5 +9,11 @@ ShowDB()
 
 StopSong()
 StopAmbience()
+
+[wait]HideUI(-spd 0.5)
+
+wait(1)
+
+[wait]ShowUI(-i true)
 
 wait(100)
