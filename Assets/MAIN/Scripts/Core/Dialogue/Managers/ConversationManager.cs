@@ -66,6 +66,8 @@ namespace DIALOGUE
             // show or hide the speaker name if there is one present.
             if (line.hasSpeaker) HandleSpeakerLogic(line.speakerData);
 
+            if(!dialogueSystem.dialogueContainer.isVisible) dialogueSystem.dialogueContainer.Show();
+
             // build dialogue
             yield return BuildLineSegments(line.dialogueData);
         }
