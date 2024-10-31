@@ -115,8 +115,21 @@ namespace AUDIO
         public void StopTrack(int channel)
         {
             AudioChannel audioChannel = TryGetChannel(channel, createIfDoesNotExist: false);
-            if(audioChannel == null) return;
+            if (audioChannel == null) return;
             audioChannel.StopTrack();
+        }
+        public void StopTrack(string trackName)
+        {
+            trackName = trackName.ToLower();
+
+            foreach(AudioChannel channel in channels.Values)
+            {
+                if(channel.activeTrack != null && channel.activeTrack.name.ToLower() == trackName)
+                {
+                    channel.StopTrack();
+                    return;
+                }
+            }
         }
         public AudioChannel TryGetChannel(int channelNumber, bool createIfDoesNotExist = false)
         {

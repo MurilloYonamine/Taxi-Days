@@ -73,7 +73,7 @@ namespace AUDIO
         }
         private IEnumerator VolumeLeveling()
         {
-            while (activeTrack != null && (tracks.Count > 1 || activeTrack.volume != activeTrack.volumeCap) || (activeTrack == null && tracks.Count > 0))
+            while ((activeTrack != null && (tracks.Count > 1 || activeTrack.volume != activeTrack.volumeCap)) || (activeTrack == null && tracks.Count > 0))
             {
                 for (int i = tracks.Count - 1; i >= 0; i--)
                 {
@@ -81,17 +81,15 @@ namespace AUDIO
 
                     float targetVol = activeTrack == track ? track.volumeCap : 0;
 
-                    if (track == activeTrack && track.volume == targetVol)
-                        continue;
+                    if (track == activeTrack && track.volume == targetVol) continue;
 
-                    track.volume = Mathf.MoveTowards(track.volume, targetVol, AudioManager.TRACK_TRANSITION_SPEED);
+                    track.volume = Mathf.MoveTowards(track.volume, targetVol, AudioManager.TRACK_TRANSITION_SPEED * Time.deltaTime);
 
                     if (track != activeTrack && track.volume == 0)
                     {
                         DestroyTrack(track);
                     }
                 }
-
                 yield return null;
             }
             co_volumeLeveling = null;

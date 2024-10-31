@@ -1,51 +1,9 @@
-wait(1)
+PlayAmbience(RainyMood)
+PlaySong("Happy")
+PlayVoice(exclamation)
+enter Lissima "Yeee, funcionou!"
 
-SetLayerMedia(background "Fantasy Landscape" -aud true -spd 0.7 -blend hurricane)
+StopSong()
+StopAmbience()
 
-CreateCharacter(Lissima -e true -i true)
-
-Lissima "Welcome to the barracks!"
-
-SetLayerMedia(cinematic -m "~/Graphics/Gallery/flower")
-
-Lissima "AAAA"
-
-ClearLayerMedia(cinematic)
-
-Lissima "Tá limpo."
-
-CreateCharacter(Cind -e true -i true), CreateCharacter(Gato -e true -i true)
-
-wait(1), Sort(Lissima Cind Gato), wait(1)
-
-Lissima.SetColor(red)
-
-Lissima.SetPriority(5), wait(1), Cind.SetPriority(6)
-
-[wait]MoveCharacter(Lissima 1 0.8 -spd 0.5)
-
-[wait]Lissima.Hide(), [wait]Lissima.Show()
-
-[wait]Lissima.Move(0 1 -spd 0.5)
-
-Hide(Lissima Cind Gato -spd 0.1)
-
-Lissima "Estamos invisiveis!"
-
-Show(Lissima Cind Gato -spd 0.1)
-
-Narrator "Mostrando os personagens."
-
-enter Lissima as ??? "Como você está?"
-
-Cind "Estou... {wa 0.1} bem."
-
-enter Lissima as ??? [lissima_undressed_1] "Sério mesmo?"
-
-enter Gato as ??? "Olá, caro cavaleiro, qual o seu nome?"
-
-enter Cind [cind_1] "Meu nome é cind!"
-
-Gato "Entendi. {wa 0.1} Posso me juntar a vocês?"
-
-Lissima "Claro, quanto mais, melhor!"
+wait(100)
