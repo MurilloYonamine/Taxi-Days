@@ -1,19 +1,7 @@
-PlayAmbience(RainyMood)
-PlayVoice(exclamation)
-enter Lissima "Yeee, funcionou!"
-HideDB(-spd 0.1)
-enter Cind "Pois é"
-Lissima "Estou feliz"
-Cind "Eu também!"
-ShowDB()
+Narrator "And so begin the adventures of <mainChar>"
 
-StopSong()
-StopAmbience()
+<mainChar> "My name is <mainChar>.{c}What time is it?"
 
-[wait]HideUI(-spd 0.5)
+Narrator "The time is <time> and you are only level <playerLevel>"
 
-wait(1)
-
-[wait]ShowUI(-i true)
-
-wait(100)
+<mainChar> "Fuggedaboutit! <tempVal1>"

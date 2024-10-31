@@ -13,10 +13,14 @@ namespace DIALOGUE
         public bool isRunning => process != null;
         private TextArchitect textArchitect = null;
         private bool userPrompt = false;
+
+        private TagManager tagManager;
         public ConversationManager(TextArchitect textArchitect)
         {
             this.textArchitect = textArchitect;
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
+
+            tagManager = new TagManager();
         }
         // Event for when the user prompts the next line
         private void OnUserPrompt_Next() => userPrompt = true;
@@ -78,7 +82,7 @@ namespace DIALOGUE
             Character character = CharacterManager.instance.GetCharacter(speakerData.name, createIfDoesNotExist: characterMustBeCreated);
             if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing)) character.Show();
 
-            dialogueSystem.ShowSpeakerName(speakerData.displayName);
+            dialogueSystem.ShowSpeakerName(tagManager.Inject(speakerData.displayName));
             DialogueSystem.instance.ApplySpeakerDataToDialogueContainer(speakerData.name);
 
             if (speakerData.isCastingPosition) character.MoveToPosition(speakerData.castPosition);
@@ -144,6 +148,8 @@ namespace DIALOGUE
         }
         private IEnumerator BuildDialogue(string dialogue, bool append = false)
         {
+            dialogue = tagManager.Inject(dialogue);
+
             // build the dialogue
             if (!append) textArchitect.Build(dialogue);
             else textArchitect.Append(dialogue);

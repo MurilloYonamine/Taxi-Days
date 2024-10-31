@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: Character Configuration Asset
   m_EditorClassIdentifier: 
   characters:
+  - name: <mainChar>
+    alias: mc
+    characterType: 0
+    nameColor: {r: 0.9245283, g: 0.51023495, b: 0.7284814, a: 1}
+    dialogueColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0
+    nameFontScale: 1
+    dialogueFontScale: 1
+    dialoguePosition: {x: 0, y: 0}
   - name: Fada Emo
     alias: fada
     characterType: 1
@@ -20,6 +32,10 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0
+    nameFontScale: 1
+    dialogueFontScale: 1
     dialoguePosition: {x: 0, y: 0}
   - name: Narrator
     alias: narr
@@ -28,6 +44,10 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0
+    nameFontScale: 1
+    dialogueFontScale: 1
     dialoguePosition: {x: 0, y: 0}
   - name: Gato
     alias: gato
@@ -36,6 +56,10 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0
+    nameFontScale: 1
+    dialogueFontScale: 1
     dialoguePosition: {x: 0, y: 0}
   - name: Cind
     alias: cind
@@ -44,6 +68,10 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0
+    nameFontScale: 1
+    dialogueFontScale: 1
     dialoguePosition: {x: 0, y: 0}
   - name: Lissima
     alias: lis
@@ -52,6 +80,10 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 72d68798eca17354db4eeb6d95d4a306, type: 2}
     dialogueFont: {fileID: 11400000, guid: 72d68798eca17354db4eeb6d95d4a306, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0
+    nameFontScale: 1
+    dialogueFontScale: 1
     dialoguePosition: {x: 0, y: 0}
   - name: Generic
     alias: gen
@@ -60,4 +92,8 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0
+    nameFontScale: 1
+    dialogueFontScale: 1
     dialoguePosition: {x: 0, y: 0}
