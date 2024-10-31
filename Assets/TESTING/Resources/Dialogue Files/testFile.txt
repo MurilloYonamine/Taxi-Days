@@ -5,3 +5,12 @@ Narrator "And so begin the adventures of <mainChar>"
 Narrator "The time is <time> and you are only level <playerLevel>"
 
 <mainChar> "Fuggedaboutit! <tempVal1>"
+Narrator "Suddenly, a wild <enemy> appears!"
+
+<mainChar> "I will defeat you, <enemy>!{c}Prepare yourself!"
+
+Narrator "The battle begins, and <mainChar> draws their weapon."
+
+<enemy> "You think you can beat me? <taunt>"
+
+<mainChar> "I won't lose! <battleCry>"
