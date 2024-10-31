@@ -99,7 +99,7 @@ namespace CHARACTERS
         public void SetDialogueFont(TMP_FontAsset font) => config.dialogueFont = font;
         public void SetNameColor(Color color) => config.nameColor = color;
         public void SetDialogueColor(Color color) => config.dialogueColor = color;
-        public void ResetConfiguration() => config = CharacterManager.instance.GetCharacterConfig(name);
+        public void ResetConfiguration() => config = CharacterManager.instance.GetCharacterConfig(name, getOriginal: true);
         public void UpdateTextCustomizationsOnScreen() => dialogueSystem.ApplySpeakerDataToDialogueContainer(config);
 
         #endregion
