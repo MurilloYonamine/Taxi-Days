@@ -13,7 +13,7 @@ namespace AUDIO
         */
         private const string SFX_PARENTE_NAME = "SFX";
         private const string SFX_NAME_FORMAT = "SFX - [{0}]";
-        private const float TRACK_TRANSITION_SPEED = 1f;
+        public const float TRACK_TRANSITION_SPEED = 1f;
 
         public static AudioManager instance { get; private set; }
 
@@ -96,8 +96,7 @@ namespace AUDIO
                 }
             }
         }
-
-        public AudioTrack PlayTrack(string filePath, int channel = 0, bool loop = true, float startingVolume = 0f, float volumeCap = 1f)
+        public AudioTrack PlayTrack(string filePath, int channel = 0, bool loop = true, float startingVolume = 0f, float volumeCap = 1f, float pitch = 1f)
         {
             AudioClip clip = Resources.Load<AudioClip>(filePath);
             if (clip == null)
@@ -105,25 +104,33 @@ namespace AUDIO
                 Debug.LogError("Audio clip não foi encontrado em: " + filePath);
                 return null;
             }
-            return PlayTrack(clip, channel, loop, startingVolume, volumeCap, filePath);
+            return PlayTrack(clip, channel, loop, startingVolume, volumeCap, pitch, filePath);
         }
-        public AudioTrack PlayTrack(AudioClip clip, int channel = 0, bool loop = true, float startingVolume = 0f, float volumeCap = 1f, string filePath = "")
+        public AudioTrack PlayTrack(AudioClip clip, int channel = 0, bool loop = true, float startingVolume = 0f, float volumeCap = 1f, float pitch = 1f, string filePath = "")
         {
             AudioChannel audioChannel = TryGetChannel(channel, createIfDoesNotExist: true);
-            AudioTrack track = audioChannel.PlayTrack(clip, loop, startingVolume, volumeCap, filePath);
+            AudioTrack track = audioChannel.PlayTrack(clip, loop, startingVolume, volumeCap, pitch, filePath);
             return track;
+        }
+        public void StopTrack(int channel)
+        {
+            AudioChannel audioChannel = TryGetChannel(channel, createIfDoesNotExist: false);
+            if(audioChannel == null) return;
+            audioChannel.StopTrack();
         }
         public AudioChannel TryGetChannel(int channelNumber, bool createIfDoesNotExist = false)
         {
             AudioChannel channel = null;
 
-            if(channels.TryGetValue(channelNumber, out channel))
+            if (channels.TryGetValue(channelNumber, out channel))
             {
                 return channel;
             }
             else if (createIfDoesNotExist)
             {
-                return new AudioChannel(channelNumber);
+                channel = new AudioChannel(channelNumber);
+                channels.Add(channelNumber, channel);
+                return channel;
             }
             return null;
         }

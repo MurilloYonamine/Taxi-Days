@@ -24,10 +24,12 @@ namespace TESTING
             yield return DialogueSystem.instance.Say("Narrator", "Can we see your ship?");
 
             GraphicPanelManager.instance.GetPanel("background").GetLayer(0, true).SetTexture("Graphics/Background Images/5");
-            AudioManager.instance.PlayTrack("Audio/Music/Calm", startingVolume: 0.7f);
+            AudioManager.instance.PlayTrack("Audio/Music/Calm", volumeCap: 0.5f);
             AudioManager.instance.PlayVoice("Audio/Voices/exclamation");
 
             yield return lissima.Say("Of course!");
+
+            yield return AudioManager.instance.PlayTrack("Audio/Music/Happy", volumeCap: 0.5f);
 
             yield return null;
         }
