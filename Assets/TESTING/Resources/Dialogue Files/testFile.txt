@@ -1,7 +1,9 @@
 PlayAmbience(RainyMood)
-PlaySong("Happy")
 PlayVoice(exclamation)
 enter Lissima "Yeee, funcionou!"
+enter Cind "Pois é"
+Lissima "Estou feliz"
+Cind "Eu também!"
 
 StopSong()
 StopAmbience()

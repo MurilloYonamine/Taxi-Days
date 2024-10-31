@@ -166,7 +166,12 @@ namespace DIALOGUE
         }
         private IEnumerator WaitForUserInput()
         {
+            dialogueSystem.prompt.Show();
+
             while (!userPrompt) yield return null;
+
+            dialogueSystem.prompt.Hide();
+
             userPrompt = false;
         }
     }
