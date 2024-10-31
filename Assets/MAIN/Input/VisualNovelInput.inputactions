@@ -30,6 +30,17 @@
                 {
                     "name": "",
                     "id": "86c6b36a-5c11-4bbd-8d80-4f1f7dd14f50",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "769286e6-2356-4f90-b164-021d84ec7eb6",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
