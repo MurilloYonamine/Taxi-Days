@@ -15,20 +15,28 @@ namespace DIALOGUE
         private bool userPrompt = false;
 
         private TagManager tagManager;
+
+        public Conversation conversation => conversationQueue.IsEmpty() ? null : conversationQueue.topConversation;
+        private ConversationQueue conversationQueue;
         public ConversationManager(TextArchitect textArchitect)
         {
             this.textArchitect = textArchitect;
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
 
             tagManager = new TagManager();
+            conversationQueue = new ConversationQueue();
         }
+        public void Enqueue(Conversation conversation) => conversationQueue.Enqueue(conversation);
+        public void EnqueuePriority(Conversation conversation) => conversationQueue.EnqueuePriority(conversation);
+
         // Event for when the user prompts the next line
         private void OnUserPrompt_Next() => userPrompt = true;
 
-        public Coroutine StartConversation(List<string> conversation)
+        public Coroutine StartConversation(Conversation conversation)
         {
             StopConversation();
-            process = dialogueSystem.StartCoroutine(RunningConversation(conversation));
+            Enqueue(conversation);
+            process = dialogueSystem.StartCoroutine(RunningConversation());
 
             return process;
         }
@@ -40,14 +48,20 @@ namespace DIALOGUE
             process = null;
         }
         // Run the conversation
-        IEnumerator RunningConversation(List<string> conversation)
+        IEnumerator RunningConversation()
         {
-            for (int i = 0; i < conversation.Count; i++)
+            while (!conversationQueue.IsEmpty())
             {
+                Conversation currentConversation = conversation;
+                string rawLine = currentConversation.CurrentLine();
                 // Don't show any blank lines or try to run any logic of them
-                if (string.IsNullOrWhiteSpace(conversation[i])) continue;
+                if (string.IsNullOrWhiteSpace(rawLine))
+                {
+                    TryAdvanceConversation(currentConversation);
+                    continue;
+                }
 
-                DIALOGUE_LINE line = DialogueParser.Parse(conversation[i]);
+                DIALOGUE_LINE line = DialogueParser.Parse(rawLine);
 
                 // Show dialogue
                 if (line.hasDialogue) yield return Line_RunDialogue(line);
@@ -62,7 +76,15 @@ namespace DIALOGUE
 
                     CommandManager.instance.StopAllProcesses();
                 }
+                TryAdvanceConversation(currentConversation);
             }
+            process = null;
+        }
+        private void TryAdvanceConversation(Conversation conversation)
+        {
+            conversation.IncrementProgress();
+
+            if (conversation.HasReachedEnd()) conversationQueue.Dequeue();
         }
         // Run the dialogue
         private IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
@@ -70,7 +92,7 @@ namespace DIALOGUE
             // show or hide the speaker name if there is one present.
             if (line.hasSpeaker) HandleSpeakerLogic(line.speakerData);
 
-            if(!dialogueSystem.dialogueContainer.isVisible) dialogueSystem.dialogueContainer.Show();
+            if (!dialogueSystem.dialogueContainer.isVisible) dialogueSystem.dialogueContainer.Show();
 
             // build dialogue
             yield return BuildLineSegments(line.dialogueData);
@@ -129,7 +151,7 @@ namespace DIALOGUE
                 yield return BuildDialogue(segment.dialogue, segment.appendText);
             }
         }
-        public bool isWaitingOnAutoTimer {get; private set;} = false;
+        public bool isWaitingOnAutoTimer { get; private set; } = false;
         private IEnumerator WaitForDialogueSegmentSignalToBeTriggered(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment)
         {
             // Wait for the signal to be triggered
