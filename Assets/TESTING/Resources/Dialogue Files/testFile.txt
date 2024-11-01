@@ -2,27 +2,41 @@ CreateCharacter(Lissima -i false -e true -sm true)
 
 Lissima "Olá!"
 
-[wait]HideDB()
+HideDB()
 
-lissima.Move(0.2 0.5)
+[wait]lissima.Move(0.2 0.5 -spd 0.5)
 
-lissima.unhighlight()
+[wait]lissima.unhighlight(-spd 0.5)
 
-[wait]ShowDB()
+ShowDB()
 
 CreateCharacter(Cind -i false -e true -sm true)
 
-Wait(1)
 Cind "Oh, olá Lissima!"
 
-Cind.SetSprite(cind_1 -spd 1)
+HideDB()
 
-Cind.Move(0.8 0.5)
+[wait]Cind.SetSprite(cind_1 -spd 0.5)
+[wait]Cind.Move(0.8 0.5 -spd 0.5)
+[wait]Cind.unhighlight(-spd 0.5)
 
 CreateCharacter(Gato -i false -e true -sm true)
-
-Gato.Move(0.5 0 -i true)
+ShowDB()
 
 Gato "Nossa!{a} Vocês também estão aqui?"
 
-Gato.Move(0.5 0.5 -i false)
+lissima.highlight(), Cind.highlight()
+
+[wait]HideUI(-spd 0.5)
+HideDB()
+
+ShowUI(-sm true -spd 0.5)
+
+[wait]SetLayerMedia(-p Background -m "~/Graphics/Background Images/hot spring" -blend hurricane -spd 0.5)
+Wait(5)
+ShowDB()
+Lissima "Caramba, aqui está quente!"
+
+Lissima.SetColor(red -spd)
+Cind.SetColor(red -spd)
+Gato.SetColor(red -spd)
