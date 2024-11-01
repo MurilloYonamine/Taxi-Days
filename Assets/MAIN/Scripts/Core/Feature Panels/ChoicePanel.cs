@@ -40,10 +40,6 @@ public class ChoicePanel : MonoBehaviour
         cg.alpha = 0;
         cg.SetInteractableState(active: false);
     }
-    private void Start()
-    {
-
-    }
     public void Show(string question, string[] choices)
     {
         lastDecision = new ChoicePanelDecision(question, choices);
@@ -114,6 +110,7 @@ public class ChoicePanel : MonoBehaviour
     public void Hide()
     {
         cg.Hide();
+        cg.SetInteractableState(active: false);
     }
     private void AcceptAnswer(int index)
     {

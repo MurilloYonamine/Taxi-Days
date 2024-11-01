@@ -38,6 +38,7 @@ namespace DIALOGUE
         public void SetRootContainerPosition(string characterName)
         {
             GameObject gameObject = GameObject.Find($"Character - [{characterName}]");
+            if (gameObject == null) return;
             Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
             root.transform.position = containerPosition;
         }

@@ -20,18 +20,13 @@ namespace DIALOGUE
             Queue<Conversation> queue = new Queue<Conversation>();
             queue.Enqueue(conversation);
 
-            while (conversationQueue.Count > 0)
-            {
-                queue.Enqueue(conversationQueue.Dequeue());
-            }
+            while (conversationQueue.Count > 0) queue.Enqueue(conversationQueue.Dequeue());
+
             conversationQueue = queue;
         }
         public void Dequeue()
         {
-            if (conversationQueue.Count > 0)
-            {
-                conversationQueue.Dequeue();
-            }
+            if (conversationQueue.Count > 0) conversationQueue.Dequeue();
         }
         public bool IsEmpty() => conversationQueue.Count == 0;
     }

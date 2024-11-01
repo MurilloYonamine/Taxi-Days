@@ -22,6 +22,6 @@ namespace DIALOGUE
         public int Count => lines.Count;
         public List<string> GetLines() => lines;
         public string CurrentLine() => lines[progress];
-        public bool HasReachedEnd() => progress >= lines.Count;
+        public bool HasReachedEnd() => progress >= lines.Count - 1;
     }
 }

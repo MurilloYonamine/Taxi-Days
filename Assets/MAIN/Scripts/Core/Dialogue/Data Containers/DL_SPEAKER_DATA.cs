@@ -11,6 +11,7 @@ namespace DIALOGUE
         Data container that holds all the information
         pertaining to a speaker on a specific dialogue line
         */
+        public string rawData { get; private set; } = string.Empty;
         public string name, castName;
         public string displayName => isCastingName ? castName : name;
         public Vector2 castPosition;
@@ -43,6 +44,7 @@ namespace DIALOGUE
 
         public DL_SPEAKER_DATA(string rawSpeaker)
         {
+            rawData = rawSpeaker;
             rawSpeaker = ProcessKeywords(rawSpeaker);
 
             string pattern = @$"{NAMECAST_ID}|{POSITIONCAST_ID}|{EXPRESSIONCAST_ID.Insert(EXPRESSIONCAST_ID.Length - 1, @"\")}";

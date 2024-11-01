@@ -9,11 +9,14 @@ namespace DIALOGUE
         /*
         The data container holding all segments and information pertaining to a single dialogue line
         */
+        public string rawData { get; private set; } = string.Empty;
+
         public List<DIALOGUE_SEGMENT> segments;
         private const string segmentIdentifierPattern = @"\{[ca]\}|\{w[ca]\s\d*\.?\d*\}";
 
         public DL_DIALOGUE_DATA(string rawDialogue)
         {
+            rawData = rawDialogue;
             segments = RipSegments(rawDialogue);
         }
         public List<DIALOGUE_SEGMENT> RipSegments(string rawDialogue)

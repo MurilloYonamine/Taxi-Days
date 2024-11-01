@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CHARACTERS;
 using COMMANDS;
+using DIALOGUE.LogicalLines;
 using UnityEngine;
 
 namespace DIALOGUE
@@ -15,8 +16,10 @@ namespace DIALOGUE
         private bool userPrompt = false;
 
         private TagManager tagManager;
+        private LogicalLineManager logicalLineManager;
 
         public Conversation conversation => conversationQueue.IsEmpty() ? null : conversationQueue.topConversation;
+        public int conversationProgress => conversationQueue.IsEmpty() ? -1 : conversationQueue.topConversation.GetProgress();
         private ConversationQueue conversationQueue;
         public ConversationManager(TextArchitect textArchitect)
         {
@@ -24,6 +27,7 @@ namespace DIALOGUE
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
 
             tagManager = new TagManager();
+            logicalLineManager = new LogicalLineManager();
             conversationQueue = new ConversationQueue();
         }
         public void Enqueue(Conversation conversation) => conversationQueue.Enqueue(conversation);
@@ -53,7 +57,14 @@ namespace DIALOGUE
             while (!conversationQueue.IsEmpty())
             {
                 Conversation currentConversation = conversation;
+
+                if (currentConversation.HasReachedEnd())
+                {
+                    conversationQueue.Dequeue();
+                    continue;
+                }
                 string rawLine = currentConversation.CurrentLine();
+
                 // Don't show any blank lines or try to run any logic of them
                 if (string.IsNullOrWhiteSpace(rawLine))
                 {
@@ -62,27 +73,35 @@ namespace DIALOGUE
                 }
 
                 DIALOGUE_LINE line = DialogueParser.Parse(rawLine);
-
-                // Show dialogue
-                if (line.hasDialogue) yield return Line_RunDialogue(line);
-
-                // Run any commands
-                if (line.hasCommands) yield return Line_RunCommands(line);
-
-                if (line.hasDialogue)
+                if (logicalLineManager.TryGetLogic(line, out Coroutine logic))
                 {
-                    // Wait for user input
-                    yield return WaitForUserInput();
-
-                    CommandManager.instance.StopAllProcesses();
+                    yield return logic;
                 }
-                TryAdvanceConversation(currentConversation);
+                else
+                {
+                    // Show dialogue
+                    if (line.hasDialogue) yield return Line_RunDialogue(line);
+
+                    // Run any commands
+                    if (line.hasCommands) yield return Line_RunCommands(line);
+
+                    if (line.hasDialogue)
+                    {
+                        // Wait for user input
+                        yield return WaitForUserInput();
+
+                        CommandManager.instance.StopAllProcesses();
+                    }
+                    TryAdvanceConversation(currentConversation);
+                }
             }
             process = null;
         }
         private void TryAdvanceConversation(Conversation conversation)
         {
             conversation.IncrementProgress();
+
+            if (conversation != conversationQueue.topConversation) return;
 
             if (conversation.HasReachedEnd()) conversationQueue.Dequeue();
         }

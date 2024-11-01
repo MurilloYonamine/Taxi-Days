@@ -40,3 +40,22 @@ Lissima "Caramba, aqui está quente!"
 Lissima.SetColor(red -spd)
 Cind.SetColor(red -spd)
 Gato.SetColor(red -spd)
+
+Gato "So What pet do you guys prefer?"
+
+choice "What Pet Do You Prefer?"
+{
+    -Dogs
+        Gato "Dogs are wonderful. They give you so much undeserved love!"
+        <mainChar> "Do you have a dog?"
+        Gato "No, but one day I would love to have a big fluffy one!"
+
+    -Cats
+        Gato "I love cats! {a}Well, {wa 0.5} when they aren't knocking over things..."
+        "But they can be so graceful at times."
+        "...{c}Except when they're knocking over things, haha!"
+
+    -I Prefer Chinchillas
+        Gato "Oh, they're cute."
+        "Did you know they take dust baths? I had no idea!"
+}
