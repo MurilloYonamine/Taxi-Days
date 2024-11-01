@@ -1,4 +1,4 @@
-CreateCharacter(Lissima -i false -e true -sm true)
+
 
 Lissima "Olá!"
 
@@ -49,8 +49,6 @@ choice "What Pet Do You Prefer?"
         Gato "Dogs are wonderful. They give you so much undeserved love!"
         <mainChar> "Do you have a dog?"
         Gato "No, but one day I would love to have a big fluffy one!"
-        Load(testFile2)
-
 
     -Cats
         Gato "I love cats! {a}Well, {wa 0.5} when they aren't knocking over things..."

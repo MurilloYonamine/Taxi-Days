@@ -88,12 +88,12 @@ namespace COMMANDS
 
             if (immediate)
             {
-            character.SetPosition(position);
+                character.SetPosition(position);
             }
             else
             {
-            CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.SetPosition(position); });
-            yield return character.MoveToPosition(position, speed, smooth);
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.SetPosition(position); });
+                yield return character.MoveToPosition(position, speed, smooth);
             }
         }
         private static IEnumerator ShowAll(string[] data)
@@ -103,9 +103,9 @@ namespace COMMANDS
 
             foreach (string characterName in data)
             {
-            Character character = CharacterManager.instance.GetCharacter(characterName, createIfDoesNotExist: false);
+                Character character = CharacterManager.instance.GetCharacter(characterName, createIfDoesNotExist: false);
 
-            if (character != null) characters.Add(character);
+                if (character != null) characters.Add(character);
             }
             if (characters.Count == 0) yield break;
 
@@ -117,20 +117,20 @@ namespace COMMANDS
             // Call the logic on all the characters
             foreach (Character character in characters)
             {
-            if (immediate) character.isVisible = true;
-            else character.Show();
+                if (immediate) character.isVisible = true;
+                else character.Show();
             }
 
             if (!immediate)
             {
-            CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
-            {
-                foreach (Character character in characters)
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
                 {
-                character.isVisible = true;
-                }
-            });
-            while (characters.Any(c => c.isRevealing)) yield return null;
+                    foreach (Character character in characters)
+                    {
+                        character.isVisible = true;
+                    }
+                });
+                while (characters.Any(c => c.isRevealing)) yield return null;
             }
         }
         private static IEnumerator HideAll(string[] data)
@@ -141,9 +141,9 @@ namespace COMMANDS
 
             foreach (string characterName in data)
             {
-            Character character = CharacterManager.instance.GetCharacter(characterName, createIfDoesNotExist: false);
+                Character character = CharacterManager.instance.GetCharacter(characterName, createIfDoesNotExist: false);
 
-            if (character != null) characters.Add(character);
+                if (character != null) characters.Add(character);
             }
             if (characters.Count == 0) yield break;
 
@@ -156,20 +156,20 @@ namespace COMMANDS
             // Call the logic on all the characters
             foreach (Character character in characters)
             {
-            if (immediate) character.isVisible = false;
-            else character.Hide(speed);
+                if (immediate) character.isVisible = false;
+                else character.Hide(speed);
             }
 
             if (!immediate)
             {
-            CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
-            {
-                foreach (Character character in characters)
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
                 {
-                character.isVisible = false;
-                }
-            });
-            while (characters.Any(cmd => cmd.isRevealing)) yield return null;
+                    foreach (Character character in characters)
+                    {
+                        character.isVisible = false;
+                    }
+                });
+                while (characters.Any(cmd => cmd.isRevealing)) yield return null;
             }
         }
         public static IEnumerator HighlightAll(string[] data)
@@ -182,13 +182,13 @@ namespace COMMANDS
             // Add any characters specified to be highlighted.
             for (int i = 0; i < data.Length; i++)
             {
-            Character character = CharacterManager.instance.GetCharacter(data[i], createIfDoesNotExist: false);
-            if (character != null)
-                characters.Add(character);
+                Character character = CharacterManager.instance.GetCharacter(data[i], createIfDoesNotExist: false);
+                if (character != null)
+                    characters.Add(character);
             }
 
             if (characters.Count == 0)
-            yield break;
+                yield break;
 
             // Grab the extra parameters
             var parameters = ConvertDataToParameters(data, startingIndex: 1);
@@ -198,36 +198,36 @@ namespace COMMANDS
 
             // Make all characters perform the logic
             foreach (Character character in characters)
-            character.Highlight(immediate: immediate);
+                character.Highlight(immediate: immediate);
 
             // If we are forcing any unspecified characters to use the opposite highlighted status
             if (handleUnspecifiedCharacters)
             {
-            foreach (Character character in CharacterManager.instance.allCharacters)
-            {
-                if (characters.Contains(character))
-                continue;
+                foreach (Character character in CharacterManager.instance.allCharacters)
+                {
+                    if (characters.Contains(character))
+                        continue;
 
-                unspecifiedCharacters.Add(character);
-                character.UnHighlight(immediate: immediate);
-            }
+                    unspecifiedCharacters.Add(character);
+                    character.UnHighlight(immediate: immediate);
+                }
             }
 
             if (!immediate)
             {
-            CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
-            {
-                foreach (Character character in characters)
-                character.Highlight(immediate: true);
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
+                {
+                    foreach (Character character in characters)
+                        character.Highlight(immediate: true);
 
-                if (!handleUnspecifiedCharacters) return;
+                    if (!handleUnspecifiedCharacters) return;
 
-                foreach (Character character in unspecifiedCharacters)
-                character.UnHighlight(immediate: true);
-            });
+                    foreach (Character character in unspecifiedCharacters)
+                        character.UnHighlight(immediate: true);
+                });
 
-            while (characters.Any(c => c.isHighlighting) || (handleUnspecifiedCharacters && unspecifiedCharacters.Any(uc => uc.isHighlighting)))
-                yield return null;
+                while (characters.Any(c => c.isHighlighting) || (handleUnspecifiedCharacters && unspecifiedCharacters.Any(uc => uc.isHighlighting)))
+                    yield return null;
             }
         }
         public static IEnumerator UnhighlightAll(string[] data)
@@ -240,13 +240,13 @@ namespace COMMANDS
             // Add any characters specified to be highlighted.
             for (int i = 0; i < data.Length; i++)
             {
-            Character character = CharacterManager.instance.GetCharacter(data[i], createIfDoesNotExist: false);
-            if (character != null)
-                characters.Add(character);
+                Character character = CharacterManager.instance.GetCharacter(data[i], createIfDoesNotExist: false);
+                if (character != null)
+                    characters.Add(character);
             }
 
             if (characters.Count == 0)
-            yield break;
+                yield break;
 
             // Grab the extra parameters
             var parameters = ConvertDataToParameters(data, startingIndex: 1);
@@ -256,36 +256,36 @@ namespace COMMANDS
 
             // Make all characters perform the logic
             foreach (Character character in characters)
-            character.Highlight(immediate: immediate);
+                character.Highlight(immediate: immediate);
 
             // If we are forcing any unspecified characters to use the opposite highlighted status
             if (handleUnspecifiedCharacters)
             {
-            foreach (Character character in CharacterManager.instance.allCharacters)
-            {
-                if (characters.Contains(character))
-                continue;
+                foreach (Character character in CharacterManager.instance.allCharacters)
+                {
+                    if (characters.Contains(character))
+                        continue;
 
-                unspecifiedCharacters.Add(character);
-                character.UnHighlight(immediate: immediate);
-            }
+                    unspecifiedCharacters.Add(character);
+                    character.UnHighlight(immediate: immediate);
+                }
             }
 
             if (!immediate)
             {
-            CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
-            {
-                foreach (Character character in characters)
-                character.Highlight(immediate: true);
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
+                {
+                    foreach (Character character in characters)
+                        character.Highlight(immediate: true);
 
-                if (!handleUnspecifiedCharacters) return;
+                    if (!handleUnspecifiedCharacters) return;
 
-                foreach (Character character in unspecifiedCharacters)
-                character.UnHighlight(immediate: true);
-            });
+                    foreach (Character character in unspecifiedCharacters)
+                        character.UnHighlight(immediate: true);
+                });
 
-            while (characters.Any(c => c.isUnHighlighting) || (handleUnspecifiedCharacters && unspecifiedCharacters.Any(uc => uc.isUnHighlighting)))
-                yield return null;
+                while (characters.Any(c => c.isUnHighlighting) || (handleUnspecifiedCharacters && unspecifiedCharacters.Any(uc => uc.isUnHighlighting)))
+                    yield return null;
             }
         }
         #endregion
