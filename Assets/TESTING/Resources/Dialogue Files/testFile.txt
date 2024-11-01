@@ -1,16 +1,28 @@
-Narrator "And so begin the adventures of <mainChar>"
+CreateCharacter(Lissima -i false -e true -sm true)
 
-<mainChar> "My name is <mainChar>.{c}What time is it?"
+Lissima "Olá!"
 
-Narrator "The time is <time> and you are only level <playerLevel>"
+[wait]HideDB()
 
-<mainChar> "Fuggedaboutit! <tempVal1>"
-Narrator "Suddenly, a wild <enemy> appears!"
+lissima.Move(0.2 0.5)
 
-<mainChar> "I will defeat you, <enemy>!{c}Prepare yourself!"
+lissima.unhighlight()
 
-Narrator "The battle begins, and <mainChar> draws their weapon."
+[wait]ShowDB()
 
-<enemy> "You think you can beat me? <taunt>"
+CreateCharacter(Cind -i false -e true -sm true)
 
-<mainChar> "I won't lose! <battleCry>"
+Wait(1)
+Cind "Oh, olá Lissima!"
+
+Cind.SetSprite(cind_1 -spd 1)
+
+Cind.Move(0.8 0.5)
+
+CreateCharacter(Gato -i false -e true -sm true)
+
+Gato.Move(0.5 0 -i true)
+
+Gato "Nossa!{a} Vocês também estão aqui?"
+
+Gato.Move(0.5 0.5 -i false)

@@ -35,5 +35,11 @@ namespace DIALOGUE
         public bool isVisible => cgController.isVisible;
         public Coroutine Show(float speed = 1f, bool immediate = false) => cgController.Show(speed, immediate);
         public Coroutine Hide(float speed = 1f, bool immediate = false) => cgController.Hide(speed, immediate);
+        public void SetRootContainerPosition(string characterName)
+        {
+            GameObject gameObject = GameObject.Find($"Character - [{characterName}]");
+            Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
+            root.transform.position = containerPosition;
+        }
     }
 }

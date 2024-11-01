@@ -38,6 +38,7 @@ namespace CHARACTERS
                 DestroyImmediate(this);
             }
         }
+        
         public CharacterConfigData GetCharacterConfig(string characterName, bool getOriginal = false)
         {
             if (!getOriginal)
