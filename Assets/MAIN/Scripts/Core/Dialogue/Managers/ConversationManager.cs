@@ -15,7 +15,6 @@ namespace DIALOGUE
         public TextArchitect textArchitect = null;
         private bool userPrompt = false;
 
-        private TagManager tagManager;
         private LogicalLineManager logicalLineManager;
 
         public Conversation conversation => conversationQueue.IsEmpty() ? null : conversationQueue.topConversation;
@@ -26,7 +25,6 @@ namespace DIALOGUE
             this.textArchitect = textArchitect;
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
 
-            tagManager = new TagManager();
             logicalLineManager = new LogicalLineManager();
             conversationQueue = new ConversationQueue();
         }
@@ -126,7 +124,7 @@ namespace DIALOGUE
             Character character = CharacterManager.instance.GetCharacter(speakerData.name, createIfDoesNotExist: characterMustBeCreated);
             if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing)) character.Show();
 
-            dialogueSystem.ShowSpeakerName(tagManager.Inject(speakerData.displayName));
+            dialogueSystem.ShowSpeakerName(TagManager.Inject(speakerData.displayName));
             DialogueSystem.instance.ApplySpeakerDataToDialogueContainer(speakerData.name);
 
             if (speakerData.isCastingPosition) character.MoveToPosition(speakerData.castPosition);
@@ -195,7 +193,7 @@ namespace DIALOGUE
         }
         private IEnumerator BuildDialogue(string dialogue, bool append = false)
         {
-            dialogue = tagManager.Inject(dialogue);
+            dialogue = TagManager.Inject(dialogue);
 
             // build the dialogue
             if (!append) textArchitect.Build(dialogue);
