@@ -9,7 +9,7 @@ public class NameContainer
     Control visibility and other logic indepently
     */
     [SerializeField] private GameObject root;
-    [SerializeField] private TextMeshProUGUI nameText;
+    [field: SerializeField] public TextMeshProUGUI nameText { get; private set; }
     public void Show(string nameToShow = "")
     {
         root.SetActive(true);

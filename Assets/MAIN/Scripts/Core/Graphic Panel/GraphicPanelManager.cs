@@ -4,16 +4,14 @@ using UnityEngine;
 
 namespace GRAPHICS
 {
+    /// <summary>
+    /// The manager that controls all graphic panels such as background, cinematic, and foreground.
+    /// </summary>  
     public class GraphicPanelManager : MonoBehaviour
     {
-        /*
-        The manager that controls all graphic panels
-        such as background, cinematic, and foreground
-        */
-
         public static GraphicPanelManager instance { get; private set; }
         public const float DEFAULT_TRANSITION_SPEED = 3f;
-        [SerializeField] private GraphicPanel[] allPanels;
+        [field: SerializeField] public GraphicPanel[] allPanels { get; private set; }
         private void Awake()
         {
             if (instance == null)

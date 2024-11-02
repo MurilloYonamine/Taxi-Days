@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace GRAPHICS
 {
+    /// <summary>
+    /// Contains layers that can be assigned images and videos on the UI.
+    /// </summary>
     [System.Serializable]
     public class GraphicPanel
     {
-        /*
-        Contains layers that can be assigned
-        images and videos on the UI.
-        */
         public string panelName;
         public GameObject rootPanel;
-        private List<GraphicLayer> layers = new List<GraphicLayer>();
+        public List<GraphicLayer> layers { get; private set; } = new List<GraphicLayer>();
+
+        public bool isClear => layers == null || layers.Count == 0 || layers.All(layer => layer.currentGraphic == null);
 
         public GraphicLayer GetLayer(int layerDepth, bool createIfDoesNotExist = false)
         {
@@ -52,7 +54,7 @@ namespace GRAPHICS
         }
         public void Clear(float transitionSpeed = 1f, Texture blendTexture = null, bool immediate = false)
         {
-            foreach(GraphicLayer layer in layers) layer.Clear(transitionSpeed, blendTexture, immediate);
+            foreach (GraphicLayer layer in layers) layer.Clear(transitionSpeed, blendTexture, immediate);
         }
     }
 }
