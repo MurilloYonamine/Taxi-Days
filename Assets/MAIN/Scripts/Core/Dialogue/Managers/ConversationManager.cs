@@ -17,8 +17,8 @@ namespace DIALOGUE
 
         private LogicalLineManager logicalLineManager;
 
-        public Conversation conversation => conversationQueue.IsEmpty() ? null : conversationQueue.topConversation;
-        public int conversationProgress => conversationQueue.IsEmpty() ? -1 : conversationQueue.topConversation.GetProgress();
+        public Conversation conversation => (conversationQueue.IsEmpty() ? null : conversationQueue.top);
+        public int conversationProgress => (conversationQueue.IsEmpty() ? -1 : conversationQueue.top.GetProgress());
         private ConversationQueue conversationQueue;
         public ConversationManager(TextArchitect textArchitect)
         {
@@ -64,10 +64,12 @@ namespace DIALOGUE
                     conversationQueue.Dequeue();
                     continue;
                 }
+
                 string rawLine = currentConversation.CurrentLine();
 
+
                 // Don't show any blank lines or try to run any logic of them
-                if (string.IsNullOrWhiteSpace(rawLine))
+                if (string.IsNullOrWhiteSpace(rawLine) || (rawLine.Trim() == "}"))
                 {
                     TryAdvanceConversation(currentConversation);
                     continue;
@@ -102,7 +104,7 @@ namespace DIALOGUE
         {
             conversation.IncrementProgress();
 
-            if (conversation != conversationQueue.topConversation) return;
+            if (conversation != conversationQueue.top) return;
 
             if (conversation.HasReachedEnd()) conversationQueue.Dequeue();
         }

@@ -12,7 +12,7 @@ namespace DIALOGUE
         */
 
         private Queue<Conversation> conversationQueue = new Queue<Conversation>();
-        public Conversation topConversation => conversationQueue.Peek();
+        public Conversation top => conversationQueue.Peek();
 
         public void Enqueue(Conversation conversation) => conversationQueue.Enqueue(conversation);
         public void EnqueuePriority(Conversation conversation)
