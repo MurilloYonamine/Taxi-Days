@@ -36,8 +36,8 @@ namespace History
             DialogueData data = new DialogueData();
 
             DialogueSystem dialogueSystem = DialogueSystem.instance;
-            TextMeshProUGUI dialogueText = dialogueSystem.dialogueContainer.dialogueText;
-            TextMeshProUGUI nameText = dialogueSystem.dialogueContainer.nameContainer.nameText;
+            var dialogueText = dialogueSystem.dialogueContainer.dialogueText;
+            var nameText = dialogueSystem.dialogueContainer.nameContainer.nameText;
 
             data.currentDialogue = dialogueText.text;
             data.dialogueFont = FilePaths.resources_font + dialogueText.font.name;

@@ -38,6 +38,8 @@ namespace History
 
             foreach (var channel in AudioManager.instance.channels)
             {
+                if (channel.Value.activeTrack == null) continue;
+
                 AudioData data = new AudioData(channel.Value);
                 audioChannels.Add(data);
             }

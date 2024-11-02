@@ -37,28 +37,27 @@ namespace History
                 isVideo = graphic.isVideo;
                 useAudio = graphic.useAudio;
             }
-            public static List<GraphicData> Capture()
+        }
+        public static List<GraphicData> Capture()
+        {
+            List<GraphicData> graphicPanels = new List<GraphicData>();
+
+            foreach (var panel in GraphicPanelManager.instance.allPanels)
             {
-                List<GraphicData> graphicLayers = new List<GraphicData>();
+                if (panel.isClear) continue;
 
-                foreach (GraphicPanel panel in GraphicPanelManager.instance.allPanels)
+                GraphicData data = new GraphicData();
+                data.panelName = panel.panelName;
+                data.layers = new List<LayerData>();
+
+                foreach (GraphicLayer layer in panel.layers)
                 {
-                    if (panel.isClear) continue;
-
-                    GraphicData data = new GraphicData();
-                    data.panelName = panel.panelName;
-                    data.layers = new List<LayerData>();
-
-                    foreach (GraphicLayer layer in panel.layers)
-                    {
-                        LayerData layerData = new LayerData(layer);
-                        data.layers.Add(layerData);
-                    }
-                    graphicPanels
+                    LayerData entry = new LayerData(layer);
+                    data.layers.Add(entry);
                 }
-
-                return graphicLayers;
+                graphicPanels.Add(data);
             }
+            return graphicPanels;
         }
     }
 }

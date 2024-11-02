@@ -31,6 +31,21 @@ namespace History
         public List<GraphicData> graphics;
 
         /// <summary>
+        /// Captures the current state of the visual novel and returns a new instance of <see cref="HistoryState"/>.
+        /// </summary>
+        public static HistoryState Capture()
+        {
+            HistoryState state = new HistoryState();
+
+            state.dialogue = DialogueData.Capture();
+            state.characters = CharacterData.Capture();
+            state.audio = AudioData.Capture();
+            state.graphics = GraphicData.Capture();
+
+            return state;
+        }
+
+        /// <summary>
         /// Loads the history state.
         /// </summary>
         public void Load()

@@ -483,7 +483,7 @@ MonoBehaviour:
     root: {fileID: 495601863}
     nameContainer:
       root: {fileID: 983460791}
-      nameText: {fileID: 1050220214}
+      <nameText>k__BackingField: {fileID: 1050220214}
     dialogueText: {fileID: 338083984}
   mainCanvas: {fileID: 802171099}
   prompt: {fileID: 2011374810}
@@ -933,12 +933,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a11628933f0e8340b3908f1b4d1ee2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allPanels:
-  - panelName: Background
+  <allPanels>k__BackingField:
+  - panelName: background
     rootPanel: {fileID: 485846154}
-  - panelName: Cinematic
+  - panelName: cinematic
     rootPanel: {fileID: 1076219080}
-  - panelName: Foreground
+  - panelName: foreground
     rootPanel: {fileID: 442278301}
 --- !u!1 &398334953
 GameObject:
@@ -1682,6 +1682,7 @@ GameObject:
   - component: {fileID: 795094651}
   - component: {fileID: 795094652}
   - component: {fileID: 795094653}
+  - component: {fileID: 795094654}
   m_Layer: 0
   m_Name: Testing
   m_TagString: Untagged
@@ -1716,7 +1717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bc7273df929bf40af04ddee394687d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileToRead: {fileID: 4900000, guid: 2ce4c6324fb3a844b89c44627dd4b9ce, type: 3}
+  fileToRead: {fileID: 4900000, guid: 2f6f98ac01fbb854e96c5efe028afd6a, type: 3}
 --- !u!114 &795094649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,6 +1782,30 @@ MonoBehaviour:
   var_flt: 0
   var_bool: 0
   var_str: 
+--- !u!114 &795094654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795094646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22893e05bf03204b8b2afb51c6f0a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    currentDialogue: 
+    currentSpeaker: 
+    dialogueFont: 
+    dialogueColor: {r: 0, g: 0, b: 0, a: 0}
+    dialogueScale: 0
+    speakerFont: 
+    speakerNameColor: {r: 0, g: 0, b: 0, a: 0}
+    speakerScale: 0
+  audioData: []
+  graphicData: []
+  characterData: []
 --- !u!1 &802171094
 GameObject:
   m_ObjectHideFlags: 0
