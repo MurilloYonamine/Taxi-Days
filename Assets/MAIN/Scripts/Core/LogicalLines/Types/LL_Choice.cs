@@ -34,8 +34,8 @@ namespace DIALOGUE.LogicalLines
 
             Choice selectedChoice = choices[panel.lastDecision.answerIndex];
 
-            Conversation newConversation = new Conversation(selectedChoice.resultLines);
             DialogueSystem.instance.conversationManager.conversation.SetProgress(data.endingIndex);
+            Conversation newConversation = new Conversation(selectedChoice.resultLines);
             DialogueSystem.instance.conversationManager.EnqueuePriority(newConversation);
             
             DialogueSystem.instance.dialogueContainer.Show();

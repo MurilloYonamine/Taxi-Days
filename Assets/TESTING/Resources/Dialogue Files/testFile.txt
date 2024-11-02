@@ -1,7 +1,12 @@
-$money = 50
+$money = 30
 
-narrator "Here is some money."
+if ($money > 45) 
+{
+    narrator "You've got a lone of coin."
+}
+else
+{
+    narrator "You broke."
+}
 
-$money -= 55
-
-narrator "You have '$money' money."
+narrator "Done with the condition!"
