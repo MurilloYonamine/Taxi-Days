@@ -1,20 +1,7 @@
-choice "Which path will you take?"
-{
-    - Left
-        - NARRATOR "You've elected to take the left path."
-        - Load(LeftPath)
-    - Right
-        - NARRATOR "You've elected to take the right path. Good job."
-        - Load(RightPath)
-}
+$money = 50
 
-if ($pathTaken == left)
-{
-    NARRATOR "You've elected to take the left path."
-    Load(LeftPath)
-}
-else
-{
-    NARRATOR "You've elected to take the right path. Good job."
-    Load(RightPath)
-}
+narrator "Here is some money."
+
+$money -= 55
+
+narrator "You have '$money' money."

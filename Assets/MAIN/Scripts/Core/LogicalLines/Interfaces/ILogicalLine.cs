@@ -4,7 +4,7 @@ namespace DIALOGUE.LogicalLines
 {
     interface ILogicalLine
     {
-        string keyword => throw new System.NotImplementedException();
+        string keyword { get; }
         IEnumerator Execute(DIALOGUE_LINE line);
         bool Matches(DIALOGUE_LINE line);
     }

@@ -76,8 +76,10 @@ namespace DIALOGUE
                 }
 
                 DIALOGUE_LINE line = DialogueParser.Parse(rawLine);
+
                 if (logicalLineManager.TryGetLogic(line, out Coroutine logic))
                 {
+                    TryAdvanceConversation(currentConversation);
                     yield return logic;
                 }
                 else
