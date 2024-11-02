@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using DIALOGUE;
 using TMPro;
 using UnityEngine;
@@ -25,10 +26,12 @@ namespace CHARACTERS
         public TMP_FontAsset nameFont;
         public TMP_FontAsset dialogueFont;
 
-        public float nameFontSize, dialogueFontSize;
         public float nameFontScale = 1f, dialogueFontScale = 1f;
 
         public Vector2 dialoguePosition;
+
+        [SerializedDictionary("Path / ID", "Sprite")]
+        public SerializedDictionary<string, Sprite> sprites = new SerializedDictionary<string, Sprite>();
 
         public CharacterConfigData Copy()
         {
@@ -70,8 +73,8 @@ namespace CHARACTERS
                 result.nameColor = new Color(defaultColor.r, defaultColor.g, defaultColor.b, defaultColor.a);
                 result.dialogueColor = new Color(defaultColor.r, defaultColor.g, defaultColor.b, defaultColor.a);
 
-                result.dialogueFontSize = DialogueSystem.instance.config.defaultDialogueFontSize;
-                result.nameFontSize = DialogueSystem.instance.config.defaultNameFontSize;
+                //result.dialogueFontSize = DialogueSystem.instance.config.defaultDialogueFontSize;
+                //result.nameFontSize = DialogueSystem.instance.config.defaultNameFontSize;
 
                 result.dialogueFontScale = 1f;
                 result.nameFontScale = 1f;
