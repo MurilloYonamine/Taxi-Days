@@ -20,6 +20,7 @@ namespace DIALOGUE
         public Conversation conversation => (conversationQueue.IsEmpty() ? null : conversationQueue.top);
         public int conversationProgress => (conversationQueue.IsEmpty() ? -1 : conversationQueue.top.GetProgress());
         private ConversationQueue conversationQueue;
+        public bool allowUserPrompts = true;
         public ConversationManager(TextArchitect textArchitect)
         {
             this.textArchitect = textArchitect;
@@ -32,7 +33,10 @@ namespace DIALOGUE
         public void EnqueuePriority(Conversation conversation) => conversationQueue.EnqueuePriority(conversation);
 
         // Event for when the user prompts the next line
-        private void OnUserPrompt_Next() => userPrompt = true;
+        private void OnUserPrompt_Next()
+        {
+            if (allowUserPrompts) userPrompt = true;
+        }
 
         public Coroutine StartConversation(Conversation conversation)
         {
@@ -96,6 +100,8 @@ namespace DIALOGUE
                         yield return WaitForUserInput();
 
                         CommandManager.instance.StopAllProcesses();
+
+                        dialogueSystem.OnSystemPrompt_OnClear();
                     }
                     TryAdvanceConversation(currentConversation);
                 }
@@ -182,10 +188,18 @@ namespace DIALOGUE
             switch (segment.startSignal)
             {
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.C:
+                    yield return WaitForUserInput();
+                    dialogueSystem.OnSystemPrompt_OnClear();
+                    break;
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.A:
                     yield return WaitForUserInput();
                     break;
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.WC:
+                    isWaitingOnAutoTimer = true;
+                    yield return new WaitForSeconds(segment.signalDelay);
+                    isWaitingOnAutoTimer = false;
+                    dialogueSystem.OnSystemPrompt_OnClear();
+                    break;
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.WA:
                     isWaitingOnAutoTimer = true;
                     yield return new WaitForSeconds(segment.signalDelay);
