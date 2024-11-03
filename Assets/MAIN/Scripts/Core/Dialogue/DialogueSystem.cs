@@ -49,7 +49,7 @@ namespace DIALOGUE
         private void Initialize()
         {
             if (_initialized) return;
-            textArchitect = new TextArchitect(dialogueContainer.dialogueText);
+            textArchitect = new TextArchitect(dialogueContainer.dialogueText, TABuilder.BuilderTypes.Typewriter);
             conversationManager = new ConversationManager(textArchitect);
 
             cgController = new CanvasGroupController(this, mainCanvas);

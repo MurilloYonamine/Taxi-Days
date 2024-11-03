@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CHARACTERS;
+using DIALOGUE;
 using UnityEngine;
 using static History.GraphicData;
 
@@ -42,7 +43,6 @@ namespace History
             public float nameFontScale = 1f;
             public float dialogueFontScale = 1f;
 
-
             public CharacterConfigCache(CharacterConfigData reference)
             {
                 name = reference.name;
@@ -57,6 +57,7 @@ namespace History
 
                 nameFontScale = reference.nameFontScale;
                 dialogueFontScale = reference.dialogueFontScale;
+
             }
         }
         public static List<CharacterData> Capture()
@@ -74,6 +75,7 @@ namespace History
                 entry.enabled = character.isVisible;
                 entry.color = character.color;
                 entry.priority = character.priority;
+                entry.isFacingLeft = character.isFacingLeft;
                 entry.isHighlighted = character.highlighted;
                 entry.position = character.targetPosition;
                 entry.characterConfig = new CharacterConfigCache(character.config);
@@ -130,14 +132,12 @@ namespace History
                     character.FaceRight(immediate: true);
                 }
 
-                character.SetPosition(characterData.position);
 
                 character.root.anchorMin = new Vector2(0.5f, 0.5f);
                 character.root.anchorMax = new Vector2(0.5f, 0.5f);
+                character.SetPosition(characterData.position);
 
                 character.isVisible = characterData.enabled;
-
-                character.dialogueSystem.dialogueContainer.SetRootContainerPosition(characterData.characterName);
 
                 switch (character.config.characterType)
                 {

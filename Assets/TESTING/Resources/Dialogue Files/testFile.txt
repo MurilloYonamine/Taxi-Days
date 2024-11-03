@@ -3,6 +3,15 @@ $combatPoints = 0
 $diplomacyPoints = 0
 $mysticalPoints = 0
 
+CreateCharacter(Lissima), CreateCharacter(Cind), CreateCharacter(Gato)
+Lissima.Show()
+Cind.Show()
+Gato.Show()
+
+Lissima.Move(0.2 0.5)
+Cind.Move(0.8 0.5)
+Gato.Move(0.45 0.5)
+
 Lissima "Você já pensou em qual tipo de aventura seria mais emocionante para nós?"
 
 Cind "Eu adoro a ideia de explorar novos lugares. Sempre há algo novo para descobrir!"

@@ -16,7 +16,7 @@ namespace History
         HistoryState cacheState = null;
         private bool isOnCachedState = false;
         public bool isViewingHistory = false;
-        public bool canNavigate => !DialogueSystem.instance.conversationManager.isOnLogicalLine;
+        public bool canNavigate => DialogueSystem.instance.conversationManager.isOnLogicalLine;
         public void GoForward()
         {
             if (!isViewingHistory || !canNavigate) return;
@@ -44,12 +44,13 @@ namespace History
             }
             else
             {
+                DialogueSystem.instance.dialogueContainer.SetRootContainerPosition(state.dialogue.currentSpeaker);
                 UpdateStatusText();
             }
         }
         public void GoBack()
         {
-            if ((progress == 0 && isViewingHistory) || !canNavigate) return;
+            if (history.Count == 0 || (progress == 0 && isViewingHistory) || !canNavigate) return;
 
             progress = isViewingHistory ? progress - 1 : history.Count - 1;
 
@@ -63,9 +64,9 @@ namespace History
                 DialogueSystem.instance.OnStartViewingHistory();
             }
 
-            if(progress <= 0) return;
             HistoryState state = history[progress];
             state.Load();
+            DialogueSystem.instance.dialogueContainer.SetRootContainerPosition(state.dialogue.currentSpeaker);
             UpdateStatusText();
         }
         private void UpdateStatusText()
