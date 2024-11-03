@@ -1,65 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using System.Xml.XPath;
 using UnityEngine;
+using VISUALNOVEL;
 
-/// <summary>
-/// Gerencia a leitura e o carregamento de arquivos no projeto.
-/// </summary>
 public class FileManager
 {
-    
+    private const string KEY = "SECRETKEY";
 
-    // Lê arquivos de texto a partir de um caminho de arquivo no sistema.
-    public static List<string> ReadTextFile(string filePath, bool includBlankLines = true)
+    public static List<string> ReadTextFile(string filePath, bool includeBlankLines = true)
     {
-        if (!filePath.StartsWith('/')) filePath = FilePaths.root + filePath;
+        if (!filePath.StartsWith('/'))
+            filePath = FilePaths.root + filePath;
 
         List<string> lines = new List<string>();
-
         try
         {
-            using (StreamReader streamReader = new StreamReader(filePath))
+            using (StreamReader sr = new StreamReader(filePath))
             {
-                while (!streamReader.EndOfStream)
+                while (!sr.EndOfStream)
                 {
-                    string line = streamReader.ReadLine();
-                    if (includBlankLines || !string.IsNullOrEmpty(line)) lines.Add(line);
+                    string line = sr.ReadLine();
+                    if (includeBlankLines || !string.IsNullOrWhiteSpace(line))
+                        lines.Add(line);
                 }
             }
         }
-        catch (FileNotFoundException exception)
+        catch (FileNotFoundException ex)
         {
-            Debug.LogError($"Pasta não encontrada: '{exception.FileName}'");
+            Debug.LogError($"File not found: '{ex.FileName}'");
         }
+
         return lines;
     }
-    // Carrega um arquivo de texto da pasta Resources usando seu caminho.
+
     public static List<string> ReadTextAsset(string filePath, bool includeBlankLines = true)
     {
         TextAsset asset = Resources.Load<TextAsset>(filePath);
-
         if (asset == null)
         {
-            Debug.LogError($"Asset não encontrado: '{filePath}'");
+            Debug.LogError($"Asset not found: '{filePath}'");
             return null;
         }
+
         return ReadTextAsset(asset, includeBlankLines);
     }
-    // Lê o conteúdo de um arquivo TextAsset carregado e converte para uma lista de strings.
+
     public static List<string> ReadTextAsset(TextAsset asset, bool includeBlankLines = true)
     {
         List<string> lines = new List<string>();
-        using (StringReader stringReader = new StringReader(asset.text))
+        using (StringReader sr = new StringReader(asset.text))
         {
-            while (stringReader.Peek() > -1)
+            while (sr.Peek() > -1)
             {
-                string line = stringReader.ReadLine();
-                if (includeBlankLines || !string.IsNullOrEmpty(line)) lines.Add(line);
+                string line = sr.ReadLine();
+                if (includeBlankLines || !string.IsNullOrWhiteSpace(line))
+                    lines.Add(line);
             }
         }
+
         return lines;
     }
+
     public static bool TryCreateDirectoryFromPath(string path)
     {
         if (Directory.Exists(path) || File.Exists(path))
@@ -87,32 +91,84 @@ public class FileManager
         }
     }
 
-    public static void Save(string filePath, string JSONData)
+    public static void Save(string filePath, string JSONData, bool encrypt = false)
     {
-        Debug.Log(filePath);
-
         if (!TryCreateDirectoryFromPath(filePath))
         {
-            Debug.LogError($"Falha em salvar o arquivo '{filePath}'. Por favor veja o console para mais informações.");
+            Debug.LogError($"FAILED TO SAVE FILE '{filePath}' Please see the console for error details.");
             return;
         }
-        StreamWriter sw = new StreamWriter(filePath);
-        sw.Write(JSONData);
-        sw.Close();
 
-        Debug.Log($"Arquivo salvo em '{filePath}'.");
-    }
-    public static T Load<T>(string filePath)
-    {
-        if (File.Exists(filePath))
+        if (encrypt)
         {
-            string JSONData = File.ReadAllLines(filePath)[0];
-            return JsonUtility.FromJson<T>(JSONData);
+            byte[] dataBytes = Encoding.UTF8.GetBytes(JSONData);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(KEY);
+            byte[] encryptedBytes = XOR(dataBytes, keyBytes);
+
+            File.WriteAllBytes(filePath, encryptedBytes);
         }
         else
         {
-            Debug.LogError($"Erro - Arquivo: '{filePath}' não existe!");
+            StreamWriter sw = new StreamWriter(filePath);
+            sw.Write(JSONData);
+            sw.Close();
+        }
+
+        Debug.Log($"Saved data to file '{filePath}'");
+    }
+
+    public static T Load<T>(string filePath, bool encrypt = false)
+    {
+        if (File.Exists(filePath))
+        {
+            string jsonData;
+
+            if (encrypt)
+            {
+                byte[] encryptedBytes = File.ReadAllBytes(filePath);
+                byte[] keyBytes = Encoding.UTF8.GetBytes(KEY);
+
+                byte[] decryptedBytes = XOR(encryptedBytes, keyBytes);
+
+                jsonData = Encoding.UTF8.GetString(decryptedBytes);
+            }
+            else
+            {
+                jsonData = File.ReadAllText(filePath);
+            }
+
+            if (string.IsNullOrEmpty(jsonData))
+            {
+                Debug.LogError($"Error - JSON data is empty or null! '{filePath}'");
+                return default(T);
+            }
+
+            try
+            {
+                return JsonUtility.FromJson<T>(jsonData);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Error - JSON parse error: {e.Message}\nJSON Data: {jsonData}");
+                return default(T);
+            }
+        }
+        else
+        {
+            Debug.LogError($"Error - File does not exist! '{filePath}'");
             return default(T);
         }
+    }
+
+    private static byte[] XOR(byte[] input, byte[] key)
+    {
+        byte[] output = new byte[input.Length];
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            output[i] = (byte)(input[i] ^ key[i % key.Length]);
+        }
+
+        return output;
     }
 }

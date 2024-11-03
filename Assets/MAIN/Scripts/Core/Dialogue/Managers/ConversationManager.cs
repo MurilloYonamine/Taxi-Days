@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using CHARACTERS;
 using COMMANDS;
-using DIALOGUE.LogicalLines;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using DIALOGUE.LogicalLines;
 
 namespace DIALOGUE
 {
     public class ConversationManager
     {
         private DialogueSystem dialogueSystem => DialogueSystem.instance;
+
         private Coroutine process = null;
         public bool isRunning => process != null;
         public bool isOnLogicalLine { get; private set; } = false;
-        public TextArchitect textArchitect = null;
+
+        public TextArchitect architect = null;
         private bool userPrompt = false;
 
         private LogicalLineManager logicalLineManager;
@@ -21,23 +23,27 @@ namespace DIALOGUE
         public Conversation conversation => (conversationQueue.IsEmpty() ? null : conversationQueue.top);
         public int conversationProgress => (conversationQueue.IsEmpty() ? -1 : conversationQueue.top.GetProgress());
         private ConversationQueue conversationQueue;
+        public Conversation[] GetConversationsQueue() => conversationQueue.GetReadOnly();
+
         public bool allowUserPrompts = true;
-        public ConversationManager(TextArchitect textArchitect)
+
+        public ConversationManager(TextArchitect architect)
         {
-            this.textArchitect = textArchitect;
+            this.architect = architect;
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
 
             logicalLineManager = new LogicalLineManager();
+
             conversationQueue = new ConversationQueue();
         }
-        public Conversation[] GetConversationsQueue() => conversationQueue.GetReadOnly();
+
         public void Enqueue(Conversation conversation) => conversationQueue.Enqueue(conversation);
         public void EnqueuePriority(Conversation conversation) => conversationQueue.EnqueuePriority(conversation);
 
-        // Event for when the user prompts the next line
         private void OnUserPrompt_Next()
         {
-            if (allowUserPrompts) userPrompt = true;
+            if (allowUserPrompts)
+                userPrompt = true;
         }
 
         public Coroutine StartConversation(Conversation conversation)
@@ -51,14 +57,16 @@ namespace DIALOGUE
 
             return process;
         }
+
         public void StopConversation()
         {
-            if (!isRunning) return;
+            if (!isRunning)
+                return;
 
             dialogueSystem.StopCoroutine(process);
             process = null;
         }
-        // Run the conversation
+
         IEnumerator RunningConversation()
         {
             while (!conversationQueue.IsEmpty())
@@ -73,9 +81,8 @@ namespace DIALOGUE
 
                 string rawLine = currentConversation.CurrentLine();
 
-
-                // Don't show any blank lines or try to run any logic of them
-                if (string.IsNullOrWhiteSpace(rawLine) || (rawLine.Trim() == "}"))
+                //Dont show any blank lines or try to run any logic on them.
+                if (string.IsNullOrWhiteSpace(rawLine))
                 {
                     TryAdvanceConversation(currentConversation);
                     continue;
@@ -85,72 +92,84 @@ namespace DIALOGUE
 
                 if (logicalLineManager.TryGetLogic(line, out Coroutine logic))
                 {
-                    TryAdvanceConversation(currentConversation);
+                    isOnLogicalLine = true;
                     yield return logic;
                 }
                 else
                 {
-                    // Show dialogue
-                    if (line.hasDialogue) yield return Line_RunDialogue(line);
+                    //Show dialogue
+                    if (line.hasDialogue)
+                        yield return Line_RunDialogue(line);
 
-                    // Run any commands
-                    if (line.hasCommands) yield return Line_RunCommands(line);
+                    //Run any commands
+                    if (line.hasCommands)
+                        yield return Line_RunCommands(line);
 
+                    //Wait for user input if dialogue was in this line
                     if (line.hasDialogue)
                     {
-                        // Wait for user input
+                        //Wait for user input
                         yield return WaitForUserInput();
 
                         CommandManager.instance.StopAllProcesses();
 
                         dialogueSystem.OnSystemPrompt_OnClear();
                     }
-                    TryAdvanceConversation(currentConversation);
-                    isOnLogicalLine = false;
                 }
+
+                TryAdvanceConversation(currentConversation);
+                isOnLogicalLine = false;
             }
+
             process = null;
         }
+
         private void TryAdvanceConversation(Conversation conversation)
         {
             conversation.IncrementProgress();
 
-            if (conversation != conversationQueue.top) return;
+            if (conversation != conversationQueue.top)
+                return;
 
-            if (conversation.HasReachedEnd()) conversationQueue.Dequeue();
+            if (conversation.HasReachedEnd())
+                conversationQueue.Dequeue();
         }
-        // Run the dialogue
-        private IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
+
+        IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
         {
-            // show or hide the speaker name if there is one present.
-            if (line.hasSpeaker) HandleSpeakerLogic(line.speakerData);
+            //Show or hide the speaker name if there is one present.
+            if (line.hasSpeaker)
+                HandleSpeakerLogic(line.speakerData);
 
-            if (!dialogueSystem.dialogueContainer.isVisible) dialogueSystem.dialogueContainer.Show();
+            //If the dialogue box is not visible - make sure it becomes visible automatically
+            if (!dialogueSystem.dialogueContainer.isVisible)
+                dialogueSystem.dialogueContainer.Show();
 
-            // build dialogue
+            //Build dialogue
             yield return BuildLineSegments(line.dialogueData);
         }
+
         private void HandleSpeakerLogic(DL_SPEAKER_DATA speakerData)
         {
             bool characterMustBeCreated = (speakerData.makeCharacterEnter || speakerData.isCastingPosition || speakerData.isCastingExpressions);
 
             Character character = CharacterManager.instance.GetCharacter(speakerData.name, createIfDoesNotExist: characterMustBeCreated);
-            if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing)) character.Show();
 
+            if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing))
+                character.Show();
+
+            //Add character name to the UI
             dialogueSystem.ShowSpeakerName(TagManager.Inject(speakerData.displayName));
+
+            //Now customize the dialogue for this character - if applicable
             DialogueSystem.instance.ApplySpeakerDataToDialogueContainer(speakerData.name);
 
-            if (speakerData.isCastingPosition) character.MoveToPosition(speakerData.castPosition);
-
-            // Cast Expression
-            if (speakerData.isCastingExpressions)
-            {
-                foreach (var ce in speakerData.CastExpressions) character.OnReceiveExpression(ce.layer, ce.expression);
-            }
-
+            //Cast position
+            if (speakerData.isCastingPosition)
+                character.MoveToPosition(speakerData.castPosition);
         }
-        // Run any commands
-        private IEnumerator Line_RunCommands(DIALOGUE_LINE line)
+
+        IEnumerator Line_RunCommands(DIALOGUE_LINE line)
         {
             List<DL_COMMAND_DATA.Command> commands = line.commandData.commands;
 
@@ -172,22 +191,25 @@ namespace DIALOGUE
                 else
                     CommandManager.instance.Execute(command.name, command.arguments);
             }
+
             yield return null;
         }
-        // Build the line segments
-        private IEnumerator BuildLineSegments(DL_DIALOGUE_DATA line)
+
+        IEnumerator BuildLineSegments(DL_DIALOGUE_DATA line)
         {
             for (int i = 0; i < line.segments.Count; i++)
             {
                 DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment = line.segments[i];
+
                 yield return WaitForDialogueSegmentSignalToBeTriggered(segment);
+
                 yield return BuildDialogue(segment.dialogue, segment.appendText);
             }
         }
+
         public bool isWaitingOnAutoTimer { get; private set; } = false;
-        private IEnumerator WaitForDialogueSegmentSignalToBeTriggered(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment)
+        IEnumerator WaitForDialogueSegmentSignalToBeTriggered(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment)
         {
-            // Wait for the signal to be triggered
             switch (segment.startSignal)
             {
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.C:
@@ -212,37 +234,39 @@ namespace DIALOGUE
                     break;
             }
         }
-        private IEnumerator BuildDialogue(string dialogue, bool append = false)
+
+        IEnumerator BuildDialogue(string dialogue, bool append = false)
         {
             dialogue = TagManager.Inject(dialogue);
 
-            // build the dialogue
-            if (!append) textArchitect.Build(dialogue);
-            else textArchitect.Append(dialogue);
+            //Build the dialogue
+            if (!append)
+                architect.Build(dialogue);
+            else
+                architect.Append(dialogue);
 
-            // wait for the dialogue to complete
-            while (textArchitect.isBuilding)
+            //Wait for the dialogue to complete.
+            while (architect.isBuilding)
             {
                 if (userPrompt)
                 {
-                    if (!textArchitect.hurryUp)
-                    {
-                        textArchitect.hurryUp = true;
-                    }
+                    if (!architect.hurryUp)
+                        architect.hurryUp = true;
                     else
-                    {
-                        textArchitect.ForceComplete();
-                    }
+                        architect.ForceComplete();
+
                     userPrompt = false;
                 }
                 yield return null;
             }
         }
-        private IEnumerator WaitForUserInput()
+
+        IEnumerator WaitForUserInput()
         {
             dialogueSystem.prompt.Show();
 
-            while (!userPrompt) yield return null;
+            while (!userPrompt)
+                yield return null;
 
             dialogueSystem.prompt.Hide();
 

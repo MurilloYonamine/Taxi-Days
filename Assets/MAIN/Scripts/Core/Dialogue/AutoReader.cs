@@ -15,7 +15,7 @@ namespace DIALOGUE
         private const string STATUS_TEXT_SKIP = "Skipping";
 
         private ConversationManager conversationManager;
-        private TextArchitect architect => conversationManager.textArchitect;
+        private TextArchitect architect => conversationManager.architect;
 
         public bool skip { get; set; } = false;
         public float speed { get; set; } = 1f;

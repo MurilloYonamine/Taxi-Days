@@ -57,7 +57,7 @@ namespace History
             var dialogueText = dialogueSystem.dialogueContainer.dialogueText;
             var nameText = dialogueSystem.dialogueContainer.nameContainer.nameText;
 
-            dialogueSystem.conversationManager.textArchitect.SetText(data.currentDialogue);
+            dialogueSystem.conversationManager.architect.SetText(data.currentDialogue);
             dialogueText.color = data.dialogueColor;
             dialogueText.fontSize = data.dialogueScale;
 

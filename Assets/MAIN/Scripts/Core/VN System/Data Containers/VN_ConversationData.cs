@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace VISUALNOVEL
 {
+    [System.Serializable]
     public class VN_ConversationData
     {
         public List<string> conversation = new List<string>();

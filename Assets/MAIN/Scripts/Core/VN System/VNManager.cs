@@ -1,29 +1,22 @@
+using DIALOGUE;
 using System.Collections;
 using System.Collections.Generic;
-using DIALOGUE;
 using UnityEngine;
 
 namespace VISUALNOVEL
 {
-    /// <summary>
-    /// Handles the Visual Novel startup and loading operations
-    /// </summary>
     public class VNManager : MonoBehaviour
     {
         public static VNManager instance { get; private set; }
+
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                DestroyImmediate(gameObject);
-            }
+            instance = this;
+
             VNDatabaseLinkSetup linkSetup = GetComponent<VNDatabaseLinkSetup>();
             linkSetup.SetupExternalLinks();
         }
+
         public void LoadFile(string filePath)
         {
             List<string> lines = new List<string>();
@@ -35,11 +28,11 @@ namespace VISUALNOVEL
             }
             catch
             {
-                Debug.LogError($"O arquivo de diálogo do caminho 'Resources/{filePath}' não foi encontrado!");
+                Debug.LogError($"Dialogue file at path 'Resources/{filePath}' does not exist!");
                 return;
             }
+
             DialogueSystem.instance.Say(lines, filePath);
         }
-
     }
 }

@@ -7,6 +7,7 @@ namespace TESTING
 {
     public class GameSaveTesting : MonoBehaviour
     {
+        public VNGameSave save;
         void Start()
         {
             VNGameSave.activeFile = new VNGameSave();
@@ -19,8 +20,14 @@ namespace TESTING
             }
             if (Input.GetKeyDown(KeyCode.L))
             {
-                VNGameSave.activeFile = FileManager.Load<VNGameSave>($"{FilePaths.gameSaves}1{VNGameSave.FILE_TYPE}");
-                VNGameSave.activeFile.Load();
+                try
+                {
+                    save = VNGameSave.Load($"{FilePaths.gameSaves}1{VNGameSave.FILE_TYPE}", activateOnLoad: true);
+                }
+                catch(System.Exception e)
+                {
+                    Debug.LogError(e.ToString());
+                }
             }
         }
     }
