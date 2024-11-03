@@ -35,7 +35,7 @@ namespace History
         {
             DialogueData data = new DialogueData();
 
-            DialogueSystem dialogueSystem = DialogueSystem.instance;
+            var dialogueSystem = DialogueSystem.instance;
             var dialogueText = dialogueSystem.dialogueContainer.dialogueText;
             var nameText = dialogueSystem.dialogueContainer.nameContainer.nameText;
 
@@ -50,6 +50,33 @@ namespace History
             data.speakerScale = nameText.fontSize;
 
             return data;
+        }
+        public static void Apply(DialogueData data)
+        {
+            var dialogueSystem = DialogueSystem.instance;
+            var dialogueText = dialogueSystem.dialogueContainer.dialogueText;
+            var nameText = dialogueSystem.dialogueContainer.nameContainer.nameText;
+
+            dialogueText.text = data.currentDialogue;
+            dialogueText.color = data.dialogueColor;
+            dialogueText.fontSize = data.dialogueScale;
+
+            nameText.text = data.currentSpeaker;
+            nameText.color = data.speakerNameColor;
+            nameText.fontSize = data.speakerScale;
+
+            if (data.dialogueFont != dialogueText.font.name)
+            {
+                TMP_FontAsset fontAsset = HistoryCache.LoadFont(data.dialogueFont);
+
+                if (fontAsset != null) dialogueText.font = fontAsset;
+            }
+            if (data.speakerFont != dialogueText.font.name)
+            {
+                TMP_FontAsset fontAsset = HistoryCache.LoadFont(data.speakerFont);
+
+                if (fontAsset != null) nameText.font = fontAsset;
+            }
         }
     }
 }

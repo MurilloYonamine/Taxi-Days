@@ -21,6 +21,7 @@ namespace CHARACTERS
         public string name = "";
         public string displayName = "";
         public RectTransform root = null;
+        public Vector2 targetPosition;
         public CharacterConfigData config;
         public Animator animator;
 
@@ -33,7 +34,6 @@ namespace CHARACTERS
         protected bool facingLeft = DEFAULT_ORIENTATION_IS_FACING_LEFT;
 
         public int priority { get; protected set; }
-        public Vector2 targetPosition { get; private set; }
 
         protected CharacterManager characterManager => CharacterManager.instance;
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
@@ -81,20 +81,9 @@ namespace CHARACTERS
             dialogueSystem.ShowSpeakerName(displayName);
             UpdateTextCustomizationsOnScreen();
 
-    
-                SetRootContainerPosition();
-            
+            dialogueSystem.dialogueContainer.SetRootContainerPosition(displayName);
 
             return DialogueSystem.instance.Say(dialogue);
-        }
-        private void SetRootContainerPosition()
-        {
-            if (config.characterType != CharacterType.Text)
-            {
-                GameObject gameObject = GameObject.Find($"Character - [{displayName}]");
-                Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
-                dialogueSystem.dialogueContainer.root.transform.position = containerPosition;
-            }
         }
         public void SetNameFont(TMP_FontAsset font) => config.nameFont = font;
         public void SetDialogueFont(TMP_FontAsset font) => config.dialogueFont = font;
@@ -136,8 +125,6 @@ namespace CHARACTERS
         #region Position Methods
         public virtual void SetPosition(Vector2 position)
         {
-            if (root == null) return;
-
             (Vector2 minAnchorTarget, Vector2 maxAnchorTarget) = ConvertUITargetPositionToRelativeCharacterArchorTargets(position);
 
             root.anchorMin = minAnchorTarget;
@@ -181,14 +168,14 @@ namespace CHARACTERS
             Debug.Log("Personagem movido com sucesso.");
             co_moving = null;
         }
-        protected (Vector2, Vector2) ConvertUITargetPositionToRelativeCharacterArchorTargets(Vector2 posiiton)
+        protected (Vector2, Vector2) ConvertUITargetPositionToRelativeCharacterArchorTargets(Vector2 position)
         {
             Vector2 padding = root.anchorMax - root.anchorMin;
 
             float maxX = 1f - padding.x;
             float maxY = 1f - padding.y;
 
-            Vector2 minArchorTarget = new Vector2(maxX * posiiton.x, maxY * posiiton.y);
+            Vector2 minArchorTarget = new Vector2(maxX * position.x, maxY * position.y);
             Vector2 maxArchorTarget = minArchorTarget + padding;
 
             return (minArchorTarget, maxArchorTarget);

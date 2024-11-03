@@ -20,6 +20,7 @@ namespace History
         public bool isHighlighted;
         public bool isFacingLeft;
         public Vector2 position;
+        public Vector2 dialogueContainerPosition;
         public CharacterConfigCache characterConfig;
 
         public string dataJSON;
@@ -41,6 +42,7 @@ namespace History
             public float nameFontScale = 1f;
             public float dialogueFontScale = 1f;
 
+
             public CharacterConfigCache(CharacterConfigData reference)
             {
                 name = reference.name;
@@ -55,7 +57,6 @@ namespace History
 
                 nameFontScale = reference.nameFontScale;
                 dialogueFontScale = reference.dialogueFontScale;
-
             }
         }
         public static List<CharacterData> Capture()
@@ -98,6 +99,79 @@ namespace History
                 characters.Add(entry);
             }
             return characters;
+        }
+        public static void Apply(List<CharacterData> data)
+        {
+            List<string> cache = new List<string>();
+
+            foreach (CharacterData characterData in data)
+            {
+                Character character = CharacterManager.instance.GetCharacter(characterData.characterName, createIfDoesNotExist: true);
+                character.displayName = characterData.displayName;
+                character.SetColor(characterData.color);
+
+                if (characterData.isHighlighted)
+                {
+                    character.Highlight(immediate: true);
+                }
+                else
+                {
+                    character.UnHighlight(immediate: true);
+                }
+
+                character.SetPriority(characterData.priority);
+
+                if (characterData.isFacingLeft)
+                {
+                    character.FaceLeft(immediate: true);
+                }
+                else
+                {
+                    character.FaceRight(immediate: true);
+                }
+
+                character.SetPosition(characterData.position);
+
+                character.root.anchorMin = new Vector2(0.5f, 0.5f);
+                character.root.anchorMax = new Vector2(0.5f, 0.5f);
+
+                character.isVisible = characterData.enabled;
+
+                character.dialogueSystem.dialogueContainer.SetRootContainerPosition(characterData.characterName);
+
+                switch (character.config.characterType)
+                {
+                    case Character.CharacterType.Sprite:
+                    case Character.CharacterType.SpriteSheet:
+
+                        SpriteData sData = JsonUtility.FromJson<SpriteData>(characterData.dataJSON);
+
+                        Character_Sprite sc = character as Character_Sprite;
+                        for (int i = 0; i < sData.layers.Count; i++)
+                        {
+                            var layer = sData.layers[i];
+
+                            if (sc.layers[i].renderer.sprite != null && sc.layers[i].renderer.sprite.name != layer.spriteName)
+                            {
+                                Sprite sprite = sc.GetSprite(layer.spriteName);
+                                if (sprite != null)
+                                {
+                                    sc.SetSprite(sprite, i);
+                                }
+                                else
+                                {
+                                    Debug.LogWarning($"History state não pode carregar a sprite: {layer.spriteName}");
+                                }
+                            }
+                        }
+                        break;
+                }
+                cache.Add(character.name);
+            }
+            foreach (Character character in CharacterManager.instance.allCharacters)
+            {
+                if (!cache.Contains(character.name)) character.isVisible = false;
+            }
         }
         [System.Serializable]
         public class SpriteData

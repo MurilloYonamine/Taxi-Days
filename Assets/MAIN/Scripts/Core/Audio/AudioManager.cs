@@ -122,9 +122,9 @@ namespace AUDIO
         {
             trackName = trackName.ToLower();
 
-            foreach(AudioChannel channel in channels.Values)
+            foreach (AudioChannel channel in channels.Values)
             {
-                if(channel.activeTrack != null && channel.activeTrack.name.ToLower() == trackName)
+                if (channel.activeTrack != null && channel.activeTrack.name.ToLower() == trackName)
                 {
                     channel.StopTrack();
                     return;

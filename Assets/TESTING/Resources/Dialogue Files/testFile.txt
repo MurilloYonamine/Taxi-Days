@@ -1,5 +1,5 @@
-PlaySong("Calm" -volume 0.4)
-PlayAmbience("RainyMood" -volume 0.2)
+PlaySong("Calm" -volume 0.1)
+PlayAmbience("RainyMood" -volume 0.1)
 
 CreateCharacter(Lissima)
 

@@ -7,12 +7,11 @@ using UnityEngine.UI;
 
 namespace CHARACTERS
 {
+    /// <summary>
+    /// A character that uses sprites or sprite sheets to render its display
+    /// </summary>
     public class Character_Sprite : Character
     {
-        /*
-        A character that uses sprites or
-        sprite sheets to render its display
-        */
         private const string SPRITE_RENDERERD_PARENT_NAME = "Renderers";
         private const string SPRITESHEET_DEFAULT_SHEETNAME = "Default";
         private const char SPRITESHEET_TEX_SPRITE_DELIMITTER = '-';
@@ -65,7 +64,7 @@ namespace CHARACTERS
         {
             if (config.sprites.Count > 0)
             {
-                if(config.sprites.TryGetValue(spriteName, out Sprite sprite))
+                if (config.sprites.TryGetValue(spriteName, out Sprite sprite))
                 {
                     return sprite;
                 }
