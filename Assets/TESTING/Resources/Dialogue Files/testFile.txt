@@ -1,23 +1,54 @@
-Lissima "Cind, você já ouviu falar sobre a Nebulosa que está lá fora?{c}Dizem que é cheia de segredos e mistérios."
+$explorationPoints = 0
+$combatPoints = 0
+$diplomacyPoints = 0
+$mysticalPoints = 0
 
-Cind "Sim, eu ouvi rumores. Alguns falam que é um portal para outras dimensões.{c}Mas nunca consegui entender se é verdade ou apenas uma lenda."
+Lissima "Você já pensou em qual tipo de aventura seria mais emocionante para nós?"
 
-Gato "Portal? Isso soa emocionante! Podemos encontrar criaturas incríveis lá fora!{c}O que vocês acham de irmos até lá e descobrir por nós mesmos?"
+Cind "Eu adoro a ideia de explorar novos lugares. Sempre há algo novo para descobrir!"
 
-Lissima "Eu adoraria! Mas precisamos nos preparar. Não sabemos o que podemos encontrar.{c}Eu ouvi que há tempestades de energia nessa região."
+Gato "Exploração é ótimo, mas e se a gente se deparar com um desafio inesperado?"
 
-Cind "É verdade. Precisamos de poções de proteção e talvez algo que nos ajude a navegar pela nebulosa.{c}Eu tenho alguns ingredientes que podem ajudar, mas preciso de tempo para prepará-los."
+Lissima "É verdade! Mas isso só torna as coisas mais emocionantes, não é?"
 
-Gato "Vou buscar as poções e um mapa. Alguém sabe onde podemos encontrar informações sobre essa nebulosa?{c}Pode haver perigos que não conhecemos."
+Cind "Exatamente! Mas também gosto de um bom combate para testar minhas habilidades."
 
-Lissima "Eu ouvi que a sábia da floresta, a Anira, tem muito conhecimento sobre a nebulosa.{c}Ela pode nos ajudar a entender melhor o que nos espera."
+Gato "Eu prefiro evitar conflitos sempre que possível. Diplomacia é o caminho!"
 
-Cind "Ótima ideia! Vamos até ela antes de partir. E Gato, não esqueça de trazer lanternas.{c}Se a nebulosa for tão escura quanto dizem, vamos precisar de luz."
+Lissima "Cada um tem suas preferências, mas podemos decidir juntos."
 
-Gato "Com certeza! E quem sabe, se tivermos sorte, podemos até encontrar algo valioso lá.{c}Imaginem trazer uma relíquia antiga para casa!"
-
-Lissima "Isso seria incrível! Mas, acima de tudo, vamos nos certificar de que estamos seguros.{c}A aventura pode ser excitante, mas nossa segurança é a prioridade."
-
-Cind "Então é decidido! Vamos nos preparar e procurar Anira.{c}Estou ansioso para ver o que a nebulosa nos reserva!"
-
-Gato "Perfeito! Mal posso esperar! Vamos fazer isso juntos!"
+choice "Qual tipo de aventura você prefere?"
+{
+    - Exploração
+        Lissima "Explorar novos lugares é incrível! Eu amo descobrir segredos escondidos."
+        mainChar "Você já encontrou algo fascinante em suas explorações?"
+        Lissima "Uma vez encontrei uma caverna cheia de cristais brilhantes! {c} Foi mágico!"
+        $explorationPoints += 10
+        narrator "Pontos de Exploração: $explorationPoints"
+    - Combate
+        Cind "Nada como uma boa batalha para testar suas habilidades!"
+        mainChar "Você gosta de lutas, Cind?"
+        Cind "Sim! {a} Embora eu prefira uma luta justa. Sempre tenho um plano!"
+        "Mas o importante é o que você aprende com a experiência."
+        $combatPoints += 10
+        narrator "Pontos de Combate: $combatPoints"
+    - Diplomacia
+        Gato "Eu prefiro resolver conflitos com palavras, não com espadas."
+        mainChar "Você acha que sempre funciona?"
+        Gato "Nem sempre, mas é a melhor maneira de evitar derramamento de sangue."
+        $diplomacyPoints += 10
+        narrator "Pontos de Diplomacia: $diplomacyPoints"
+        choice "E se as palavras falharem?"
+            "Devemos estar preparados!"
+                Gato "Exato! Um bom diálogo pode salvar vidas."
+            "Mas algumas situações exigem ação."
+                Gato "Concordo! Às vezes, uma combinação de palavras e ações é a chave."
+    - Aventura Mística
+        Lissima "Eu amo as histórias de magia e mistério!"
+        mainChar "Você acredita que as criaturas mágicas realmente existem?"
+        Lissima "Com certeza! Eu gostaria de encontrar um dragão um dia!"
+        Gato "Cuidado! Dragões podem ser traiçoeiros. {a} Mas são fascinantes!"
+        "Imagina a quantidade de conhecimento que um dragão pode compartilhar!"
+        $mysticalPoints += 10
+        narrator "Pontos de Aventura Mística: $mysticalPoints"
+}

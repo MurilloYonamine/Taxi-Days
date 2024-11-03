@@ -12,6 +12,7 @@ namespace DIALOGUE
         private DialogueSystem dialogueSystem => DialogueSystem.instance;
         private Coroutine process = null;
         public bool isRunning => process != null;
+        public bool isOnLogicalLine { get; private set; } = false;
         public TextArchitect textArchitect = null;
         private bool userPrompt = false;
 
@@ -75,6 +76,7 @@ namespace DIALOGUE
                 // Don't show any blank lines or try to run any logic of them
                 if (string.IsNullOrWhiteSpace(rawLine) || (rawLine.Trim() == "}"))
                 {
+                    isOnLogicalLine = true;
                     TryAdvanceConversation(currentConversation);
                     continue;
                 }
@@ -104,6 +106,7 @@ namespace DIALOGUE
                         dialogueSystem.OnSystemPrompt_OnClear();
                     }
                     TryAdvanceConversation(currentConversation);
+                    isOnLogicalLine = false;
                 }
             }
             process = null;

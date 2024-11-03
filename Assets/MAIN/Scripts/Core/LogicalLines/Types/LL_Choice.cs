@@ -18,7 +18,7 @@ namespace DIALOGUE.LogicalLines
         {
             var currentConversation = DialogueSystem.instance.conversationManager.conversation;
             var progress = DialogueSystem.instance.conversationManager.conversationProgress;
-            
+
             DialogueSystem.instance.dialogueContainer.Hide();
 
             EncapsulatedData data = RipEncapsulationData(currentConversation, progress, ripHeaderAndEncapsualators: true);
@@ -37,7 +37,7 @@ namespace DIALOGUE.LogicalLines
             DialogueSystem.instance.conversationManager.conversation.SetProgress(data.endingIndex);
             Conversation newConversation = new Conversation(selectedChoice.resultLines);
             DialogueSystem.instance.conversationManager.EnqueuePriority(newConversation);
-            
+
             DialogueSystem.instance.dialogueContainer.Show();
         }
         public bool Matches(DIALOGUE_LINE line) => line.hasSpeaker && line.speakerData.name.ToLower() == keyword;
@@ -79,7 +79,6 @@ namespace DIALOGUE.LogicalLines
         private void AddLineToResults(string line, ref Choice choice, ref int encapsulationDepth)
         {
             line.Trim();
-            Debug.Log(line);
 
             if (isEncapsulationStart(line))
             {
