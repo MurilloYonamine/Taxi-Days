@@ -28,12 +28,14 @@ namespace VISUALNOVEL
         public string[] activeConversations;
         public HistoryState activeState;
         public HistoryState[] historyLogs;
+        public VN_VariableData[] variables;
 
         public void Save()
         {
             activeState = HistoryState.Capture();
             historyLogs = HistoryManager.instance.history.ToArray();
             activeConversations = GetConversationData();
+            variables = GetVariableData();
 
             string saveJSON = JsonUtility.ToJson(this);
             FileManager.Save(filePath, saveJSON);
@@ -45,6 +47,8 @@ namespace VISUALNOVEL
             HistoryManager.instance.history = historyLogs.ToList();
             HistoryManager.instance.logManager.Clear();
             HistoryManager.instance.logManager.Rebuild();
+
+            SetVariableData();
 
             SetConversationData();
 
@@ -93,6 +97,7 @@ namespace VISUALNOVEL
                     if (fullData != null && fullData.conversation != null && fullData.conversation.Count > 0)
                     {
                         conversation = new Conversation(fullData.conversation, fullData.progress);
+                        Debug.Log($"Carregou conversa completa com progresso: {fullData.progress}");
                     }
                     else
                     {
@@ -106,6 +111,7 @@ namespace VISUALNOVEL
                             List<string> lines = FileManager.ReadTextAsset(file).Skip(compressedData.startIndex).Take(count + 1).ToList();
 
                             conversation = new Conversation(lines, compressedData.progress, compressedData.fileName, compressedData.startIndex, compressedData.endIndex);
+                            Debug.Log($"Carregou conversa comprimida com progresso: {compressedData.progress}");
                         }
                         else
                         {
@@ -129,6 +135,60 @@ namespace VISUALNOVEL
                     Debug.LogError($"Encontrou um erro enquanto extraia dados de conversação salvos: {e}");
                     continue;
                 }
+            }
+        }
+        private VN_VariableData[] GetVariableData()
+        {
+            List<VN_VariableData> retData = new List<VN_VariableData>();
+
+            foreach (var database in VariableStore.databases.Values)
+            {
+                foreach (var variable in database.variables)
+                {
+                    VN_VariableData variableData = new VN_VariableData();
+                    variableData.name = $"{database.name}.{variable.Key}";
+                    string val = $"{variable.Value.Get()}";
+                    variableData.value = val;
+                    variableData.type = val == string.Empty ? "System.String" : variable.Value.Get().GetType().ToString();
+                    retData.Add(variableData);
+                }
+            }
+            return retData.ToArray();
+        }
+        private void SetVariableData()
+        {
+            foreach (var variable in variables)
+            {
+                string val = variable.value;
+
+                switch (variable.type)
+                {
+                    case "System.Boolean":
+                        if (bool.TryParse(val, out bool boolVal))
+                        {
+                            VariableStore.TrySetValue(variable.name, boolVal);
+                            continue;
+                        }
+                        break;
+                    case "System.Int32":
+                        if (int.TryParse(val, out int intVal))
+                        {
+                            VariableStore.TrySetValue(variable.name, intVal);
+                            continue;
+                        }
+                        break;
+                    case "System.Single":
+                        if (float.TryParse(val, out float floatVal))
+                        {
+                            VariableStore.TrySetValue(variable.name, floatVal);
+                            continue;
+                        }
+                        break;
+                    case "System.String":
+                        VariableStore.TrySetValue(variable.name, val);
+                        continue;
+                }
+                Debug.LogError($"Não pode ser interpretado o tipo da variável {variable.name} com o tipo {variable.type}");
             }
         }
     }

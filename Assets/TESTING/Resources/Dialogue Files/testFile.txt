@@ -1,65 +1,46 @@
-$explorationPoints = 0
-$combatPoints = 0
-$diplomacyPoints = 0
-$mysticalPoints = 0
-
-CreateCharacter(Lissima), CreateCharacter(Cind), CreateCharacter(Gato)
+PlaySong("Calm" -v 0.1)
+SetLayerMedia(background "bg shrine_hallway")
+CreateCharacter(Lissima), Lissima.Move(0.2 0.5)
 Lissima.Show()
-Cind.Show()
-Gato.Show()
 
-Lissima.Move(0.2 0.5)
-Cind.Move(0.8 0.5)
-Gato.Move(0.45 0.5)
+Lissima "Hello, everyone!{c}I hope the tutorial series is going well for you."
+"The save system should be able to save all conversations and their progress trackers to file."
 
-Lissima "Você já pensou em qual tipo de aventura seria mais emocionante para nós?"
+$number = 5
 
-Cind "Eu adoro a ideia de explorar novos lugares. Sempre há algo novo para descobrir!"
-
-Gato "Exploração é ótimo, mas e se a gente se deparar com um desafio inesperado?"
-
-Lissima "É verdade! Mas isso só torna as coisas mais emocionantes, não é?"
-
-Cind "Exatamente! Mas também gosto de um bom combate para testar minhas habilidades."
-
-Gato "Eu prefiro evitar conflitos sempre que possível. Diplomacia é o caminho!"
-
-Lissima "Cada um tem suas preferências, mas podemos decidir juntos."
-
-choice "Qual tipo de aventura você prefere?"
+if($number == 5)
 {
-    - Exploração
-        Lissima "Explorar novos lugares é incrível! Eu amo descobrir segredos escondidos."
-        mainChar "Você já encontrou algo fascinante em suas explorações?"
-        Lissima "Uma vez encontrei uma caverna cheia de cristais brilhantes! {c} Foi mágico!"
-        $explorationPoints += 10
-        narrator "Pontos de Exploração: $explorationPoints"
-    - Combate
-        Cind "Nada como uma boa batalha para testar suas habilidades!"
-        mainChar "Você gosta de lutas, Cind?"
-        Cind "Sim! {a} Embora eu prefira uma luta justa. Sempre tenho um plano!"
-        "Mas o importante é o que você aprende com a experiência."
-        $combatPoints += 10
-        narrator "Pontos de Combate: $combatPoints"
-    - Diplomacia
-        Gato "Eu prefiro resolver conflitos com palavras, não com espadas."
-        mainChar "Você acha que sempre funciona?"
-        Gato "Nem sempre, mas é a melhor maneira de evitar derramamento de sangue."
-        $diplomacyPoints += 10
-        narrator "Pontos de Diplomacia: $diplomacyPoints"
-        choice "E se as palavras falharem?" 
-        {
-            - "Devemos estar preparados!"
-                Gato "Exato! Um bom diálogo pode salvar vidas."
-            - "Mas algumas situações exigem ação."
-                Gato "Concordo! Às vezes, uma combinação de palavras e ações é a chave."
-        }
-    - Aventura Mística
-        Lissima "Eu amo as histórias de magia e mistério!"
-        mainChar "Você acredita que as criaturas mágicas realmente existem?"
-        Lissima "Com certeza! Eu gostaria de encontrar um dragão um dia!"
-        Gato "Cuidado! Dragões podem ser traiçoeiros. {a} Mas são fascinantes!"
-        "Imagina a quantidade de conhecimento que um dragão pode compartilhar!"
-        $mysticalPoints += 10
-        narrator "Pontos de Aventura Mística: $mysticalPoints"
+    narrator "So the number is $number!"
+    narrator "And that's an impressive thing."
+    narrator "I got bit by a spider once, but I didn't get any superpowers.{c}I just got a 200 medical bill."
 }
+else
+{
+    narrator "So the $number is not 5!"
+    narrator "So...{a} Do you come here often?"
+}
+
+choice "Is it working for you?"
+{
+    -Yes
+        Lissima "Amazing!"
+        "Give yourself a pat on the back because you did a great job!
+        choice "Did you give yourself a pat on the back?"
+        {
+            -I sude did!
+                Lissima "Good! You've enerd it!"
+                "There is a lot more to cover, so we should keep going."
+                "We still need to save variable you know."
+            -Not at all.
+                Lissima Well, if I were there, I would give you one right now!"
+                "But I'm not, so you gotta do it for me, okay?"
+                "Now we still need to save variables, so let's continue, okay!"
+        }
+    -I don't know yet
+        Lissima "Well, that's okay. That's why we are testing things!"
+        "Go ahead and save the file and try to reload it from here!"
+        Lissima "If it works then you should responde yes next time."
+}
+
+Lissima "Let's try some of our variables, okay?"
+"It's important to save the variable store to file as well."

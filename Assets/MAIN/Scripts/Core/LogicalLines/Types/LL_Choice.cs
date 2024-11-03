@@ -55,6 +55,7 @@ namespace DIALOGUE.LogicalLines
                 title = string.Empty,
                 resultLines = new List<string>()
             };
+            
             int choiceIndex = 0, i = 0;
             for (i = 1; i < data.lines.Count; i++)
             {

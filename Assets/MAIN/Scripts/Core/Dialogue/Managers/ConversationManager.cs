@@ -77,7 +77,6 @@ namespace DIALOGUE
                 // Don't show any blank lines or try to run any logic of them
                 if (string.IsNullOrWhiteSpace(rawLine) || (rawLine.Trim() == "}"))
                 {
-                    isOnLogicalLine = true;
                     TryAdvanceConversation(currentConversation);
                     continue;
                 }

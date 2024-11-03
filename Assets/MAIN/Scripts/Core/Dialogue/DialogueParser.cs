@@ -19,6 +19,8 @@ namespace DIALOGUE
 
             // Debug.Log($"Falante: '{speaker}'\nDiálogo = '{dialogue}'\nComandos = '{commands}'");
 
+            commands = TagManager.Inject(commands);
+
             return new DIALOGUE_LINE(rawLine, speaker, dialogue, commands);
         }
 

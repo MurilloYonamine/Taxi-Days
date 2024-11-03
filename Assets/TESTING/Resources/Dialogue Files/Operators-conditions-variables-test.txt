@@ -16,7 +16,7 @@ $myVar = $numberOne + $numberFive + $numberTwo + 1000
 
 narrator "myVar = $myVar"
 
-$Raelin.love = 32
+$Raelin.love = 26
 $Stella.love = 27
 
 choice "Give flowers to who?"
