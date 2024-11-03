@@ -21,7 +21,7 @@ namespace DIALOGUE.LogicalLines
 
             DialogueSystem.instance.dialogueContainer.Hide();
 
-            EncapsulatedData data = RipEncapsulationData(currentConversation, progress, ripHeaderAndEncapsualators: true);
+            EncapsulatedData data = RipEncapsulationData(currentConversation, progress, ripHeaderAndEncapsualators: true, parentStartingIndex: currentConversation.fileStartIndex);
             List<Choice> choices = GetChoicesFromData(data);
 
             string title = line.dialogueData.rawData;
@@ -35,7 +35,9 @@ namespace DIALOGUE.LogicalLines
             Choice selectedChoice = choices[panel.lastDecision.answerIndex];
 
             DialogueSystem.instance.conversationManager.conversation.SetProgress(data.endingIndex);
-            Conversation newConversation = new Conversation(selectedChoice.resultLines);
+
+            Conversation newConversation = new Conversation(selectedChoice.resultLines, file: currentConversation.file, fileStartIndex: selectedChoice.startIndex, fileEndIndex: selectedChoice.endIndex);
+            
             DialogueSystem.instance.conversationManager.EnqueuePriority(newConversation);
 
             DialogueSystem.instance.dialogueContainer.Show();
@@ -53,13 +55,16 @@ namespace DIALOGUE.LogicalLines
                 title = string.Empty,
                 resultLines = new List<string>()
             };
-
-            foreach (var line in data.lines.Skip(1))
+            int choiceIndex = 0, i = 0;
+            for (i = 1; i < data.lines.Count; i++)
             {
+                var line = data.lines[i];
                 if (isChoiceStart(line) && encapsulationDepth == 1)
                 {
                     if (!isFirstChoice)
                     {
+                        choice.startIndex = data.startingIndex + (choiceIndex + 1);
+                        choice.endIndex = data.startingIndex + (i - 1);
                         choices.Add(choice);
                         choice = new Choice
                         {
@@ -67,13 +72,19 @@ namespace DIALOGUE.LogicalLines
                             resultLines = new List<string>()
                         };
                     };
+                    choiceIndex = i;
                     choice.title = line.Trim().Substring(1);
                     isFirstChoice = false;
                     continue;
                 }
                 AddLineToResults(line, ref choice, ref encapsulationDepth);
             }
-            if (!choices.Contains(choice)) choices.Add(choice);
+            if (!choices.Contains(choice))
+            {
+                choice.startIndex = data.startingIndex + (choiceIndex + 1);
+                choice.endIndex = data.startingIndex + (i - 2);
+                choices.Add(choice);
+            }
             return choices;
         }
         private void AddLineToResults(string line, ref Choice choice, ref int encapsulationDepth)
@@ -99,6 +110,8 @@ namespace DIALOGUE.LogicalLines
         {
             public string title;
             public List<string> resultLines;
+            public int startIndex;
+            public int endIndex;
         }
     }
 }

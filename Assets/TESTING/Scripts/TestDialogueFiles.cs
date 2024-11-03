@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.IO;
 using DIALOGUE;
+using UnityEditor;
 using UnityEngine;
 
 namespace TESTING
@@ -13,22 +15,14 @@ namespace TESTING
         }
         void StartConversation()
         {
-            List<string> lines = FileManager.ReadTextAsset(fileToRead);
+            string fullPath = AssetDatabase.GetAssetPath(fileToRead);
 
-            foreach (string line in lines)
-            {
-                if (string.IsNullOrEmpty(line)) continue;
+            int resourcesIndex = fullPath.IndexOf("Resources/");
+            string relativePath = fullPath.Substring(resourcesIndex + 10);
 
-                DIALOGUE_LINE dl = DialogueParser.Parse(line);
+            string filePath = Path.ChangeExtension(relativePath, null);
 
-                /*for (int i = 0; i < dl.commandData.commands.Count; i++)
-                {
-                    DL_COMMAND_DATA.Command command = dl.commandData.commands[i];
-                    Debug.Log($"comando [{i}] '{command.name}' tem argumentos: [{string.Join(", ", command.arguments)}]");
-                }*/
-            }
-
-            DialogueSystem.instance.Say(lines);
+            VNManager.instance.LoadFile(filePath);
         }
     }
 }
