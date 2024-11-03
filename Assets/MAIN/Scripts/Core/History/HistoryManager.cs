@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace History
 {
+    /// <summary>
+    /// Manages the history of the dialogue system.
+    /// </summary>
+    [RequireComponent(typeof(HistoryNavigation))]
     [RequireComponent(typeof(HistoryNavigation))]
     public class HistoryManager : MonoBehaviour
     {
@@ -12,6 +16,7 @@ namespace History
         public static HistoryManager instance { get; private set; }
         public List<HistoryState> history = new List<HistoryState>();
         private HistoryNavigation historyNavigation;
+        public HistoryLogManager logManager { get; private set; }
         private void Awake()
         {
             if (instance == null)
@@ -23,6 +28,7 @@ namespace History
                 Destroy(gameObject);
             }
             historyNavigation = GetComponent<HistoryNavigation>();
+            logManager = GetComponent<HistoryLogManager>();
         }
         private void Start()
         {
@@ -32,17 +38,15 @@ namespace History
         {
             HistoryState state = HistoryState.Capture();
             history.Add(state);
+            logManager.AddLog(state);
 
             if (history.Count > HISTORY_CACHE_LIMIT)
             {
                 history.RemoveAt(0);
             }
         }
-        public void LoadState(HistoryState state)
-        {
-            state.Load();
-            
-        }
+        public void LoadState(HistoryState state) => state.Load();
+
         public void GoForward() => historyNavigation.GoForward();
         public void GoBack() => historyNavigation.GoBack();
     }
