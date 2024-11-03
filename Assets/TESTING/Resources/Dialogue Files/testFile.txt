@@ -47,11 +47,13 @@ choice "Qual tipo de aventura você prefere?"
         Gato "Nem sempre, mas é a melhor maneira de evitar derramamento de sangue."
         $diplomacyPoints += 10
         narrator "Pontos de Diplomacia: $diplomacyPoints"
-        choice "E se as palavras falharem?"
-            "Devemos estar preparados!"
+        choice "E se as palavras falharem?" 
+        {
+            - "Devemos estar preparados!"
                 Gato "Exato! Um bom diálogo pode salvar vidas."
-            "Mas algumas situações exigem ação."
+            - "Mas algumas situações exigem ação."
                 Gato "Concordo! Às vezes, uma combinação de palavras e ações é a chave."
+        }
     - Aventura Mística
         Lissima "Eu amo as histórias de magia e mistério!"
         mainChar "Você acredita que as criaturas mágicas realmente existem?"

@@ -35,11 +35,16 @@ namespace DIALOGUE.LogicalLines
                     ifData.endingIndex = elseData.endingIndex;
                 }
             }
-            currentConversation.SetProgress(ifData.endingIndex);
+
+            currentConversation.SetProgress(elseData.isNull ? ifData.endingIndex : elseData.endingIndex);
+
             EncapsulatedData selData = conditionResult ? ifData : elseData;
             if (!selData.isNull && selData.lines.Count > 0)
             {
-                Conversation newConversation = new Conversation(selData.lines, file: currentConversation.file, fileStartIndex: currentConversation.fileStartIndex, fileEndIndex: currentConversation.fileEndIndex);
+                selData.startingIndex += 2;
+                selData.endingIndex -= 1;
+                
+                Conversation newConversation = new Conversation(selData.lines, file: currentConversation.file, fileStartIndex: selData.startingIndex, fileEndIndex: selData.endingIndex);
                 
                 DialogueSystem.instance.conversationManager.EnqueuePriority(newConversation);
             }

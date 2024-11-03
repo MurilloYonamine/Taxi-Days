@@ -3,6 +3,7 @@ using System.IO;
 using DIALOGUE;
 using UnityEditor;
 using UnityEngine;
+using VISUALNOVEL;
 
 namespace TESTING
 {

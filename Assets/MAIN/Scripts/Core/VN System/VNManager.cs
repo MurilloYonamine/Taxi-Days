@@ -3,38 +3,41 @@ using System.Collections.Generic;
 using DIALOGUE;
 using UnityEngine;
 
-/// <summary>
-/// Handles the Visual Novel startup and loading operations
-/// </summary>
-public class VNManager : MonoBehaviour
+namespace VISUALNOVEL
 {
-    public static VNManager instance { get; private set; }
-    private void Awake()
+    /// <summary>
+    /// Handles the Visual Novel startup and loading operations
+    /// </summary>
+    public class VNManager : MonoBehaviour
     {
-        if (instance == null)
+        public static VNManager instance { get; private set; }
+        private void Awake()
         {
-            instance = this;
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                DestroyImmediate(gameObject);
+            }
         }
-        else
+        public void LoadFile(string filePath)
         {
-            DestroyImmediate(gameObject);
-        }
-    }
-    public void LoadFile(string filePath)
-    {
-        List<string> lines = new List<string>();
-        TextAsset file = Resources.Load<TextAsset>(filePath);
+            List<string> lines = new List<string>();
+            TextAsset file = Resources.Load<TextAsset>(filePath);
 
-        try
-        {
-            lines = FileManager.ReadTextAsset(file);
+            try
+            {
+                lines = FileManager.ReadTextAsset(file);
+            }
+            catch
+            {
+                Debug.LogError($"O arquivo de diálogo do caminho 'Resources/{filePath}' não foi encontrado!");
+                return;
+            }
+            DialogueSystem.instance.Say(lines, filePath);
         }
-        catch
-        {
-            Debug.LogError($"O arquivo de diálogo do caminho 'Resources/{filePath}' não foi encontrado!");
-            return;
-        }
-        DialogueSystem.instance.Say(lines, filePath);
-    }
 
+    }
 }

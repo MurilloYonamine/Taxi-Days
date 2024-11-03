@@ -122,5 +122,9 @@ namespace History
             for (int i = 0; i < logs.Count; i++) DestroyImmediate(logs[i].container);
             logs.Clear();
         }
+        public void Rebuild()
+        {
+            foreach(var state in manager.history) CreateLog(state);
+        }
     }
 }

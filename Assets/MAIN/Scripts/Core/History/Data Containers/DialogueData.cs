@@ -68,6 +68,8 @@ namespace History
             nameText.color = data.speakerNameColor;
             nameText.fontSize = data.speakerScale;
 
+            DialogueSystem.instance.UpdatePromptPosition();
+
             if (data.dialogueFont != dialogueText.font.name)
             {
                 TMP_FontAsset fontAsset = HistoryCache.LoadFont(data.dialogueFont);

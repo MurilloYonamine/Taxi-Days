@@ -34,10 +34,10 @@ namespace DIALOGUE.LogicalLines
 
             Choice selectedChoice = choices[panel.lastDecision.answerIndex];
 
-            DialogueSystem.instance.conversationManager.conversation.SetProgress(data.endingIndex);
 
             Conversation newConversation = new Conversation(selectedChoice.resultLines, file: currentConversation.file, fileStartIndex: selectedChoice.startIndex, fileEndIndex: selectedChoice.endIndex);
             
+            DialogueSystem.instance.conversationManager.conversation.SetProgress(data.endingIndex - currentConversation.fileStartIndex);
             DialogueSystem.instance.conversationManager.EnqueuePriority(newConversation);
 
             DialogueSystem.instance.dialogueContainer.Show();

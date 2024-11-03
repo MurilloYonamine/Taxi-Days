@@ -20,6 +20,21 @@ namespace DIALOGUE
         {
             root = GetComponent<RectTransform>();
         }
+        public void UpdatePosition()
+        {
+            if (tmpro.textInfo.characterCount == 0)
+            {
+                Hide();
+                return;
+            }
+
+            tmpro.ForceMeshUpdate();
+            TMP_CharacterInfo finalCharacter = tmpro.textInfo.characterInfo[tmpro.textInfo.characterCount - 1];
+            Vector3 targetPos = finalCharacter.bottomRight;
+            float characterWidth = finalCharacter.pointSize * 0.8f;
+            targetPos = new Vector3(targetPos.x + characterWidth, targetPos.y, 0);
+            root.localPosition = targetPos;
+        }
 
         public void Show()
         {
