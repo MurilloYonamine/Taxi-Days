@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+/// <summary>
+/// Gerencia a leitura e o carregamento de arquivos no projeto.
+/// </summary>
 public class FileManager
 {
-    /*
-    Gerencia a leitura e o carregamento de arquivos no projeto.
-    */
+    
 
     // Lê arquivos de texto a partir de um caminho de arquivo no sistema.
     public static List<string> ReadTextFile(string filePath, bool includBlankLines = true)
