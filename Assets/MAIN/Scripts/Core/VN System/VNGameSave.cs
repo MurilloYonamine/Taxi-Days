@@ -1,11 +1,13 @@
 using DIALOGUE;
 using History;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using MENU;
 
 namespace VISUALNOVEL
 {
@@ -17,6 +19,7 @@ namespace VISUALNOVEL
         public const string FILE_TYPE = ".vns";
         public const string SCREENSHOT_FILE_TYPE = ".jpg";
         public const bool ENCRYPT = true;
+        public const float SCREENSHOT_DOWNSCALE_AMOUNT = 0.25f;
 
         public string filePath => $"{FilePaths.gameSaves}{slotNumber}{FILE_TYPE}";
         public string screenshotPath => $"{FilePaths.gameSaves}{slotNumber}{SCREENSHOT_FILE_TYPE}";
@@ -29,6 +32,8 @@ namespace VISUALNOVEL
         public HistoryState activeState;
         public HistoryState[] historyLogs;
         public VN_VariableData[] variables;
+
+        public string timestamp;
 
         public static VNGameSave Load(string filePath, bool activateOnLoad = false)
         {
@@ -48,6 +53,10 @@ namespace VISUALNOVEL
             historyLogs = HistoryManager.instance.history.ToArray();
             activeConversations = GetConversationData();
             variables = GetVariableData();
+
+            timestamp = DateTime.Now.ToString("yy-MM-dd HH:mm:ss");
+
+            ScreenshotMaster.CaptureScreenshot(VNManager.instance.mainCamera, Screen.width, Screen.height, SCREENSHOT_DOWNSCALE_AMOUNT, screenshotPath);
 
             string saveJSON = JsonUtility.ToJson(this);
             FileManager.Save(filePath, saveJSON, ENCRYPT);
@@ -72,7 +81,7 @@ namespace VISUALNOVEL
         private string[] GetConversationData()
         {
             List<string> retData = new List<string>();
-            var conversations = DialogueSystem.instance.conversationManager.GetConversationsQueue();
+            var conversations = DialogueSystem.instance.conversationManager.GetConversationQueue();
 
             for (int i = 0; i < conversations.Length; i++)
             {

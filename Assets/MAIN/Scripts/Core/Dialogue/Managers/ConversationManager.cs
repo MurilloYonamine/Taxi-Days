@@ -23,7 +23,7 @@ namespace DIALOGUE
         public Conversation conversation => (conversationQueue.IsEmpty() ? null : conversationQueue.top);
         public int conversationProgress => (conversationQueue.IsEmpty() ? -1 : conversationQueue.top.GetProgress());
         private ConversationQueue conversationQueue;
-        public Conversation[] GetConversationsQueue() => conversationQueue.GetReadOnly();
+        public Conversation[] GetConversationQueue() => conversationQueue.GetReadOnly();
 
         public bool allowUserPrompts = true;
 
