@@ -1,13 +1,16 @@
-Taxista <i>"Enquanto dirijo pelas ruas movimentadas de São Paulo, vejo as pessoas indo e vindo, cada uma com seu próprio destino.  O rádio toca baixinho, mas meus pensamentos estão longe, perdidos..."<i>
+Taxista "<i>Enquanto dirijo pelas ruas movimentadas de São Paulo, vejo as pessoas indo e vindo,<i>"
+cada uma com seu próprio destino. O rádio toca baixinho, mas meus pensamentos estão longe, perdidos...
 
 Taxista "Hmmm?{a} Uma mulher está se aproximando do meu carro. Ela parece estar cansada."
 
-??? as Nicole: "Bom dia. Você poderia me levar até a OVIMA, por favor?"
+CreateCharacter(Nicole)
 
-Taxista (pensando): "Vou apenas acenar com a cabeça..."
+Nicole as ???: "Bom dia. Você poderia me levar até a OVIMA, por favor?"
+
+Taxista "Vou apenas acenar com a cabeça..."
 
 PlaySFX(porta_abrindo)
 
-Taxista (pensando): "Hora de começar o dia."
+Taxista "Hora de começar o dia."
 
-[[Continuar Introdução de Nicole]]
+load(Dia1/dia1_continuacao_introducao_de_nicole)
