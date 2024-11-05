@@ -76,7 +76,7 @@ public class ConfigMenu : MenuPage
     private void SetAvailableResolutions()
     {
         Resolution[] resolutions = Screen.resolutions;
-        List<string> options = new List<string>();  
+        List<string> options = new List<string>();
 
         for (int i = resolutions.Length - 1; i >= 0; i--)
         {
@@ -90,12 +90,12 @@ public class ConfigMenu : MenuPage
     [System.Serializable]
     public class UI_ITEMS
     {
-        private static Color button_selectedColor = new Color(1, 0.35f, 0, 1);
-        private static Color button_unselectedColor = new Color(1f, 1f, 1f, 1);
-        private static Color text_selectedColor = new Color(1, 1f, 0, 1);
-        private static Color text_unselectedColor = new Color(0.25f, 0.25f, 0.25f, 1);
-        public static Color musicOnColor = new Color(1, 0.65f, 0, 1);
-        public static Color musicOffColor = new Color(0.5f, 0.5f, 0.5f, 1);
+        private static Color button_selectedColor = new Color(0.2f, 0.2f, 0.2f, 1);  // Cor cinza escuro
+        private static Color button_unselectedColor = new Color(0.75f, 0.75f, 0.75f, 1);  // Cor cinza claro
+        private static Color text_selectedColor = new Color(1f, 1f, 1f, 1);  // Branco
+        private static Color text_unselectedColor = new Color(0.5f, 0.5f, 0.5f, 1);  // Cinza médio
+        public static Color musicOnColor = new Color(0.3f, 0.3f, 0.3f, 1);  // Cor mais escura para ligado
+        public static Color musicOffColor = new Color(0.8f, 0.8f, 0.8f, 1);  // Cor cinza claro para desligado
 
         [Header("General")]
         public Button fullscreen;
@@ -109,13 +109,13 @@ public class ConfigMenu : MenuPage
         public Image musicFill;
         public Slider sfxVolume;
         public Image sfxFill;
-        public Slider voicesVolume;
-        public Image voicesFill;
+        //public Slider voicesVolume;
+        //public Image voicesFill;
         public Sprite mutedSymbol;
         public Sprite unmutedSymbol;
         public Image musicMute;
         public Image sfxMute;
-        public Image voicesMute;
+        //public Image voicesMute;
 
         public void SetButtonColors(Button A, Button B, bool selectedA)
         {
@@ -170,7 +170,7 @@ public class ConfigMenu : MenuPage
             return;
 
         AutoReader autoReader = DialogueSystem.instance.autoReader;
-        if (autoReader != null) 
+        if (autoReader != null)
             autoReader.speed = config.dialogueAutoReadSpeed;
     }
 
@@ -190,13 +190,13 @@ public class ConfigMenu : MenuPage
         ui.sfxFill.color = config.sfxMute ? UI_ITEMS.musicOffColor : UI_ITEMS.musicOnColor;
     }
 
-    public void SetVoicesVolume()
+    /*public void SetVoicesVolume()
     {
         config.voicesVolume = ui.voicesVolume.value;
         AudioManager.instance.SetVoicesVolume(config.voicesVolume, config.voicesMute);
 
         ui.voicesFill.color = config.voicesMute ? UI_ITEMS.musicOffColor : UI_ITEMS.musicOnColor;
-    }
+    }*/
 
     public void SetMusicMute()
     {
@@ -216,12 +216,12 @@ public class ConfigMenu : MenuPage
         AudioManager.instance.SetSFXVolume(config.sfxVolume, config.sfxMute);
     }
 
-    public void SetVoicesMute()
+    /*public void SetVoicesMute()
     {
         config.voicesMute = !config.voicesMute;
         ui.voicesVolume.fillRect.GetComponent<Image>().color = config.voicesMute ? UI_ITEMS.musicOffColor : UI_ITEMS.musicOnColor;
         ui.voicesMute.sprite = config.voicesMute ? ui.mutedSymbol : ui.unmutedSymbol;
 
         AudioManager.instance.SetVoicesVolume(config.voicesVolume, config.voicesMute);
-    }
+    }*/
 }

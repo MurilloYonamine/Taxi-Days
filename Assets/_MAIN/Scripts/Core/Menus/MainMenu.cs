@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
 
     public void Click_StartNewGame()
     {
-        uiChoiceMenu.Show("Start a new game?", new UIConfirmationMenu.ConfirmationButton("Yes", StartNewGame), new UIConfirmationMenu.ConfirmationButton("No", null));
+        uiChoiceMenu.Show("Começar um novo jogo?", new UIConfirmationMenu.ConfirmationButton("Sim", StartNewGame), new UIConfirmationMenu.ConfirmationButton("Não", null));
     }
 
     public void LoadGame(VNGameSave file)
