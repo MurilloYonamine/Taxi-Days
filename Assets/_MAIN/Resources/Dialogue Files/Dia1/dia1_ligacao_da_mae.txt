@@ -1,0 +1,27 @@
+ShowAllPanels(-i true)
+CreateCharacter(Taxista)
+Taxista.Show()
+
+Taxista "Mãe, bom dia!"
+
+Mãe "Bom dia? Você já conseguiu o emprego que tanto falava?"
+você sabe que nossa situação não é boa,
+e mesmo assim insistiu em fazer essa tal faculdade de Ciência da Computação.
+eu não sei quem te convenceu de que essa 'ciência' daria dinheiro.
+Eu não acredito que desperdicei tanto com seus estudos para você acabar assim, 
+Sem trazer uma vida melhor para mim e para você...
+
+Taxista "Mãe, eu consegui um emprego!"
+
+Mãe "Oh, sério?! Finalmente você vai trazer um pouco de alegria para essa casa!" 
+Estou tão contente que você vai deixar de ser um quase vagabundo. 
+Mas e aí? Quanto você vai ganhar? Você disse que esse curso te garantiria um bom salário.
+
+Taxista "Eu não tenho um salário fixo e não estou trabalhando com o que eu realmente quero. Estou empregado como taxista."
+
+Mãe "{wa}.{wa}.{wa}."
+
+Wait(2)
+Taxista "Tenho que desligar agora, mãe."
+
+Taxista "Espero que hoje realmente seja bom dia..."

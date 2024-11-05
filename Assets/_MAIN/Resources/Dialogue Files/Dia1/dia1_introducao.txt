@@ -1,0 +1,27 @@
+Wait(2)
+
+PlaySong(driving -l true)
+HideAllPanels(-immediate true)
+
+narrator "Em São Paulo, onde os sons parecem ter se perdido no vento," 
+Um jovem taxista começa seu dia com um sentimento de desilusão. 
+Formado em Ciência da Computação, ele se vê agora conduzindo um táxi, 
+Uma profissão que não reflete suas aspirações nem suas conquistas acadêmicas. 
+O dia amanhece nublado, e a cidade parece compartilhar sua sensação de estagnação e desencanto.
+
+narrator "Ele acorda cedo, prepara-se e se dirige ao ponto de táxi."
+A cidade ao seu redor parece um espelho de seu próprio estado de espírito
+cinza{a} e sem vida. 
+
+Wait(2)
+
+narrator "Chegando ao ponto, ele se senta no táxi, pronto para enfrentar mais um dia de trabalho."
+O sol ainda está baixo no horizonte, as ruas estão desertas, aumentando a sensação de vazio.
+
+O horário de trabalho do dia chega, e ele dirige até o local de determinado. 
+Enquanto aguarda,{a} seu telefone toca...
+Wait(2)
+
+narrator "É sua mãe, com uma voz carregada de frustração e ansiedade."
+
+Load(Dia1/dia1_ligacao_da_mae)

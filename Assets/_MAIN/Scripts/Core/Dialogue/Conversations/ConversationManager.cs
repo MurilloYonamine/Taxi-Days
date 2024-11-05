@@ -70,7 +70,7 @@ namespace DIALOGUE
 
         IEnumerator RunningConversation()
         {
-            while(!conversationQueue.IsEmpty())
+            while (!conversationQueue.IsEmpty())
             {
                 Conversation currentConversation = conversation;
 
@@ -90,7 +90,6 @@ namespace DIALOGUE
                 }
 
                 DIALOGUE_LINE line = DialogueParser.Parse(rawLine);
-
                 if (logicalLineManager.TryGetLogic(line, out Coroutine logic))
                 {
                     isOnLogicalLine = true;
@@ -121,7 +120,6 @@ namespace DIALOGUE
                 TryAdvanceConversation(currentConversation);
                 isOnLogicalLine = false;
             }
-
             process = null;
         }
 
@@ -141,6 +139,7 @@ namespace DIALOGUE
             //Show or hide the speaker name if there is one present.
             if (line.hasSpeaker)
                 HandleSpeakerLogic(line.speakerData);
+            
 
             //If the dialogue box is not visible - make sure it becomes visible automatically
             if (!dialogueSystem.dialogueContainer.isVisible)
@@ -181,7 +180,7 @@ namespace DIALOGUE
         {
             List<DL_COMMAND_DATA.Command> commands = line.commandData.commands;
 
-            foreach(DL_COMMAND_DATA.Command command in commands)
+            foreach (DL_COMMAND_DATA.Command command in commands)
             {
                 if (command.waitForCompletion || command.name == "wait")
                 {
@@ -205,7 +204,7 @@ namespace DIALOGUE
 
         IEnumerator BuildLineSegments(DL_DIALOGUE_DATA line)
         {
-            for(int i = 0; i < line.segments.Count; i++)
+            for (int i = 0; i < line.segments.Count; i++)
             {
                 DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment = line.segments[i];
 
@@ -218,7 +217,7 @@ namespace DIALOGUE
         public bool isWaitingOnAutoTimer { get; private set; } = false;
         IEnumerator WaitForDialogueSegmentSignalToBeTriggered(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment)
         {
-            switch(segment.startSignal)
+            switch (segment.startSignal)
             {
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.C:
                     yield return WaitForUserInput();

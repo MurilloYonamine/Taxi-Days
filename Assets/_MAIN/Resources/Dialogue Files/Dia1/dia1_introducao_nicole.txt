@@ -1,0 +1,13 @@
+Taxista <i>"Enquanto dirijo pelas ruas movimentadas de São Paulo, vejo as pessoas indo e vindo, cada uma com seu próprio destino.  O rádio toca baixinho, mas meus pensamentos estão longe, perdidos..."<i>
+
+Taxista "Hmmm?{a} Uma mulher está se aproximando do meu carro. Ela parece estar cansada."
+
+??? as Nicole: "Bom dia. Você poderia me levar até a OVIMA, por favor?"
+
+Taxista (pensando): "Vou apenas acenar com a cabeça..."
+
+PlaySFX(porta_abrindo)
+
+Taxista (pensando): "Hora de começar o dia."
+
+[[Continuar Introdução de Nicole]]

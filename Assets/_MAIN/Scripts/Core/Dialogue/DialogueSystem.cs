@@ -59,7 +59,7 @@ namespace DIALOGUE
         {
             onUserPrompt_Next?.Invoke();
 
-            if(autoReader != null && autoReader.isOn)
+            if (autoReader != null && autoReader.isOn)
                 autoReader.Disable();
         }
 
@@ -96,6 +96,7 @@ namespace DIALOGUE
             CharacterConfigData config = character != null ? character.config : CharacterManager.instance.GetCharacterConfig(speakerName);
 
             ApplySpeakerDataToDialogueContainer(config);
+            dialogueContainer.SetRootContainerPosition(speakerName);
         }
 
         public void ApplySpeakerDataToDialogueContainer(CharacterConfigData config)
@@ -122,7 +123,7 @@ namespace DIALOGUE
                 HideSpeakerName();
                 dialogueContainer.nameContainer.nameText.text = "";
             }
-                
+
         }
 
         public void HideSpeakerName() => dialogueContainer.nameContainer.Hide();

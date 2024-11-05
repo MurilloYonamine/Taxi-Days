@@ -38,7 +38,7 @@ namespace DIALOGUE
             TMP_CharacterInfo finalCharacter = tmpro.textInfo.characterInfo[tmpro.textInfo.characterCount - 1];
             Vector3 targetPos = finalCharacter.bottomRight;
             float characterWidth = finalCharacter.pointSize * 0.5f;
-            targetPos = new Vector3(targetPos.x + characterWidth, targetPos.y, 0);
+            targetPos = new Vector3((targetPos.x + 10) + characterWidth, targetPos.y, 0);
 
             root.localPosition = targetPos;
         }

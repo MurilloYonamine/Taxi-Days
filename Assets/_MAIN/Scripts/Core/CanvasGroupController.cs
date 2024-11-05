@@ -45,6 +45,8 @@ public class CanvasGroupController
 
     public Coroutine Hide(float speed = 1f, bool immediate = false)
     {
+        Debug.Log("Hiding panel: " + rootCG.gameObject.name); // Adicione este log
+
         if (isHiding)
             return co_hiding;
 
