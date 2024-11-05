@@ -70,15 +70,15 @@ namespace AYellowpaper.SerializedCollections.Editor
             return settings.AlwaysShowSearch ? true : pages >= settings.PageCountForSearch;
         }
 
-        public static bool HasDrawerForProperty(SerializedProperty property, Type type)
+        public static bool HasDrawerForType(Type type)
         {
             Type attributeUtilityType = typeof(SerializedProperty).Assembly.GetType("UnityEditor.ScriptAttributeUtility");
             if (attributeUtilityType == null)
                 return false;
-            var getDrawerMethod = attributeUtilityType.GetMethod("GetDrawerTypeForPropertyAndType", BindingFlags.Static | BindingFlags.NonPublic);
+            var getDrawerMethod = attributeUtilityType.GetMethod("GetDrawerTypeForType", BindingFlags.Static | BindingFlags.NonPublic);
             if (getDrawerMethod == null)
                 return false;
-            return getDrawerMethod.Invoke(null, new object[] { property, type }) != null;
+            return getDrawerMethod.Invoke(null, new object[] { type }) != null;
         }
 
         internal static void AddGenericMenuItem(GenericMenu genericMenu, bool isOn, bool isEnabled, GUIContent content, GenericMenu.MenuFunction action)
@@ -206,10 +206,10 @@ namespace AYellowpaper.SerializedCollections.Editor
             if (source == null)
                 return null;
             var type = source.GetType();
-            var f = type.GetFieldRecursive(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+            var f = type.GetField(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
             if (f == null)
             {
-                var p = type.GetPropertyRecursive(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
+                var p = type.GetProperty(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
                 if (p == null)
                     return null;
                 return p.GetValue(source, null);
@@ -224,22 +224,6 @@ namespace AYellowpaper.SerializedCollections.Editor
             while (index-- >= 0)
                 enm.MoveNext();
             return enm.Current;
-        }
-
-        private static FieldInfo GetFieldRecursive(this Type type, string name, BindingFlags bindingFlags)
-        {
-            var fieldInfo = type.GetField(name, bindingFlags);
-            if (fieldInfo == null && type.BaseType != null)
-                return type.BaseType.GetFieldRecursive(name, bindingFlags);
-            return fieldInfo;
-        }
-        
-        private static PropertyInfo GetPropertyRecursive(this Type type, string name, BindingFlags bindingFlags)
-        {
-            var propertyInfo = type.GetProperty(name, bindingFlags);
-            if (propertyInfo == null && type.BaseType != null)
-                return type.BaseType.GetPropertyRecursive(name, bindingFlags);
-            return propertyInfo;
         }
     }
 }

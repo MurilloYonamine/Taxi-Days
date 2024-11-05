@@ -204,7 +204,7 @@ namespace AYellowpaper.SerializedCollections.Editor
             {
                 var cur = toCheck.IsGenericType ? toCheck.GetGenericTypeDefinition() : toCheck;
                 if (generic == cur) {
-                    return toCheck;
+                    return cur;
                 }
                 toCheck = toCheck.BaseType;
             }
@@ -304,7 +304,7 @@ namespace AYellowpaper.SerializedCollections.Editor
 
         private (DisplayType displayType, bool canToggleListDrawer) CreateDisplaySettings(SerializedProperty property, Type type)
         {
-            bool hasCustomEditor = SCEditorUtility.HasDrawerForProperty(property, type);
+            bool hasCustomEditor = SCEditorUtility.HasDrawerForType(type);
             bool isGenericWithChildren = property.propertyType == SerializedPropertyType.Generic && property.hasVisibleChildren;
             bool isArray = property.isArray && property.propertyType != SerializedPropertyType.String;
             bool canToggleListDrawer = isArray || (isGenericWithChildren && hasCustomEditor);
@@ -605,7 +605,7 @@ namespace AYellowpaper.SerializedCollections.Editor
         {
             int actualIndex = _pagedIndices[index];
             var element = _activeState.GetPropertyAtIndex(actualIndex);
-            return CalculateHeightOfElement(element, _propertyData.GetElementData(SerializedDictionaryDrawer.KeyFlag).EffectiveDisplayType == DisplayType.List, _propertyData.GetElementData(SerializedDictionaryDrawer.ValueFlag).EffectiveDisplayType == DisplayType.List);
+            return CalculateHeightOfElement(element, _propertyData.GetElementData(SerializedDictionaryDrawer.KeyFlag).EffectiveDisplayType == DisplayType.List ? true : false, _propertyData.GetElementData(SerializedDictionaryDrawer.ValueFlag).EffectiveDisplayType == DisplayType.List ? true : false);
         }
 
         private void OnDrawElement(Rect rect, int index, bool isActive, bool isFocused)

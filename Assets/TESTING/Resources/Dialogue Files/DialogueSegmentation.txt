@@ -1,9 +1,0 @@
-Lissima "We need to find the hidden treasure!" print_1p("Lissima is determined")
-
-Fada emo "I sense something magical nearby." playSong("Mystic Winds" -v 0.5 -p 1), setMood(mysterious)
-
-Cind "Stay alert, everyone." playVoice("c_alert_v1" -v 1.0), setBackground(Forest -t "Dense Trees" -s 4.0)
-
-Gato de Botas "I will protect you all!" playVoice("g_brave_v1" -v 1.2), setCLI(Gato de Botas 0:Heroic 1:Ready -s 2.0 -l true)
-
-setAccomplishment("Found the Hidden Treasure" false), showScene(true), StopMusic(all -s 2.0)
