@@ -39,7 +39,7 @@ namespace DIALOGUE
                 return;
             }
 
-            Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 1);
+            Vector3 containerPosition = gameObject.transform.position - new Vector3(0, 3);
             root.transform.position = containerPosition;
         }
 

@@ -1,0 +1,130 @@
+CreateCharacter(Taxista)
+CreateCharacter(Luana)
+ShowAllPanels()
+Taxista.Show()
+Taxista.SetPriority(5)
+Luana.Show()
+Luana.SetPriority(2)
+
+Taxista "<i>Ela está muito radiante,{a} cheia de energia. Toda arrumada, parece que mal consegue conter a animação<i>"
+<i>O sorriso no rosto dela não se desvai em nenhum momento.<i>
+
+PlaySFX(ligacao)
+
+Luana as ??? "Oi, amor! Estou a caminho! Nem acredito que finalmente vamos nos encontrar hoje... Estou tão animada!"
+
+Taxista "<i>Meu deus... Ela está tão animada que nem percebeu que a chamada está no viva voz.<i>"
+
+CreateCharacter(Generic as Namorado)
+
+Namorado "Oi, Luana meu amor! Que bom que você está feliz. Você vai usar aquele vestido que você me contou ontem?"
+
+Taxista "<i>Então o nome é Luana...<i>"
+
+Luana "Ah, na verdade estou com aquele vestido vermelho que você sempre diz que adora."
+E fiz uma maquiagem caprichada, passei horas me arrumando. Você acha que vai gostar? Não queria exagerar.
+
+Namorado "Claro que sim, você sempre fica linda...{a} Mas Lu, você não precisava se preocupar tanto."
+A gente vai só curtir juntos, sem pressa.
+
+Luana "Eu sei, mas queria estar perfeita pra você.{a} Você acha que o vestido está bom, mesmo?{a} Não está muito chamativo?"
+
+Namorado "Está ótimo, Lu.{a} Não precisa se preocupar tanto com isso.{a} O importante é que a gente vai passar um tempo juntos."
+
+Luana "É, você tem razão. Mas e se não combinarmos?"
+E se eu ficar estranha nas fotos? 
+Sabe como eu sou com essas coisas...
+
+Taxista "<i>O tom dele está começando a mudar...{a} A impaciência tá clara, mesmo tentando ser gentil...<i>"
+
+PlaySFX(suspiro)ligacao
+
+Namorado "Lu, você está linda, tá bom?{a} Vai dar tudo certo.{a} Vamos apenas aproveitar o dia, ok?"
+
+Luana "Tá bom...{a} Você sempre sabe o que dizer para me acalmar."
+E sobre o lugar{a}, você acha que vamos conseguir mesa naquele restaurante?{a} Será que eu devia ter feito uma reserva?
+
+Taxista "<i>Ela parece tão insegura... Talvez eu devesse dizer algo para ajudar."
+<i>Mas, e se eu me intrometer? Isso pode ser delicado.<i>
+
+Namorado "Lu, eu já resolvi isso.{a} Confia em mim, vai dar tudo certo."
+
+Luana "Você é demais, amor.{a} Eu confio em você. Mas... tem certeza que a surpresa que você preparou vai dar certo?"
+Não quero que nada saia errado.
+
+Namorado "Vai dar tudo certo, Lu. Só relaxa de uma vez,{a} tá bom?"
+
+Luana "Ok, amor...{a} Desculpa ficar perguntando tanto. Eu só quero que seja perfeito. Te amo!"
+
+Namorado "Também te amo, Lu.{a} Agora relaxa e aproveita a viagem. Nos vemos logo."
+
+PlaySFX(carro_acelerando)
+
+Taxista "<i>A conversa dela me faz lembrar como é importante ter alguém que nos dê segurança.<i>"
+<i>Mas o que eu faço agora? Devo manter o silêncio ou tentar dizer alguma coisa?<i>
+
+Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
+{
+    - Ficar em silêncio
+        Taxista "<i>Às vezes, o melhor que posso fazer é apenas ser um motorista,{a} sem intrometer na vida dos outros."
+<i>Cada um tem suas próprios problemas.<i>
+
+        Taxista "<i>Luana parece um pouco mais tranquila agora.{a} Ela observa a cidade passar pela janela.<i>" 
+<i>As luzes e os sons de São Paulo a envolvem,{a} e consigo ver que ela se perde em seus próprios pensamentos.<i> 
+<i>Espero que o dia dela seja tão perfeito quanto ela deseja.<i>
+
+        Taxista "<i>O trânsito pode ser caótico, mas é bom ver que,{a} pelo menos,{a} ela parece mais relaxada agora.<i>"
+
+    wait(5)
+
+        Taxista "<i>Após alguns minutos, finalmente chegamos ao destino.{a} Luana nota que estamos lá e,<i>"
+<i>para minha surpresa,{a} um sorriso de satisfação aparece em seu rosto.<i>
+
+        Luana "Finalmente cheguei! Obrigada pela viagem tranquila senhor taxista!"
+
+        Luana.Hide()
+
+        PlaySFX(som_de_porta_abrindo)
+
+        Taxista "Ela me pagou a corrida e parece que ela me acenou desejando um adeus.{a} Que pessoa curiosa..."
+
+    - Comentar sobre a ligação
+        Taxista "<i>Não consigo resistir à vontade.<i>"
+
+        Taxista "Pareceu uma conversa importante.{a} Espero que seu encontro seja perfeito,{a} como você deseja."
+
+        Luana "Obrigada, mas você pode{a}, por favor, se concentrar{a} na estrada?"
+
+        Taxista "<i>O silêncio que se seguiu é pesado.{a} Sinto a tensão no ar e me pergunto{a} se realmente deveria ter falado.<i>"
+
+        wait(5)
+
+        Taxista "<i>Luana pega sua bolsa.{a} A animação dela parece ter se transformado em irritação.<i>"
+
+        Luana.Hide()
+
+        PlaySFX(porta_abrindo)
+
+        Taxista "<i>Ela me pagou tão rapido quando uma bala,{a} sem uma palavra, e saiu do táxi sem olhar para trás.<i>" 
+Fico me perguntando{a} se a minha tentativa de ajudar foi um erro.
+}
+
+wait(3)
+
+taxista.hide(-i true), HideAllPanels(-i false -spd 0.5)
+
+Narrator "Enquanto dirijo pela cidade, percebo que existem diversas pessoas com diferentes problemas."
+Cada passageiro traz consigo uma história, e isso me faz refletir sobre como somos seres atolados de desafios.
+
+Narrator "Teve a mulher que parecia tão preocupada, seus olhos refletindo a carga de um dia difícil." 
+Pergunto-me se ela conseguirá resolver os problemas em seu trabalho. Acho que o nome dela era Nicole.
+
+Narrator "Também teve essa Luana, que entrou no táxi com uma animação meio irritante." 
+Era visível as suas inseguranças e preocupações, é como se tivesse marcado em sua pele.
+Pergunto-me o que a faz se sentir assim. Está enfrentando um momento difícil na vida ou
+Apenas lidando com a pressão do dia a dia?
+
+Narrator " Cada um desses encontros é um lembrete de que, por trás de cada rosto,{a} há uma vida cheia de complexidades," 
+ter alguém para conversar e desabafar,{a} é algo importante para não nos levar a loucura.
+
+Load(Dia2/dia2_introducao)

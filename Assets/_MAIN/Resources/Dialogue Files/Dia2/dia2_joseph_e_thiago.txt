@@ -1,0 +1,269 @@
+HideAllPanels()
+CreateCharacter(Taxista)
+
+Narrator "O dia está começando a avançar."
+O fluxo de passageiros não para, e eu me preparo para o próximo destino
+Curioso sobre quem será o próximo a entrar em meu táxi. 
+Enquanto ajusto o retrovisor, noto as pessoas andando apressadas pelas calçadas 
+Cada uma imersa em seu próprio mundo.
+
+Taxista.Show()
+Taxista.setpriority(5)
+ShowAllPanels()
+
+Taxista "<i>Um jovem está se aproxima do táxi.<i>"
+
+PlaySFX(porta_abrindo)
+
+CreateCharacter(Joseph)
+Show(Joseph)
+Joseph.setpriority(0)
+Joseph as ??? "Boa tarde. Pode me levar para o centro, por favor?{a} Tenho que encontrar alguém lá."
+
+Taxista "Claro."
+
+HideDB()
+wait(5)
+ShowDB()
+
+Taxista "<i>O trânsito começa a se tornar cada vez mais denso.<i>"
+<i>O fluxo de carros diminui até que, de repente, encontramos um congestionamento. <i>
+<i>O jovem no banco de trás solta outro suspiro, desta vez mais profundo, enquanto olha ansiosamente para o relógio<i>
+
+Joseph as ??? "Ótimo... justo hoje. Esse trânsito vai me atrasar ainda mais."
+
+Taxista "<i>Tento buscar uma rota alternativa, quando, de repente<i>"
+<i>Um homem se aproxima do táxi pela janela do lado do passageiro.<i> 
+<i>Ele bate levemente no vidro, gesticulando para chamar a atenção.<i>
+
+Taxista "<i>Baixo o vidro, curioso.<i>"
+
+PlaySFX(vidro_abrindo)
+
+CreateCharacter(Thiago)
+
+Thiago as ??? "Ei, você está indo para o centro, certo? Posso pegar uma carona? Divido a conta com ele."
+
+Taxista "<i>Olho pelo retrovisor para o passageiro. Aparentemente, ele não se importa.<i>"
+
+Joseph as ??? "Não me importo..."
+
+Show(Thiago)
+Thiago.setpriority(1)
+
+Thiago as ??? "Po, valeu cara. Prazer!"
+Thiago "Meu nome é Thiago."
+
+Joseph "Prazer, eu sou Joseph."
+
+Thiago "Esse trânsito está um caos.{a} Só espero que eu consiga chegar a tempo."
+
+Wait(3)
+
+Taxista "<i>Após 10 minutos de puro silêncio, noto que Thiago está inquieto. Ele parece querer conversar.<i>"
+
+Thiago "Olha isso! O trânsito tá parando a cada esquina.{a} E olha que nem é hora de pico ainda!"
+Parece que o governador não tá nem aí para a situação. Estão sempre prometendo soluções, mas nunca entregam.
+Fica cada vez mais difícil se locomover pela cidade."
+
+Taxista "É verdade. A cidade parece estar sempre em obras ou com algum problema que só piora as coisas."
+
+Thiago "Exatamente! E o pior é que parece que ninguém faz nada para resolver."
+O pessoal só fica reclamando e nada muda. Você já ouviu alguma promessa nova sobre melhorias no transporte?
+
+Taxista "Ah, sempre tem algo novo sendo anunciado, mas as mudanças reais parecem demorar uma eternidade para acontecer."
+É frustrante ver tanto esforço para nada mudar.
+
+Taxista "<i>Olho para Thiago, que parece visivelmente interessado na minha opinião.<i>"
+
+Thiago "Pois é. E enquanto isso, a gente aqui preso nesse trânsito."
+Deve ser difícil para quem precisa lidar com isso todos os dias.
+
+Taxista "Com certeza. E o que é pior é que não só nós, motoristas, sofremos com isso."
+Todo mundo na cidade acaba sendo afetado.
+
+Taxista "<i>Volto a atenção para Joseph, que continua em silêncio, perdido em seus próprios pensamentos.<i>"
+
+Thiago "Joseph, não é? O que acha dessa situação toda?"
+
+Taxista "<i>Joseph mantém o silêncio, apenas olha pela janela. Thiago dá de ombros e volta sua atenção para mim.<i>"
+
+Thiago "Bem, pelo menos o tempo passa mais rápido quando a gente conversa, não é mesmo?"
+E espero que cheguemos logo ao centro para resolver nossos compromissos.
+
+Taxista "Sim, é sempre bom bater um papo para passar o tempo."
+E espero que a gente consiga desviar de parte desse trânsito para chegar mais rápido.
+
+Taxista "Thiago puxa o assunto novamente."
+
+Thiago "Na verdade, o trânsito me lembra um pouco de como a educação está sendo tratada por aqui."
+Com tantos problemas, parece que a prioridade está sempre em outro lugar.
+
+Taxista "Educação? Como assim?"
+
+Taxista "<i>Percebo que Joseph começa a prestar atenção melhor na conversa, mostrando mais interesse.<i>"
+
+Thiago "Bem, eu trabalho como professor, e às vezes sinto que a administração escolar está tão ocupada"
+com outras coisas que esquece de focar nas necessidades reais dos alunos.
+
+Taxista "Sério? Nunca pensei muito sobre isso. O que exatamente você acha que está faltando nas escolas?"
+
+Thiago "Bom, por exemplo, temos recursos limitados para atividades extracurriculares e suporte psicológico." 
+E, com o aumento das turmas, o acompanhamento individual dos alunos acaba sendo prejudicado.
+
+Taxista "Isso parece complicado. Sempre pensei que a escola fosse um lugar onde os alunos deveriam receber todo o suporte necessário."
+
+Thiago "Sim, deveria ser. E o mais frustrante é que há tanta burocracia e"
+falta de investimento que não conseguimos fazer o trabalho da forma que gostaríamos.
+
+Joseph "Eu posso imaginar. Eu estudei em escolas que tinham muitos problemas similares."
+
+Thiago "Mais investimento em infraestrutura e mais apoio psicológico seriam ótimos." 
+Além disso, um sistema mais flexível para lidar com as necessidades individuais dos alunos seria ótimo, 
+mas é um sonho muito distante.
+
+Joseph "Interessante. Eu sempre pensei que o problema fosse só com a gestão financeira, mas parece que há muito mais envolvido."
+
+Thiago "Sim, definitivamente. E é algo que afeta diretamente a qualidade do ensino e o desenvolvimento dos alunos."
+Por exemplo, alguns alunos mais isolados, que não se encaixam em grupos de pessoas, isso nem é culpa deles. 
+Timidez e outros fatores acabam ocasionando isso. Tenho um aluno que acabou se transferindo e caindo de paraquedas na minha sala.
+Por causa disso, ele não conseguiu se enturmar com ninguém.
+
+Joseph "Eles se sentem invisíveis, como se ninguém realmente se importasse."
+
+Thiago "Exatamente. Esses alunos muitas vezes não têm alguém para conversar ou um lugar onde se sintam aceitos."
+E isso pode afetar não só o desempenho acadêmico, mas também o bem-estar emocional deles.
+
+Joseph "Eu entendo. Sempre busquei me encaixar, e posso imaginar como deve ser difícil para quem não encontra esse espaço."
+
+Thiago "Sim, e é por isso que o apoio psicológico é tão importante."
+Cada aluno precisa sentir que tem alguém com quem contar, especialmente quando as coisas não estão indo bem.
+
+Joseph "Eu nunca tinha pensado sobre isso dessa forma."
+Parece que há muito mais para fazer do que apenas melhorar a infraestrutura.
+
+Joseph "Bom, aqui é onde eu vou descer."
+Agradeço muito pela conversa. Aqui está a minha parte.
+
+PlaySFX(porta_abrindo)
+
+Joseph.Hide()
+
+HideDB()
+wait(3)
+ShowDB()
+
+Thiago "Toda essa conversa me fez esquecer toda a situação que aconteceu em uma das minhas escolas."
+
+Taxista "Parece que essa conversa realmente trouxe à tona coisas que ele estava guardando."
+
+Taxista "Escolas? Você trabalha em mais de uma?"
+
+Thiago "Sim, trabalho tanto em uma particular quanto em uma pública. O problema aconteceu na privada."
+
+Taxista "<i>Trabalhar em duas escolas deve ser desafiador. Imagino que as diferenças entre elas sejam notáveis.<i>"
+
+Taxista "E qual foi esse problema?"
+
+Thiago "Um dos alunos da minha classe vem fazendo bullying com um bolsista."
+No momento eu fiquei surpreso, como aqueles pirralhos sabiam que o garoto tinha bolsa na escola, 
+e pelo que parece, alguém da secretaria acabou vazando a informação.
+
+Taxista "Isso é horrível. É triste ver jovens se aproveitando da vulnerabilidade dos outros."
+
+Taxista "Você chegou a fazer algo?"
+
+Thiago "Fazer o que exatamente? Isso é algo que está além do que eu posso fazer. "
+Se eu reclamar sobre essa situação, talvez meu emprego fique em risco. 
+Eu dependo dele, e você sabe como é: dinheiro é poder e essa gente tem muito dinheiro.
+
+Taxista "<i>É compreensível que ele se sinta preso. O medo de represálias é real, e muitas vezes as pessoas se sentem impotentes.<i>"
+
+Choice "O que eu posso falar?"
+{
+    - Continuar ouvindo
+        Thiago "E a situação só piora. Eu me sinto completamente impotente."
+Não posso simplesmente ficar de braços cruzados, vendo um aluno ser humilhado 
+enquanto a administração faz vista grossa.
+
+        Thiago "E o mais frustrante é que esse tipo de coisa não é incomum."
+Às vezes, parece que a escola finge que todos os problemas desaparecem se ninguém falar sobre eles, 
+enquanto continuam tratando as questões mais sérias com indiferença.
+
+        Thiago "Sabe, é difícil para mim entender como pessoas com tanto poder podem ser tão insensíveis."
+Eu queria poder fazer mais, mas tenho medo de que qualquer ação minha possa custar meu emprego 
+ou me colocar em uma posição ainda mais difícil.
+
+        Thiago "Às vezes, só sinto que estou lutando contra um sistema que está claramente inclinado"
+para favorecer aqueles que já têm poder. E o pior é que o aluno bolsista é quem mais sofre com isso.
+
+        Thiago "Enfim, chegamos ao meu destino. Agradeço por ouvir, é bom poder desabafar um pouco."
+
+        Taxista "De nada. Se precisar de mais alguém para ouvir, você sabe onde me encontrar."
+
+        Thiago "Obrigado. Vou tentar resolver as coisas da melhor maneira possível."
+
+        Thiago.Hide()
+
+        Taxista "A conversa com Thiago me fez pensar muito sobre a importância do apoio."
+É claro que o apoio não é apenas sobre resolver problemas, mas sobre estar lá para alguém.
+
+        Taxista "Isso me lembra de como eu sempre busquei o apoio da minha mãe."
+Sempre desejei que ela entendesse minhas frustrações e desafios com a carreira que eu escolhi.
+Eu sentia que, se ela reconhecesse meu esforço e me apoiasse, eu poderia enfrentar as dificuldades. A falta disso me fez ficar desmotivado.
+
+        Taxista "Assim como eu anseio pela compreensão e apoio da minha mãe"
+Thiago e muitas outras pessoas também precisam desse suporte para superar suas dificuldades. 
+É incrível como o simples ato de ouvir pode fazer uma grande diferença.
+
+        Taxista "No final das contas, o apoio emocional é fundamental para todos nós."
+
+    - Tentar Aconselhar
+        Taxista "Talvez você possa considerar conversar com alguém fora da escola sobre a situação"
+Talvez com um conselheiro ou um defensor dos direitos dos alunos. 
+Às vezes, trazer um apoio externo pode ajudar a fazer a diferença.
+
+        Thiago "Agradeço a tentativa de ajuda, mas no momento, é um risco que não posso correr."
+Vou ter que encontrar outra forma de lidar com isso.
+
+        Taxista "<i>É compreensível que ele esteja cauteloso. A pressão para manter o emprego pode ser avassaladora<i>"
+<i>especialmente em uma área tão delicada.<i>
+
+        Thiago "Enfim, chegamos ao meu destino. Aqui está o pagamento da corrida."
+
+        PlaySFX(porta_abrindo)
+
+        Thiago.Hide()
+
+        Taxista "<i>Thiago se afasta aos poucos do carro.<i>"
+
+        Taxista "<i>Cada pessoa carrega suas próprias lutas. É interessante como pequenas conversas podem abrir um pouco do mundo delas.<i>"
+
+    - Mostrar empatia
+        Taxista "Eu posso imaginar como deve ser frustrante estar nessa situação"
+tentando proteger um aluno e ainda se preocupar com seu próprio emprego. Deve ser um peso enorme.
+
+        Thiago "Obrigado por entender, mas ainda me sinto muito imponente."
+
+        wait(2)
+
+        Thiago "Enfim, chegamos ao meu destino."
+
+        Thiago.Hide()
+
+        PlaySFX(porta_abrindo)
+}
+
+Taxista.Hide()
+HideAllPanels()
+wait(2)
+
+Narrator "Enquanto dirijo sem rumo, as ruas silenciosas de São Paulo oferecem uma tranquilidade que"
+de certa forma, me incomoda. Algo parece errado, mas eu não sei o que é.
+
+Narrator "Os pensamentos continuam a fluir, e o cansaço pesa sobre mim."
+Parece que cada história, cada passageiro que entrou no táxi hoje, sugou o pouco de energia que me restava.
+
+Narrator "A cidade passa por mim, mas agora estou pronto para encerrar o dia."
+
+Narrator "Fim do Playtest"
