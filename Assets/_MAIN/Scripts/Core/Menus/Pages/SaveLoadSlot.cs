@@ -38,7 +38,7 @@ public class SaveLoadSlot : MonoBehaviour
     {
         if (file == null)
         {
-            titleText.text = $"{fileNumber}. Espaço Vazio";
+            titleText.text = $"{fileNumber}. Empty File";
             deleteButton.gameObject.SetActive(false);
             loadButton.gameObject.SetActive(false);
             saveButton.gameObject.SetActive(function == SaveAndLoadMenu.MenuFunction.save);
@@ -50,7 +50,7 @@ public class SaveLoadSlot : MonoBehaviour
             deleteButton.gameObject.SetActive(true);
             loadButton.gameObject.SetActive(function == SaveAndLoadMenu.MenuFunction.load);
             saveButton.gameObject.SetActive(function == SaveAndLoadMenu.MenuFunction.save);
-
+            
             byte[] data = File.ReadAllBytes(file.screenshotPath);
             Texture2D screenshotPreview = new Texture2D(1, 1);
             ImageConversion.LoadImage(screenshotPreview, data);
@@ -62,19 +62,19 @@ public class SaveLoadSlot : MonoBehaviour
     {
         uiChoiceMenu.Show(
             //Title
-            "Deseja deletar esse arquivo? (<i>Essa escolha não pode ser revertida!</i>)",
+            "Delete this file? (<i>This cannot be undone!</i>)",
             //Choice 1
-            new UIConfirmationMenu.ConfirmationButton("Sim", () =>
+            new UIConfirmationMenu.ConfirmationButton("Yes", () => 
                 {
                     uiChoiceMenu.Show(
-                        "Tem certeza?",
-                        new UIConfirmationMenu.ConfirmationButton("Sim", OnConfirmDelete),
-                        new UIConfirmationMenu.ConfirmationButton("Deixa pra lá", null));
+                        "Are you sure?",
+                        new UIConfirmationMenu.ConfirmationButton("I am sure", OnConfirmDelete),
+                        new UIConfirmationMenu.ConfirmationButton("Never Mind", null));
                 },
                 autoCloseOnClick: false
-            ),
+            ), 
             //Choice 2
-            new UIConfirmationMenu.ConfirmationButton("Não", null));
+            new UIConfirmationMenu.ConfirmationButton("No", null));
     }
 
     private void OnConfirmDelete()
@@ -102,7 +102,7 @@ public class SaveLoadSlot : MonoBehaviour
     {
         if (HistoryManager.instance.isViewingHistory)
         {
-            UIConfirmationMenu.instance.Show("Não pode salvar enquanto estiver vizualizando o histórico.", new UIConfirmationMenu.ConfirmationButton("Okay", null));
+            UIConfirmationMenu.instance.Show("You cannot save while viewing history.", new UIConfirmationMenu.ConfirmationButton("Okay", null));
             return;
         }
 

@@ -74,7 +74,6 @@ namespace VISUALNOVEL
 
             SetConversationData();
 
-            DialogueSystem.instance.dialogueContainer.SetRootContainerPosition(activeState.dialogue.currentSpeaker);
             DialogueSystem.instance.prompt.Hide();
         }
 

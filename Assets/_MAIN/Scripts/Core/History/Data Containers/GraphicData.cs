@@ -20,7 +20,6 @@ namespace History
             public bool isVideo;
             public bool useAudio;
 
-
             public LayerData(GraphicLayer layer)
             {
                 depth = layer.layerDepth;
@@ -61,7 +60,6 @@ namespace History
 
             return graphicPanels;
         }
-
 
         public static void Apply(List<GraphicData> data)
         {
@@ -104,6 +102,5 @@ namespace History
                     panel.Clear(immediate: true);
             }
         }
-
     }
 }

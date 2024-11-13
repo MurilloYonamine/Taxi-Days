@@ -8,7 +8,7 @@ public class GraphicPanelManager : MonoBehaviour
 
     public const float DEFAULT_TRANSITION_SPEED = 1f;
 
-    [field: SerializeField] public GraphicPanel[] allPanels { get; private set; }
+    [field:SerializeField] public GraphicPanel[] allPanels { get; private set; }
 
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class GraphicPanelManager : MonoBehaviour
     {
         name = name.ToLower();
 
-        foreach (var panel in allPanels)
+        foreach (var panel in allPanels) 
         {
             if (panel.panelName.ToLower() == name)
                 return panel;
@@ -27,43 +27,4 @@ public class GraphicPanelManager : MonoBehaviour
 
         return null;
     }
-
-    public void HideAllPanels(float speed = 1f, bool immediate = false)
-    {
-        foreach (var panel in allPanels)
-        {
-            var canvasGroup = panel.rootPanel.GetComponent<CanvasGroup>();
-            if (canvasGroup != null)
-            {
-                CanvasGroupController canvasGroupController = new CanvasGroupController(this, canvasGroup);
-                canvasGroupController.Hide(speed, immediate);
-            }
-        }
-    }
-
-    public void ShowAllPanels(float speed = 1f, bool immediate = false)
-    {
-        foreach (var panel in allPanels)
-        {
-            var canvasGroup = panel.rootPanel.GetComponent<CanvasGroup>();
-            if (canvasGroup != null)
-            {
-                CanvasGroupController canvasGroupController = new CanvasGroupController(this, canvasGroup);
-                canvasGroupController.Show(speed, immediate);
-            }
-        }
-    }
-    public bool AreAllPanelsHidden()
-    {
-        foreach (var panel in allPanels)
-        {
-            var canvasGroup = panel.rootPanel.GetComponent<CanvasGroup>();
-            if (canvasGroup != null && canvasGroup.alpha > 0)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
 }

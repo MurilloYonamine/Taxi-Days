@@ -22,10 +22,6 @@ namespace COMMANDS
         {
             database.AddCommand("setlayermedia", new Func<string[], IEnumerator>(SetLayerMedia));
             database.AddCommand("clearlayermedia", new Func<string[], IEnumerator>(ClearLayerMedia));
-
-            // Graphic Panel Controls
-            database.AddCommand("showallpanels", new Func<string[], IEnumerator>(ShowAllPanels));
-            database.AddCommand("hideallpanels", new Func<string[], IEnumerator>(HideAllPanels));
         }
 
         private static IEnumerator SetLayerMedia(string[] data)
@@ -178,34 +174,6 @@ namespace COMMANDS
                 if (graphicLayer.currentGraphic != null)
                     yield return graphicLayer.currentGraphic.isFading;
             }
-        }
-
-        private static IEnumerator ShowAllPanels(string[] data)
-        {
-            float speed;
-            bool immediate;
-
-            var parameters = ConvertDataToParameters(data);
-
-            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 1f);
-            parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
-
-            GraphicPanelManager.instance.ShowAllPanels(speed, immediate);
-            yield break;
-        }
-
-        private static IEnumerator HideAllPanels(string[] data)
-        {
-            float speed;
-            bool immediate;
-
-            var parameters = ConvertDataToParameters(data);
-
-            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 1f);
-            parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
-
-            GraphicPanelManager.instance.HideAllPanels(speed, immediate);
-            yield break;
         }
     }
 }

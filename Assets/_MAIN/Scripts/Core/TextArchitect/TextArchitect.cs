@@ -83,24 +83,10 @@ public class TextArchitect
     /// Create a text architect using this ui text object
     /// </summary>
     public TextArchitect(TextMeshProUGUI uiTextObject, TABuilder.BuilderTypes builderType = TABuilder.BuilderTypes.Instant)
-    {
+    { 
         tmpro_ui = uiTextObject;
         AddBuilderTypes();
         SetBuilderType(builderType);
-    }
-
-    /// <summary>
-    /// Formata o texto para que comece com letra maiúscula.
-    /// </summary>
-    /// <param name="text"></param>
-    /// <returns></returns>
-    private string CapitalizeFirstLetter(string text)
-    {
-        if (string.IsNullOrEmpty(text))
-            return text;
-
-        // Converte a primeira letra para maiúscula e concatena com o restante do texto
-        return char.ToUpper(text[0]) + text.Substring(1);
     }
 
     /// <summary>
@@ -146,7 +132,7 @@ public class TextArchitect
     public Coroutine Build(string text)
     {
         preText = "";
-        targetText = CapitalizeFirstLetter(text);
+        targetText = text;
 
         Stop();
 
@@ -161,7 +147,7 @@ public class TextArchitect
     public Coroutine Append(string text)
     {
         preText = currentText;
-        targetText = CapitalizeFirstLetter(text); // Chama o método para capitalizar a primeira letra
+        targetText = text;
 
         Stop();
 
@@ -176,7 +162,7 @@ public class TextArchitect
     public void SetText(string text)
     {
         preText = "";
-        targetText = CapitalizeFirstLetter(text); // Chama o método para capitalizar a primeira letra
+        targetText = text;
 
         Stop();
 
