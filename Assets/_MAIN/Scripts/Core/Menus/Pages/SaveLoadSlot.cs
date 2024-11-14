@@ -12,9 +12,6 @@ public class SaveLoadSlot : MonoBehaviour
     public GameObject root;
     public RawImage previewImage;
     public TextMeshProUGUI titleText;
-    public Button deleteButton;
-    public Button saveButton;
-    public Button loadButton;
 
     [HideInInspector] public int fileNumber = 0;
     [HideInInspector] public string filePath = "";
@@ -38,19 +35,13 @@ public class SaveLoadSlot : MonoBehaviour
     {
         if (file == null)
         {
-            titleText.text = $"{fileNumber}. Empty File";
-            deleteButton.gameObject.SetActive(false);
-            loadButton.gameObject.SetActive(false);
-            saveButton.gameObject.SetActive(function == SaveAndLoadMenu.MenuFunction.save);
+            titleText.text = $"{fileNumber}. Empty Slot";
             previewImage.texture = SaveAndLoadMenu.Instance.emptyFileImage;
         }
         else
         {
             titleText.text = $"{fileNumber}. {file.timestamp}";
-            deleteButton.gameObject.SetActive(true);
-            loadButton.gameObject.SetActive(function == SaveAndLoadMenu.MenuFunction.load);
-            saveButton.gameObject.SetActive(function == SaveAndLoadMenu.MenuFunction.save);
-            
+
             byte[] data = File.ReadAllBytes(file.screenshotPath);
             Texture2D screenshotPreview = new Texture2D(1, 1);
             ImageConversion.LoadImage(screenshotPreview, data);
@@ -58,23 +49,66 @@ public class SaveLoadSlot : MonoBehaviour
         }
     }
 
+    public void OnSlotClick()
+    {
+        // Verifica se o menu está no modo de salvar
+        if (SaveAndLoadMenu.Instance.menuFunction == SaveAndLoadMenu.MenuFunction.save)
+        {
+            if (File.Exists(filePath))
+            {
+                // Se houver um arquivo salvo, exibe opções de "Carregar" e "Excluir"
+                uiChoiceMenu.Show(
+                    "O que deseja fazer?",
+                    new UIConfirmationMenu.ConfirmationButton("Carregar", Load),
+                    new UIConfirmationMenu.ConfirmationButton("Excluir", Delete),
+                    new UIConfirmationMenu.ConfirmationButton("Cancelar", null)
+                );
+            }
+            else
+            {
+                // Se não houver arquivo salvo, exibe a opção de "Salvar"
+                uiChoiceMenu.Show(
+                    "O que deseja fazer?",
+                    new UIConfirmationMenu.ConfirmationButton("Salvar", Save),
+                    new UIConfirmationMenu.ConfirmationButton("Cancelar", null)
+                );
+            }
+        }
+        else if (SaveAndLoadMenu.Instance.menuFunction == SaveAndLoadMenu.MenuFunction.load)
+        {
+            // No modo "Load", só exibe as opções se houver um arquivo salvo
+            if (File.Exists(filePath))
+            {
+                uiChoiceMenu.Show(
+                    "O que deseja fazer?",
+                    new UIConfirmationMenu.ConfirmationButton("Carregar", Load),
+                    new UIConfirmationMenu.ConfirmationButton("Excluir", Delete),
+                    new UIConfirmationMenu.ConfirmationButton("Cancelar", null)
+                );
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
     public void Delete()
     {
         uiChoiceMenu.Show(
-            //Title
             "Delete this file? (<i>This cannot be undone!</i>)",
-            //Choice 1
-            new UIConfirmationMenu.ConfirmationButton("Yes", () => 
+            new UIConfirmationMenu.ConfirmationButton("Yes", () =>
                 {
                     uiChoiceMenu.Show(
                         "Are you sure?",
                         new UIConfirmationMenu.ConfirmationButton("I am sure", OnConfirmDelete),
-                        new UIConfirmationMenu.ConfirmationButton("Never Mind", null));
+                        new UIConfirmationMenu.ConfirmationButton("Never Mind", null)
+                    );
                 },
                 autoCloseOnClick: false
-            ), 
-            //Choice 2
-            new UIConfirmationMenu.ConfirmationButton("No", null));
+            ),
+            new UIConfirmationMenu.ConfirmationButton("No", null)
+        );
     }
 
     private void OnConfirmDelete()
