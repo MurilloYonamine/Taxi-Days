@@ -248,7 +248,6 @@ namespace DIALOGUE
         {
             dialogue = TagManager.Inject(dialogue);
             string speakerName = dialogueSystem.dialogueContainer.nameContainer.nameText.text;
-            Debug.Log(speakerName);
 
             CharacterConfigData characterConfigData = CharacterManager.instance.GetCharacterConfig(speakerName, getOriginal: true);
 

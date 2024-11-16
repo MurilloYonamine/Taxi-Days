@@ -39,10 +39,15 @@ Mãe "{a}..."
 
 Taxista "Tenho que desligar agora, mãe."
 
-PlaySFX(taxista_suspiro)
+PlaySFX(Taxista/taxista_suspiro)
 
 Wait(1)
 
-Taxista "Espero que hoje realmente seja bom dia..."
+Taxista "Espero que hoje realmente seja um bom dia..."
 
-PlaySFX(car/car-starting-sound -loop true)
+Wait(1)
+HideUI(-s 0,5), HideDB(-s 0,5)
+
+PlaySFX(car/car-starting-sound)
+
+Load(day1/day1_nicole)

@@ -1,0 +1,33 @@
+PlaySong(driving -volume 0,1)
+
+Wait(5)
+
+StopSFX(car/car-starting-sound)
+
+PlaySFX(Car/car-arriving)
+
+Wait(4)
+
+ShowDB(-s 0,5)
+
+Taxista "<i>Enquanto dirijo pelas ruas movimentadas de São Paulo.<i>"
+<i>Vejo as pessoas indo e vindo, cada uma com seu próprio destino.<i>
+<i>O rádio toca baixinho, mas meus pensamentos estão longe, perdidos...<i>
+
+ShowUI(-s 0,5)
+
+Taxista "Hmmm? Uma mulher está se aproximando do meu carro. Ela parece estar cansada."
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+
+Wait(4)
+ShowDB()
+
+??? as Nicole "Bom dia. Você poderia me levar até a OVIMA, por favor?"
+
+Taxista "<i>Vou apenas acenar com a cabeça...<i>"
+
+Taxista "<i>Hora de começar o dia.<i>"
+
+PlaySFX(car/car-starting-sound)
