@@ -129,14 +129,14 @@ public class TextArchitect
     /// Build and display a string using this text.
     /// </summary>
     /// <param name="text"></param>
-    public Coroutine Build(string text)
+    public Coroutine Build(string text, AudioClip sound = null)
     {
         preText = "";
         targetText = text;
 
         Stop();
 
-        buildProcess = builder.Build();
+        buildProcess = builder.Build(sound);
         return buildProcess;
     }
 
@@ -144,14 +144,14 @@ public class TextArchitect
     /// Append and build a string to what is already being displayed on this text
     /// </summary>
     /// <param name="text"></param>
-    public Coroutine Append(string text)
+    public Coroutine Append(string text, AudioClip sound = null)
     {
         preText = currentText;
         targetText = text;
 
         Stop();
 
-        buildProcess = builder.Build();
+        buildProcess = builder.Build(sound);
         return buildProcess;
     }
 

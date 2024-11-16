@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TABuilder_Instant : TABuilder
 {
-    public override Coroutine Build()
+    public override Coroutine Build(AudioClip sound)
     {
         architect.tmpro.color = architect.tmpro.color;
         architect.tmpro.text = architect.fullTargetText;

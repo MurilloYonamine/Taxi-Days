@@ -11,6 +11,8 @@ namespace CHARACTERS
 
         public CharacterConfigData GetConfig(string characterName, bool safe = true)
         {
+            if (string.IsNullOrEmpty(characterName)) return CharacterConfigData.Default;
+
             characterName = characterName.ToLower();
 
             for (int i = 0; i < characters.Length; i++)

@@ -26,6 +26,7 @@ namespace DIALOGUE
 
         public bool allowUserPrompts = true;
 
+
         public ConversationManager(TextArchitect architect)
         {
             this.architect = architect;
@@ -70,7 +71,7 @@ namespace DIALOGUE
 
         IEnumerator RunningConversation()
         {
-            while(!conversationQueue.IsEmpty())
+            while (!conversationQueue.IsEmpty())
             {
                 Conversation currentConversation = conversation;
 
@@ -139,7 +140,7 @@ namespace DIALOGUE
         IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
         {
             //Show or hide the speaker name if there is one present.
-            if (line.hasSpeaker)
+            if (line.hasSpeaker && line.speakerData != null)
                 HandleSpeakerLogic(line.speakerData);
 
             //If the dialogue box is not visible - make sure it becomes visible automatically
@@ -181,9 +182,9 @@ namespace DIALOGUE
         {
             List<DL_COMMAND_DATA.Command> commands = line.commandData.commands;
 
-            foreach(DL_COMMAND_DATA.Command command in commands)
+            foreach (DL_COMMAND_DATA.Command command in commands)
             {
-                if (command.waitForCompletion || command.name == "wait")
+                if (command.waitForCompletion || command.name.ToLower() == "wait")
                 {
                     CoroutineWrapper cw = CommandManager.instance.Execute(command.name, command.arguments);
                     while (!cw.IsDone)
@@ -205,7 +206,7 @@ namespace DIALOGUE
 
         IEnumerator BuildLineSegments(DL_DIALOGUE_DATA line)
         {
-            for(int i = 0; i < line.segments.Count; i++)
+            for (int i = 0; i < line.segments.Count; i++)
             {
                 DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment = line.segments[i];
 
@@ -218,7 +219,7 @@ namespace DIALOGUE
         public bool isWaitingOnAutoTimer { get; private set; } = false;
         IEnumerator WaitForDialogueSegmentSignalToBeTriggered(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment)
         {
-            switch(segment.startSignal)
+            switch (segment.startSignal)
             {
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.C:
                     yield return WaitForUserInput();
@@ -246,12 +247,16 @@ namespace DIALOGUE
         IEnumerator BuildDialogue(string dialogue, bool append = false)
         {
             dialogue = TagManager.Inject(dialogue);
+            string speakerName = dialogueSystem.dialogueContainer.nameContainer.nameText.text;
+            Debug.Log(speakerName);
+
+            CharacterConfigData characterConfigData = CharacterManager.instance.GetCharacterConfig(speakerName, getOriginal: true);
 
             //Build the dialogue
             if (!append)
-                architect.Build(dialogue);
+                architect.Build(dialogue, characterConfigData.voice);
             else
-                architect.Append(dialogue);
+                architect.Append(dialogue, characterConfigData.voice);
 
             //Wait for the dialogue to complete.
             while (architect.isBuilding)
@@ -268,6 +273,7 @@ namespace DIALOGUE
                 yield return null;
             }
         }
+
 
         IEnumerator WaitForUserInput()
         {

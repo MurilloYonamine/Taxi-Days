@@ -27,7 +27,7 @@ public abstract class TABuilder
         Fade
     }
 
-    public virtual Coroutine Build() => null;
+    public virtual Coroutine Build(AudioClip sound) => null;
 
     public virtual void ForceComplete()
     {

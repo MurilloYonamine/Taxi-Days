@@ -8,3 +8,4 @@ public class VisualNovelSO : ScriptableObject
 {
     public TextAsset startingFile;
 }
+

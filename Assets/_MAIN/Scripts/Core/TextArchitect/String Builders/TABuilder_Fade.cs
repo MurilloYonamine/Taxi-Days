@@ -6,7 +6,7 @@ public class TABuilder_Fade : TABuilder
 {
     private int pretextlength = 0;
 
-    public override Coroutine Build()
+    public override Coroutine Build(AudioClip sound)
     {
         Prepare();
 

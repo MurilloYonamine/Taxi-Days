@@ -1,0 +1,23 @@
+narrator "Em São Paulo, onde os sons parecem ter se perdido no vento, um jovem taxista começa seu dia com um sentimento de desilusão."
+
+Formado em Ciência da Computação, ele se vê agora conduzindo um táxi, uma profissão que não reflete suas aspirações nem suas conquistas acadêmicas.
+
+O dia amanhece nublado, e a cidade parece compartilhar sua sensação de estagnação e desencanto.
+
+Ele acorda cedo, prepara-se e se dirige ao ponto de táxi. A cidade ao seu redor parece um espelho de seu próprio estado de espírito.
+
+Cinza e {a}sem vida.
+
+Chegando ao ponto, ele se senta no táxi, pronto para enfrentar mais um dia de trabalho.
+
+O sol ainda está baixo no horizonte, e as ruas estão desertas, aumentando a sensação de vazio.
+
+A primeira chamada do dia chega, e ele dirige até o local de embarque.
+
+Enquanto aguarda, seu telefone toca...{a} 
+
+PlaySFX(telephone-vibrating)
+
+É sua mãe, com uma voz carregada de frustração e ansiedade.
+
+Load(day1/day1_ligacao_mae)
