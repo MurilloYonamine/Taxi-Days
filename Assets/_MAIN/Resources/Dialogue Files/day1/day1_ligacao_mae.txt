@@ -46,6 +46,7 @@ Wait(1)
 Taxista "Espero que hoje realmente seja um bom dia..."
 
 Wait(1)
+
 HideUI(-s 0,5), HideDB(-s 0,5)
 
 PlaySFX(car/car-starting-sound)
