@@ -1,5 +1,6 @@
 PlaySong(driving -volume 0,1)
 
+HideDB()
 Wait(5)
 
 StopSFX(car/car-starting-sound)
@@ -16,7 +17,7 @@ Taxista "<i>Enquanto dirijo pelas ruas movimentadas de São Paulo.<i>"
 
 ShowUI(-s 0,5)
 
-Taxista "Hmmm? Uma mulher está se aproximando do meu carro. Ela parece estar cansada."
+Taxista "Hmmm?{a} Uma mulher está se aproximando do meu carro.{a} Ela parece estar cansada."
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
@@ -24,10 +25,114 @@ PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()
 
-??? as Nicole "Bom dia. Você poderia me levar até a OVIMA, por favor?"
+??? as Nicole "Bom dia.{a} Você poderia me levar até a OVIMA, por favor?"
 
 Taxista "<i>Vou apenas acenar com a cabeça...<i>"
 
 Taxista "<i>Hora de começar o dia.<i>"
 
 PlaySFX(car/car-starting-sound)
+
+HideDB()
+HideUI()
+Wait(3)
+
+ShowUI()
+Wait(1)
+ShowDB()
+
+Taxista "<i>Ela está a viagem inteira observando a cidade.<i>""
+<i>A mente dela deve estar afogada em pensamentos e preocupações.<i>
+
+PlaySFX(telephone-vibrating)
+Wait(2)
+StopSFX(telephone-vibrating)
+
+Nicole as ??? "Olá, o que há de novo?"
+
+Generic as Secretaria "Senhora Nicole, lamen... infor... mas a en...tre... da nova... para baleias... adia..."
+
+Taxista "<i>Nossa não consegui entender nada.{a} O nome dela é Nicole?{a} Como assim 'baleias'?<i>"
+
+Nicole "Entendo. Mas precisamos encontrar uma solução."
+Elas precisam disso urgentemente.{a} Há algo que você possa fazer para resolver isso?
+
+Generic as Secretaria "Senhora Nicole... descul... F... o possível p... sol..."
+
+Nicole "Deem{a} um{a} jeito."
+
+PlaySFX(telephone-turningOff)
+Wait(1)
+PlaySFX(nicole-suspiro)
+Wait(2)
+
+Nicole "Todo dia parece ter uma notícia ruim no meu trabalho..."
+
+Choice "<i>O que eu devo fazer?<i>"
+{
+    - Dizer alguma coisa
+        Taxista "Está tudo bem, senhora?{a} Nicole, não é?{a} Ouvi pela ligação."
+Desculpe por invadir sua conversa.{a} Parece que o seu dia começou com alguns desafios.
+
+        Nicole "Isso mesmo, meu nome é Nicole, acho que você conseguiu ouvir a ligação."
+Bom, é verdade. Todo dia parece um desafio diferente no meu trabalho.
+Muitas pessoas parecem não ter a mesma paixão que você tem, entende?{a} É um pouco desanimador...
+
+        Taxista "Parece difícil encontrar quem realmente se dedique ao trabalho.{a} O verdadeiro esforço é algo raro."
+
+        Nicole "Ah, você também sabe o que é esse sentimento?"
+É bom ouvir isso de alguém fora do meu ambiente de trabalho.
+O compromisso com o que fazemos realmente faz uma grande diferença. 
+Especialmente em áreas críticas como a proteção da vida marinha, onde cada detalhe conta.
+Às vezes, sinto que estou lutando contra um mar de indiferença.
+
+        Taxista "Aliás...{a} Trabalha com vida marítima, senhora Nicole?{a} Bastante interessante."
+Você deve carregar uma responsabilidade gigantesca nos ombros.
+Consigo imaginar mais ainda as suas frustrações.
+
+        Nicole "Exatamente.{a} É reconfortante ouvir alguém que me entenda.{a} Mesmo que seja apenas uma conversa rápida."
+Obrigada por isso.
+
+        load(Day1/day1_pergunta_pessoal)
+
+    - Tentar aconselhar
+        Taxista "É realmente difícil quando as coisas não saem como planejado."
+Especialmente quando o que está em jogo é importante. Espero que consigam resolver isso logo.
+        
+        Nicole "Sim, eu também espero. Às vezes, parece que estamos lutando contra um mar de obstáculos."
+A dedicação é essencial, mas a logística muitas vezes pode ser um desafio.
+
+        load(day1/day1_pergunta_pessoal)
+
+    - Fazer pouco caso
+        Taxista "Dia ruim senhora?{a} Complicado isso, não é?"
+
+        Nicole "Sim... É difícil, mas é o que resta."
+
+        Taxista "<i>Ela ainda parece frustrada...{a} É difícil ajudar pessoas...<i>"
+
+        HideUI()
+        HideDB()
+        Wait(3)
+        ShowUI()
+        ShowDB()
+
+        Taxista "<i>Enquanto sigo para a OVIMA,{a} me pego pensando nas batalhas diárias que as pessoas enfrentam...<i>"
+<i>Parece que todo mundo carrega um fardo.<i>
+
+        Taxista "<i>Assim que Nicole desaparece pelas portas da OVIMA, fico por um momento recostado, pensando.<i>"
+<i>Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava de verdade com o que faz.<i>
+
+        Taxista "<i>Olho pelo retrovisor, ainda preso nesses pensamentos, quando vejo outra passageira se aproximando.<i>"
+<i>Uma jovem com um sorriso animado... parece tão diferente.<i>
+
+        PlaySFX(porta_abrindo)
+
+        Luana as ??? "Oi, bom dia! Pode me levar para a Avenida Paulista, por favor?"
+
+        Taxista "Claro."
+
+        PlaySFX(car/car-starting-sound)
+
+        load(day1/day1_introducao_luana)
+}

@@ -1,0 +1,103 @@
+Nicole "E você?{a} Sempre trabalhou como taxista{a} ou tinha outro tipo de trabalho antes?"
+
+Taxista "Bom, eu não sou exatamente um exemplo de sucesso." 
+Mas já tive alguns trabalhos de meio período enquanto tentava encontrar algo na minha área de estudo. 
+Me diga, como você encontrou o seu trabalho?
+
+Nicole "Eu trabalho na OVIMA, uma organização dedicada à proteção e cuidado da vida marinha."
+Sou responsável por uma equipe que se dedica a monitorar e.
+Proteger diversas espécies marinhas, especialmente baleias.
+
+Taxista "Isso deve ser um trabalho do caramba!{a} Imagino que também deve ser bastante desafiador."
+
+Nicole "Sim, definitivamente."
+A parte mais gratificante é saber que estamos contribuindo para a preservação de espécies.
+E também de habitats marinhos.
+No entanto, lidar com o dia a dia é uma completa desventura. 
+É um trabalho que exige muita dedicação e paciência. E nem todo mundo tem isso.
+
+Taxista "E o que fez você decidir seguir por esse caminho?{a} O que te inspirou a trabalhar com a vida marinha?"
+
+Nicole "Desde jovem, sempre tive uma paixão enorme pelos animais, especialmente pela vida marinha."
+Lembro-me de assistir documentários sobre o oceano e me fascinar com a diversidade e a beleza das baleias. 
+Quando chegou o momento de escolher uma carreira.
+Sabia que queria fazer algo que me permitisse estar mais próxima desse mundo e. 
+Contribuir para sua proteção. 
+Estudar Biologia Marinha e trabalhar na OVIMA foi uma forma de unir minha paixão à minha profissão.
+
+Taxista "Parece que você encontrou uma maneira incrível de transformar sua paixão em carreira." 
+Deve ser muito recompensador ver os resultados do seu trabalho.
+
+Nicole "Sim, é verdade. É uma sensação de realização enorme saber que estamos fazendo a diferença."
+Mesmo que os desafios sejam grandes.
+É uma motivação constante para continuar lutando pelos nossos objetivos.
+Mesmo nos dias mais difíceis.
+
+Taxista "É bom ouvir tudo isso.{a} Conversar com pessoas como você, que têm tanta paixão e propósito."
+Realmente{a} faz a diferença.
+Mesmo que seja apenas uma breve conversa.
+É reconfortante saber que existem pessoas que se dedicam tanto ao que fazem.
+
+Nicole "Obrigada.{a} É bom compartilhar isso com alguém."
+
+HideUI()
+HideDB()
+Wait(4)
+ShowUI()
+ShowDB()
+Wait(1)
+
+Nicole "Bom, parece que já estamos chegando.{a} Agradeço muito pela conversa."
+Foi um alívio poder falar sobre o que realmente importa para mim.
+
+Taxista "Foi um prazer ouvir sua história.{a} E, se precisar de alguém para desabafar ou apenas conversar."
+Estou por aí andando com meu táxi, só me encontrar! 
+O trabalho pode ser difícil,{a} mas a gente se entende melhor quando compartilha um pouco.
+
+Nicole "Isso significa muito para mim."
+Espero que encontre o sucesso que procura.
+
+Wait(1)
+HideUI()
+HideDB()
+PlaySFX(Car/car-arriving)
+Wait(5)
+ShowUI()
+HideDB()
+
+Taxista "Aqui estamos.{a} Boa sorte com o seu trabalho e espero que tudo se resolva com o seu projeto."
+
+Nicole "Obrigada.{a} E boa sorte para você também.{a} Até mais!"
+HideDB()
+Wait(1)
+PlaySFX(Car/car-door-close)
+Wait(1)
+
+Taxista "<i>Observo Nicole entrar na OVIMA e penso...<i>"
+<i>Pequenos gestos... <i>
+<i>Conversas simples...<i>
+<i>É engraçado como isso pode realmente mudar o dia de alguém.<i>
+<i>Talvez{a} até o meu.<i>
+
+PlaySFX(Car/car-starting-sound)
+
+HideDB()
+Wait(3)
+
+ShowDB()
+
+Taxista "<i>Tem uma mulher se aproximando.<i>"
+<i>Uma jovem com um sorriso animado... Parece tão diferente.<i>
+HideDB()
+
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Luana as ??? "Oi, bom dia!{a} Pode me levar para a Avenida Paulista, por favor?"
+
+Taxista "Claro."
+
+PlaySFX(Car/car-stating-sound)
+
+load(Dia1/dia1_introducao_luana)
