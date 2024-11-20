@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
+using static VariableStore;
 
 namespace VISUALNOVEL
 {
     public class VNDatabaseGlobalVariables : MonoBehaviour
     {
-        private void Awake()
+        private void Start()
         {
             string[] characters = { "Nicole", "Thiago", "Joseph", "Luana" };
             int days = 7;

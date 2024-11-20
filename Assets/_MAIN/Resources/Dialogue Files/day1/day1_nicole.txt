@@ -70,6 +70,9 @@ Nicole "Todo dia parece ter uma notícia ruim no meu trabalho..."
 Choice "<i>O que eu devo fazer?<i>"
 {
     - Dizer alguma coisa
+        $Nicole.count += 1
+        $Nicole.day1 = true
+
         Taxista "Está tudo bem, senhora?{a} Nicole, não é?{a} Ouvi pela ligação."
 Desculpe por invadir sua conversa.{a} Parece que o seu dia começou com alguns desafios.
 
@@ -95,15 +98,17 @@ Obrigada por isso.
         load(Day1/day1_pergunta_pessoal)
 
     - Tentar aconselhar
+        $Nicole.day1 = false
+
         Taxista "É realmente difícil quando as coisas não saem como planejado."
 Especialmente quando o que está em jogo é importante. Espero que consigam resolver isso logo.
         
         Nicole "Sim, eu também espero. Às vezes, parece que estamos lutando contra um mar de obstáculos."
 A dedicação é essencial, mas a logística muitas vezes pode ser um desafio.
 
-        load(day1/day1_pergunta_pessoal)
-
     - Fazer pouco caso
+        $Nicole.day1 = false
+
         Taxista "Dia ruim senhora?{a} Complicado isso, não é?"
 
         Nicole "Sim... É difícil, mas é o que resta."
@@ -113,23 +118,23 @@ A dedicação é essencial, mas a logística muitas vezes pode ser um desafio.
         HideAll()
         Wait(3)
         ShowAll()
+}
 
-        Taxista "<i>Enquanto sigo para a OVIMA,{a} me pego pensando nas batalhas diárias que as pessoas enfrentam...<i>"
+Taxista "<i>Enquanto sigo para a OVIMA,{a} me pego pensando nas batalhas diárias que as pessoas enfrentam...<i>"
 <i>Parece que todo mundo carrega um fardo.<i>
 
-        Taxista "<i>Assim que Nicole desaparece pelas portas da OVIMA, fico por um momento recostado, pensando.<i>"
+Taxista "<i>Assim que Nicole desaparece pelas portas da OVIMA, fico por um momento recostado, pensando.<i>"
 <i>Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava de verdade com o que faz.<i>
 
-        Taxista "<i>Olho pelo retrovisor, ainda preso nesses pensamentos, quando vejo outra passageira se aproximando.<i>"
+Taxista "<i>Olho pelo retrovisor, ainda preso nesses pensamentos, quando vejo outra passageira se aproximando.<i>"
 <i>Uma jovem com um sorriso animado... parece tão diferente.<i>
 
-        PlaySFX(porta_abrindo)
+PlaySFX(porta_abrindo)
 
-        Luana as ??? "Oi, bom dia! Pode me levar para a Avenida Paulista, por favor?"
+Luana as ??? "Oi, bom dia! Pode me levar para a Avenida Paulista, por favor?"
 
-        Taxista "Claro."
+Taxista "Claro."
 
-        PlaySFX(car/car-starting-sound)
+PlaySFX(car/car-starting-sound)
 
-        load(day1/day1_introducao_luana)
-}
+load(day1/day1_luana)

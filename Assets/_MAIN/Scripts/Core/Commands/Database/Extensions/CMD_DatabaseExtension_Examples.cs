@@ -10,7 +10,7 @@ namespace TESTING
     {
         new public static void Extend(CommandDatabase database)
         {
-            //Add Action with no parameters
+            /*
             database.AddCommand("print", new Action(PrintDefaultMessage));
             database.AddCommand("print_1p", new Action<string>(PrintUsermessage));
             database.AddCommand("print_mp", new Action<string[]>(PrintLines));
@@ -26,7 +26,7 @@ namespace TESTING
             database.AddCommand("process_mp", new Func<string[], IEnumerator>(MultiLineProcess));
 
             //Special Example
-            database.AddCommand("moveCharDemo", new Func<string, IEnumerator>(MoveCharacter));
+            database.AddCommand("moveCharDemo", new Func<string, IEnumerator>(MoveCharacter));*/
         }
 
         private static void PrintDefaultMessage()

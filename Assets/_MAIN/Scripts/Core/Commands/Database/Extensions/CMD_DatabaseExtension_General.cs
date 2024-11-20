@@ -20,7 +20,7 @@ namespace COMMANDS
             //Dialogue System Controls
             database.AddCommand("showui", new Func<string[], IEnumerator>(ShowDialogueSystem));
             database.AddCommand("hideui", new Func<string[], IEnumerator>(HideDialogueSystem));
-            
+
             //Dialogue Box Controls
             database.AddCommand("showdb", new Func<string[], IEnumerator>(ShowDialogueBox));
             database.AddCommand("hidedb", new Func<string[], IEnumerator>(HideDialogueBox));
@@ -28,9 +28,24 @@ namespace COMMANDS
             database.AddCommand("hideAll", new Func<string[], IEnumerator>(HideAll));
             database.AddCommand("showAll", new Func<string[], IEnumerator>(ShowAll));
 
-
             database.AddCommand("load", new Action<string[]>(LoadNewDialogueFile));
+
+            database.AddCommand("print", new Action<string[]>(PrintMessage));
         }
+        private static void PrintMessage(string message)
+        {
+            Debug.Log(message);
+        }
+        private static void PrintMessage(string[] messages)
+        {
+            string messageToShow = "Mensagem:\n";
+            foreach (string message in messages)
+            {
+                messageToShow += $"{message}\n";
+            }
+            Debug.Log(messageToShow);
+        }
+
 
         private static void LoadNewDialogueFile(string[] data)
         {
