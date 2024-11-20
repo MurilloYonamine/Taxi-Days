@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using CHARACTERS;
 
 namespace DIALOGUE
 {
@@ -10,9 +11,10 @@ namespace DIALOGUE
         public GameObject root;
         public NameContainer nameContainer;
         public TextMeshProUGUI dialogueText;
-        public RectTransform dialogueRect;
+        public RectTransform dialogueRect => root.GetComponent<RectTransform>();
 
         private CanvasGroupController cgController;
+        private Vector3 initialPosition;
 
         public void SetDialogueColor(Color color) => dialogueText.color = color;
         public void SetDialogueFont(TMP_FontAsset font) => dialogueText.font = font;
@@ -25,12 +27,24 @@ namespace DIALOGUE
                 return;
 
             cgController = new CanvasGroupController(DialogueSystem.instance, root.GetComponent<CanvasGroup>());
-            dialogueRect = root.GetComponent<RectTransform>();
+            initialPosition = dialogueRect.anchoredPosition;
         }
         public void NarratorDialogueContainer()
         {
             root.GetComponent<Image>().enabled = false;
-            dialogueRect.anchoredPosition = new Vector2(0, 0);
+            dialogueRect.anchoredPosition = new Vector3(0, 0, 0);
+            Debug.Log(root.transform.position);
+        }
+        public void DialogueContainerCharacterPosition(string characterName)
+        {
+            GameObject characterGameObject = GameObject.Find($"Character - [{characterName}]");
+            if (characterGameObject == null)
+            {
+                dialogueRect.anchoredPosition = initialPosition;
+                return;
+            }
+            Vector3 containerPosition = characterGameObject.transform.position - new Vector3(0, 1, 0);
+            dialogueRect.anchoredPosition = containerPosition;
         }
 
         public bool isVisible => cgController.isVisible;

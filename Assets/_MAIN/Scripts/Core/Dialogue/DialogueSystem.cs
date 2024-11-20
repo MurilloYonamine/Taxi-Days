@@ -121,6 +121,7 @@ namespace DIALOGUE
         {
             if (speakerName.ToLower() != "narrator")
             {
+                dialogueContainer.DialogueContainerCharacterPosition(speakerName);
                 dialogueContainer.nameContainer.Show(speakerName);
             }
             else
