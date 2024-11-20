@@ -25,6 +25,10 @@ namespace COMMANDS
             database.AddCommand("showdb", new Func<string[], IEnumerator>(ShowDialogueBox));
             database.AddCommand("hidedb", new Func<string[], IEnumerator>(HideDialogueBox));
 
+            database.AddCommand("hideAll", new Func<string[], IEnumerator>(HideAll));
+            database.AddCommand("showAll", new Func<string[], IEnumerator>(ShowAll));
+
+
             database.AddCommand("load", new Action<string[]>(LoadNewDialogueFile));
         }
 
@@ -114,6 +118,30 @@ namespace COMMANDS
             parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
 
             yield return DialogueSystem.instance.Hide(speed, immediate);
+        }
+        private static IEnumerator ShowAll(string[] data)
+        {
+            float speed;
+            bool immediate;
+
+            var parameters = ConvertDataToParameters(data);
+
+            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 1f);
+            parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
+
+            yield return DialogueSystem.instance.ShowAll(speed, immediate);
+        }
+        private static IEnumerator HideAll(string[] data)
+        {
+            float speed;
+            bool immediate;
+
+            var parameters = ConvertDataToParameters(data);
+
+            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 1f);
+            parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
+
+            yield return DialogueSystem.instance.HideAll(speed, immediate);
         }
     }
 }

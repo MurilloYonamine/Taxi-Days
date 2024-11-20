@@ -59,7 +59,11 @@ namespace DIALOGUE
         {
             onUserPrompt_Next?.Invoke();
 
-            if(autoReader != null && autoReader.isOn)
+            VariableStore.ClearConsole();
+
+            VariableStore.PrintAllVariables();
+
+            if (autoReader != null && autoReader.isOn)
                 autoReader.Disable();
         }
 
@@ -122,7 +126,6 @@ namespace DIALOGUE
                 HideSpeakerName();
                 dialogueContainer.nameContainer.nameText.text = "";
             }
-                
         }
 
         public void HideSpeakerName() => dialogueContainer.nameContainer.Hide();
@@ -148,6 +151,18 @@ namespace DIALOGUE
         public Coroutine Show(float speed = 1f, bool immediate = false) => cgController.Show(speed, immediate);
 
         public Coroutine Hide(float speed = 1f, bool immediate = false) => cgController.Hide(speed, immediate);
+        public Coroutine ShowAll(float speed = 1f, bool immediate = false)
+        {
+            dialogueContainer.Show(speed, immediate);
+            cgController.Show(speed, immediate);
+            return null;
+        }
+        public Coroutine HideAll(float speed = 1f, bool immediate = false)
+        {
+            dialogueContainer.Hide(speed, immediate);
+            cgController.Hide(speed, immediate);
+            return null;
+        }
     }
 
 }

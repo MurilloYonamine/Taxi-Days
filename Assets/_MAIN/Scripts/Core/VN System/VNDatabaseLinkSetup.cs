@@ -8,7 +8,7 @@ namespace VISUALNOVEL
     {
         public void SetupExternalLinks()
         {
-            VariableStore.CreateVariable("VN.mainCharName", "", () => VNGameSave.activeFile.playerName, value => VNGameSave.activeFile.playerName = value);
+            //VariableStore.CreateVariable("VN.mainCharName", "", () => VNGameSave.activeFile.//playerName, value => VNGameSave.activeFile.playerName = value);
         }
     }
 }

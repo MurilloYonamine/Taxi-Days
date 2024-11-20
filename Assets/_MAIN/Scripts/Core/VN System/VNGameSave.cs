@@ -21,7 +21,7 @@ namespace VISUALNOVEL
         public string screenshotPath => $"{FilePaths.gameSaves}{slotNumber}{SCREENSHOT_FILE_TYPE}";
 
 
-        public string playerName;
+        //public string playerName;
         public int slotNumber = 1;
 
         public bool newGame = true;
@@ -191,6 +191,13 @@ namespace VISUALNOVEL
                         if (bool.TryParse(val, out bool b_val))
                         {
                             VariableStore.TrySetValue(variable.name, b_val);
+                            continue;
+                        }
+                        break;
+                    case "System.Double":
+                        if (double.TryParse(val, out double d_val))
+                        {
+                            VariableStore.TrySetValue(variable.name, d_val);
                             continue;
                         }
                         break;

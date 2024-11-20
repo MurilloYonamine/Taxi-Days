@@ -40,11 +40,9 @@ Mesmo que seja apenas uma breve conversa.
 
 Nicole "Obrigada.{a} É bom compartilhar isso com alguém."
 
-HideUI()
-HideDB()
+HideAll()
 Wait(4)
-ShowUI()
-ShowDB()
+ShowAll()
 Wait(1)
 
 Nicole "Bom, parece que já estamos chegando.{a} Agradeço muito pela conversa."
@@ -58,12 +56,10 @@ Nicole "Isso significa muito para mim."
 Espero que encontre o sucesso que procura.
 
 Wait(1)
-HideUI()
-HideDB()
+HideAll()
 PlaySFX(Car/car-arriving)
 Wait(5)
-ShowUI()
-HideDB()
+ShowAll()
 
 Taxista "Aqui estamos.{a} Boa sorte com o seu trabalho e espero que tudo se resolva com o seu projeto."
 

@@ -11,8 +11,8 @@ public class VariableStore
 
     public class Database
     {
-        public Database(string name) 
-        { 
+        public Database(string name)
+        {
             this.name = name;
             variables = new Dictionary<string, Variable>();
         }
@@ -54,7 +54,7 @@ public class VariableStore
         public override void Set(object newValue) => setter((T)newValue);
     }
 
-    public static Dictionary<string, Database> databases = new Dictionary<string, Database>() { { DEFAULT_DATABASE_NAME, new Database(DEFAULT_DATABASE_NAME)} };
+    public static Dictionary<string, Database> databases = new Dictionary<string, Database>() { { DEFAULT_DATABASE_NAME, new Database(DEFAULT_DATABASE_NAME) } };
     private static Database defaultDatabase => databases[DEFAULT_DATABASE_NAME];
 
     public static bool CreateDatabase(string name)
@@ -94,7 +94,7 @@ public class VariableStore
     public static bool TryGetValue(string name, out object variable)
     {
         (string[] parts, Database db, string variableName) = ExtractInfo(name);
-        
+
         if (!db.variables.ContainsKey(variableName))
         {
             variable = null;
@@ -185,5 +185,11 @@ public class VariableStore
         }
         Debug.Log(sb.ToString());
     }
-
+    public static void ClearConsole()
+    {
+        var assembly = System.Reflection.Assembly.GetAssembly(typeof(UnityEditor.Editor));
+        var type = assembly.GetType("UnityEditor.LogEntries");
+        var method = type.GetMethod("Clear");
+        method.Invoke(null, null);
+    }
 }

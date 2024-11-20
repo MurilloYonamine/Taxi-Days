@@ -33,8 +33,7 @@ Taxista "<i>Hora de começar o dia.<i>"
 
 PlaySFX(car/car-starting-sound)
 
-HideDB()
-HideUI()
+HideAll()
 Wait(3)
 
 ShowUI()
@@ -111,11 +110,9 @@ A dedicação é essencial, mas a logística muitas vezes pode ser um desafio.
 
         Taxista "<i>Ela ainda parece frustrada...{a} É difícil ajudar pessoas...<i>"
 
-        HideUI()
-        HideDB()
+        HideAll()
         Wait(3)
-        ShowUI()
-        ShowDB()
+        ShowAll()
 
         Taxista "<i>Enquanto sigo para a OVIMA,{a} me pego pensando nas batalhas diárias que as pessoas enfrentam...<i>"
 <i>Parece que todo mundo carrega um fardo.<i>

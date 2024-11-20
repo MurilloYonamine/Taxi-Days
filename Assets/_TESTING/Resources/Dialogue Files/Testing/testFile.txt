@@ -8,6 +8,8 @@ $stringOne = "Hello"
 $stringTwo = "World"
 $stringHello = "Hello"
 
+narrator "$choice, $empatia, $profissionalismo, $indiferenca"
+
 narrator "Variable one is $numberOne"
 
 narrator "Again, I say it is $numberOne."

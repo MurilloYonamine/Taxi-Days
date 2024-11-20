@@ -1,14 +1,44 @@
+$empatia = 0
+$profissionalismo = 0
+$indiferenca = 0
+
+narrator "hey"
+
 choice "Where do you go?"
 {
-	-The Forest
-		$choice = Forest
-	-The Cave
-		$choice = Cave
+    -The Forest
+        $choice = Forest
+        $empatia += 1
+        narrator "Choice set to Forest"
+    -The Cave
+        $choice = Cave
+        $profissionalismo += 1
+        narrator "Choice set to Cave"
 }
+
+narrator "Choice is $choice"
 
 if ($choice == Cave)
 {
-	narrator "To the cave we go!"
+    narrator "To the cave we go!"
 }
 
+if($profissionalismo == 1)
+{
+    narrator "$profissionalismo"
+}
+
+if($indiferenca == 0) 
+{
+    narrator "$indiferenca I don't know"
+}
+
+if($empatia == 0)
+{
+    narrator "ayooo"
+}
+narrator "$empatia"
+
 narrator "What are we waiting for, let's go to The $choice!"
+
+Load(Testing/testFile)

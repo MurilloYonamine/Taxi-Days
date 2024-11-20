@@ -1,3 +1,12 @@
+$test = 0
+
+narrator "$Nicole.count, $Nicole.day1"
+
+$Nicole.count += 1
+$Nicole.day1 = true
+
+narrator "$Nicole.count, $Nicole.day1"
+
 Taxista "<i>Ela está muito radiante,{a} cheia de energia. Toda arrumada, parece que mal consegue conter a animação<i>"
 <i>O sorriso no rosto dela não se desvai em nenhum momento.<i>
 
@@ -23,7 +32,8 @@ E fiz uma maquiagem caprichada,{a} passei horas me arrumando.{a} Você acha que 
 Namorado "Claro que sim, você sempre fica linda...{a} Mas Lu, você não precisava se preocupar tanto."
 A gente vai só curtir juntos, não esquenta.
 
-Luana "Eu sei, mas queria estar perfeita pra você.{a} Você acha que o vestido está bom, mesmo?{a} Não está muito chamativo?"
+Luana "Eu sei, mas queria estar perfeita pra você.{a} Você acha que o vestido está bom, mesmo?"
+Não está muito chamativo?
 
 Namorado "Está ótimo, Lu.{a} Não precisa se preocupar tanto com isso."
 O importante é que a gente vai passar um tempo juntos.
@@ -47,7 +57,7 @@ Taxista "<i>Ela parece tão insegura... Talvez eu devesse dizer algo para ajudar
 Namorado "Lu, eu já resolvi isso.{a} Confia em mim, vai dar tudo certo."
 
 Luana "Você é demais, amor.{a} Eu confio em você." 
-Mas...{a} Tem certeza que a surpresa que você preparou vai dar certo?"
+Mas...{a} Tem certeza que a surpresa que você preparou vai dar certo?
 Não quero que nada saia errado.
 
 Namorado "Vai dar tudo certo, Lu.{a} Só relaxa de uma vez,{a} tá bom?"
@@ -77,8 +87,8 @@ Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
 
     wait(5)
 
-        Taxista "<i>Após alguns minutos, finalmente chegamos ao destino.{a} Luana nota que estamos lá e,<i>"
-<i>para minha surpresa,{a} um sorriso de satisfação aparece em seu rosto.<i>
+        Taxista "<i>Após alguns minutos, finalmente chegamos ao destino.{a}Luana nota que estamos lá.<i>"
+<i>Para minha surpresa,{a} um sorriso de satisfação aparece em seu rosto.<i>
 
         Luana "Finalmente cheguei! Obrigada pela viagem tranquila senhor taxista!"
 
@@ -115,23 +125,3 @@ Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
         Taxista "<i>Ela me pagou tão rapido quando uma bala,{a} sem uma palavra, e saiu do táxi sem olhar para trás.<i>" 
 Fico me perguntando{a} se a minha tentativa de ajudar foi um erro.
 }
-
-wait(3)
-
-taxista.hide(-i true), HideAllPanels(-i false -spd 0.5)
-
-Narrator "Enquanto dirijo pela cidade, percebo que existem diversas pessoas com diferentes problemas."
-Cada passageiro traz consigo uma história, e isso me faz refletir sobre como somos seres atolados de desafios.
-
-Narrator "Teve a mulher que parecia tão preocupada, seus olhos refletindo a carga de um dia difícil." 
-Pergunto-me se ela conseguirá resolver os problemas em seu trabalho. Acho que o nome dela era Nicole.
-
-Narrator "Também teve essa Luana, que entrou no táxi com uma animação meio irritante." 
-Era visível as suas inseguranças e preocupações, é como se tivesse marcado em sua pele.
-Pergunto-me o que a faz se sentir assim. Está enfrentando um momento difícil na vida ou
-Apenas lidando com a pressão do dia a dia?
-
-Narrator " Cada um desses encontros é um lembrete de que, por trás de cada rosto,{a} há uma vida cheia de complexidades," 
-ter alguém para conversar e desabafar,{a} é algo importante para não nos levar a loucura.
-
-Load(Dia2/dia2_introducao)

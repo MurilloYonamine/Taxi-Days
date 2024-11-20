@@ -27,7 +27,6 @@ namespace TESTING
                     Debug.Log($"comando [{i}] '{command.name}' tem argumentos: [{string.Join(", ", command.arguments)}]");
                 }*/
             }
-
             DialogueSystem.instance.Say(lines);
         }
     }
