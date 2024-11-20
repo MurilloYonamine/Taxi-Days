@@ -1,0 +1,10 @@
+Narrator "O taxista inicia mais um dia de trabalho, refletindo sobre as experiências e passageiros do dia anterior."
+A cidade parece estar igualmente movimentada, mas há um sentimento de mais um dia reflexivo.
+
+HideUI()
+Wait(2)
+ShowUI()
+
+Taxista "Ontem foi um dia cheio. Tive passageiros que trouxeram um pedaço de sua vida para o táxi."
+Será que terei a oportunidade de encontrar essas pessoas novamente?
+Veremos quais histórias cruzaram meu caminho hoje.

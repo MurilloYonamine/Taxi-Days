@@ -1,5 +1,4 @@
-$Nicole.day1 = true
-$Luana.day1 = true
+ShowUI()
 
 if ($Nicole.day1 && $Luana.day1)
 {
@@ -58,4 +57,4 @@ if(!$Nicole.day1 && !$Luana.day1)
             
     Narrator "A cidade continua ao meu redor, mas minha mente reflete sobre o que aconteceu. Talvez eu tenha feito a diferença, talvez não. Mas, ao menos, tentei não complicar as coisas."
 }
-    
+Load(day2/day2_introducao)

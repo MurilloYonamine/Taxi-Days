@@ -50,6 +50,7 @@ namespace DIALOGUE
 
         public Coroutine StartConversation(Conversation conversation)
         {
+            dialogueSystem.dialogueContainer.Clear();
             StopConversation();
             conversationQueue.Clear();
 
@@ -248,6 +249,8 @@ namespace DIALOGUE
         {
             dialogue = TagManager.Inject(dialogue);
             string speakerName = dialogueSystem.dialogueContainer.nameContainer.nameText.text;
+
+            if (speakerName == "") speakerName = "narrator";
 
             CharacterConfigData characterConfigData = CharacterManager.instance.GetCharacterConfig(speakerName, getOriginal: true);
 

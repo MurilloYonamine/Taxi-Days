@@ -78,8 +78,9 @@ Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
 <i>Espero que o dia dela seja tão perfeito quanto ela deseja.<i>
 
         Taxista "<i>O trânsito pode ser caótico, mas é bom ver que,{a} pelo menos,{a} ela parece mais relaxada agora.<i>"
-
-    wait(5)
+        HideDB()
+        Wait(5)
+        ShowDB()
 
         Taxista "<i>Após alguns minutos, finalmente chegamos ao destino.{a}Luana nota que estamos lá.<i>"
 <i>Para minha surpresa,{a} um sorriso de satisfação aparece em seu rosto.<i>
@@ -88,7 +89,10 @@ Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
 
         Luana.Hide()
 
-        PlaySFX(som_de_porta_abrindo)
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
+        ShowDB()
 
         Taxista "Ela me pagou a corrida e parece que ela me acenou desejando um adeus.{a} Que pessoa curiosa..."
 
@@ -107,16 +111,24 @@ Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
         Taxista "<i>Que climão...{a} Será que era isso que eu realmente deveria ter falado?<i>"
 <i>Será que era melhor eu ter ficado quieto?<i>
 
-
         HideDB()
         wait(3)
+        HideDB()
 
         Taxista "<i>Luana pega sua bolsa.{a} A animação dela parece ter se transformado em irritação.<i>"
 
         Luana.Hide()
+        
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
 
-        PlaySFX(porta_abrindo)
+        ShowDB()
 
         Taxista "<i>Ela me pagou tão rapido quando uma bala,{a} sem uma palavra, e saiu do táxi sem olhar para trás.<i>" 
 Fico me perguntando{a} se a minha tentativa de ajudar foi um erro.
 }
+Wait(1)
+HideUI()
+Wait(3)
+Load(day1/day1_reflexao)

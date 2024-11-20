@@ -32,8 +32,7 @@ namespace DIALOGUE
         public void NarratorDialogueContainer()
         {
             root.GetComponent<Image>().enabled = false;
-            dialogueRect.anchoredPosition = new Vector3(0, 0, 0);
-            Debug.Log(root.transform.position);
+            dialogueRect.anchoredPosition = new Vector3(0, 0, 10);
         }
         public void DialogueContainerCharacterPosition(string characterName)
         {
@@ -46,7 +45,11 @@ namespace DIALOGUE
             Vector3 containerPosition = characterGameObject.transform.position - new Vector3(0, 1, 0);
             dialogueRect.anchoredPosition = containerPosition;
         }
-
+        public void Clear()
+        {
+            dialogueText.text = string.Empty;
+            nameContainer.nameText.text = string.Empty;
+        }
         public bool isVisible => cgController.isVisible;
         public Coroutine Show(float speed = 1f, bool immediate = false) => cgController.Show(speed, immediate);
         public Coroutine Hide(float speed = 1f, bool immediate = false) => cgController.Hide(speed, immediate);
