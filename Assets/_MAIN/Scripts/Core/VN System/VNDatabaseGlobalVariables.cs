@@ -8,7 +8,7 @@ namespace VISUALNOVEL
 {
     public class VNDatabaseGlobalVariables : MonoBehaviour
     {
-        private void Start()
+        private void Awake()
         {
             string[] characters = { "Nicole", "Thiago", "Joseph", "Luana" };
             int days = 7;

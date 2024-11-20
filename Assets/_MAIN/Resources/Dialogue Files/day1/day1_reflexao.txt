@@ -1,6 +1,9 @@
+$Nicole.day1 = true
+$Luana.day1 = true
+
 if ($Nicole.day1 && $Luana.day1)
 {
-    Print("Nicole $Nicole.day1")
+    Print("Todas as passagens do dia 1 foram corretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
     
     Narrator "Enquanto dirijo pela cidade, percebo como as pessoas carregam seus próprios fardos."
     Narrator "Cada passageiro tem uma história, e eu me pergunto: quantos de nós conseguimos realmente deixar esses problemas para trás por um momento, mesmo que seja dentro de um táxi?"
@@ -15,6 +18,8 @@ if ($Nicole.day1 && $Luana.day1)
 }
 if(!$Nicole.day1 && $Luana.day1) 
 {
+    Print("Nem todas as passagens do dia 1 foram corretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
+
     Narrator "Enquanto dirijo pela cidade, me pergunto sobre as pessoas que encontramos e o que realmente sabemos sobre elas."
 
     Narrator "Nicole, por exemplo, parecia tão distante. Seus olhos estavam cheios de preocupações, e eu fiquei em silêncio, talvez por não saber o que dizer. Agora, me pergunto se fiz o certo."
@@ -27,6 +32,8 @@ if(!$Nicole.day1 && $Luana.day1)
 }
 if($Nicole.day1 && !$Luana.day1)
 {
+    Print("Nem todas as passagens do dia 1 foram corretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
+
     Narrator "A cidade passa por mim, mas minha mente está focada nas pessoas que encontrei durante o dia."
 
     Narrator "Nicole, embora distante, me pareceu um pouco mais tranquila. Eu consegui me conectar com ela, talvez mais do que com Luana. Ela parecia em paz, mesmo com seus próprios dilemas."
@@ -39,7 +46,7 @@ if($Nicole.day1 && !$Luana.day1)
 }
 if(!$Nicole.day1 && !$Luana.day1)
 {
-    Print("Nicole: $Nicole.day1" "Luana: $Luana.day1")
+    Print("Todas as passagens do dia 1 foram incorretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
 
     Narrator "Enquanto dirijo pela cidade, percebo que, apesar de nossos próprios problemas, conseguimos, de alguma forma, nos conectar com os outros."
     

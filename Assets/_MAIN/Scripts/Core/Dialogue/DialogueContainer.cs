@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
+using UnityEngine.UI;
 
 namespace DIALOGUE
 {
@@ -10,6 +10,7 @@ namespace DIALOGUE
         public GameObject root;
         public NameContainer nameContainer;
         public TextMeshProUGUI dialogueText;
+        public RectTransform dialogueRect;
 
         private CanvasGroupController cgController;
 
@@ -24,6 +25,12 @@ namespace DIALOGUE
                 return;
 
             cgController = new CanvasGroupController(DialogueSystem.instance, root.GetComponent<CanvasGroup>());
+            dialogueRect = root.GetComponent<RectTransform>();
+        }
+        public void NarratorDialogueContainer()
+        {
+            root.GetComponent<Image>().enabled = false;
+            dialogueRect.anchoredPosition = new Vector2(0, 0);
         }
 
         public bool isVisible => cgController.isVisible;
