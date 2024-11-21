@@ -69,7 +69,7 @@ Nicole "Todo dia parece ter uma notícia ruim no meu trabalho..."
 
 Choice "<i>O que eu devo fazer?<i>"
 {
-    - Dizer alguma coisa
+    - Dizer Alguma Coisa
         $Nicole.count += 1
         $Nicole.day1 = true
 
@@ -97,7 +97,7 @@ Obrigada por isso.
 
         load(Day1/day1_pergunta_pessoal)
 
-    - Tentar aconselhar
+    - Tentar Aconselhar
         $Nicole.day1 = false
 
         Taxista "É realmente difícil quando as coisas não saem como planejado."
@@ -106,7 +106,7 @@ Especialmente quando o que está em jogo é importante. Espero que consigam reso
         Nicole "Sim, eu também espero. Às vezes, parece que estamos lutando contra um mar de obstáculos."
 A dedicação é essencial, mas a logística muitas vezes pode ser um desafio.
 
-    - Fazer pouco caso
+    - Fazer Pouco Caso
         $Nicole.day1 = false
 
         Taxista "Dia ruim senhora?{a} Complicado isso, não é?"

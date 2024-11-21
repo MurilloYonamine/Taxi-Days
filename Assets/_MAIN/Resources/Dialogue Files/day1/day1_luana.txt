@@ -66,7 +66,7 @@ Mas o que eu faço agora? Devo manter o silêncio ou tentar dizer alguma coisa?
 
 Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
 {
-    - Ficar em silêncio
+    - Ficar em Silêncio
         $Luana.day1 = true
         $Luana.count +=1
 
@@ -96,7 +96,7 @@ Para minha surpresa,{a} um sorriso de satisfação aparece em seu rosto.
 
         Taxista "Ela me pagou a corrida e parece que ela me acenou desejando um adeus.{a} Que pessoa curiosa..."
 
-    - Comentar sobre a ligação
+    - Comentar Sobre a Ligação
         $Luana.day1 = false
         Taxista thought "Não consigo resistir à vontade."
 

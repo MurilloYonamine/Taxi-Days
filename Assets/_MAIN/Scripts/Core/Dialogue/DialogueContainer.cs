@@ -36,6 +36,7 @@ namespace DIALOGUE
         }
         public void DialogueContainerCharacterPosition(string characterName)
         {
+            root.GetComponent<Image>().enabled = true;
             GameObject characterGameObject = GameObject.Find($"Character - [{characterName}]");
             if (characterGameObject == null)
             {
@@ -62,7 +63,6 @@ namespace DIALOGUE
             else
             {
                 root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.67f);
-
                 dialogueText.fontStyle = FontStyles.Normal;
                 nameContainer.nameText.fontStyle = FontStyles.Normal;
             }
