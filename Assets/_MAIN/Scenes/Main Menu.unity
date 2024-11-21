@@ -10629,7 +10629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &429981115
@@ -15092,7 +15092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &621470159
@@ -18030,15 +18030,15 @@ MonoBehaviour:
     autoReaderSpeed: {fileID: 367414099}
     musicVolume: {fileID: 1875158867}
     musicFill: {fileID: 364296426}
+    musicMute: {fileID: 1390190936}
     sfxVolume: {fileID: 664105003}
     sfxFill: {fileID: 1979653351}
-    voicesVolume: {fileID: 0}
-    voicesFill: {fileID: 0}
+    sfxMute: {fileID: 558356228}
+    voicesVolume: {fileID: 717606725}
+    voicesFill: {fileID: 1220613971}
+    voicesMute: {fileID: 1555072498}
     mutedSymbol: {fileID: 21300000, guid: 63cecc2f40be4e04c887d0539c6e0178, type: 3}
     unmutedSymbol: {fileID: 21300000, guid: 77078bb57803b1f43906ea23ea46527a, type: 3}
-    musicMute: {fileID: 1390190936}
-    sfxMute: {fileID: 558356228}
-    voicesMute: {fileID: 0}
 --- !u!224 &732789044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18056,7 +18056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.2300415, y: 0}
+  m_AnchoredPosition: {x: -0.22998047, y: 0}
   m_SizeDelta: {x: -0.4699707, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &732789045
@@ -46737,15 +46737,15 @@ MonoBehaviour:
     autoReaderSpeed: {fileID: 456870620}
     musicVolume: {fileID: 669191363}
     musicFill: {fileID: 509642392}
+    musicMute: {fileID: 1819822273}
     sfxVolume: {fileID: 1885263135}
     sfxFill: {fileID: 741826565}
+    sfxMute: {fileID: 1197306110}
     voicesVolume: {fileID: 0}
     voicesFill: {fileID: 0}
+    voicesMute: {fileID: 0}
     mutedSymbol: {fileID: 21300000, guid: 63cecc2f40be4e04c887d0539c6e0178, type: 3}
     unmutedSymbol: {fileID: 21300000, guid: 77078bb57803b1f43906ea23ea46527a, type: 3}
-    musicMute: {fileID: 1819822273}
-    sfxMute: {fileID: 1197306110}
-    voicesMute: {fileID: 0}
 --- !u!222 &1949328639
 CanvasRenderer:
   m_ObjectHideFlags: 0

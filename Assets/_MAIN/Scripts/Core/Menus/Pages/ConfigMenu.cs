@@ -38,10 +38,6 @@ public class ConfigMenu : MenuPage
         SetAvailableResolutions();
 
         LoadConfig();
-
-        Debug.Log(ui.voicesVolume != null ? "Voices Volume Slider is set." : "Voices Volume Slider is NULL!");
-        Debug.Log(ui.voicesFill != null ? "Voices Fill Image is set." : "Voices Fill Image is NULL!");
-        Debug.Log(ui.voicesMute != null ? "Voices Mute Button is set." : "Voices Mute Button is NULL!");
     }
 
     private void LoadConfig()
@@ -60,7 +56,7 @@ public class ConfigMenu : MenuPage
         VN_Configuration.activeConfig = null;
     }
 
-    public void OpenPanel(string panelName)
+    /*public void OpenPanel(string panelName)
     {
         GameObject panel = panels.First(p => p.name.ToLower() == panelName.ToLower());
 
@@ -75,7 +71,7 @@ public class ConfigMenu : MenuPage
 
         panel.SetActive(true);
         activePanel = panel;
-    }
+    }*/
 
     private void SetAvailableResolutions()
     {
@@ -94,9 +90,9 @@ public class ConfigMenu : MenuPage
     [System.Serializable]
     public class UI_ITEMS
     {
-        private static Color button_selectedColor = new Color(1, 0.35f, 0, 1);
+        private static Color button_selectedColor = new Color(1, 0.65f, 0, 1);
         private static Color button_unselectedColor = new Color(1f, 1f, 1f, 1);
-        private static Color text_selectedColor = new Color(1, 1f, 0, 1);
+        private static Color text_selectedColor = new Color(1f, 1f, 1f, 1f);
         private static Color text_unselectedColor = new Color(0.25f, 0.25f, 0.25f, 1);
         public static Color musicOnColor = new Color(1, 0.65f, 0, 1);
         public static Color musicOffColor = new Color(0.5f, 0.5f, 0.5f, 1);
@@ -111,15 +107,15 @@ public class ConfigMenu : MenuPage
         [Header("Audio")]
         public Slider musicVolume;
         public Image musicFill;
+        public Image musicMute;
         public Slider sfxVolume;
         public Image sfxFill;
+        public Image sfxMute;
         public Slider voicesVolume;
         public Image voicesFill;
+        public Image voicesMute;
         public Sprite mutedSymbol;
         public Sprite unmutedSymbol;
-        public Image musicMute;
-        public Image sfxMute;
-        public Image voicesMute;
 
         public void SetButtonColors(Button A, Button B, bool selectedA)
         {

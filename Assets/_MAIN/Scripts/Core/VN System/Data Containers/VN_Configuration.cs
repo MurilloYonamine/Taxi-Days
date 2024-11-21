@@ -47,7 +47,7 @@ public class VN_Configuration
             {
                 res_index = i;
                 break;
-            }  
+            }
         }
         ui.resolutions.value = res_index;
 
@@ -61,10 +61,10 @@ public class VN_Configuration
         //Set the audio mixer volumes
         ui.musicVolume.value = musicVolume;
         ui.sfxVolume.value = sfxVolume;
-        //ui.voicesVolume.value = voicesVolume;
+        ui.voicesVolume.value = voicesVolume;
         ui.musicMute.sprite = musicMute ? ui.mutedSymbol : ui.unmutedSymbol;
         ui.sfxMute.sprite = sfxMute ? ui.mutedSymbol : ui.unmutedSymbol;
-        //ui.voicesMute.sprite = voicesMute ? ui.mutedSymbol : ui.unmutedSymbol;
+        ui.voicesMute.sprite = voicesMute ? ui.mutedSymbol : ui.unmutedSymbol;
     }
 
     public void Save()
