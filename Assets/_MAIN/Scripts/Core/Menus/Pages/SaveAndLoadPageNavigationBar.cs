@@ -32,17 +32,9 @@ public class SaveAndLoadPageNavigationBar : MonoBehaviour
 
         initialized = true;
 
-        Debug.Log("MAX_FILES: " + SaveAndLoadMenu.MAX_FILES);
-        Debug.Log("slotsPerPage: " + menu.slotsPerPage);
-
         maxPages = Mathf.CeilToInt((float)SaveAndLoadMenu.MAX_FILES / menu.slotsPerPage);
 
-        Debug.Log("Calculated maxPages: " + maxPages);
-
-
         int pageButtonLimit = MAX_BUTTONS < maxPages ? MAX_BUTTONS : maxPages;
-
-        Debug.Log("Page Button List:" + pageButtonLimit);
 
         for (int i = 1; i <= pageButtonLimit; i++)
         {

@@ -31,7 +31,7 @@ public class VNMenuManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
             rootCG.Hide();
         else if (Input.GetKeyDown(KeyCode.Alpha1))
             rootCG.Show();
@@ -41,7 +41,6 @@ public class VNMenuManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
             rootCG.alpha = 1;
     }
-
     private MenuPage GetPage(MenuPage.PageType pageType)
     {
         return pages.FirstOrDefault(page => page.pageType == pageType);
@@ -74,6 +73,11 @@ public class VNMenuManager : MonoBehaviour
         var page = GetPage(MenuPage.PageType.Help);
         OpenPage(page);
     }
+    public void OpenHistoryPage()
+    {
+        var page = GetPage(MenuPage.PageType.History);
+        OpenPage(page);
+    }
 
     private void OpenPage(MenuPage page)
     {
@@ -104,11 +108,15 @@ public class VNMenuManager : MonoBehaviour
         isOpen = false;
     }
 
-    public void Click_Home()
+    public void Home()
     {
         VN_Configuration.activeConfig.Save();
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(MainMenu.MAIN_MENU_SCENE);
+    }
+    public void Click_Home()
+    {
+        uiChoiceMenu.Show("Voltar para o Início?", new UIConfirmationMenu.ConfirmationButton("Sim", Home), new UIConfirmationMenu.ConfirmationButton("Não", null));
     }
 
     public void Click_Quit()

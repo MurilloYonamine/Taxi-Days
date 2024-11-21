@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using VISUALNOVEL;
 
 public class SaveAndLoadMenu : MenuPage
@@ -20,6 +22,10 @@ public class SaveAndLoadMenu : MenuPage
 
     public Texture emptyFileImage;
 
+    public TextMeshProUGUI menuTitle;
+    public Button Save;
+    public Button Load;
+
     private void Awake()
     {
         Instance = this;
@@ -28,9 +34,26 @@ public class SaveAndLoadMenu : MenuPage
     public override void Open()
     {
         base.Open();
+        UpdateMenuTitleAndButtons();
 
         if (!loadedFilesForFirstTime)
             PopulateSaveSlotsForPage(currentPage);
+    }
+    public void UpdateMenuTitleAndButtons()
+    {
+        if (menuFunction == MenuFunction.save)
+        {
+            menuTitle.text = "Menu de Salvamento";
+            //Save.gameObject.SetActive(true);
+            //Load.gameObject.SetActive(false);
+        }
+        else if (menuFunction == MenuFunction.load)
+        {
+            menuTitle.text = "Menu de Carregamento";
+            //Save.gameObject.SetActive(false);
+            //Load.gameObject.SetActive(true);
+        }
+
     }
 
     public void PopulateSaveSlotsForPage(int pageNumber)
@@ -49,12 +72,6 @@ public class SaveAndLoadMenu : MenuPage
                 slot.root.SetActive(true);
                 string filePath = $"{FilePaths.gameSaves}{fileNum}{VNGameSave.FILE_TYPE}";
                 slot.fileNumber = fileNum;
-                slot.filePath = filePath;
-                slot.PopulateDetails(menuFunction);
-            }
-            else
-            {
-                slot.root.SetActive(false);
             }
         }
     }
