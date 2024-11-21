@@ -42,6 +42,7 @@ namespace DIALOGUE
                 dialogueRect.anchoredPosition = initialPosition;
                 return;
             }
+
             Vector3 containerPosition = characterGameObject.transform.position - new Vector3(0, 1, 0);
             dialogueRect.anchoredPosition = containerPosition;
         }
@@ -54,13 +55,13 @@ namespace DIALOGUE
         {
             if (isThought)
             {
+                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.27f);
                 dialogueText.fontStyle = FontStyles.Italic;
                 nameContainer.nameText.fontStyle = FontStyles.Italic;
             }
             else
             {
-                dialogueText.color = Color.white;
-                nameContainer.nameText.color = Color.white;
+                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.67f);
 
                 dialogueText.fontStyle = FontStyles.Normal;
                 nameContainer.nameText.fontStyle = FontStyles.Normal;

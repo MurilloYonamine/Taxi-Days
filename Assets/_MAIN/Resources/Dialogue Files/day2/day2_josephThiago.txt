@@ -84,8 +84,8 @@ Taxista "É verdade.{a} A cidade parece estar sempre em obras ou com algum probl
 Thiago "Exatamente!{a} E o pior é que parece que ninguém faz nada para resolver."
 O pessoal só fica reclamando e nada muda.{a} Você já ouviu alguma promessa nova sobre melhorias no transporte?
 
-Taxista "Ah, sempre tem algo novo sendo anunciado, mas as mudanças reais parecem demorar uma eternidade para acontecer. 
-É frustrante ver tanto esforço para nada mudar."
+Taxista "Ah, sempre tem algo novo sendo anunciado, mas as mudanças reais parecem demorar uma eternidade para acontecer."
+É frustrante ver tanto esforço para nada mudar.
 
 Wait(1)
 
@@ -126,7 +126,8 @@ Taxista "Sério?{a} Nunca pensei muito sobre isso.{a} O que exatamente você ach
 Thiago "Bom, por exemplo,{a} temos recursos limitados para atividades extracurriculares e suporte psicológico."
 E, com o aumento das turmas, o acompanhamento individual dos alunos acaba sendo prejudicado.
 
-Taxista "Isso parece complicado.{a} Sempre pensei que a escola fosse um lugar onde os alunos deveriam receber todo o suporte necessário."
+Taxista "Isso parece complicado."
+Sempre pensei que a escola fosse um lugar onde os alunos deveriam receber todo o suporte necessário.
 
 Thiago "Sim, deveria ser. E o mais frustrante é que há tanta burocracia."
 Falta de investimento que não conseguimos fazer o trabalho da forma que gostaríamos.
@@ -141,8 +142,8 @@ Joseph "Interessante.{a} Eu sempre pensei que o problema fosse só com a gestão
 Parece que há muito mais envolvido.
 
 Thiago "Sim, definitivamente.{a} E é algo que afeta diretamente a qualidade do ensino e o desenvolvimento dos alunos."
-Por exemplo,{a} alguns alunos mais isolados, que não se encaixam em grupos de pessoas,{a} isso nem é culpa deles. 
-Timidez e outros fatores acabam ocasionando isso.
+Por exemplo,{a} alguns alunos mais isolados, que não se encaixam em grupos de pessoas.
+Isso nem é culpa deles. Timidez e outros fatores acabam ocasionando isso.
 Tenho um aluno que acabou se transferindo e caindo de paraquedas na minha sala. 
 Por causa disso,{a} ele não conseguiu se enturmar com ninguém.
 
@@ -151,12 +152,15 @@ Joseph "Eles se sentem invisíveis,{a} como se ninguém realmente se importasse.
 Thiago "Exatamente.{a} Esses alunos muitas vezes não têm alguém para conversar ou um lugar onde se sintam aceitos."
 E isso pode afetar não só o desempenho acadêmico,{a} mas também o bem-estar emocional deles.
 
-Joseph "Eu entendo.{a} Sempre busquei me encaixar, e posso imaginar como deve ser difícil para quem não encontra esse espaço."
+Joseph "Eu entendo.{a} Sempre busquei me encaixar."
+Posso imaginar como deve ser difícil para quem não encontra esse espaço.
 
-Thiago "Sim, e é por isso que o apoio psicológico é tão importante.{a} Cada aluno precisa sentir que tem alguém com quem contar."
+Thiago "Sim, e é por isso que o apoio psicológico é tão importante."
+Cada aluno precisa sentir que tem alguém com quem contar.
 Especialmente quando as coisas não estão indo bem.
 
-Joseph "Eu nunca tinha pensado sobre isso dessa forma.{a} Parece que há muito mais para fazer do que apenas melhorar a infraestrutura."
+Joseph "Eu nunca tinha pensado sobre isso dessa forma."
+Parece que há muito mais para fazer do que apenas melhorar a infraestrutura.
 
 HideDB()
 PlaySFX(Car/car-arriving)
@@ -207,8 +211,6 @@ Dinheiro é poder e{a} essa gente tem muito dinheiro.
 Taxista thought "É compreensível que ele se sinta preso.{a} O medo de represálias é real."
 Muitas vezes as pessoas se sentem impotentes.
 
-[[Continuar ouvindo o professor.]] [[Tentar aconselhar o Thiago.]] [[Mostrar empatia.]]
-
 Choice "O que dizer para Thiago?"
 {
     - Continuar Ouvindo
@@ -221,12 +223,12 @@ Vendo um aluno ser humilhado enquanto a administração faz vista grossa.
 
     Thiago "E o mais frustrante é que esse tipo de coisa não é incomum." 
 Às vezes,{a} parece que a escola finge que todos os problemas desaparecem se ninguém falar sobre eles.
-Enquanto continuam tratando as questões mais sérias com indiferença."
+Enquanto continuam tratando as questões mais sérias com indiferença.
 
     PlaySFX(Car/car-arriving)
 
     Thiago "Sabe,{a} é difícil para mim entender como pessoas com tanto poder podem ser tão insensíveis."
-Eu queria poder fazer mais,{a} mas tenho medo de que qualquer ação minha possa custar meu emprego ou 
+Eu queria poder fazer mais,{a} mas tenho medo de que qualquer ação minha possa custar meu emprego. 
 Me colocar em uma posição ainda mais difícil.
 
     PlaySFX(Thiago/thiago-suspiro)
@@ -245,7 +247,7 @@ Me colocar em uma posição ainda mais difícil.
     - Tentar Aconselhar
     $Thiago.day2 = false
 
-    Taxista: "Talvez você possa considerar conversar com alguém fora da escola sobre a situação."
+    Taxista "Talvez você possa considerar conversar com alguém fora da escola sobre a situação."
 Talvez com um conselheiro ou um defensor dos direitos dos alunos. 
 Às vezes, trazer um apoio externo pode ajudar a fazer a diferença.
 
@@ -261,7 +263,7 @@ A pressão para manter o emprego pode ser avassaladora, especialmente em uma ár
     PlaySFX(Car/car-door-close)
     Wait(4)
 
-    Taxista thought "Acho que pisei na bola com o Thiago"
+    Taxista thought "Acho que pisei na bola com o Thiago..."
 
     - Mostrar Empatia
     $Thiago.day2 = false
@@ -282,4 +284,4 @@ Tentando proteger um aluno e ainda se preocupar com seu próprio emprego.{a} Dev
     PlaySFX(Car/car-door-close)
     Wait(4)
 }
-[[Último passageiro no dia 2]]
+Load(day2/day2_luana)

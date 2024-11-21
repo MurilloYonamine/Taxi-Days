@@ -11,6 +11,11 @@ public class ButtonBehaviours : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public Animator anim;
     private CanvasGroup containerCanvasGroup => GetComponentInChildren<CanvasGroup>();
 
+    private void Awake()
+    {
+        containerCanvasGroup.alpha = 0.5f;
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
         containerCanvasGroup.alpha = 0.5f;
