@@ -17,6 +17,11 @@ Joseph as ??? "Boa tarde.{a} Pode me levar para o centro, por favor?{a} Tenho qu
 
 Taxista "Claro."
 
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(7)
+ShowUI()
+
 Taxista thought "O trânsito ta começando a ficar mais denso."
 De repente, eu e aquele jovem estávamos em um congestionamento. 
 
@@ -35,7 +40,7 @@ Wait(6)
 ShowUI()
 
 Taxista thought "Hmm?{a} Um rapaz está se aproximando do táxi pela janela do lado do passageiro."
-Ele bate levemente no vidro, tentando chamar a atenção.
+Ele está entando chamar a atenção.
 
 HideDB()
 PlaySFX(Car/car-window-down)

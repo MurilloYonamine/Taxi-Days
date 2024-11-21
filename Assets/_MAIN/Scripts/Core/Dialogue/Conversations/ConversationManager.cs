@@ -26,6 +26,8 @@ namespace DIALOGUE
 
         public bool allowUserPrompts = true;
 
+        private string speaker;
+
 
         public ConversationManager(TextArchitect architect)
         {
@@ -158,6 +160,8 @@ namespace DIALOGUE
 
             Character character = CharacterManager.instance.GetCharacter(speakerData.name, createIfDoesNotExist: characterMustBeCreated);
 
+            speaker = speakerData.name;
+
             if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing))
                 character.Show();
 
@@ -248,11 +252,13 @@ namespace DIALOGUE
         IEnumerator BuildDialogue(string dialogue, bool append = false)
         {
             dialogue = TagManager.Inject(dialogue);
-            string speakerName = dialogueSystem.dialogueContainer.nameContainer.nameText.text;
 
-            if (speakerName == "") speakerName = "narrator";
+            if (string.IsNullOrEmpty(speaker))
+            {
+                speaker = "narrator";
+            }
 
-            CharacterConfigData characterConfigData = CharacterManager.instance.GetCharacterConfig(speakerName, getOriginal: true);
+            CharacterConfigData characterConfigData = CharacterManager.instance.GetCharacterConfig(speaker, getOriginal: true);
 
             //Build the dialogue
             if (!append)
