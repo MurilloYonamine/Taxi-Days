@@ -50,6 +50,22 @@ namespace DIALOGUE
             dialogueText.text = string.Empty;
             nameContainer.nameText.text = string.Empty;
         }
+        public void DialogueContainerItalic(bool isThought)
+        {
+            if (isThought)
+            {
+                dialogueText.fontStyle = FontStyles.Italic;
+                nameContainer.nameText.fontStyle = FontStyles.Italic;
+            }
+            else
+            {
+                dialogueText.color = Color.white;
+                nameContainer.nameText.color = Color.white;
+
+                dialogueText.fontStyle = FontStyles.Normal;
+                nameContainer.nameText.fontStyle = FontStyles.Normal;
+            }
+        }
         public bool isVisible => cgController.isVisible;
         public Coroutine Show(float speed = 1f, bool immediate = false) => cgController.Show(speed, immediate);
         public Coroutine Hide(float speed = 1f, bool immediate = false) => cgController.Hide(speed, immediate);

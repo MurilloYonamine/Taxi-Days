@@ -11,9 +11,9 @@ Wait(4)
 
 ShowDB(-s 0,5)
 
-Taxista "<i>Enquanto dirijo pelas ruas movimentadas de São Paulo.<i>"
-<i>Vejo as pessoas indo e vindo, cada uma com seu próprio destino.<i>
-<i>O rádio toca baixinho, mas meus pensamentos estão longe, perdidos...<i>
+Taxista thought "Enquanto dirijo pelas ruas movimentadas de São Paulo."
+Vejo as pessoas indo e vindo, cada uma com seu próprio destino.
+O rádio toca baixinho, mas meus pensamentos estão longe, perdidos...
 
 ShowUI(-s 0,5)
 
@@ -27,9 +27,9 @@ ShowDB()
 
 ??? as Nicole "Bom dia.{a} Você poderia me levar até a OVIMA, por favor?"
 
-Taxista "<i>Vou apenas acenar com a cabeça...<i>"
+Taxista thought "Vou apenas acenar com a cabeça..."
 
-Taxista "<i>Hora de começar o dia.<i>"
+Taxista thought "Hora de começar o dia."
 
 PlaySFX(car/car-starting-sound)
 
@@ -40,8 +40,8 @@ ShowUI()
 Wait(1)
 ShowDB()
 
-Taxista "<i>Ela está a viagem inteira observando a cidade.<i>""
-<i>A mente dela deve estar afogada em pensamentos e preocupações.<i>
+Taxista thought "Ela está a viagem inteira observando a cidade."
+A mente dela deve estar afogada em pensamentos e preocupações.
 
 PlaySFX(telephone-vibrating)
 Wait(2)
@@ -51,7 +51,7 @@ Nicole as ??? "Olá, o que há de novo?"
 
 Generic as Secretaria "Senhora Nicole, lamen... infor... mas a en...tre... da nova... para baleias... adia..."
 
-Taxista "<i>Nossa não consegui entender nada.{a} O nome dela é Nicole?{a} Como assim 'baleias'?<i>"
+Taxista thought "Nossa não consegui entender nada.{a} O nome dela é Nicole?{a} Como assim 'baleias'?"
 
 Nicole "Entendo. Mas precisamos encontrar uma solução."
 Elas precisam disso urgentemente.{a} Há algo que você possa fazer para resolver isso?
@@ -113,21 +113,21 @@ A dedicação é essencial, mas a logística muitas vezes pode ser um desafio.
 
         Nicole "Sim... É difícil, mas é o que resta."
 
-        Taxista "<i>Ela ainda parece frustrada...{a} É difícil ajudar pessoas...<i>"
+        Taxista thought "Ela ainda parece frustrada...{a} É difícil ajudar pessoas..."
 
         HideAll()
         Wait(3)
         ShowAll()
 }
 
-Taxista "<i>Enquanto sigo para a OVIMA,{a} me pego pensando nas batalhas diárias que as pessoas enfrentam...<i>"
-<i>Parece que todo mundo carrega um fardo.<i>
+Taxista thought "Enquanto sigo para a OVIMA,{a} me pego pensando nas batalhas diárias que as pessoas enfrentam..."
+Parece que todo mundo carrega um fardo.
 
-Taxista "<i>Assim que Nicole desaparece pelas portas da OVIMA, fico por um momento recostado, pensando.<i>"
-<i>Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava de verdade com o que faz.<i>
+Taxista thought "Assim que Nicole desaparece pelas portas da OVIMA, fico por um momento recostado, pensando."
+Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava de verdade com o que faz.
 
-Taxista "<i>Olho pelo retrovisor, ainda preso nesses pensamentos, quando vejo outra passageira se aproximando.<i>"
-<i>Uma jovem com um sorriso animado... parece tão diferente.<i>
+Taxista thought "Olho pelo retrovisor, ainda preso nesses pensamentos, quando vejo outra passageira se aproximando."
+Uma jovem com um sorriso animado... parece tão diferente.
 
 PlaySFX(porta_abrindo)
 

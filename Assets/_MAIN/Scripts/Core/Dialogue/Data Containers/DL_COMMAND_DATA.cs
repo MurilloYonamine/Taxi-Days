@@ -41,7 +41,9 @@ namespace DIALOGUE
                     command.waitForCompletion = true;
                 }
                 else
+                {
                     command.waitForCompletion = false;
+                }
 
                 string arguments = parts[1].TrimEnd(')', ',');
                 command.arguments = GetArgs(arguments);

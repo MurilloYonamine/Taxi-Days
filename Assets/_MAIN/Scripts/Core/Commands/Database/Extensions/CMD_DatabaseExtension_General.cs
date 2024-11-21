@@ -12,6 +12,7 @@ namespace COMMANDS
         private static readonly string[] PARAM_IMMEDIATE = new string[] { "-i", "-immediate" };
         private static readonly string[] PARAM_FILEPATH = new string[] { "-f", "-file", "-filepath" };
         private static readonly string[] PARAM_ENQUEUE = new string[] { "-e", "-enqueue" };
+        private static readonly string[] PARAM_THOUGHT = new string[] { "-t", "-thought" };
 
         new public static void Extend(CommandDatabase database)
         {
@@ -31,6 +32,8 @@ namespace COMMANDS
             database.AddCommand("load", new Action<string[]>(LoadNewDialogueFile));
 
             database.AddCommand("print", new Action<string[]>(PrintMessage));
+
+            database.AddCommand("thought", new Action<string[]>(ThoughtDialogue));
         }
         private static void PrintMessage(string message)
         {
@@ -157,6 +160,17 @@ namespace COMMANDS
             parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
 
             yield return DialogueSystem.instance.HideAll(speed, immediate);
+        }
+   
+        private static void ThoughtDialogue(string[] data)
+        {
+            bool isThought = false;
+
+            var parameters = ConvertDataToParameters(data);
+
+            parameters.TryGetValue(PARAM_THOUGHT, out isThought, defaultValue: false);
+
+            DialogueSystem.instance.dialogueContainer.DialogueContainerItalic(isThought);
         }
     }
 }

@@ -1,0 +1,110 @@
+Taxista thought "Outro dia começando..."
+A cidade já acordou.{a} Gente indo e vindo,{a} o barulho do trânsito subindo.{a} Nada de novo.
+Hmm...?{a} Aquele ali é um rosto que eu reconheço.{a} É a mulher de ontem, aquela preocupada com o trabalho. 
+Ela está vindo em direção ao táxi,{a} ela aparenta meio surpresa, meio aliviada.
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Nicole "Que surpresa te ver novamente!{a} Eu estava esperando um táxi há algum tempo."
+Você pode me levar para casa, por favor?
+
+Taxista "Bom dia, Nicole! Tudo bem?"
+
+HideDB()
+PlaySFX(Car/nicole-suspiro)
+Wait(1)
+ShowDB()
+
+Nicole "Bom dia.{a} Ah...{a} Tudo indo...{a} Sabe como é, aquela rotina de sempre."
+Meu filho tem me dado um pouco mais de trabalho ultimamente.
+
+Taxista "Ah, realmente?{a} Como assim?{a} E uau, você tem um filho?"
+
+Nicole "Pois é! Ele já é um adolescentezinho."
+O bendito está numa fase rebelde,{a} questionando tudo o que eu digo,{a} querendo mais independência. 
+Eu sei que faz parte do crescimento,{a} mas é difícil lidar com isso quando já estou tão ocupada.
+
+Choice "O que devo dizer para Nicole?"
+{
+    - Conselho sobre dar mais espaço
+        $Nicole.day2 = true
+        $Nicole.count +=1
+
+        Taxista "Talvez dar a ele um pouco mais de espaço seja a chave."
+Às vezes, os jovens só querem sentir que têm algum controle sobre suas vidas. 
+Mesmo que seja em pequenas coisas.
+
+        Nicole "Talvez você tenha razão.{a} Eu fico tão preocupada em querer fazer tudo certo."
+Acabo me esquecendo de que ele precisa de espaço para crescer também.
+
+        HideDB()
+        Wait(3)
+        ShowDB()
+
+        Taxista thought "O silêncio que se segue é confortável..."
+Vejo que Nicole parece perdida em seus próprios pensamentos, refletindo sobre a conversa.
+Enquanto seguimos pela cidade,{a} percebo uma mudança sutil na expressão dela.
+Parece mais tranquila,{a} como se uma parte do peso que carregava tivesse sido aliviada.
+
+        Nicole "Sabe, quando penso nisso, me lembro de como eu queria mais liberdade quando era mais jovem."
+Acho que ele está passando por algo parecido e eu só preciso me lembrar disso.
+
+        Taxista thought "Ela parece estar começando a ver a situação sob uma nova luz."
+
+        Taxista "Parece que você está no caminho certo."
+E ele vai perceber que você está ao lado dele, mesmo quando você dá esse espaço.
+
+        Nicole "Espero que sim.{a} Quero que ele saiba que estou aqui para ele, mas sem sufocá-lo."
+Acho que é um aprendizado tanto para ele quanto para mim.
+
+        HideUI()
+        PlaySFX(Car/car-speedingUp)
+        Wait(4)
+        Show(UI)
+
+        Taxista thought "Quando chegamos ao destino, sinto que a atmosfera mudou."
+Nicole se despede mais uma vez, mas desta vez há algo diferente.
+Uma sensação de esperança e de progresso.
+
+        Nicole "Obrigada,{a} mais uma vez.{a} Conversar com você me ajuda a clarear as ideias."
+
+        Taxista "Fico feliz em poder ajudar.{a} Boa sorte com tudo, Nicole."
+
+        Taxista thought "Ela sorri, um sorriso mais leve e genuíno do que antes."
+
+        Nicole "Até a próxima."
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
+        ShowDB()
+
+        Taxista "Enquanto ela desce do táxi, a observo por um momento."
+Pensando em como as pequenas conversas podem ter um impacto significativo. 
+Percebo que, assim como ela está aprendendo a lidar com seu filho.
+Também estou aprendendo algo novo em cada encontro com esses passageiros curiosos.
+
+    - Dar relato pessoal
+        Taxista "Eu entendo como deve ser complicado.
+Quando eu era mais novo, minha mãe estava sempre ocupada com o trabalho também. 
+Eu lembro de sentir que não tinha voz em casa. {a}Mas, no fundo, só queria que ela confiasse mais em mim."
+
+        Taxista thought "Nicole me observa com um olhar pensativo. Não parece ter entendido muito bem o que eu quis dizer e, ao invés de se sentir aliviada, parece mais preocupada."
+
+        Nicole "Entendo o que você quer dizer, mas acredito que a sua situação não seja tão parecida com a minha. A última coisa que quero é que meu filho sinta que estou distante. Talvez eu devesse ser ainda mais presente, para que ele saiba que pode contar comigo."
+
+        Taxista thought "Percebo que minha tentativa de empatia acabou reforçando a ideia de Nicole de ser ainda mais controladora. Essa não parece ser a melhor resposta."
+
+        Taxista thought "Ela olha pela janela, perdida em seus pensamentos, como se estivesse processando a conversa."
+
+        Nicole "Obrigada pela corrida e pela conversa. Foi bom ter essa pausa."
+
+        Taxista "Fico feliz em poder ajudar. Até a próxima."
+
+        [[Introdução ao Joseph e Thiago]]
+
+    - Oferecer uma Esculta Ativa
+}

@@ -18,8 +18,8 @@ MonoBehaviour:
     characterType: 0
     nameColor: {r: 0.80057055, g: 0.5330188, b: 1, a: 1}
     dialogueColor: {r: 0.5613208, g: 0.8157464, b: 1, a: 1}
-    nameFont: {fileID: 11400000, guid: 6a888d69a87eec245b2ce096aa58c7b4, type: 2}
-    dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
+    nameFont: {fileID: 0}
+    dialogueFont: {fileID: 0}
     nameFontScale: 2
     dialogueFontScale: 1.2
     voice: {fileID: 0}
@@ -30,8 +30,8 @@ MonoBehaviour:
     characterType: 0
     nameColor: {r: 0.5613208, g: 1, b: 0.6207038, a: 1}
     dialogueColor: {r: 0.4764151, g: 1, b: 0.8675948, a: 1}
-    nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
-    dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
+    nameFont: {fileID: 0}
+    dialogueFont: {fileID: 0}
     nameFontScale: 1
     dialogueFontScale: 1
     voice: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 0}
+    voice: {fileID: 8300000, guid: dfcebec261a7f1c0e92009f4c9e82e92, type: 3}
     sprites:
       _serializedList: []
   - name: Taxista

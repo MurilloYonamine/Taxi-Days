@@ -69,11 +69,11 @@ Wait(1)
 PlaySFX(Car/car-door-close)
 Wait(1)
 
-Taxista "<i>Observo Nicole entrar na OVIMA e penso...<i>"
-<i>Pequenos gestos... <i>
-<i>Conversas simples...<i>
-<i>É engraçado como isso pode realmente mudar o dia de alguém.<i>
-<i>Talvez{a} até o meu.<i>
+Taxista thought "Observo Nicole entrar na OVIMA e penso..."
+Pequenos gestos... 
+Conversas simples...
+É engraçado como isso pode realmente mudar o dia de alguém.
+Talvez{a} até o meu.
 
 PlaySFX(Car/car-starting-sound)
 
@@ -82,8 +82,8 @@ Wait(3)
 
 ShowDB()
 
-Taxista "<i>Tem uma mulher se aproximando.<i>"
-<i>Uma jovem com um sorriso animado... Parece tão diferente.<i>
+Taxista thought "Tem uma mulher se aproximando."
+Uma jovem com um sorriso animado... Parece tão diferente.
 HideDB()
 
 PlaySFX(Car/car-door-opening-and-closing)

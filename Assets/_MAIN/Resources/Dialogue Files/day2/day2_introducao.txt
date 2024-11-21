@@ -8,3 +8,5 @@ ShowUI()
 Taxista "Ontem foi um dia cheio. Tive passageiros que trouxeram um pedaço de sua vida para o táxi."
 Será que terei a oportunidade de encontrar essas pessoas novamente?
 Veremos quais histórias cruzaram meu caminho hoje.
+
+Load(day2/day2_nicole)

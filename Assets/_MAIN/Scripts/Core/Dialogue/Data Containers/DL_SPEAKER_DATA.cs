@@ -24,11 +24,13 @@ namespace DIALOGUE
         private const string NAMECAST_ID = " as ";
         private const string POSITIONCAST_ID = " at ";
         private const string EXPRESSIONCAST_ID = " [";
+        private const string THOUGHT_ID = " thought";
         private const char AXISDELIMITER = ':';
         public const char EXPRESSIONLAYER_JOINER = ',';
         public const char EXPRESSIONLAYER_DELIMITER = ':';
 
         private const string ENTER_KEYWORD = "enter ";
+        public bool isThought { get; private set; } = false;
 
         private string ProcessKeywords(string rawSpeaker)
         {
@@ -46,22 +48,23 @@ namespace DIALOGUE
             rawData = rawSpeaker;
             rawSpeaker = ProcessKeywords(rawSpeaker);
 
-            string pattern = @$"{NAMECAST_ID}|{POSITIONCAST_ID}|{EXPRESSIONCAST_ID.Insert(EXPRESSIONCAST_ID.Length - 1, @"\")}";
+            string pattern = @$"{NAMECAST_ID}|{POSITIONCAST_ID}|{EXPRESSIONCAST_ID.Insert(EXPRESSIONCAST_ID.Length - 1, @"\")}|{THOUGHT_ID}";
             MatchCollection matches = Regex.Matches(rawSpeaker, pattern);
 
-            //Populate this data to avoid null references to values
+            // Inicialização padrão para evitar valores nulos
             castName = "";
             castPosition = Vector2.zero;
             CastExpressions = new List<(int layer, string expression)>();
+            DialogueSystem.instance.dialogueContainer.DialogueContainerItalic(isThought);
 
-            //If there are no matches, then this entire line is the speaker name
+            // Se não houver matches, o nome do speaker é a linha inteira
             if (matches.Count == 0)
             {
                 name = rawSpeaker;
                 return;
             }
 
-            //Otherwise, isolate the speakername from the casting data.
+            // Isolar o nome do speaker
             int index = matches[0].Index;
             name = rawSpeaker.Substring(0, index);
 
@@ -107,8 +110,17 @@ namespace DIALOGUE
                             return (0, parts[0]);
                     }).ToList();
                 }
-            }
+                else if (match.Value == THOUGHT_ID)
+                {
+                    isThought = true;
+                    startIndex = match.Index + THOUGHT_ID.Length;
+                    endIndex = i < matches.Count - 1 ? matches[i + 1].Index : rawSpeaker.Length;
+                    name = rawSpeaker.Substring(0, match.Index).Trim();
+                    string thoughtText = rawSpeaker.Substring(startIndex, endIndex - startIndex);
 
+                    DialogueSystem.instance.dialogueContainer.DialogueContainerItalic(isThought);
+                }
+            }
         }
     }
 }
