@@ -63,6 +63,8 @@ namespace COMMANDS
             string filePath = FilePaths.GetPathToResource(FilePaths.resources_dialogueFiles, fileName);
             TextAsset file = Resources.Load<TextAsset>(filePath);
 
+            Debug.Log(FileManager.TextFileName(file));
+
             if (file == null)
             {
                 Debug.LogWarning($"File '{filePath}' could not be loaded from dialogue files. Please ensure it exists within the '{FilePaths.resources_dialogueFiles}' resources folder.");
@@ -161,7 +163,7 @@ namespace COMMANDS
 
             yield return DialogueSystem.instance.HideAll(speed, immediate);
         }
-   
+
         private static void ThoughtDialogue(string[] data)
         {
             bool isThought = false;

@@ -10,6 +10,10 @@ public class FileManager
 {
     private const string KEY = "SECRETKEY";
 
+    public static string TextFileName(TextAsset filePath)
+    {
+        return filePath.name;
+    }
     public static List<string> ReadTextFile(string filePath, bool includeBlankLines = true)
     {
         if (!filePath.StartsWith('/'))
@@ -20,11 +24,11 @@ public class FileManager
         {
             using (StreamReader sr = new StreamReader(filePath))
             {
-                while(!sr.EndOfStream)
+                while (!sr.EndOfStream)
                 {
                     string line = sr.ReadLine();
                     if (includeBlankLines || !string.IsNullOrWhiteSpace(line))
-                        lines.Add(line);    
+                        lines.Add(line);
                 }
             }
         }

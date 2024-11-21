@@ -39,16 +39,15 @@ public class FilePaths
 
         return defaultPath + resourceName;
     }
-
     public static string runtimePath
     {
         get
         {
-            #if UNITY_EDITOR
-                return "Assets/appdata/";
-            #else
+#if UNITY_EDITOR
+            return "Assets/appdata/";
+#else
                  return Application.persistentDataPath + "/appdata/";
-            #endif
+#endif
         }
     }
 }

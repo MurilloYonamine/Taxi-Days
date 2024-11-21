@@ -27,6 +27,7 @@ namespace TESTING
                     Debug.Log($"comando [{i}] '{command.name}' tem argumentos: [{string.Join(", ", command.arguments)}]");
                 }*/
             }
+            Debug.Log(FileManager.TextFileName(fileToRead));
             DialogueSystem.instance.Say(lines);
         }
     }
