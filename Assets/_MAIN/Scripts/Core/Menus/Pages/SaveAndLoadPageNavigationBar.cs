@@ -17,7 +17,7 @@ public class SaveAndLoadPageNavigationBar : MonoBehaviour
 
     public int selectedPage { get; private set; } = 1;
     private int maxPages = 0;
-
+    private List<CanvasGroup> buttonCanvasGroups = new List<CanvasGroup>();
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +32,17 @@ public class SaveAndLoadPageNavigationBar : MonoBehaviour
 
         initialized = true;
 
+        Debug.Log("MAX_FILES: " + SaveAndLoadMenu.MAX_FILES);
+        Debug.Log("slotsPerPage: " + menu.slotsPerPage);
+
         maxPages = Mathf.CeilToInt((float)SaveAndLoadMenu.MAX_FILES / menu.slotsPerPage);
+
+        Debug.Log("Calculated maxPages: " + maxPages);
+
+
         int pageButtonLimit = MAX_BUTTONS < maxPages ? MAX_BUTTONS : maxPages;
+
+        Debug.Log("Page Button List:" + pageButtonLimit);
 
         for (int i = 1; i <= pageButtonLimit; i++)
         {
@@ -41,6 +50,12 @@ public class SaveAndLoadPageNavigationBar : MonoBehaviour
             ob.SetActive(true);
 
             Button button = ob.GetComponent<Button>();
+            CanvasGroup canvasGroup = ob.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = ob.AddComponent<CanvasGroup>();
+            }
+            buttonCanvasGroups.Add(canvasGroup);
 
             ob.name = i.ToString();
             TextMeshProUGUI txt = button.GetComponentInChildren<TextMeshProUGUI>();
@@ -49,16 +64,19 @@ public class SaveAndLoadPageNavigationBar : MonoBehaviour
             button.onClick.AddListener(() => SelectSaveFilePage(closureIndex));
         }
 
-        previousButton.SetActive(pageButtonLimit < maxPages);
-        nextButton.SetActive(pageButtonLimit < maxPages);
+        previousButton.SetActive(pageButtonLimit <= maxPages);
+        nextButton.SetActive(pageButtonLimit <= maxPages);
 
         nextButton.transform.SetAsLastSibling();
+
+        UpdateButtonOpacities();
     }
 
     private void SelectSaveFilePage(int pageNumber)
     {
         selectedPage = pageNumber;
         menu.PopulateSaveSlotsForPage(pageNumber);
+        UpdateButtonOpacities();
     }
 
     public void ToNextPage()
@@ -71,5 +89,13 @@ public class SaveAndLoadPageNavigationBar : MonoBehaviour
     {
         if (selectedPage > 1)
             SelectSaveFilePage(selectedPage - 1);
+    }
+
+    private void UpdateButtonOpacities()
+    {
+        for (int i = 0; i < buttonCanvasGroups.Count; i++)
+        {
+            buttonCanvasGroups[i].alpha = (i + 1 == selectedPage) ? 1f : 0.5f;
+        }
     }
 }

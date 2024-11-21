@@ -113,6 +113,6 @@ public class VNMenuManager : MonoBehaviour
 
     public void Click_Quit()
     {
-        uiChoiceMenu.Show("Quit to desktop?", new UIConfirmationMenu.ConfirmationButton("Yes", () => Application.Quit()), new UIConfirmationMenu.ConfirmationButton("No", null));
+        uiChoiceMenu.Show("Sair do Jogo?", new UIConfirmationMenu.ConfirmationButton("Sim", () => Application.Quit()), new UIConfirmationMenu.ConfirmationButton("Não", null));
     }
 }

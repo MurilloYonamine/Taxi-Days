@@ -38,6 +38,10 @@ public class ConfigMenu : MenuPage
         SetAvailableResolutions();
 
         LoadConfig();
+
+        Debug.Log(ui.voicesVolume != null ? "Voices Volume Slider is set." : "Voices Volume Slider is NULL!");
+        Debug.Log(ui.voicesFill != null ? "Voices Fill Image is set." : "Voices Fill Image is NULL!");
+        Debug.Log(ui.voicesMute != null ? "Voices Mute Button is set." : "Voices Mute Button is NULL!");
     }
 
     private void LoadConfig()
@@ -76,7 +80,7 @@ public class ConfigMenu : MenuPage
     private void SetAvailableResolutions()
     {
         Resolution[] resolutions = Screen.resolutions;
-        List<string> options = new List<string>();  
+        List<string> options = new List<string>();
 
         for (int i = resolutions.Length - 1; i >= 0; i--)
         {
@@ -170,7 +174,7 @@ public class ConfigMenu : MenuPage
             return;
 
         AutoReader autoReader = DialogueSystem.instance.autoReader;
-        if (autoReader != null) 
+        if (autoReader != null)
             autoReader.speed = config.dialogueAutoReadSpeed;
     }
 

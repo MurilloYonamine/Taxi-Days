@@ -35,8 +35,8 @@ public class SaveLoadSlot : MonoBehaviour
     {
         if (file == null)
         {
-            titleText.text = $"{fileNumber}. Empty Slot";
-            previewImage.texture = SaveAndLoadMenu.Instance.emptyFileImage;
+            titleText.text = $"{fileNumber}. Slot Vazio";
+            //previewImage.texture = SaveAndLoadMenu.Instance.emptyFileImage;
         }
         else
         {
@@ -96,18 +96,18 @@ public class SaveLoadSlot : MonoBehaviour
     public void Delete()
     {
         uiChoiceMenu.Show(
-            "Delete this file? (<i>This cannot be undone!</i>)",
-            new UIConfirmationMenu.ConfirmationButton("Yes", () =>
+            "Excluir este arquivo? (<i>Isso não pode ser desfeito!</i>)",
+            new UIConfirmationMenu.ConfirmationButton("Sim", () =>
                 {
                     uiChoiceMenu.Show(
-                        "Are you sure?",
-                        new UIConfirmationMenu.ConfirmationButton("I am sure", OnConfirmDelete),
-                        new UIConfirmationMenu.ConfirmationButton("Never Mind", null)
+                        "Você tem certeza?",
+                        new UIConfirmationMenu.ConfirmationButton("Tenho certeza", OnConfirmDelete),
+                        new UIConfirmationMenu.ConfirmationButton("Deixa pra lá", null)
                     );
                 },
                 autoCloseOnClick: false
             ),
-            new UIConfirmationMenu.ConfirmationButton("No", null)
+            new UIConfirmationMenu.ConfirmationButton("Não", null)
         );
     }
 
@@ -136,7 +136,7 @@ public class SaveLoadSlot : MonoBehaviour
     {
         if (HistoryManager.instance.isViewingHistory)
         {
-            UIConfirmationMenu.instance.Show("You cannot save while viewing history.", new UIConfirmationMenu.ConfirmationButton("Okay", null));
+            UIConfirmationMenu.instance.Show("Você não pode salvar enquanto visualiza o histórico.", new UIConfirmationMenu.ConfirmationButton("Ok", null));
             return;
         }
 

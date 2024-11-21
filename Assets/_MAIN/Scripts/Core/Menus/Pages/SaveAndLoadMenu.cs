@@ -7,7 +7,7 @@ public class SaveAndLoadMenu : MenuPage
 {
     public static SaveAndLoadMenu Instance { get; private set; }
 
-    public const int MAX_FILES = 99;
+    public const int MAX_FILES = 30;
 
     private int currentPage = 1;
     private bool loadedFilesForFirstTime = false;
