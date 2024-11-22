@@ -36,7 +36,7 @@ public class SaveLoadSlot : MonoBehaviour
         if (file == null)
         {
             titleText.text = $"{fileNumber}. Slot Vazio";
-            //previewImage.texture = SaveAndLoadMenu.Instance.emptyFileImage;
+            previewImage.texture = SaveAndLoadMenu.Instance.emptyFileImage;
         }
         else
         {
