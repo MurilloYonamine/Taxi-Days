@@ -140,14 +140,17 @@ Eu o amava tanto e fiz tudo por ele.{a} Eu até deixava de fazer coisas para ele
 
         Taxista "Não faz sentido ele ter terminado então,{a} tem certeza que algo não aconteceu?"
 
-        Luana "Eu não sei... Só não entendo. Eu sempre estive lá para ele,{a} e ele ainda me dizia que eu não era suficiente. 
+        Luana "Eu não sei... Só não entendo. Eu sempre estive lá para ele."
+ele ainda me dizia que eu não era suficiente.
 Eu não consigo me imaginar sem ele, sem a rotina que eu tinha com ele. 
 Eu sei que ele disse que eu não fazia o suficiente,{a} mas eu tentei...
-Eu tentei tanto.{a} Eu até deixava ele usar meu cartão de crédito!"
+Eu tentei tanto.{a} Eu até deixava ele usar meu cartão de crédito!
 
-        Luana "Ontem eu fiz de tudo para dar certo, eu tirei um dia de meu trabalho. 
+        Luana "Ontem eu fiz de tudo para dar certo, eu tirei um dia de meu trabalho."
 Coisa que eu detesto em fazer,{a} dou muito importância ao meu emprego.
-Eu me arrumei inteira para ficar perfeita,{a} escolhi a roupa perfeita,{a} o lugar perfeito e mesmo assim ele me largou."
+Eu me arrumei inteira para ficar perfeita
+Escolhi a roupa perfeita.
+O lugar perfeito e mesmo assim ele me largou.
 
         Taxista thought "Ela está tão angustiada,{a} e eu sinto que só quero que ela se sinta melhor."
 
@@ -200,7 +203,7 @@ Você...
         Wait(1)
         Taxista "Gostaria de ter o meu número?"
 
-        StopSFX(Luana/luana-chorando)
+        StopSFX(luana-chorando)
         Luana "Seu...{a} número?"
 
         Taxista "Sim. Estou disposto a ouvir seus problemas.{a} Pode me ligar quando se sentir mal, tudo bem?"
@@ -214,19 +217,18 @@ Você...
         HideDB()
         PlaySFX(Car/car-arriving)
         Wait(7)
-        StopSFX
 
         Taxista thought "Luana parece diferente agora, não está mais com aquele semblante triste."
 
-        Luana (sorrindo) "Obrigada por tudo! A conversa me ajudou muito! Eu quero muito continuar conversando com você."
+        Luana "Obrigada por tudo! A conversa me ajudou muito! Eu quero muito continuar conversando com você."
 
         Taxista thought "É bom vê-la assim, feliz por ter feito um amigo. Espero que ela encontre um pouco de paz."
 
         HideDB()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(5)
-        ShowDB()
 }
 HideUI()
+ShowDB()
 Wait(2)
 Load(day2/day2_reflexao)
