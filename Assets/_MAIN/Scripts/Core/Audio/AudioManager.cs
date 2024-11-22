@@ -134,9 +134,10 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioSource source in allSFX)
         {
-            if (!source.loop) 
+            if (!source.loop)
             {
                 source.pitch = pitch;
+                source.volume *= 0.9f;
             }
         }
     }
