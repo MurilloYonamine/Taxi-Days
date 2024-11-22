@@ -26,7 +26,7 @@ O que pode ter acontecido com ela?
 Taxista thought "Ela parece estar tirando algo do bolso..."
 
 HideDB()
-PlaySFX(telephone-dial-and-call -v 0,5)
+PlaySFX(Telephone/telephone-dial-and-call -v 0,5)
 Wait(6)
 Wait(13)
 ShowDB()
@@ -42,14 +42,14 @@ Eu não te aguento mais, você é uma pessoa triste, que deixa as pessoas triste
 A sua falta de confiança e segurança te torna insuportável de se ter de perto. 
 Para de me chamar, já não quero mais nada com você.
 
-PlaySFX(telephone-hangUp)
+PlaySFX(Telephone/telephone-hangUp)
 
 Taxista thought "O jeito que ele fala com ela é cruel..."
 
 Taxista thought "Ela está em choque. O que ela deve estar sentindo?"
 
 HideDB()
-PlaySFX(telephone-dial-and-call -v 0,5)
+PlaySFX(Telephone/telephone-dial-and-call -v 0,5)
 Wait(13)
 ShowDB()
 
@@ -57,7 +57,7 @@ Amiga "Luana, de novo?!{a} É a quinta vez que você me liga para falar sobre o 
 Eu tenho mais coisas para fazer do que ficar te ouvindo dizer a MESMA COISA.
 Vai procurar outra pessoa para desabafar!
 
-PlaySFX(telephone-hangUp)
+PlaySFX(Telephone/telephone-hangUp)
 
 Luana "MAS EU NÃO TENHO MAIS NINGUÉM PARA FALAR SOBRE!"
 

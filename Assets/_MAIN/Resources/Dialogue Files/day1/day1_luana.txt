@@ -2,10 +2,10 @@ Taxista thought "Ela está muito radiante,{a} cheia de energia. Toda arrumada, p
 O sorriso no rosto dela não se desvai em nenhum momento.
 
 HideDB()
-PlaySFX(telephone-vibrating)
+PlaySFX(Telephone/telephone-vibrating)
 Wait(2)
 ShowDB()
-StopSFX(telephone-vibrating)
+StopSFX(Telephone/telephone-vibrating)
 
 Luana as ??? "Oi, amor!{a} Estou a caminho!{a} Nem acredito que finalmente vamos nos encontrar hoje...{a} Estou tão animada!"
 

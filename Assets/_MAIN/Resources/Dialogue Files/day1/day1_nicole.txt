@@ -43,9 +43,9 @@ ShowDB()
 Taxista thought "Ela está a viagem inteira observando a cidade."
 A mente dela deve estar afogada em pensamentos e preocupações.
 
-PlaySFX(telephone-vibrating)
+PlaySFX(Telephone/telephone-vibrating)
 Wait(2)
-StopSFX(telephone-vibrating)
+StopSFX(Telephone/telephone-vibrating)
 
 Nicole as ??? "Olá, o que há de novo?"
 
@@ -60,7 +60,7 @@ Generic as Secretaria "Senhora Nicole... descul... F... o possível p... sol..."
 
 Nicole "Deem{a} um{a} jeito."
 
-PlaySFX(telephone-turningOff)
+PlaySFX(Telephone/telephone-turningOff)
 Wait(1)
 PlaySFX(nicole-suspiro)
 Wait(2)

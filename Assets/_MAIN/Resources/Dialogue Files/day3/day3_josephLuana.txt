@@ -1,0 +1,115 @@
+ShowUI()
+
+Taxista "Fiquei conversando com a Luana mais do que eu tinha planejado."
+Já está de noite e eu só tive 2 passageiros.
+
+HideDB()
+PlaySFX(Car/car-speedingUp)
+Wait(6)
+ShowDB()
+
+Taxista "Aquele não é o garoto do outro dia?{a} Joseph o nome."
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Joseph "Oh. Olá senhor motorista!{a} Que bom te ver de novo!"
+
+Taxista "Fala, Joseph!{a} Você tá com uma cara de quem ganhou na loteria, o que houve?"
+
+Joseph "Ah, nada demais... Só acordei com o pé certo hoje."
+
+Taxista "Bom saber que alguém tá animado. Vamos nessa então."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Taxista "A viagem está confortável...{a} Mas bem quieta."
+
+Choice "Devo Iniciar uma Conversa?"
+{
+    - Que Mal Tem? 
+        Taxista "Então...{a} Irá encontrar alguém hoje?"
+
+        Joseph "Ah, sim!{a} Preciso encontrar um amigo e depois fazer umas compras."
+
+        Taxista "Entendi! Esperamos que o trânsito não esteja muito complicado. A cidade tem seus dias bons e ruins."
+
+        Joseph "Com certeza! Às vezes, é melhor ir de táxi mesmo."
+
+        Taxista thought "Parece que ele tá se soltando.{a} Diferente do outro dia."
+
+        Taxista "E...{a} Como anda a sua rotina?{a} Tem feito algo interessante?"
+
+        Joseph "Na verdade, tenho tentado explorar mais a cidade nos fins de semana."
+Descobri um café novo que faz um chocolate quente incrível!
+
+        Taxista "Sério?{a} Qual é o nome?{a}"
+
+        Joseph "Chocolatier do Bairro.{a} O ambiente é bem aconchegante{a} e eles têm uns bolos delici-"
+
+        PlaySFX(Telephone/telephone-vibrating)
+        Wait(2)
+
+        Taxista thought "Oh meu deus, é a Luana novamente, eu vou só ignorar."
+
+        Wait(2)
+        StopSFX(telephone-vibrating)
+
+        Taxista "Então... Do que estávamos falando?"
+
+        Joseph "Então. o Chocolatier do Bairro é um lugar muito gostoso{a} e bote gostoso nisso!"
+        PlaySFX(Telephone/telephone-vibrating -l true)
+        Joseph "Os bolos deles são delici-"
+        HideDB()
+        Wait(5)
+        ShowDB()
+
+        Joseph "Cara, pode atender isso de uma vez?"
+
+    - Acho Melhor Ficar Quieto
+        HideUI()
+        Wait(5)
+        ShowUI()
+        PlaySFX(Telephone/telephone-vibrating -l true)
+        Wait(4)
+}
+
+Taxista "Desculpe por isso."
+
+StopSFX(telephone-vibrating)
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Taxista "Alô?"
+
+Luana "Oi!{a} Desculpa te interromper,{a} mas eu quero muito continuar nossa conversa de antes!"
+
+Taxista "Luana, estou no meio de uma viagem!"
+
+Luana "Olha, me busque aqui no trabalho!{a} Uma amiga minha me chamou para sair."
+Então...{a} Enquanto você me leva,{a} a gente continua nossa conversa!{a} Todo mundo sai ganhando!
+
+Taxista "Luana,{a} olha,{a} não é assim que um táxi..."
+
+Luana "Ai, não!{a} Esqueci algumas coisas na minha sala."
+Você sabe onde eu estou!{a} Estarei te esperando na porta da frente!
+
+HideDB()
+PlaySFX(Telephone/telephone-hangUp)
+PlaySFX(Taxista/taxista-suspiro)
+Wait(2)
+ShowDB()
+
+Taxista "Algum problema se eu buscar uma conhecida minha e se unir à nossa viagem?"
+
+Joseph "Tudo bem...{a} Se não tiver nenhum outro jeito."
+
+HideUI()
+PlaySFX(Car/car-speedingUp)
+Wait(6)
+ShowUI()

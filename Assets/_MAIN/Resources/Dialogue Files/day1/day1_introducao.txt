@@ -16,7 +16,7 @@ A primeira chamada do dia chega, e ele dirige até o local de embarque.
 
 Enquanto aguarda, seu telefone toca...{a} 
 
-PlaySFX(telephone-vibrating)
+PlaySFX(Telephone/telephone-vibrating)
 
 É sua mãe, com uma voz carregada de frustração e ansiedade.
 

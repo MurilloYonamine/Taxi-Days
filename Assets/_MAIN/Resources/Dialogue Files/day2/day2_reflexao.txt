@@ -23,10 +23,10 @@ if(!$Luana.day2)
 
     Narrator "Luana saiu do táxi com um ar ainda mais ansioso do que quando entrou."
 
-    Narrator "Eu me pergunto se fui insensível ou se apenas não entendi o que ela estava realmente buscando."
-Às vezes, as pessoas só precisam ser ouvidas, e eu posso ter falhado nisso.
+    Narrator "Eu me pergunto se fui insensível ou se apenas não entendi."
+Talvez o correto fosse eu ter oferecido um obro amigo.
 
-    Narrator "Enquanto ela caminhava para seu apartamento, notei seus ombros caídos, como se carregasse o peso de muitas expectativas.
+    Narrator "Enquanto ela caminhava para seu apartamento, notei seus ombros caídos, como se carregasse um peso que nem ela conseguia entender.
 Talvez as próprias, talvez as de outros."
 
     Narrator "Eu deveria ter dito algo que a ajudasse a ver as coisas de outra forma.
@@ -43,7 +43,7 @@ if(!$Nicole.day2)
 
     Narrator "Talvez ouvir mais e falar menos fosse o ideal...{a} Mas, não sei."
 
-    Narrator "Ou não ficar calado era a melhor ideia?{a} Ah...{a} Não sei."
+    Narrator "Ou não ficar calado era a melhor ideia?{a} De fato não faço ideia."
 
     Narrator "É frustrante perceber que, às vezes, queremos ajudar, mas podemos acabar piorando as coisas."
 Nem sempre o que funciona para nós é útil para os outros.

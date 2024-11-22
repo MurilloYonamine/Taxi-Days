@@ -1,6 +1,6 @@
 PlayAmbience(city-ambience -loop true -vol 0,2)
 
-StopSFX(telephone-vibrating)
+StopSFX(Telephone/telephone-vibrating)
 
 Taxista "Mãe? Bom dia!"
 

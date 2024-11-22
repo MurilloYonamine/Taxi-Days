@@ -1,0 +1,52 @@
+PlaySFX(Telephone/telephone-vibrating)
+Wait(5)
+
+Taxista "Quem será dessa vez?"
+
+HideDB()
+Wait(2)
+ShowDB()
+
+Taxista thought "É a Luana...{a} Melhor atender logo."
+
+StopSFX(telephone-vibrating)
+
+Taxista "Alô?"
+
+Luana "Oi, com quem você estava falando?"
+Tentei te ligar, mas dizia que você já estava em outra ligação.
+Não tava ocupado, né?
+
+Taxista "Era minha mãe,{a} como sempre pegando no meu pé."
+
+Luana "Sei como é, meus pais sempre foram assim também. É cansativo demais."
+
+Taxista "Sinto que minha situação é igual à sua."
+Minha mãe vive pegando no meu pé e eu estudei tanto pra conseguir um emprego que...
+
+Luana "Ai, sério, muito obrigada!{a} Graças à nossa conversa de ontem,{a} consegui dormir bem."
+Você foi super importante pra mim!
+
+HideDB()
+Wait(1)
+ShowDB()
+
+Taxista "...{a}Não há de quê." 
+
+Taxista thought "Não tô com ânimo pra essa conversa...{a} Preciso inventar alguma desculpa."
+
+Taxista "Ah...{a} É...{a} Luana,{a} tenho que começar o trabalho agora."
+
+Luana "Sério?{a} Não pode ficar mais um pouco?{a} Eu queria conversar mais...{a} Me sinto sozinha..."
+
+PlaySFX(Taxista/taxista-suspiro)
+Wait(1)
+
+Luana "Por favor...{a}Eu tenho que trabalhar daqui a pouco, só falta algumas horas."
+Fica mais um pouco comigo?{a} Seu trabalho nem tem um horário tão fixo assim...{a} Por favor,{a} por favor!
+
+Taxista "Tudo bem...{a} Mas só mais um pouco."
+
+HideUI()
+Wait(4)
+Load(day3/day3_josephLuana)

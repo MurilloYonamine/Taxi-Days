@@ -1,0 +1,40 @@
+Taxista thought "Esperei tanto pela minha noite... Dormi muito mal."
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Minha mente ainda ecoa as conversas do dia anterior. 
+
+PlaySFX(Telephone/telephone-vibrating)
+Wait(5)
+StopSFX(telephone-vibrating)
+
+Taxista "Ah... É minha mãe. Já estou vendo que via ser fácil."
+
+Mãe "Até quando você vai continuar com essa história de ser taxista?"
+Você usufrui de todo meu dinheiro,{a} se forma, diz ter 'estudo tanto' 
+Para ficar desperdiçando sua vida rodando por aí? Não tem vergonha de ficar parado no mesmo lugar?
+
+Taxista thought "Lá vem o discurso de novo... Eu sabia que ia ser assim."
+
+Taxista "Mãe, eu tô fazendo o que posso.{a} Não é fácil achar algo agora{a} e eu preciso tocar a vida.{a} Tô tentando..."
+
+Mãe "Tentando como?{a} Parece que você se acomodou nessa vida!{a} Eu só quero o melhor pra você."
+Parece que você não enxerga isso.
+
+HideDB()
+PlaySFX(Telephone/telephone-hangUp)
+Wait(3)
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Taxista "Ela sempre me deixa com esse gosto amargo na boca."
+
+print("Luana: $Luana.day2")
+if($Luana.day2)
+{
+    Load(day3/day3_luana)
+}
+else 
+{
+    Load(day3/day3_joseph)
+}
