@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance { get; private set; }
 
-    public Dictionary <int, AudioChannel> channels = new Dictionary<int, AudioChannel>();
+    public Dictionary<int, AudioChannel> channels = new Dictionary<int, AudioChannel>();
 
     public AudioMixerGroup musicMixer;
     public AudioMixerGroup sfxMixer;
@@ -130,6 +130,17 @@ public class AudioManager : MonoBehaviour
 
         return false;
     }
+    public void SetSFXPitch(float pitch)
+    {
+        foreach (AudioSource source in allSFX)
+        {
+            if (!source.loop) 
+            {
+                source.pitch = pitch;
+            }
+        }
+    }
+
 
     public AudioTrack PlayTrack(string filePath, int channel = 0, bool loop = true, float startingVolume = 0f, float volumeCap = 1f, float pitch = 1f)
     {

@@ -43,7 +43,7 @@ namespace DIALOGUE
 
         public void Disable()
         {
-            if (!isOn) 
+            if (!isOn)
                 return;
 
             StopCoroutine(co_running);
@@ -54,7 +54,7 @@ namespace DIALOGUE
 
         private IEnumerator AutoRead()
         {
-            //Do nothing if there is no conversation to monitor.
+            // Do nothing if there is no conversation to monitor.
             if (!conversationManager.isRunning)
             {
                 Disable();
@@ -66,9 +66,9 @@ namespace DIALOGUE
 
             while (conversationManager.isRunning)
             {
-                //Read and wait
                 if (!skip)
                 {
+                    // Behavior when not skipping (normal auto-read)
                     while (!architect.isBuilding && !conversationManager.isWaitingOnAutoTimer)
                         yield return null;
 
@@ -87,9 +87,21 @@ namespace DIALOGUE
 
                     yield return new WaitForSeconds(timeToRead);
                 }
-                //Skip
                 else
                 {
+                    // Behavior when skipping (increase speed)
+                    // Check and only change pitch for non-looped sounds
+                    foreach (AudioSource source in AudioManager.instance.allSFX)
+                    {
+                        if (!source.loop) // Only change pitch for non-looping sounds
+                        {
+                            AudioManager.instance.SetSFXPitch(5.0f); // Double the pitch for skipping
+                        }
+                    }
+
+                    architect.ForceComplete();
+                    yield return new WaitForSeconds(0.05f);
+
                     architect.ForceComplete();
                     yield return new WaitForSeconds(0.05f);
                 }

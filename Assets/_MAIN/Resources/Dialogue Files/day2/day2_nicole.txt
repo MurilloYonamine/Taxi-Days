@@ -29,7 +29,38 @@ Eu sei que faz parte do crescimento,{a} mas é difícil lidar com isso quando j�
 
 Choice "O que devo dizer para Nicole?"
 {
-    - Conselho sobre dar mais espaço
+    - Dar relato pessoal
+        $Nicole.day2 = false
+
+        Taxista "Eu entendo como deve ser complicado."
+Quando eu era mais novo, minha mãe estava sempre ocupada com o trabalho também. 
+Eu lembro de sentir que não tinha voz em casa. {a}Mas, no fundo, só queria que ela confiasse mais em mim.
+
+        Taxista thought "Nicole me observa com um olhar pensativo."
+Não parece ter entendido muito bem o que eu quis dizer e,{a} ao invés de se sentir aliviada.
+Parece mais preocupada.
+
+        Nicole "Entendo o que você quer dizer, mas acredito que a sua situação não seja tão parecida com a minha."
+A última coisa que quero é que meu filho sinta que estou distante.
+Talvez eu devesse ser ainda mais presente, para que ele saiba que pode contar comigo.
+
+        Taxista thought "Minha tentativa de empatia acabou reforçando a ideia de Nicole de ser ainda mais controladora."
+Essa não parece ter sido a melhor resposta.
+
+        HideDB()
+        Wait(3)
+        ShowDB()
+
+        Taxista thought "Ela está perdida em seus pensamentos,{a} como se estivesse processando a conversa."
+
+        Nicole "Obrigada pela corrida."
+
+        Taxista "Fico feliz.{a} Até a próxima."
+
+        PlaySFX(Car/car-door-close)
+        Wait(1)
+
+        - Conselho sobre dar mais espaço
         $Nicole.day2 = true
         $Nicole.count +=1
 
@@ -86,37 +117,6 @@ Uma sensação de esperança e de progresso.
 Pensando em como as pequenas conversas podem ter um impacto significativo. 
 Percebo que, assim como ela está aprendendo a lidar com seu filho.
 Também estou aprendendo algo novo em cada encontro com esses passageiros curiosos.
-
-    - Dar relato pessoal
-        $Nicole.day2 = false
-
-        Taxista "Eu entendo como deve ser complicado."
-Quando eu era mais novo, minha mãe estava sempre ocupada com o trabalho também. 
-Eu lembro de sentir que não tinha voz em casa. {a}Mas, no fundo, só queria que ela confiasse mais em mim.
-
-        Taxista thought "Nicole me observa com um olhar pensativo."
-Não parece ter entendido muito bem o que eu quis dizer e,{a} ao invés de se sentir aliviada.
-Parece mais preocupada.
-
-        Nicole "Entendo o que você quer dizer, mas acredito que a sua situação não seja tão parecida com a minha."
-A última coisa que quero é que meu filho sinta que estou distante.
-Talvez eu devesse ser ainda mais presente, para que ele saiba que pode contar comigo.
-
-        Taxista thought "Minha tentativa de empatia acabou reforçando a ideia de Nicole de ser ainda mais controladora."
-Essa não parece ter sido a melhor resposta.
-
-        HideDB()
-        Wait(3)
-        ShowDB()
-
-        Taxista thought "Ela está perdida em seus pensamentos,{a} como se estivesse processando a conversa."
-
-        Nicole "Obrigada pela corrida."
-
-        Taxista "Fico feliz.{a} Até a próxima."
-
-        PlaySFX(Car/car-door-close)
-        Wait(1)
         
     - Oferecer uma Esculta Ativa
         $Nicole.day2 = false

@@ -1,0 +1,232 @@
+Taxista thought "O trânsito está se esvaziando e a noite cai sobre São Paulo.{a} Preciso terminar meu turno logo."
+HideDB()
+PlaySFX(Car/car-speedingUp)
+Wait(5)
+ShowDB()
+
+Taxista thought "Hm...{a} Aquela não é a Luana? Ela parece abatida."
+Vestida casualmente e carregando uma pequena bolsa de ombro.
+Lágrimas incontroléveis escorrem pelo seu rosto.
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+PlaySFX(Luana/luana-chorando -l true -v 0,1)
+
+Luana "Boa noite. Você pode me levar para Rua dos Jasmins, por favor?"
+
+Taxista thought "Ela se senta no banco de trás, enxugando as lágrimas com um lenço."
+O ambiente no táxi está carregado de tristeza.
+
+Taxista thought "Ela tenta se compor, mas as lágrimas continuam a escorregar."
+O que pode ter acontecido com ela?
+
+Taxista thought "Ela parece estar tirando algo do bolso..."
+
+HideDB()
+PlaySFX(telephone-dial-and-call -v 0,5)
+Wait(6)
+Wait(13)
+ShowDB()
+
+Taxista thought "Meu Deus? Novamente viva voz?"
+
+Namorado as Ex-Namorado "Luana, de novo?! Não tenho mais nada a dizer. A gente terminou, lembra?"
+
+Luana "Eu não consigo pensar em uma vida sem você, por favor, não termine comigo..."
+
+Namorado as Ex-Namorado "Eu já te disse que não quero mais saber disso."
+Eu não te aguento mais, você é uma pessoa triste, que deixa as pessoas tristes sem pensar.
+A sua falta de confiança e segurança te torna insuportável de se ter de perto. 
+Para de me chamar, já não quero mais nada com você.
+
+PlaySFX(telephone-hangUp)
+
+Taxista thought "O jeito que ele fala com ela é cruel..."
+
+Taxista thought "Ela está em choque. O que ela deve estar sentindo?"
+
+HideDB()
+PlaySFX(telephone-dial-and-call -v 0,5)
+Wait(13)
+ShowDB()
+
+Amiga "Luana, de novo?!{a} É a quinta vez que você me liga para falar sobre o mesmo assunto."
+Eu tenho mais coisas para fazer do que ficar te ouvindo dizer a MESMA COISA.
+Vai procurar outra pessoa para desabafar!
+
+PlaySFX(telephone-hangUp)
+
+Luana "MAS EU NÃO TENHO MAIS NINGUÉM PARA FALAR SOBRE!"
+
+Taxista thought "Acho que ela realmente se sente sozinha. Isso me pegou de surpresa, quase perdi o controle do táxi."
+
+Taxista thought "Ela está chorando ainda mais agora. Como posso ajudar?"
+
+Choice "Será que devo dizer alguma coisa?"
+{
+    - Continuar calado
+        $Luana.day2 = false
+
+        Taxista thought "O silêncio pesa no ar.{a} Ela deve se sentir tão sozinha agora."
+
+        Taxista thought "As lágrimas ainda escorrem pelo rosto."
+
+        Taxista "Chegamos no destino senhora,{a} a corrida deu esse valor."
+
+        Taxista thought "Ela parece hesitar em pagar e sair, mas em silêncio, me entrega o dinheiro da corrida."
+
+        HideDB()
+        StopSFX(luana-chorando)
+        PlaySFX(Car/car-door-close)
+        Wait(4)
+        ShowDB()
+
+        Taxista thought "Sua figura aos poucos desaparece do meu horizonte."
+
+        Taxista thought "Espero que demore muito para eu encontrar novamente clientes como ela..."
+
+        Taxista thought "Agora, é hora de encerrar o dia e me preparar para minha tão esperada noite de sono."
+
+    - Tentar aconselhar
+        $Luana.day2 = false
+
+        Taxista "Sabe, às vezes a gente precisa se concentrar em si mesmo e encontrar uma maneira de se levantar."
+Talvez você devesse tentar ocupar sua mente com algo novo.
+Como um hobby ou uma atividade que te faça sentir melhor.
+
+        Luana "Você não entende, não é? Não é assim que funciona! Não é só sobre 'ocupar a mente'."
+É mais complicado do que você imagina!
+
+        Taxista "Eu só quis ajudar,{a} talvez um pouco de distração possa fazer bem."
+Não quero minimizar o que você está passando.
+
+        StopSFX(luana-chorando)
+
+        Luana "Eu já tentei distrações!{a} Sério,{a} Que tal prestar atenção na estrada?"
+
+        Wait(1)
+
+        Taxista thought "Parece que meu conselho só a deixou mais irritada. O silêncio volta a dominar o carro enquanto continuo dirigindo."
+
+        Taxista thought "Ela está tão abalada, olhando pela janela, as lágrimas secando lentamente."
+
+        Taxista thought "O táxi finalmente chega ao destino. Ela parece tão furiosa agora."
+
+        Luana "Aqui está o pagamento."
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(4)
+        ShowDB()
+
+        Taxista thought "Ela sai do táxi sem olhar para trás. Acho que irá demorar um bom tempo, até eu vê-la novamente."
+
+    - Oferecer um Ombro Amigo
+        $Luana.day2 = true
+        $Luana.count += 1 
+
+        Taxista "Ei, você está bem?"
+
+        Luana "Eu aparento estar bem?!"
+
+        Taxista "Desculpe, não queria te ofender. Só queria te oferecer um ombro amigo."
+Se você quiser falar, estou aqui para ouvir. Às vezes, desabafar pode ajudar.
+
+        Luana "Bom, já que você se ofereceu...{a} Eu não entendo por que ele terminou comigo."
+Eu o amava tanto e fiz tudo por ele.{a} Eu até deixava de fazer coisas para ele... eu o apoiava em tudo.
+
+        Taxista "Não faz sentido ele ter terminado então,{a} tem certeza que algo não aconteceu?"
+
+        Luana "Eu não sei... Só não entendo. Eu sempre estive lá para ele,{a} e ele ainda me dizia que eu não era suficiente. 
+Eu não consigo me imaginar sem ele, sem a rotina que eu tinha com ele. 
+Eu sei que ele disse que eu não fazia o suficiente,{a} mas eu tentei...
+Eu tentei tanto.{a} Eu até deixava ele usar meu cartão de crédito!"
+
+        Luana "Ontem eu fiz de tudo para dar certo, eu tirei um dia de meu trabalho. 
+Coisa que eu detesto em fazer,{a} dou muito importância ao meu emprego.
+Eu me arrumei inteira para ficar perfeita,{a} escolhi a roupa perfeita,{a} o lugar perfeito e mesmo assim ele me largou."
+
+        Taxista thought "Ela está tão angustiada,{a} e eu sinto que só quero que ela se sinta melhor."
+
+        Taxista "Mas me diga, como era o seu relacionamento com ele?{a} Tipo, como era um dia entre vocês dois?"
+
+        Luana "Eu começava dando bom dia a ele depois eu entrava em videochamada com ele."
+Decidia as minhas roupas para trabalhar,{a} pedindo a opinião dele.
+Depois disso,{a} comíamos o café da manhã juntos em chamada,{a} e depois eu desligava a ligação e ia pro trabalho.
+
+        Taxista "Então vocês sempre estavam a maior parte do dia juntos, mesmo não morando juntos."
+
+        Luana "Sim! Infelizmente não posso ficar falando com ele durante o meu trabalho."
+Eu levo ele muito a sério, na verdade,{a} devo levar a sério.
+
+        Luana "Tinha vezes durante o dia que eu ficava preocupada..."
+
+        Taxista "Preocupada? Com o que exatamente?"
+
+        Luana "Ai, ele não me mandava mensagem nenhuma hora."
+Apesar de eu não usar o celular durante o trabalho,
+Eu espero muitas mensagens dele para visualizar durante o meu intervalo.
+Ademais, também aguardo que ele me diga o que está fazendo e onde está!
+Sabe... Nunca se sabe o que pode acontecer.
+Vai que um dia ele acaba sendo sequestrado!
+Se ele me disser aonde ele está e o que está fazendo.
+Talvez eu consiga chamar as autoridades para resgatar o meu amor com vida!
+
+        Luana "Bom. Continuando! Enquanto vou pra casa, fico mandando mensagem para ele."
+Detesto quando ele demora para responder, mas fico mandando mensagem até ele me responder. 
+Ao chegar em casa, entro em call com ele novamente e fico assim até pegarmos no sono.
+
+        Taxista "Calma...{a} Vocês ficam com o celular em ligação enquanto dormem?"
+
+        Luana "É, né?{a} Isso é normal."
+
+        Taxista thought "Percebo que isso pode ser um problema.{a} Melhor eu tomar cuidado com o que digo."
+
+        Taxista "Eu acredito que talvez você não esteja dando muito espaço para ele."
+Acho que ele gostaria de apenas ter um tempo livre para ele, mas você nunca deu essa abertura.
+
+        Luana "Como assim? O tempo livre dele deveria ser relacionado a mim e mais nada."
+
+        Taxista thought "Talvez não consiga mudar a cabeça dela por agora.{a} Posso tentar ajudar em outra oportunidade."
+
+        Taxista "Olha, você está passando por um momento difícil."
+Já estamos chegando no destino.
+Imagino que você não tenha ninguém com quem possa falar.
+Você...
+
+        Wait(1)
+        Taxista "Gostaria de ter o meu número?"
+
+        StopSFX(Luana/luana-chorando)
+        Luana "Seu...{a} número?"
+
+        Taxista "Sim. Estou disposto a ouvir seus problemas.{a} Pode me ligar quando se sentir mal, tudo bem?"
+
+        Luana "Você faria isso por mim?"
+
+        Taxista "Claro. Aqui está meu número."
+
+        Luana "Obrigada!{a} Você não sabe o quão importante isso é para mim!"
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        StopSFX
+
+        Taxista thought "Luana parece diferente agora, não está mais com aquele semblante triste."
+
+        Luana (sorrindo) "Obrigada por tudo! A conversa me ajudou muito! Eu quero muito continuar conversando com você."
+
+        Taxista thought "É bom vê-la assim, feliz por ter feito um amigo. Espero que ela encontre um pouco de paz."
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(5)
+        ShowDB()
+}
+HideUI()
+Wait(2)
+Load(day2/day2_reflexao)

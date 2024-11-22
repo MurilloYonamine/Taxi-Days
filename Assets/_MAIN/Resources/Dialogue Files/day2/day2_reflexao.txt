@@ -1,0 +1,107 @@
+ShowUI()
+
+if(!$Thiago.day2) 
+{
+    print("Thiago: $Thiago.day2")
+
+    Narrator "A conversa com Thiago parecia promissora no começo, mas talvez eu tenha deixado algo passar."
+
+    Narrator "Eu queria ajudá-lo, mas sinto que falhei em dizer as palavras certas."
+Suas expressões continuaram sombrias, como se não tivesse encontrado no táxi o conforto que precisava.
+
+    Narrator "Isso me fez pensar sobre como, muitas vezes, não sabemos exatamente o que os outros precisam."
+E, pior, podemos acabar reforçando as dúvidas que eles já têm.
+
+    Narrator "Thiago parecia carregar um peso enorme, e minha tentativa de ajudá-lo pode ter apenas aumentado essa carga."
+
+    Narrator "Talvez eu precise aprender a ouvir melhor... ou talvez algumas pessoas estejam além do alcance de um estranho."
+}
+
+if(!$Luana.day2) 
+{
+    print("Luana: $Luana.day2")
+
+    Narrator "Luana saiu do táxi com um ar ainda mais ansioso do que quando entrou."
+
+    Narrator "Eu me pergunto se fui insensível ou se apenas não entendi o que ela estava realmente buscando."
+Às vezes, as pessoas só precisam ser ouvidas, e eu posso ter falhado nisso.
+
+    Narrator "Enquanto ela caminhava para seu apartamento, notei seus ombros caídos, como se carregasse o peso de muitas expectativas.
+Talvez as próprias, talvez as de outros."
+
+    Narrator "Eu deveria ter dito algo que a ajudasse a ver as coisas de outra forma.
+Talvez, o silêncio não fosse o que ela precisava. É difícil saber."
+
+    Narrator "Eu tenho o sentimento que demorará para eu vê-la novamente."
+}
+
+if(!$Nicole.day2) 
+{
+    print("Nicole: $Nicole.day2")
+
+    Narrator "Minha tentativa de ajudar Nicole não saiu como esperado. Acredito que minha escolha foi errada..."
+
+    Narrator "Talvez ouvir mais e falar menos fosse o ideal...{a} Mas, não sei."
+
+    Narrator "Ou não ficar calado era a melhor ideia?{a} Ah...{a} Não sei."
+
+    Narrator "É frustrante perceber que, às vezes, queremos ajudar, mas podemos acabar piorando as coisas."
+Nem sempre o que funciona para nós é útil para os outros.
+
+    Narrator "No final, ela agradeceu pela corrida, mas o alívio que eu esperava ver em seus olhos não estava lá."
+Em vez disso, ela saiu do táxi com uma expressão carregada, como alguém ainda buscando respostas.
+}
+
+if($Thiago.day2) 
+{
+    print("Thiago: $Thiago.day2")
+
+    Narrator "A conversa com Thiago me fez perceber algo importante:{a} o peso de ser ouvido."
+
+    Narrator "Ele falou sobre suas inseguranças, seus desafios...{a} Pela primeira vez, parecia encontrar algum alívio."
+Minha sugestão sobre como olhar para os desafios com mais perspectiva parecia ter tocado um ponto sensível.
+
+    Narrator "Thiago saiu do táxi com um leve sorriso. Não era muito, mas era algo."
+E isso me fez perceber que, em momentos corretos, ouvir é mais poderoso que mil palavras.
+
+    Narrator "Eu me pergunto se vou vê-lo novamente.{a} Mas, por agora, sei que fiz o meu melhor para ajudá-lo."
+}
+
+if($Luana.day2) 
+{
+    print("Luana: $Luana.day2")
+
+    Narrator "A conversa com Luana foi intensa..."
+
+    Narrator "Enquanto ela falava sobre suas inseguranças e a dor de perder alguém que ela claramente amava muito."
+eu percebi o quanto ela colocava seu valor no relacionamento.
+Suas palavras eram carregadas de tristeza, mas também de uma luta interna para entender o que deu errado.
+
+    Narrator "Fico triste por não conseguir terminar totalmente meu raciocínio, mas acho que fiz ela pensar."
+
+    Narrator "No final, ela aceitou meu número e parecia menos perdida do que quando entrou no táxi."
+Espero não me tornar um substituto emocional do namorado dela.
+
+    Narrator "Eu não sei se ela vai ligar, mas espero que ela não se sinta sozinha."
+Talvez, com o tempo, ela consiga amar a si mesma.
+}
+
+
+if($Nicole.day2) 
+{
+    print("Nicole: $Nicole.day2")
+
+    Narrator "A conversa com Nicole foi leve."
+Minha sugestão para que ela desse mais espaço ao filho parecia tê-la aliviado.
+
+    Narrator "Ela refletiu sobre sua juventude, sobre como ela mesma desejava mais liberdade."
+Era como se minha observação tivesse despertado algo que ela já sabia, mas precisava ouvir de outra pessoa.
+
+    Narrator "Quando chegamos ao destino, Nicole parecia diferente."
+Mais tranquila, mais confiante. Talvez tenha começado a encontrar um equilíbrio entre ser uma mãe protetora e dar espaço para que seu filho cresça.
+
+    Narrator "Ela agradeceu com um sorriso sincero, e percebi o impacto que a conversa teve nela."
+Isso me fez perceber que, assim como estou ajudando essas pessoas a encontrarem suas respostas, elas também estão me ajudando a entender mais sobre mim mesmo.
+}
+
+Load(day3/day3_introducao)

@@ -213,37 +213,6 @@ Muitas vezes as pessoas se sentem impotentes.
 
 Choice "O que dizer para Thiago?"
 {
-    - Continuar Ouvindo
-    $Thiago.day2 = true
-    $Thiago.count += 1
-
-    Thiago "E a situação só piora.{a} Eu me sinto completamente impotente."
-Não posso simplesmente ficar de braços cruzados.
-Vendo um aluno ser humilhado enquanto a administração faz vista grossa.
-
-    Thiago "E o mais frustrante é que esse tipo de coisa não é incomum." 
-Às vezes,{a} parece que a escola finge que todos os problemas desaparecem se ninguém falar sobre eles.
-Enquanto continuam tratando as questões mais sérias com indiferença.
-
-    PlaySFX(Car/car-arriving)
-
-    Thiago "Sabe,{a} é difícil para mim entender como pessoas com tanto poder podem ser tão insensíveis."
-Eu queria poder fazer mais,{a} mas tenho medo de que qualquer ação minha possa custar meu emprego. 
-Me colocar em uma posição ainda mais difícil.
-
-    PlaySFX(Thiago/thiago-suspiro)
-
-    Thiago "Enfim,{a} chegamos ao meu destino.{a} Agradeço por ouvir,{a} é bom poder desabafar um pouco."
-
-    Taxista "De nada.{a} Se precisar de mais alguém para ouvir,{a} você sabe onde me encontrar."
-
-    Thiago "Obrigado.{a} Vou tentar resolver as coisas da melhor maneira possível."
-
-    HideDB()
-    PlaySFX(Car/car-door-opening-and-closing)
-    Wait(4)
-    ShowDB()
-
     - Tentar Aconselhar
     $Thiago.day2 = false
 
@@ -283,5 +252,36 @@ Tentando proteger um aluno e ainda se preocupar com seu próprio emprego.{a} Dev
     HideDB()
     PlaySFX(Car/car-door-close)
     Wait(4)
+
+    - Continuar Ouvindo
+    $Thiago.day2 = true
+    $Thiago.count += 1
+
+    Thiago "E a situação só piora.{a} Eu me sinto completamente impotente."
+Não posso simplesmente ficar de braços cruzados.
+Vendo um aluno ser humilhado enquanto a administração faz vista grossa.
+
+    Thiago "E o mais frustrante é que esse tipo de coisa não é incomum." 
+Às vezes,{a} parece que a escola finge que todos os problemas desaparecem se ninguém falar sobre eles.
+Enquanto continuam tratando as questões mais sérias com indiferença.
+
+    PlaySFX(Car/car-arriving)
+
+    Thiago "Sabe,{a} é difícil para mim entender como pessoas com tanto poder podem ser tão insensíveis."
+Eu queria poder fazer mais,{a} mas tenho medo de que qualquer ação minha possa custar meu emprego. 
+Me colocar em uma posição ainda mais difícil.
+
+    PlaySFX(Thiago/thiago-suspiro)
+
+    Thiago "Enfim,{a} chegamos ao meu destino.{a} Agradeço por ouvir,{a} é bom poder desabafar um pouco."
+
+    Taxista "De nada.{a} Se precisar de mais alguém para ouvir,{a} você sabe onde me encontrar."
+
+    Thiago "Obrigado.{a} Vou tentar resolver as coisas da melhor maneira possível."
+
+    HideDB()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
 }
 Load(day2/day2_luana)

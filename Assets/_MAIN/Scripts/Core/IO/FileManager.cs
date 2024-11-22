@@ -12,6 +12,11 @@ public class FileManager
 
     public static string TextFileName(TextAsset filePath)
     {
+        if (filePath == null)
+        {
+            Debug.LogError("File not found!");
+            return null;
+        }
         return filePath.name;
     }
     public static List<string> ReadTextFile(string filePath, bool includeBlankLines = true)
