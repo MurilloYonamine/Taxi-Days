@@ -1,0 +1,78 @@
+if($Luana.day3)
+{
+        Narrator thought "Luana parece buscar o conforto nas nossas conversas, mas eu me pergunto se realmente consigo ajudá-la."
+As ligações parece que irão me sugar cada vez mais, como se minhas palavras nunca fossem suficientes.
+
+        Narrator thought "A convivência forçada no táxi trouxe à tona algo óbvio, mas difícil de encarar: eu não sou um terapeuta."
+E, talvez, esteja tentando ocupar esse papel para me sentir útil em meio ao caos da minha própria vida.
+}
+
+if($Luana.day3 && $Joseph.day3)
+{
+        Narrator thought "Joseph, por outro lado, é como um espelho do que talvez eu quisesse ser: otimista, apesar das adversidades."
+Mas vejo o desconforto em seus olhos agora. Será que já estou deixando ele desconcertado? Ou será que estou tentando equilibrar o impossível entre ajudar os dois?
+
+        Narrator thought "E o que ele disse...{a} Me fez refletir.{a} Eu tenho sido tão duro comigo mesmo."
+É verdade, eu estudei pra caramba e consegui meu diploma. 
+Isso é algo de que posso me orgulhar,{a} mesmo que ainda não esteja onde quero estar.
+
+        Narrator thought "Eu sempre fico me comparando com os outros, mas talvez o Joseph tenha razão."
+Cada pessoa tem seu tempo. Eu só preciso aprender a aceitar o meu ritmo.
+Talvez eu devesse procurar esse tal café novo. Um chocolate quente cairia bem depois de um dia como esse.
+}
+
+if($Thiago.day3)
+{
+        Narrator thought "Sabe, essa conversa me pegou de surpresa, mas acho que fiz a escolha certa."
+Compartilhar o que eu sinto é algo complicado
+Talvez fosse exatamente disso que Thiago precisava: alguém que entende, mesmo sem viver exatamente a mesma coisa.
+
+        Narrator thought "Eu sabia que a situação dele era díficil, mas não achei que era tanta."
+Ensinar em uma escola pública, vendo o potencial dos alunos sendo sabotado pela falta de recursos. Deve ser duro demais.
+Por outro lado, me ajudou também. Ouvir sobre o esforço dele, o desejo de fazer diferença, me fez pensar na minha própria situação.
+
+        Narrator thought "Thiago tem uma paixão pelo que faz, e mesmo diante de tantos obstáculos, ele ainda se importa. Isso é inspirador."
+Talvez eu devesse parar de me conformar com a rotina e encontrar algo que realmente me motive.
+Afinal, todo mundo tem seus próprios moinhos de vento, né? Acho que é isso que ele quis dizer.
+Até agora eu não entendi
+}
+
+if(!$Thiago.day3)
+{
+        Narrator thought "Eu realmente não soube o que fazer. Acho que minhas palavras só pioraram as coisas..."
+Ou, no mínimo, não ajudaram em nada.
+Thiago parecia tão perdido, e eu fui rápido demais em tentar consertar as coisas, como se fosse fácil.
+
+        Narrator thought "Às vezes, é difícil saber o que dizer. Talvez eu devesse só ter escutado."
+Sem tentar dar um conselho vazio ou minimizar o que ele sentia.
+Agora, olhando pra trás, percebo que cada um carrega seus próprios fardos.
+A última coisa que alguém precisa é ouvir que seus problemas não são importantes.
+
+        Narrator thought "Eu queria que Thiago tivesse saído desse táxi se sentindo um pouco mais leve..."
+Mas não sei se consegui.{a} Preciso aprender a entender melhor as pessoas.
+Nem sempre o silêncio é vazio.{a} às vezes, é o que as pessoas mais precisam.  
+}
+
+if($Joseph.day3 && !$Luana.day2)
+{
+        Narrator thought "Engraçado como uma simples conversa pode mudar o humor de um dia."
+Joseph estava de bom humor hoje... Tão diferente da última vez que nos encontramos. 
+Isso me fez pensar que, às vezes, só precisamos de um dia bom para nos reerguermos.
+
+        Narrator thought "E o que ele disse...{a} Me fez refletir.{a} Eu tenho sido tão duro comigo mesmo."
+É verdade, eu estudei pra caramba e consegui meu diploma. 
+Isso é algo de que posso me orgulhar,{a} mesmo que ainda não esteja onde quero estar.
+
+        Narrator thought Eu sempre fico me comparando com os outros, mas talvez o Joseph tenha razão. 
+Cada pessoa tem seu tempo. Eu só preciso aprender a aceitar o meu ritmo.
+Talvez eu devesse procurar esse tal café novo. Um chocolate quente cairia bem depois de um dia como esse.
+}
+
+if(!$Joseph.day3 && !$Luana.day2)
+{
+        Narrator thought "Engraçado como uma simples conversa pode mudar o humor de um dia."
+Joseph estava de bom humor hoje...{a} Tão diferente da última vez que nos encontramos.
+Isso me fez pensar que,{a} às vezes,{a} só precisamos de um dia bom para nos reerguermos.
+
+        Narrator thought "Não conversei tanto com ele, mas foi uma viagem calma."
+}

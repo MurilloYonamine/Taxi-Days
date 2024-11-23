@@ -122,7 +122,7 @@ Você tá pensando demais.{a} Foca no que já conquistou.
         Joseph "Bem, é aqui.{a} Obrigado pela corrida!"
 
         HideDB()
-        PlaySFX(Car/car-door-clsoe)
+        PlaySFX(Car/car-door-close)
         Wait(3)
 }
 HideUI()

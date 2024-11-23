@@ -1,0 +1,37 @@
+if($Luana.day3)
+{
+    Taxista thought "Ontem foi um dia cansativo. Cada passageiro traz uma nova história"
+Estou começando a gostar das pessoas que vejo todos os dias. 
+Ow,{a} nossa! Eu não conversei com a Luana ontem à noite.{a} O cansaço me pegou de jeito
+Não recebi nenhuma mensagem ou ligação dela.
+
+    Taxista "Ela vai surtar com certeza..."
+
+    HideDB()
+    PlaySFX(Telephone/telephone-dial-and-call)
+    Wait(10)
+    ShowDB()
+
+    Taxista "Oi, Luana!{a} Desculpa por não ter ligado ontem à noite.{a} Estava exausto e acabei deixando passar."
+
+    Luana "...{a}Não se preocupe{a}, eu cheguei em casa cansada também.{a} Eu realmente fiquei feliz em saber que você se importou."
+
+    Taxista "Fico aliviado em saber que está tudo bem.{a} Como foi seu dia?"
+
+    Luana "Ah, você sabe, é sempre bom poder conversar com alguém.{a} Sinto que isso ajuda a começar o dia de um jeito melhor."
+
+    Taxista thought "É bom saber que ela está bem.{a} Espero que isso signifique que posso continuar a ajudar de alguma forma."
+
+    Taxista "Mas então{a} e aquilo que você me falou na ligação de ontem?"
+
+    Luana "Que bom que você perguntou!{a} Aperte os cintos,{a} que irei continuar o que estava falando ontem!"
+
+    Taxista: "Mal posso esperar...{a} Seja rápida,{a} aqui a pouco já vou começar o trabalho!"
+}
+else
+{
+    Taxista thought "Ontem foi um dia cansativo, mas ótimo profissionalmente dizendo."
+Espero que hoje possa ser igual.
+}
+
+Load(day4/day4_nicole)

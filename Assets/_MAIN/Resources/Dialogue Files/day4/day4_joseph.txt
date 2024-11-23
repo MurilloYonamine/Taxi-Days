@@ -1,0 +1,191 @@
+ShowUI()
+
+Taxista thought "Mais um dia,{a} mais um trânsito monstruoso."
+Parece que estou preso em uma fila interminável de carros.
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Joseph "Olá!{a} Não é possível,{a} é a terceira vez que eu entro no seu táxi!"
+
+Taxista "Acho que você tem um bom gosto para táxi,{a} hein?"
+
+Joseph "Estamos ambos sem sorte com o trânsito.{a} Como você está?"
+
+Taxista "Cansado,{a} mas aproveitando o trabalho.{a} E você, tudo certo?"
+
+Joseph "Estou ótimo!{a} Cara,{a} ando reassistido a todos os filmes e séries de super herois!"
+A Marvel realmente me deixa hypado com seus efeitos.
+Você já viu o último filme do Spider-Man de Miles Morales?
+A forma como eles misturaram os universos foi incrível!
+Está cheio de easter eggs e referências.{a} É muito bom!
+
+Taxista thought "Parece que ele realmente ama esse mundo. Acho que ningúem mais é capaz de parar ele falando."
+
+Joseph "E não é só isso! Eu também coleciono action figures e estou sempre em busca de expandir minha coleção."
+Você sabia que o Batman é um dos personagens mais complexos?
+Ele é um herói, mas tem tanta dor e escuridão em sua história.
+Isso me fascina, ele é quase um anti-heroi.
+E os vilões? Eles têm histórias tão ricas! É tudo tão... wow!
+
+Taxista thought "Ele está animado, vou tentar continuar esse assunto."
+
+Choice ""
+{
+    - Dizer Que Eu Não Entendo Muito Sobre
+        Taxista "Para ser sincero, eu não entendo muito sobre super-heróis."
+Estou meio por fora, mas estou curioso.
+
+        Joseph "Ah, você não sabe o que está perdendo! Super-heróis são incríveis!"
+Cada um deles tem uma história fascinante.
+Tem tantos universos e mitologias!
+Por exemplo, você sabia que o Superman foi criado durante a Grande Depressão para inspirar esperança?
+E o Batman é tipo um vigilante sombrio, lidando com suas próprias tragédias!
+
+        Taxista "Que interessante!{a} O que você mais gosta nos super-heróis?"
+
+        Joseph "O que eu adoro neles é que, no fundo, eles são tão humanos quanto a gente."
+Olha o Homem-Aranha!{a} Ele lida com problemas de adolescentes, como notas baixas e relacionamentos.
+Mas, ao mesmo tempo, ele tem essa responsabilidade enorme de salvar vidas!
+
+        Joseph "E não posso esquecer do Pantera Negra! Ele é uma pilha de representatividade!"
+O Wakanda é um lugar tão rico culturalmente,{a} e ele não é só um herói.
+Também um rei que luta pela sua nação{a} e pela sua identidade! 
+A forma como ele aborda questões de poder,{a} responsabilidade e tradição é simplesmente incrível.
+A luta dele não é apenas contra vilões,{a} mas também contra injustiças e preconceitos!
+É tão importante ter heróis como ele que representam diferentes histórias e culturas!
+
+        Taxista "Cara, eu achava que era só lutinha esses quadrinhos, que era algo meio episódico, mas é algo muito profundo."
+
+        Joseph "Com certeza!{a} As histórias deles não são apenas sobre ação."
+São sobre luta, esperança e superação. Mesmo que sejam ficção, elas podem nos inspirar a enfrentar nossos próprios desafios.
+Você devia dar uma chance e se aprofundar um pouco mais!
+Tem tanta coisa incrível por aí!
+E o Pantera Negra mostrou que todos nós podemos ser heróis,{a} não importa de onde viemos!
+
+    - Perguntar Se Ele Leu Algo Recentemente
+        Taxista "Então...{a} você já leu algum quadrinho interessante recentemente?"
+
+        Joseph "Na verdade, sim!{a} Eu li 'Invincible'. É uma história incrível, cheia de ação e reviravoltas!"
+Você precisa conferir!
+
+        Taxista "Legal!{a} Tem algum outro que você recomendaria?"
+
+        Joseph "Claro!{a} Tem 'Sandman', que é fantástico. E 'Watchmen', que é um clássico!"
+E não posso esquecer de 'Saga' é uma mistura perfeita de fantasia e ficção científica!
+Ah, e 'Ms. Marvel' é incrível também!{a} E tem uma nova série do 'Homem-Aranha' que tá bombando!{a} E também...!
+
+        Taxista "Calma,{a} calma!{a} Um de cada vez,{a} por favor!"
+
+        Joseph "Desculpa!{a} Eu me empolgo fácil com quadrinhos!"
+
+        Taxista "Entendi!{a} Vou começar com o 'Invincible' então."
+
+        Joseph "Você não vai se arrepender! Depois, me diga o que achou!"
+}
+
+Taxista thought "Eu poderia tentar entender mais sobre o mundo dele.{a} Ou talvez compartilhar um pouco das coisas que gosto."
+
+Joseph "Sabe,{a} é engraçado como essas histórias podem ser tão emocionantes e profundas ao mesmo tempo."
+Não importa a idade, elas sempre têm algo a ensinar, né?
+
+Taxista "É verdade. Sabe, você falou com tanta paixão que me deixou curioso."
+Talvez eu devesse perguntar mais sobre isso...{a} Ou até compartilhar algo que gosto.
+
+Choice "Continuar o Assunto"
+{
+    - Comentar que Também Gosto de Super Heróis
+        Taxista "Sabe,{a} eu também gosto de super-heróis."
+Tem algo no Capitão América que me chama a atenção.
+Ele teve essa oportunidade de brilhar,{a} e tudo parecia estar a seu favor.
+
+        Joseph "Sério?{a} Não é comum ouvir alguém falar do Capitão América!"
+A maioria prefere personagens, como o Homem-Aranha ou o Homem de Ferro.
+
+        Taxista "É, eu entendo. Mas tem algo nele que é inspirador."
+Ele passou por tanto e,{a} mesmo assim,{a} continuou lutando.
+E eu sempre admirei a forma como ele se levantou após ser congelado,{a} enfrentando um mundo novo.
+
+        Joseph "Faz sentido.{a} Ele realmente representa essa ideia de perseverança."
+Mesmo quando tudo parece perdido. Isso é algo que eu nunca tinha pensado.{a} Legal essa perspectiva.
+
+        Taxista "É, acho que a gente pode aprender muito com os super-heróis."
+A luta deles muitas vezes reflete as nossas próprias batalhas, mesmo que a gente não perceba.
+
+        Joseph "Com certeza! Isso é o que faz os super-heróis tão especiais, né?"
+Eles não são apenas poderosos, mas também têm histórias que nos inspiram.
+
+        Joseph "Então, se você se vê no Capitão América."
+Isso significa que você tem enfrentado algumas batalhas também, né?
+São as mesmas de quando a gente conversou naquele dia?
+
+        Taxista "Elas mesmos...{a} É ruim quando as coisas não saíram como eu esperava."
+
+        Joseph "Entendo.{a} A vida pode ser bem imprevisível.{a} O que você gostaria de ter feito diferente?"
+
+        Taxista "Acho que gostaria de ter tido mais coragem para seguir meus sonhos, sabe?"
+É como se, em vez de lutar, eu estivesse apenas aceitando a situação.
+Às vezes me pergunto se vou conseguir algo que realmente me faça feliz.
+
+        Joseph "É difícil quando parece que estamos estagnados."
+Mesmo assim, você ainda pode fazer a diferença.
+Cada viagem que você faz aqui no táxi é uma nova chance, não acha?
+
+        Taxista "É verdade, cada passageiro tem uma história e, de alguma forma, posso fazer parte dela."
+Às vezes, só espero que minha própria história também tenha um final positivo.
+
+        Joseph "Com certeza! E quem sabe? Talvez sua jornada ainda esteja apenas começando, assim como a do Capitão América."
+
+    - Perguntar ao Joseph o Super-Herói Favorito
+        Taxista "Ei, Joseph!{a} Qual é o seu super-herói favorito?"
+
+        Joseph "Ah, com certeza é o Homem-Aranha!{a} Eu adoro ele!"
+
+        Taxista "Mas por que você gosta dele?"
+
+        Joseph "Ele é tão legal! O jeito que ele tem que lidar com a vida dupla."
+Sendo um adolescente normal e,{a} ao mesmo tempo, um super-herói...{a} Eu me identifico com isso.
+
+        Joseph "Às vezes, sinto que também estou usando uma máscara, tentando esconder quem sou."
+
+        Joseph "O Homem-Aranha enfrenta muitos desafios, mas ele sempre tenta ser uma boa pessoa."
+Mesmo quando tudo fica complicado. É inspirador!
+
+        Joseph "Isso me lembra de como é importante ter pessoas que te aceitam, sabe?"
+Porque a gente nem sempre se sente assim.
+
+        Taxista thought "Deve ser complicado lidar com isso na vida real."
+
+        Joseph "Sabe, uma das coisas que mais gosto no Homem-Aranha é que ele é um cara normal."
+Ele também tem suas inseguranças, como todo mundo. Isso faz dele mais real, mais humano.
+
+        Taxista thought "Parece que ele realmente se conecta com esse personagem."
+
+        Joseph "Ele enfrenta muitos desafios,{a} não só como super-herói, mas como Peter Parker."
+Às vezes,{a} me sinto como se estivesse na mesma luta.
+É difícil encontrar um lugar onde eu me sinta aceito de verdade.
+
+        Taxista "Eu imagino. A aceitação é uma coisa tão complicada."
+Às vezes, parece que a gente está lutando contra algo que não quer entender a gente.
+
+        Joseph "Exato! E sabe, o Homem-Aranha é um ótimo exemplo de como é complicado lidar com a dualidade."
+Ele vive entre dois mundos: o normal e o super.
+Às vezes, sinto que estou em uma situação semelhante.
+Tentando me encaixar em um mundo que não sempre me aceita.
+
+        Taxista thought "Ele está falando de forma bem profunda..."
+
+        Joseph "E o que eu aprendi com ele é que a verdadeira força vem de sermos nós mesmos."
+Cada um de nós tem uma história,{a} e essa diversidade é o que nos torna especiais.
+Mesmo que o mundo não entenda,{a} precisamos encontrar nosso lugar.
+
+        Taxista "Uau...{a} Você está certo.{a} A aceitação começa por nós mesmos, né?"
+
+        Joseph "Sim!{a} E eu tento lembrar disso todos os dias."
+No fundo, todos nós temos nossas batalhas, e isso é o que nos une.
+
+        Taxista thought "Essas palavras ecoaram em minha mente, nossa!"
+}
+

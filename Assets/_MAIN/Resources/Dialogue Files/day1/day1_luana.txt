@@ -117,8 +117,6 @@ Será que era melhor eu ter ficado quieto?
 
         Taxista thought "Luana pega sua bolsa.{a} A animação dela parece ter se transformado em irritação."
 
-        Luana.Hide()
-        
         HideDB()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(4)

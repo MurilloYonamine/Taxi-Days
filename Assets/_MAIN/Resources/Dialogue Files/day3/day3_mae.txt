@@ -1,0 +1,62 @@
+ShowUI()
+
+Taxista "Hoje foi um dia especialmente cansativo."
+
+if($Luana.day3)
+{
+    Taxista "A Luana ainda vai me enlouquecer, certeza."
+}
+else
+{
+    Taxista "Mas pelo menos um bom dia de trabalho"
+}
+
+HideDB()
+PlaySFX(Telephone/telephone-vibrating)
+Wait(4)
+ShowDB()
+
+Taxista "Oh, será ela?"
+
+Taxista thought "Ah, claro... era só o que faltava.{a} Já sei como essa conversa vai acabar.{a} Sempre é do mesmo jeito."
+
+Taxista "Oi, mãe."
+
+Mãe "Como foi o dia?{a} Dirigindo pra lá e pra cá de novo?"
+
+Taxista "Foi corrido,{a} mas deu tudo certo."
+
+Mãe "Bom...{a} Pelo menos está indo, né?{a} Mas, filho,{a} você ta tentando buscar algo mais estável?"
+Essa coisa de táxi não parece muito...{a} futuro.
+
+Taxista thought "Aqui vamos nós de novo...{a} Mas ela parece incrivelmente,{a} mais tranquila?"
+
+Mãe "Eu entendo que você está se virando como pode,{a} mas sabe, com sua formação."
+Você poderia estar em outro lugar,{a} ganhando mais,{a} eu gastei muito contigo. 
+E acho que você se esforça,{a} mas você está realmente tentando?
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Taxista thought "Novamente..."
+
+Mãe "Não que eu queira te pressionar, mas..."
+
+Taxista "Mãe, eu sei,{a} mas eu estou dando meu jeito."
+
+Mãe "...{a}Estou percebendo."
+
+HideDB()
+PlaySFX(Telephone/telephone-hangUp)
+Wait(2)
+ShowDB()
+
+if($Luana.day3)
+{
+    Taxista "Obrigado mãe por coroar esse dia como o mais estressante!"
+}
+else
+{
+    Taxista "Poxa mãe, o dia estava até bom hoje..."
+}
+
+Load(day3/day3_reflexao)

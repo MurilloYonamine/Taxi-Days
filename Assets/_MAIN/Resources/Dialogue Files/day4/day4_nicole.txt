@@ -1,0 +1,163 @@
+if($Luana.day3)
+{
+    Taxista thought "Fiquei um bom tempo falando com a Luana."
+É incrível como esses momentos fazem a diferença.
+Bom,{a} hora de começar o trabalho!
+Mais um dia na estrada e fico me perguntando: quais passageiros irão aparecer hoje?"
+}
+else
+{
+    Taxista thought "Mais um dia na estrada e fico me perguntando: quais passageiros irão aparecer hoje?"
+}
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Taxista thought "Vamos ver o que o dia reserva."
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Nicole "Bom dia!{a} Que noite linda, não?{a} Parece que a vida está muito boa para ser verdade!"
+
+Taxista "Nicole!{a} Que bom te ver!{a} Fico feliz que esteja assim tão animada."
+O que está acontecendo?
+
+Nicole "Ah, tudo anda dando certo!{a} Finalmente consegui resolver algumas pendências no trabalho."
+Estou até achando que a maré virou!
+
+Taxista thought "Isso é ótimo!{a} O bom humor dela é contagiante."
+
+Taxista "Isso é ótimo!{a} A onde você deseja ir?"
+
+Nicole "Para a escola Ribeirito!{a} Hoje vai haver uma um evento a noite nessa escola."
+Meu filho estuda lá!{a} Estou com muitas expectativas para hoje.
+
+Taxista "Para já senhorita!"
+
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+
+HideDB()
+PlaySFX(Telephone/telephone-vibrating)
+Wait(4)
+ShowDB()
+
+Nicole "Desculpa um minuto,{a} preciso pegar essa chamada."
+
+Nicole "O que foi?{a} O que aconteceu?{a} Você parece agitada!"
+
+Generic as Secretaria "As bale... Estão m... A situação é mais grave..."
+
+Nicole "Como assim?{a} Eu não ouvi nada sobre isso!{a} Quantas estão afetadas?"
+
+Generic as Secretaria "A mai... Estão m... em r... d...! Pre... presença..."
+
+Generic as Secretaria "Precisamos de recursos, ma.. est.... Sem..., a situa... vai p..."
+
+Nicole "Os dias estavam muito bons para ser verdade.{a} Eu tentarei ir imediatamente para ai!"
+
+HideDB()
+PlaySFX(Telephone/telephone-hangUp)
+Wait(2)
+ShowDB()
+
+Nicole "Senhor Taxista, por favor!{a} Me leve a OVIMA."
+
+Taxista "Certo."
+
+PlaySFX(Car/car-speedingUp)
+
+Taxista thought "O que está acontecendo?{a} O tom dela é de desespero.{a} Isso é sério.{a}"
+Será que eu devo falar alguma coisa? Ou eu apenas fico quieto?
+
+Choice "O que dizer?"
+{
+    - Simplesmente Perguntar O Que aconteceu
+        $Nicole.day4 = true
+
+        Taxista thought "Não consigo ficar calado.{a} Preciso entender o que está acontecendo."
+
+        Taxista "Nicole...{a} Se importa em me dizer o que está acontecendo?"
+Se não for problema...
+
+        PlaySFX(Nicole/nicole-suspiro)
+
+        Nicole "É complicado...{a} As baleias estão doentes, e a situação é crítica."
+Não é só uma questão de saúde delas,{a} é que precisamos agir rápido antes que seja tarde demais.
+
+        Taxista "Doentes?{a} Como isso aconteceu?"
+
+        Nicole "Infelizmente,{a} não temos todas as respostas."
+Tem algo no ambiente que está afetando elas.
+É como se estivessem perdendo a força para sobreviver.
+E sem recursos, não conseguimos fazer o que é necessário.
+
+        Taxista "Isso é terrível.{a} Você tem um plano?{a} Alguma coisa em que eu possa ajudar?"
+
+        Nicole "Haha!{a} Obrigado por se oferecer em ajudar."
+
+        Nicole "Apenas tente encontrar a rota mais curta para chegarmos na OVIMA."
+
+        Taxista "Espero qeu dê tudo certo para ti senhora Nicole."
+Tentarei chegar o mais rapido possível na OVIMA!
+
+        HideUI()
+        PlaySFX(Car/car-speedingUp)
+        Wait(5)
+        ShowUI()
+
+        Nicole "Sabe, é tão bom poder conversar com você.{a} Eu me sinto tão sozinha nessa situação, e você é um ótimo ombro amigo."
+
+        Nicole "É estranho, mas falar sobre tudo isso me faz sentir um pouco melhor."
+Como se, de alguma forma, eu não estivesse sozinha nessa luta.
+
+        Taxista "Você não está sozinha.{a} Sempre que precisar desabafar ou se apoiar."
+Eu estarei por algum lugar nesse mar de asfalto.
+
+        Nicole "Isso significa muito para mim.{a} Espero que possamos fazer algo para ajudar as baleias."
+Elas precisam de nós.
+
+        Taxista "Com certeza.{a} E eu vou torcer para que tudo dê certo.{a} Vamos fazer o que pudermos."
+
+        HideUI()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowUI()
+
+        Taxista "Aqui estamos!{a} Chegamos à OVIMA.{a} Espero que as coisas se resolvam logo para você."
+
+        Nicole "Obrigada por tudo, de verdade.{a} Vou te manter informado sobre o que está acontecendo."
+
+        Taxista "Por favor, faça isso.{a} Estou na torcida por você!"
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
+        ShowDB()
+
+    - Não Dizer Nada e Esperar com que Nicole Diga Algo
+        $Nicole.day4 = true
+
+        Nicole "..."
+
+        Taxista thought "Já chegamos na OVIMA e ela não disse nada."
+Acho que não foi uma boa opção ficar calado, agora já era.
+
+        HideUI()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+
+        PlaySFX(Car/car-door-close)
+        Wait(2)
+        ShowUI()
+
+        Taxista thought "Espero que esteja tudo bem com ela..."
+}
+HideUI()
+Wait(2)
+Load(day4/day_joseph)

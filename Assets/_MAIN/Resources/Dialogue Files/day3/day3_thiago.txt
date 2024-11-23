@@ -1,3 +1,5 @@
+ShowUI()
+
 Taxista thought "Quase terminando o dia, só mais um passageiro e vou pra casa."
 
 HideDB()
@@ -12,13 +14,13 @@ Você sempre é um cara alegre, mas hoje entrou no táxi sem dizer nada.
 
 PlaySFX(Thiago/thiago-suspiro)
 
-Thiago  Oi...{a} Ah, foi um dia complicado.{a} Tive uma discussão na escola."
+Thiago  "Oi...{a} Ah, foi um dia complicado.{a} Tive uma discussão na escola."
 
 Taxista "O que aconteceu?"
 
 PlaySFX(Car/car-starting-sound)
 
-Thiago "É...{a} você sabe como é.{a} Às vezes, a pressão é grande."
+Thiago "É...{a} Você sabe como é.{a} Às vezes, a pressão é grande."
 Tentamos fazer o nosso melhor,{a} mas parece que sempre falta alguma coisa.
 A gente tenta, mas os desafios não diminuem.
 
@@ -110,6 +112,7 @@ Eu quero que eles tenham um futuro melhor, mas, sei lá, parece que a realidade 
     - Tentar Fazer Alusão com Suas Dificuldades
         $Thiago.day3 = true
         $Thiago.Count += 1
+
         Taxista thought "Talvez se eu compartilhar um pouco das minhas dificuldades,{a} ele veja que não está sozinho."
 
         Taxista "Sabe...{a} Às vezes sinto que estou preso no meu trabalho como taxista."
@@ -118,11 +121,13 @@ Também tem dias em que parece que nada vai dar certo{a} e que tudo o que faço 
         Thiago "Você?{a} Nunca imaginei que pensasse assim.{a} Sempre te vi como alguém que sabe lidar bem com tudo."
 
         Taxista  "Nem sempre, cara."
-Acho que a gente acaba se acostumando a mostrar uma face forte,{a} mas todo mundo tem suas lutas internas.
+Acho que a gente acaba se acostumando a mostrar uma face forte.
+Todo mundo tem suas lutas internas.
 Talvez o segredo seja continuar tentando,{a} mesmo quando parece que tudo está contra nós.
 
         Thiago "Sabe...{a} Eu acho que o problema é que eu não sei mais como fazer meu trabalho."
-Hoje,{a} na escola pública onde dou aula,{a} pedi mais recursos, porque sinceramente não dá para continuar assim.
+Hoje,{a} na escola pública onde dou aula,{a} pedi mais recursos.
+Sinceramente não dá para continuar assim.
 A gente faz o possível,{a} mas as condições são horríveis. 
 Salas superlotadas,{a} materiais quebrados... 
 Como é que eu vou ensinar assim? 
@@ -133,26 +138,29 @@ Pedi ajuda,{a} conversei com a direção,{a} implorei por algum suporte,{a} mas.
         PlaySFX(Thiago/thiago-suspiro)
 
         Thiago "Disseram que não tem verba,{a} que é assim mesmo,{a} que as coisas estão difíceis para todo mundo."
-Mas como é que eu vou ensinar história para esses alunos sem os materiais adequados?{a} Metade da turma não tem livros! 
+Mas como é que eu vou ensinar história para esses alunos sem os materiais adequados?
+Metade da turma não tem livros! 
 
-        Thiago  E o que me deixa mais irritado é que essa turma, curiosamente, é dedicada."
+        Thiago  "E o que me deixa mais irritado é que essa turma, curiosamente, é dedicada."
 Eles são interessados,{a} fazem perguntas ótimas,{a} mas não conseguem se aprofundar.
 A biblioteca só tem livros rasgados.{a} É frustrante.
 
         Taxista thought "Isso deve ser desanimador...."
 
-        Thiago "O pior é que, em outras escolas, especialmente nas privadas, eu vejo uma realidade completamente diferente."
+        Thiago "O pior é que, em outras escolas, especialmente nas privadas."
+Eu vejo uma realidade completamente diferente.
 Os alunos da pública querem aprender,{a} mas parece que o mundo está sabotando eles.
 Eu estou cansado de lutar contra isso.{a} Cansado de ver potencial desperdiçado por falta de estrutura básica.
 
         Thiago "E sabe, eu me pergunto se tudo isso vale a pena."
-Eu vejo esses alunos, com tanto potencial,{a} mas que nunca vão ter as mesmas oportunidades que os alunos da parti--
+Eu vejo esses alunos, com tanto potencial...
+Mas que nunca vão ter as mesmas oportunidades que os alunos da parti--
 
         PlaySFX(Car/car-arriving)
 
         Taxista "Thiago... Chegamos ao seu destino."
 
-        Thiago "Nossa...{a} Mem percebi o tempo passar.{a} Eu estava tão...{a} Envolvido nisso tudo."
+        Thiago "Nossa...{a} Nem percebi o tempo passar.{a} Eu estava tão...{a} Envolvido nisso tudo."
 
         Taxista "Acho que você precisava colocar isso pra fora.{a} Espero que tenha ajudado de alguma forma."
 
@@ -164,3 +172,5 @@ Eu vejo esses alunos, com tanto potencial,{a} mas que nunca vão ter as mesmas o
         Wait(3)
         ShowDB()
 }
+HideUI()
+Load(day3/day3_mae)
