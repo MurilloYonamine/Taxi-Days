@@ -39,7 +39,7 @@ Luana "Eu não consigo pensar em uma vida sem você, por favor, não termine com
 
 Namorado as Ex-Namorado "Eu já te disse que não quero mais saber disso."
 Eu não te aguento mais, você é uma pessoa triste, que deixa as pessoas tristes sem pensar.
-A sua falta de confiança e segurança te torna insuportável de se ter de perto. 
+A sua falta de confiança e segurança te torna insuportável de se ter por perto. 
 Para de me chamar, já não quero mais nada com você.
 
 PlaySFX(Telephone/telephone-hangUp)

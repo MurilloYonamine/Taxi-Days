@@ -60,7 +60,7 @@ public class SaveLoadSlot : MonoBehaviour
                 uiChoiceMenu.Show(
                     "O que deseja fazer?",
                     new UIConfirmationMenu.ConfirmationButton("Carregar", Load),
-                    new UIConfirmationMenu.ConfirmationButton("Excluir", Delete),
+                    new UIConfirmationMenu.ConfirmationButton("Excluir", OnConfirmDelete),
                     new UIConfirmationMenu.ConfirmationButton("Cancelar", null)
                 );
             }
@@ -82,7 +82,7 @@ public class SaveLoadSlot : MonoBehaviour
                 uiChoiceMenu.Show(
                     "O que deseja fazer?",
                     new UIConfirmationMenu.ConfirmationButton("Carregar", Load),
-                    new UIConfirmationMenu.ConfirmationButton("Excluir", Delete),
+                    new UIConfirmationMenu.ConfirmationButton("Excluir", OnConfirmDelete),
                     new UIConfirmationMenu.ConfirmationButton("Cancelar", null)
                 );
             }
@@ -93,7 +93,7 @@ public class SaveLoadSlot : MonoBehaviour
         }
     }
 
-    public void Delete()
+    /*public void Delete()
     {
         uiChoiceMenu.Show(
             "Excluir este arquivo? (<i>Isso não pode ser desfeito!</i>)",
@@ -109,7 +109,7 @@ public class SaveLoadSlot : MonoBehaviour
             ),
             new UIConfirmationMenu.ConfirmationButton("Não", null)
         );
-    }
+    }*/
 
     private void OnConfirmDelete()
     {

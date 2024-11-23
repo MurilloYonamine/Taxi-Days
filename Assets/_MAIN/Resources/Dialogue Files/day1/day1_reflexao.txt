@@ -4,57 +4,59 @@ if ($Nicole.day1 && $Luana.day1)
 {
     Print("Todas as passagens do dia 1 foram corretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
     
-    Narrator "Enquanto dirijo pela cidade, percebo como as pessoas carregam seus próprios fardos."
-    Narrator "Cada passageiro tem uma história, e eu me pergunto: quantos de nós conseguimos realmente deixar esses problemas para trás por um momento, mesmo que seja dentro de um táxi?"
+    Narrator thought "Enquanto dirijo pela cidade, percebo como as pessoas carregam seus próprios fardos."
+    Narrator thought "Cada passageiro tem uma história, e eu me pergunto: quantos de nós conseguimos realmente deixar esses problemas para trás por um momento, mesmo que seja dentro de um táxi?"
 
-    Narrator "Aquela mulher, Nicole acho que era o nome dela. Entrou com aquela aura distante. Eu tentei, mas acho que não consegui me conectar com ela da forma que gostaria."
-    Narrator "Ela parecia tão preocupada, com os olhos refletindo a carga de um dia difícil, como se estivesse carregando o peso do mundo. Me pergunto se ela vai conseguir resolver os problemas que a afligem."
+    Narrator thought "Aquela mulher, Nicole acho que era o nome dela. Entrou com aquela aura distante. Eu tentei, mas acho que não consegui me conectar com ela da forma que gostaria."
 
-    Narrator "A menina cheia de ansiedade, por outro lado, entrou tão animada, mas logo vi que sua animação era apenas uma fachada. Por baixo, havia uma insegurança que eu não consegui ignorar."
-    Narrator "Ela parecia sempre em dúvida, se preocupando com o que os outros pensariam, com o que estava acontecendo ao seu redor. O que será que a leva a ser assim? Será que ela está enfrentando um momento difícil ou é apenas o reflexo de pressões do dia a dia?"
+    Narrator thought "Ela parecia tão preocupada, com os olhos refletindo a carga de um dia difícil, como se estivesse carregando o peso do mundo. Me pergunto se ela vai conseguir resolver os problemas que a afligem."
 
-    Narrator "Cada um desses encontros me faz pensar como a vida de cada pessoa é uma mistura de sonhos, desafios e medos. Por trás de cada sorriso, há uma complexidade única."
+    Narrator thought "A menina cheia de ansiedade, por outro lado, entrou tão animada, mas logo vi que sua animação era apenas uma fachada. Por baixo, havia uma insegurança que eu não consegui ignorar."
+
+    Narrator thought "Ela parecia sempre em dúvida, se preocupando com o que os outros pensariam, com o que estava acontecendo ao seu redor. O que será que a leva a ser assim? Será que ela está enfrentando um momento difícil ou é apenas o reflexo de pressões do dia a dia?"
+
+    Narrator thought "Cada um desses encontros me faz pensar como a vida de cada pessoa é uma mistura de sonhos, desafios e medos. Por trás de cada sorriso, há uma complexidade única."
 }
 if(!$Nicole.day1 && $Luana.day1) 
 {
     Print("Nem todas as passagens do dia 1 foram corretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
 
-    Narrator "Enquanto dirijo pela cidade, me pergunto sobre as pessoas que encontramos e o que realmente sabemos sobre elas."
+    Narrator thought "Enquanto dirijo pela cidade, me pergunto sobre as pessoas que encontramos e o que realmente sabemos sobre elas."
 
-    Narrator "Nicole, por exemplo, parecia tão distante. Seus olhos estavam cheios de preocupações, e eu fiquei em silêncio, talvez por não saber o que dizer. Agora, me pergunto se fiz o certo."
+    Narrator thought "Nicole, por exemplo, parecia tão distante. Seus olhos estavam cheios de preocupações, e eu fiquei em silêncio, talvez por não saber o que dizer. Agora, me pergunto se fiz o certo."
 
-    Narrator "Eu tentei, mas talvez eu tenha falhado em perceber o que ela realmente precisava. Ela estava tão fechada, e talvez um pouco mais de empatia ou uma palavra amiga teria feito a diferença."
+    Narrator thought "Eu tentei, mas talvez eu tenha falhado em perceber o que ela realmente precisava. Ela estava tão fechada, e talvez um pouco mais de empatia ou uma palavra amiga teria feito a diferença."
 
-    Narrator "Já Luana, embora cheia de energia, não parecia estar em um momento fácil. Sua animação mascarava uma série de inseguranças. Talvez, ao não interagir com Nicole, eu tenha desperdiçado uma oportunidade de fazer algo significativo."
+    Narrator thought "Já Luana, embora cheia de energia, não parecia estar em um momento fácil. Sua animação mascarava uma série de inseguranças. Talvez, ao não interagir com Nicole, eu tenha desperdiçado uma oportunidade de fazer algo significativo."
 
-    Narrator "Mas será que meu papel é esse? Interferir na vida das pessoas? Às vezes, o silêncio é o melhor remédio. Mas eu realmente soube escolher a melhor atitude?"
+    Narrator thought "Mas será que meu papel é esse? Interferir na vida das pessoas? Às vezes, o silêncio é o melhor remédio. Mas eu realmente soube escolher a melhor atitude?"
 }
 if($Nicole.day1 && !$Luana.day1)
 {
     Print("Nem todas as passagens do dia 1 foram corretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
 
-    Narrator "A cidade passa por mim, mas minha mente está focada nas pessoas que encontrei durante o dia."
+    Narrator thought "A cidade passa por mim, mas minha mente está focada nas pessoas que encontrei durante o dia."
 
-    Narrator "Nicole, embora distante, me pareceu um pouco mais tranquila. Eu consegui me conectar com ela, talvez mais do que com Luana. Ela parecia em paz, mesmo com seus próprios dilemas."
+    Narrator thought "Nicole, embora distante, me pareceu um pouco mais tranquila. Eu consegui me conectar com ela, talvez mais do que com Luana. Ela parecia em paz, mesmo com seus próprios dilemas."
 
-    Narrator "Já Luana... eu poderia sentir sua energia, mas também percebi a insegurança por trás disso. Fiquei em silêncio, não quis me intrometer. Será que isso foi certo?"
+    Narrator thought "Já Luana... eu poderia sentir sua energia, mas também percebi a insegurança por trás disso. Fiquei em silêncio, não quis me intrometer. Será que isso foi certo?"
 
-    Narrator "Eu a observei, mas não consegui dizer o que talvez ela precisasse ouvir. Talvez, se eu tivesse falado, poderia ter ajudado, mas ao mesmo tempo, eu me pergunto se deveria ter respeitado o espaço dela."
+    Narrator thought "Eu a observei, mas não consegui dizer o que talvez ela precisasse ouvir. Talvez, se eu tivesse falado, poderia ter ajudado, mas ao mesmo tempo, eu me pergunto se deveria ter respeitado o espaço dela."
 
-    Narrator "No final, todos nós temos nossos próprios problemas. Fiquei pensando se, ao não falar nada, acabei perdendo a chance de fazer algo bom."
+    Narrator thought "No final, todos nós temos nossos próprios problemas. Fiquei pensando se, ao não falar nada, acabei perdendo a chance de fazer algo bom."
 }
 if(!$Nicole.day1 && !$Luana.day1)
 {
     Print("Todas as passagens do dia 1 foram incorretas!" "Nicole: $Nicole.day1" "Luana: $Luana.day1")
 
-    Narrator "Enquanto dirijo pela cidade, percebo que, apesar de nossos próprios problemas, conseguimos, de alguma forma, nos conectar com os outros."
+    Narrator thought "Enquanto dirijo pela cidade, percebo que, apesar de nossos próprios problemas, conseguimos, de alguma forma, nos conectar com os outros."
     
-    Narrator "Nicole, embora ainda parecesse distante, estava mais tranquila agora. Sua conversa foi mais aberta, e sinto que talvez tenha feito diferença para ela."
+    Narrator thought "Nicole, embora ainda parecesse distante, estava mais tranquila agora. Sua conversa foi mais aberta, e sinto que talvez tenha feito diferença para ela."
 
-    Narrator "Quanto a Luana, embora a escolha de não interagir tenha feito com que ela parecesse mais tranquila, talvez algo tenha ficado no ar."
+    Narrator thought "Quanto a Luana, embora a escolha de não interagir tenha feito com que ela parecesse mais tranquila, talvez algo tenha ficado no ar."
 
-    Narrator "Às vezes, o melhor que posso fazer é apenas ser um motorista, não me intrometer nas vidas dos outros. Mas me pergunto se, ao não dizer nada, acabei perdendo uma oportunidade de ser realmente útil."
+    Narrator thought "Às vezes, o melhor que posso fazer é apenas ser um motorista, não me intrometer nas vidas dos outros. Mas me pergunto se, ao não dizer nada, acabei perdendo uma oportunidade de ser realmente útil."
             
-    Narrator "A cidade continua ao meu redor, mas minha mente reflete sobre o que aconteceu. Talvez eu tenha feito a diferença, talvez não. Mas, ao menos, tentei não complicar as coisas."
+    Narrator thought "A cidade continua ao meu redor, mas minha mente reflete sobre o que aconteceu. Talvez eu tenha feito a diferença, talvez não. Mas, ao menos, tentei não complicar as coisas."
 }
 Load(day2/day2_introducao)

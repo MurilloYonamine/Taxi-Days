@@ -52077,6 +52077,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIConfirmationMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3018337036089704180, guid: 774431f741d6ac54bb2ad95a47091386,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 414.645
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

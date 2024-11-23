@@ -113,3 +113,115 @@ HideUI()
 PlaySFX(Car/car-speedingUp)
 Wait(6)
 ShowUI()
+
+Taxista thought "Vou até a casa da Luana, tentando evitar problemas com o Joseph, que está no banco de trás."
+
+HideUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Taxista thought "Ela tá acenando e com um sorriso gigante no rosto. O que será dessa vez?"
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Luana "Olá olá!{a} Desculpa te fazer vir até aqui!{a} Estou muito feliz por poder conversar contigo novamente."
+Tenho que te contar as milhares de coisas que aconteceram!
+
+Taxista "Como assim, um milhão de coisas?{a} A gente não conversou horas atrás?"
+
+Luana "Em uma hora podem acontecer trilhões de coisas caro amigo!"
+
+PlaySFX(Taxista/taxista-suspiro)
+Wait(2)
+
+Taxista thought "Joseph tá estranho,{a} quieto,{a} mas acho que ele sacou como é minha relação com Luana."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Taxista thought "Dirijo pelo trânsito caótico de São Paulo enquanto ouço minha amiga, Luana, desabafar mais uma vez."
+
+Luana "Então, lembra quando eu falei da Tarsila?"
+Nossa, aquela mulher me odeia por algum motivo, eu juro! Não sei o que é!
+
+Taxista "Quando você percebeu esse ódio dela?"
+
+Luana "Cara, sei lá, desde sempre, acho? Ela sempre me tratou com desdém."
+Aí...{a} Será que tô fazendo corpo mole? 
+Será que ela tá falando mal de mim pra todo mundo no Fórum? Eu devo ter ofendido ela, não?
+
+Taxista "Luana, calma, você está pens..."
+
+Taxista thought "Nem terminei de falar, e lá vai ela de novo..."
+
+PlaySFX(Luana/luana-chorando -l true)
+
+Luana "Ai, eu acho que não presto pra ser advogada."
+Eu sou horrível!{a} Ela deve ter percebido isso...{a} Assim como meu namorado. 
+Eles devem ter notado que eu não sirvo pra nada.
+
+Taxista thought "Joseph tá visivelmente desconfortável.{a} Preciso fazer alguma coisa."
+
+[[Ser duro com Luana]]
+[[Não fazer nada]]
+[[Tentar se colocar no lugar]]
+
+Choice "Preciso fazer alguma coisa"
+{
+    - Ser duro com Luana
+        Taxista "Luana, se acalme!{a} Não vê que está incomodando o passageiro ao seu lado?!"
+
+        Joseph "Está tudo bem.{a} Quanto deu a corrida?{a} Vou descer por aqui mesmo."
+
+        Taxista "Fica tranquilo, Joseph.{a} Vou te levar até o seu destino."
+
+        Joseph "Eu disse que vou descer."
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(8)
+
+        Taxista thought "Ótimo,{a} agora fiquei só com a Luana e esse clima horrível..."
+
+        Taxista "LUANA, PELO AMOR DE DEUS!{a} Eu acabei de perder um cliente!"
+Eu falei para você se acalmar!{a} Eu estou trabalhando, T-R-A-B-A-L-H-A-N-D-O! 
+Já estava incomodado por ter que desviar do trajeto da viagem do meu passageiro para te buscar.
+Agora você espanta meu cliente!{a} Sério isso?!
+
+        Luana (abalada): "Me desculpa, eu não queria fazer isso, não foi minha intenção. Eu só queria conversar mais contigo... Me desculpa, eu não sei por que sou assim. Por favor, não para de falar comigo."
+
+        -> som de suspiro profundo do taxista.
+
+        Taxista (mais calmo): "Não, Luana, eu não vou parar de falar com você, fica tranquila. Mas saiba que tem que ter limites, esse é meu trabalho, é o meu ganha-pão. Vou te deixar no seu trabalho, e à noite, não tenha medo de me ligar, ok? Minha relação com você não mudou."
+
+        Luana: "Tudo bem... Me desculpa de novo..."
+
+        -> silêncio tenso preenchendo o carro.
+
+        -> som do carro desacelerando.
+
+        -> som do carro parando.
+
+        Luana: "Até logo... Me desculpa por tudo, não vou fazer isso de novo. Não pare de falar comigo."
+
+        Taxista (gentil): "Já disse, não vou parar de falar com você. Agora vai, antes que você se atrase para o trabalho."
+
+        Luana (aliviada): "Tudo bem... Até mais."
+
+        Taxista (sorrindo): "Até à noite, Luana."
+
+        -> som de porta se fechando e o carro partindo novamente pela cidade.
+
+        Luana (sorridente): "Até logo novamente."
+
+
+    - Não fazer nada
+
+    - Tentar se Colocar no Lugar
+}

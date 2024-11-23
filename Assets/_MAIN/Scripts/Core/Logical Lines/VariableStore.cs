@@ -188,9 +188,11 @@ public class VariableStore
     }
     public static void ClearConsole()
     {
+#if UNITY_EDITOR
         var assembly = System.Reflection.Assembly.GetAssembly(typeof(UnityEditor.Editor));
         var type = assembly.GetType("UnityEditor.LogEntries");
         var method = type.GetMethod("Clear");
         method.Invoke(null, null);
+#endif
     }
 }
