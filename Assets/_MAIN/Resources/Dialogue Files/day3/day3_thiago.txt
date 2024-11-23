@@ -1,0 +1,166 @@
+Taxista thought "Quase terminando o dia, só mais um passageiro e vou pra casa."
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(3)
+ShowDB()
+
+Taxista "Boa tarde, senhor!{a} Para onde voc—"
+
+Taxista "Oh, Thiago!{a} É você!{a} Nem percebi.{a} Está tudo bem?"
+Você sempre é um cara alegre, mas hoje entrou no táxi sem dizer nada.
+
+PlaySFX(Thiago/thiago-suspiro)
+
+Thiago  Oi...{a} Ah, foi um dia complicado.{a} Tive uma discussão na escola."
+
+Taxista "O que aconteceu?"
+
+PlaySFX(Car/car-starting-sound)
+
+Thiago "É...{a} você sabe como é.{a} Às vezes, a pressão é grande."
+Tentamos fazer o nosso melhor,{a} mas parece que sempre falta alguma coisa.
+A gente tenta, mas os desafios não diminuem.
+
+Taxista thought "Meu deus, do que ele está falando?"
+Não faço ideia do que dizer.
+
+Choice "Não Faço Ideia do Que Falar"
+{
+    - Tentar Aconselhar Thiago
+        $Thiago.day3 = false
+
+        Taxista thought "Talvez ele só precise de um conselho para se sentir melhor, mas não faço ideia do que está acontecendo com ele." 
+
+        Taxista "Olha, Thiago, sei que pode parecer difícil agora, mas você aparenta ser um ótimo professor."
+Um cara animado e preocupado com os seus alunos. 
+Todo mundo tem dias complicados,{a} mas o importante é não desistir e não parar de lutar. 
+Lembre-se de por que começou a ensinar.{a} Talvez isso te ajude a ver as coisas de outra perspectiva.
+
+        Taxista thought "Espero ter falado algo que faça sentido com as preocupações dele."
+
+        PlaySFX(Thiago/thiago-suspiro)
+        Thiago "..." 
+
+        Taxista "Acho que falei groselha..."
+
+        HideUI()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Taxista "Chegamos."
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(2)
+        ShowDB()
+
+        Taxista "Ele realmente não está afim de falar..."
+
+    - Minimizar a Preocupação de Thiago
+        $Thiago.day3 = false
+
+        Taxista "Sabe, eu acho que você está pensando demais."
+No fim das contas, é só uma escola, e os alunos vão seguir suas vidas, independente do que acontece lá. 
+Às vezes, a pressão pode nos fazer perder a perspectiva, não acha?
+
+        Thiago "Não é só uma escola! É sobre muito mais do que isso.
+O que acontece lá pode impactar o futuro deles de uma maneira que você não consegue imaginar. 
+E, sim, eu me importo com isso.{a} Isso deve significar algo."
+
+        Taxista  "Calma, Thiago,{a} não quis desmerecer seu trabalho.{a} Às vezes, as coisas podem parecer pesadas.
+A gente acaba levando tudo muito a sério.{a} Você está fazendo o melhor que pode,{a} certo?"
+
+        PlaySFX(Thiago/thiago-suspiro)
+
+        Thiago "É...{a} eu só sinto que, mesmo quando a gente se dedica, parece que as coisas não mudam.
+Vejo alunos cheios de potencial,{a} mas as circunstâncias podem ser tão..."
+
+        Thiago "Às vezes, sinto que estou lutando contra moinhos de vento."
+Eu quero que eles tenham um futuro melhor, mas, sei lá, parece que a realidade está sempre um passo à frente.
+
+        Taxista thought "O que bulhufas moinhos d evento tem haver com escola e alunos?"
+
+        Taxista "Ei, Thiago, se você quiser conversar, estou aqui."
+Às vezes, desabafar pode ajudar a aliviar um pouco a pressão, sabe?
+
+        HideDB()
+        Wait(5)
+        ShowDB()
+
+        Taxista thought "Parece que ele não está a fim de falar."
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Taxista "Chegamos."
+
+        Thiago "Obrigado pela corrida."
+        
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(2)
+        ShowDB()
+
+        Taxista thought "Espero que você fique bem."
+
+    - Tentar Fazer Alusão com Suas Dificuldades
+        $Thiago.day3 = true
+        $Thiago.Count += 1
+        Taxista thought "Talvez se eu compartilhar um pouco das minhas dificuldades,{a} ele veja que não está sozinho."
+
+        Taxista "Sabe...{a} Às vezes sinto que estou preso no meu trabalho como taxista."
+Também tem dias em que parece que nada vai dar certo{a} e que tudo o que faço não tem sentido.
+
+        Thiago "Você?{a} Nunca imaginei que pensasse assim.{a} Sempre te vi como alguém que sabe lidar bem com tudo."
+
+        Taxista  "Nem sempre, cara."
+Acho que a gente acaba se acostumando a mostrar uma face forte,{a} mas todo mundo tem suas lutas internas.
+Talvez o segredo seja continuar tentando,{a} mesmo quando parece que tudo está contra nós.
+
+        Thiago "Sabe...{a} Eu acho que o problema é que eu não sei mais como fazer meu trabalho."
+Hoje,{a} na escola pública onde dou aula,{a} pedi mais recursos, porque sinceramente não dá para continuar assim.
+A gente faz o possível,{a} mas as condições são horríveis. 
+Salas superlotadas,{a} materiais quebrados... 
+Como é que eu vou ensinar assim? 
+Pedi ajuda,{a} conversei com a direção,{a} implorei por algum suporte,{a} mas...{a} nada.{a} Só me deram desculpas.
+
+        Taxista "E o que eles disseram?"
+
+        PlaySFX(Thiago/thiago-suspiro)
+
+        Thiago "Disseram que não tem verba,{a} que é assim mesmo,{a} que as coisas estão difíceis para todo mundo."
+Mas como é que eu vou ensinar história para esses alunos sem os materiais adequados?{a} Metade da turma não tem livros! 
+
+        Thiago  E o que me deixa mais irritado é que essa turma, curiosamente, é dedicada."
+Eles são interessados,{a} fazem perguntas ótimas,{a} mas não conseguem se aprofundar.
+A biblioteca só tem livros rasgados.{a} É frustrante.
+
+        Taxista thought "Isso deve ser desanimador...."
+
+        Thiago "O pior é que, em outras escolas, especialmente nas privadas, eu vejo uma realidade completamente diferente."
+Os alunos da pública querem aprender,{a} mas parece que o mundo está sabotando eles.
+Eu estou cansado de lutar contra isso.{a} Cansado de ver potencial desperdiçado por falta de estrutura básica.
+
+        Thiago "E sabe, eu me pergunto se tudo isso vale a pena."
+Eu vejo esses alunos, com tanto potencial,{a} mas que nunca vão ter as mesmas oportunidades que os alunos da parti--
+
+        PlaySFX(Car/car-arriving)
+
+        Taxista "Thiago... Chegamos ao seu destino."
+
+        Thiago "Nossa...{a} Mem percebi o tempo passar.{a} Eu estava tão...{a} Envolvido nisso tudo."
+
+        Taxista "Acho que você precisava colocar isso pra fora.{a} Espero que tenha ajudado de alguma forma."
+
+        Thiago "Ajudou sim... Obrigado por ouvir. Às vezes, só falar já é um alívio. Bom, eu vou nessa."
+É como a minha Tia dizia: 'Reclamar é bom de mais' HAHA.
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(3)
+        ShowDB()
+}

@@ -1,7 +1,131 @@
-Taxista "Hoje foi um dia ótimo! Tive bastante passageiros."
+ShowUI()
+
+Taxista "Hoje foi um dia ótimo!{a} Tive bastante passageiros."
 Nenhum deles parecia querer conversar.
 Apesar de ver tantas pessoas hoje.
 Fico com um sentimento de solidão.
 E na chegada da noite.{a} Esse sentimento só piora.
 Não sei o porquê...
 
+HideDB()
+PlaySFX(Car/car-speedingUp)
+Wait(6)
+ShowDB()
+
+Taxista thought "Aquele não é o garoto do outro dia?{a} Joseph o nome."
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Joseph "Oh, olá senhor motorista!{a} Que bom te ver de novo!"
+
+Taxista "Fala, Joseph!{a} Você tá com uma cara de quem ganhou na loteria.{a} O que houve?"
+
+Joseph "Ah, nada demais.{a} Só acordei com o pé certo hoje."
+
+Taxista "Bom saber que alguém tá animado.{a} Vamos nessa então."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Taxista thought "A viagem está confortável...{a} Mas bem quieta."
+
+Choice "Devo iniciar uma conversa?"
+{
+    - Que Mal Tem? 
+        $Joseph.day3 = true
+        $Joseph.Count += 1
+
+        Taxista "Então...{a} Vai encontrar alguém hoje?"
+
+        Joseph "Sim.{a} Preciso encontrar um amigo e depois talvez passar num café novo que descobri."
+
+        Taxista "Café novo?{a} É bom?"
+
+        Joseph "Ah, eles têm um chocolate quente maravilhoso!{a} O lugar chama ‘Chocolatier do Bairro’."
+Super aconchegante.
+
+        Taxista thought "Ele parece de bom humor...{a} Diferente do outro dia."
+
+        Taxista "E você...{a} Tem feito algo interessante além de explorar cafés?"
+
+        Joseph "Na verdade, tenho tentado relaxar mais.{a} Estou em busca de novos hobbies."
+
+        Taxista thought "Interessante... Acho que faz um tempo desde que eu fiz algo do tipo para me divertir."
+
+        Taxista "Isso é bom.{a} Tá aproveitando o presente enquanto pode."
+
+        Joseph "E você?{a} Como vai o trabalho?{a} Trabalhar como taxista sempre foi sua ideia?"
+
+        Taxista thought "Melhor ser sincero."
+
+        Taxista "Na verdade, não...{a} Eu queria entrar na área de programação."
+Me matei de estudar,{a} tive os melhores trabalhos da turma e fui o único a me formar.{a} Mas olha pra mim.
+O melhor aluno da turma virou taxista.
+
+        HideDB()
+        Wait(2)
+        ShowDB()
+
+        Taxista thought "Às vezes parece que joguei meu dinheiro e tempo no lixo."
+
+        Joseph "Cara...{a} Você se formou agora?"
+
+        Taxista "Sim.{a} Há alguns meses."
+
+        Joseph "Então relaxa, pô!{a} Você tem um diploma e provavelmente projetos."
+É questão de tempo até conseguir algo.
+Você tá pensando demais.{a} Foca no que já conquistou.
+
+        Taxista "É...{a} Difícil não se comparar com os outros."
+
+        Joseph "Eu entendo.{a} Mas não se preocupe tanto.{a} Cada pessoa tem seu tempo."
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Joseph "Até mais, cara.{a} Boa sorte com tudo!"
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(3)
+        ShowDB()
+
+        Taxista thought "As palavras dele ajudaram.{a} Talvez as coisas não estejam tão ruins quanto parecem."
+
+    - Acho Melhor Ficar Quieto
+        $Joseph.day3 = true
+
+        HideUI()
+        Wait(5)
+        ShowUI()
+
+        Taxista thought "Talvez seja melhor deixar o silêncio falar por nós."
+
+        Joseph "Tá tudo bem?{a} Você parece distante."
+
+        Taxista "Ah, nada demais...{a} Só pensando na vida enquanto dirijo."
+
+        Joseph "Entendi.{a} Espero que os pensamentos sejam bons!"
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Joseph "Bem, é aqui.{a} Obrigado pela corrida!"
+
+        HideDB()
+        PlaySFX(Car/car-door-clsoe)
+        Wait(3)
+}
+HideUI()
+ShowDB()
+Wait(3)
+Load(day3/day3_thiago)

@@ -145,22 +145,20 @@ PlaySFX(Car/car-starting-sound)
 Wait(4)
 ShowUI()
 
-Taxista thought "Dirijo pelo trânsito caótico de São Paulo enquanto ouço minha amiga, Luana, desabafar mais uma vez."
-
-Luana "Então, lembra quando eu falei da Tarsila?"
-Nossa, aquela mulher me odeia por algum motivo, eu juro! Não sei o que é!
+Luana "Então...{a} lembra quando eu falei da Tarsila?"
+Nossa, aquela mulher me odeia por algum motivo, eu juro!{a} Não sei o que é!
 
 Taxista "Quando você percebeu esse ódio dela?"
 
-Luana "Cara, sei lá, desde sempre, acho? Ela sempre me tratou com desdém."
+Luana "Cara, sei lá, desde sempre, acho?{a} Ela sempre me tratou com desdém."
 Aí...{a} Será que tô fazendo corpo mole? 
-Será que ela tá falando mal de mim pra todo mundo no Fórum? Eu devo ter ofendido ela, não?
+Será que ela tá falando mal de mim pra todo mundo no Fórum?{a} Eu devo ter ofendido ela, não?
 
 Taxista "Luana, calma, você está pens..."
 
 Taxista thought "Nem terminei de falar, e lá vai ela de novo..."
 
-PlaySFX(Luana/luana-chorando -l true)
+PlaySFX(Luana/luana-chorando -l true -v 0,2)
 
 Luana "Ai, eu acho que não presto pra ser advogada."
 Eu sou horrível!{a} Ela deve ter percebido isso...{a} Assim como meu namorado. 
@@ -168,13 +166,13 @@ Eles devem ter notado que eu não sirvo pra nada.
 
 Taxista thought "Joseph tá visivelmente desconfortável.{a} Preciso fazer alguma coisa."
 
-[[Ser duro com Luana]]
-[[Não fazer nada]]
-[[Tentar se colocar no lugar]]
-
 Choice "Preciso fazer alguma coisa"
 {
     - Ser duro com Luana
+        $Luana.day3 = true
+        $Luana.Count += 1
+        $Joseph.day3 = false
+
         Taxista "Luana, se acalme!{a} Não vê que está incomodando o passageiro ao seu lado?!"
 
         Joseph "Está tudo bem.{a} Quanto deu a corrida?{a} Vou descer por aqui mesmo."
@@ -194,34 +192,246 @@ Eu falei para você se acalmar!{a} Eu estou trabalhando, T-R-A-B-A-L-H-A-N-D-O!
 Já estava incomodado por ter que desviar do trajeto da viagem do meu passageiro para te buscar.
 Agora você espanta meu cliente!{a} Sério isso?!
 
-        Luana (abalada): "Me desculpa, eu não queria fazer isso, não foi minha intenção. Eu só queria conversar mais contigo... Me desculpa, eu não sei por que sou assim. Por favor, não para de falar comigo."
+        StopSFX(luana-chorando)
 
-        -> som de suspiro profundo do taxista.
+        Luana "Me desculpa, eu não queria fazer isso, não foi minha intenção."
+Eu só queria conversar mais contigo...{a} Me desculpa, eu não sei por que sou assim. 
+Por favor, não para de falar comigo.
 
-        Taxista (mais calmo): "Não, Luana, eu não vou parar de falar com você, fica tranquila. Mas saiba que tem que ter limites, esse é meu trabalho, é o meu ganha-pão. Vou te deixar no seu trabalho, e à noite, não tenha medo de me ligar, ok? Minha relação com você não mudou."
+        PlaySFX(Taxista/taxista-suspiro)
 
-        Luana: "Tudo bem... Me desculpa de novo..."
+        Taxista "Não, Luana,{a} eu não vou parar de falar com você,{a} fica tranquila."
+Mas saiba que tem que ter limites, esse é meu trabalho, é o meu ganha-pão.
+Vou te deixar no seu encontro com sua amiga.
+Não tenha medo de me ligar a noite, ok? Minha relação com você não mudou.
 
-        -> silêncio tenso preenchendo o carro.
+        Luana "Tudo bem...{a} Me desculpa de novo..."
 
-        -> som do carro desacelerando.
+        Wait(2)
+        HideUI()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowUI()
 
-        -> som do carro parando.
+        Luana "Até logo...{a} Me desculpa por tudo,{a} não vou fazer isso de novo.{a} Não pare de falar comigo."
 
-        Luana: "Até logo... Me desculpa por tudo, não vou fazer isso de novo. Não pare de falar comigo."
+        Taxista "Já disse, não vou parar de falar com você.{a} Agora vai, antes que você se atrase."
 
-        Taxista (gentil): "Já disse, não vou parar de falar com você. Agora vai, antes que você se atrase para o trabalho."
+        Luana "Tudo bem...{a} Até mais."
 
-        Luana (aliviada): "Tudo bem... Até mais."
+        Taxista "Até Luana."
 
-        Taxista (sorrindo): "Até à noite, Luana."
-
-        -> som de porta se fechando e o carro partindo novamente pela cidade.
-
-        Luana (sorridente): "Até logo novamente."
-
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(8)
+        ShowDB()
+       
+        Luana "Até logo novamente."
 
     - Não fazer nada
+        $Luana.day3 = true
+        $Luana.Count += 1
+        $Joseph.day3 = true
+        $Joseph.Count += 1
+
+        Joseph "Cara, tu pode calar a boca? Já tá insuportável."
+Garota, você tá perdendo sua compostura.{a} Olha pra você!
+Olha como você se veste, tu é uma mulher empoderada e bonita. 
+Eu não te conheço, mas só de ver como você é, dá pra perceber que você deve ser alguém incrível. 
+Então ignora essa mulher e continua sendo a pessoa maravilhosa que você provavelmente é.
+
+        Taxista thought "Uau..."
+
+        StopSFX(luana-chorando)
+
+        Luana "Ai, sério? Sou tão maravilhosa assim? Nossa, até fico sem graça."
+Obrigada pelas palavras, fico contente por ouvi-las.
+
+        Joseph "É como eu disse.{a} Levanta essa cabeça, ajeita essa coluna e conserta essa maquiagem no rosto."
+Daqui a pouco você chega no trabalho.
+
+        Luana "Ai meu Deus, meu rosto!{a} Preciso consertar meu rosto agora!"
+
+        Joseph "Hey Luana, você falou algo sobre fórum, não é?{a} Você trabalha como advogada, ou algo assim?"
+
+        Luana "Ah sim, eu sou advogada.{a} Por causa do meu desempenho e das minhas notas."
+Consegui bons trabalhos em pouco tempo, ganhei prêmios e reconhecimento.
+
+        Joseph "Ué, mulher, você não tava dizendo até agora que é alguém fracassada?"
+Isso parece o total oposto do que você tava falando.
+
+        Taxista thought "Pois é... Se isso é fracasso, eu estou lascado."
+
+        Joseph "Menina, se valoriza!{a} Queria eu ser reconhecida no meu trabalho em tão pouco tempo."
+Meu Deus, você já é uma referência!
+
+        Luana "Sério? Fico contente em ouvir isso."
+Ao mesmo tempo sinto que ainda tenho um longo caminho a percorrer.
+
+        Joseph "Deixa disso, tu é foda."
+
+        Taxista thought "Pelo menos o clima tá bem melhor agora..."
+
+        HideUI()
+        PlaySFX(Car/car-speedingUp -v 0,4)
+        HideDB()
+        Wait(7)
+        ShowUI()
+
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Luana "Até logo, gente!{a} Obrigada por tudo." 
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
+
+        HideUI()
+        PlaySFX(Car/car-speedingUp)
+        Wait(7)
+        ShowDB()
+        ShowUI()
+
+        Taxista "Desculpa fazer você passar por isso Joseph.{a} Vai chegar atrasado para algum compromisso?"
+
+        Joseph "Está tudo bem, não se preocupe com o tempo, ainda estou bastante adiantado."
+Sabe...{a} Aquela garota parece ser uma pessoa boa, mas é perceptível que ela tem muitos problemas.
+É engraçado ver alguém tão bem-sucedida ter tantas inseguranças.
+
+        Taxista "Realmente.{a} Ela já parece estar perto do topo da carreira dela,{a} enquanto eu nem comecei ainda."
+
+        Joseph "Você quer ser o melhor taxista?"
+
+        Taxista  "Não, pelo amor de Deus.{a} Ser taxista é só o meu ganha-pão."
+
+        Joseph "Então...{a} O que você deseja ser?"
+
+        PlaySFX(Taxista/taxista-suspiro)
+
+        Taxista "Eu queria entrar na área de programação."
+Me entristece não conseguir emprego nisso.
+Me matei de estudar,{a} tive os melhores trabalhos da turma{a} e fui o único a me formar.
+Mas olha pra mim,{a} o melhor aluno da turma está trabalhando como taxista.
+
+        HideDB()
+        Wait(3)
+        ShowDB()
+
+        Taxista "Às vezes sinto que joguei meu dinheiro e tempo no lixo..."
+
+        Joseph "Cara...{a} Você se formou agora?"
+
+        Taxista "Sim?"
+
+        Joseph "Então deixa disso, pô!{a} Tu já tem um diploma,{a} deve ter alguns projetos."
+Você mesmo disse que tinha os melhores trabalhos da turma.
+Em pouco tempo,{a} vai conseguir entrar no mercado.{a} Tá pensando demais.
+
+        Joseph "A Luana deve ser mais velha que você,{a} acho que ela está em outra fase."
+Não sei sobre o passado dela,{a} mas você não deveria se comparar.
+
+        HideDB()
+        Wait(3)
+        ShowDB()
+
+        Taxista "Você tem razão.{a} É difícil não se comparar."
+Não se sentir incomodado vendo alguém consolidada na área dela enquanto eu nem comecei...
+Vou refletir sobre o que você falou.{a} Obrigado Joseph,{a} suas palavras ajudaram muito.
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(3)
+        ShowDB()
+
+        Joseph "Até mais, cara. Boa sorte!"
 
     - Tentar se Colocar no Lugar
+        $Luana.day3 = false
+        $Joseph.day3 = false
+
+        Taxista "Olha, Luana, acho que você está pensando demais. O seu namorado não tem nada a ver com isso."
+Tenta ignorar essa pessoa. Se você ficar pensando no motivo de ela te odiar, vai acabar maluca. 
+Por enquanto, seja você mesma, a mulher empoderada, bem vestida e bonita que você é. 
+Aposto que todo esse ódio é por causa disso.
+
+        Luana "Ela tem inveja de mim? Por que teria inveja de alguém imperfeito como eu?"
+Eu não presto pra nada...{a} nem pra ter um namorado...
+
+        HideDB()
+        Wait(3)
+        ShowDB()
+
+        Taxista thought "Joseph está ficando cada vez mais irritado..."
+Ele tá me fuzilando com os olhos.{a} O que eu faço agora?{a} Não faço ideia de como ajudar.
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+
+        Taxista "Chegamos..."
+
+        Luana "Obrigada pela viagem..." 
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(2)
+        ShowDB()
+        StopSFX(luana-chorando)
+
+        Taxista thought "Ai meu Deus... Não consegui ajudar a Luana em nada."
+
+        HideDB()
+        PlaySFX(Joseph/joseph-suspiro)
+        Wait(2)
+        ShowDB()
+
+        Joseph "Olha, acho que você deveria ter lidado com essa situação de uma maneira melhor."
+Talvez você tenha traumatizado ainda mais a sua amiga. 
+Você viu como ela estava quando saiu do carro?!
+Você não fez nada para impedir, nem deixou ela retocar a maquiagem.
+
+        HideDB()
+        Wait(2)
+
+        Taxista "Tem razão...{a} Eu deveria ter deixado ela pelo menos se estabilizar."
+
+        Joseph "Com certeza! Você precisa pensar melhor nas suas decisões."
+Pensar antes de agir é de extrema importância! Se lembre disso.
+
+        HideUI()
+        PlaySFX(Car/car-speedingUp)
+        Wait(7)
+        ShowUI()
+
+        Taxista thought "Parece que ele não quer mais conversar...{a} Nem eu, depois de tudo isso."
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Joseph "Olha, cara, você precisa aprender a lidar melhor com as pessoas."
+A última coisa que aquela garota precisava era alguém piorando o que ela já estava sentindo.
+Pense antes de abrir a boca.
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(2)
+        ShowDB()
+
+        Taxista thought "É... hoje não tá sendo fácil."
+
+        HideUI()
+        PlaySFX(Car/car-starting-sound)
+        Wait(5)
+        ShowUI()
 }
+HideUI()
+Wait(3)
+Load(day3/day3_thiago)
