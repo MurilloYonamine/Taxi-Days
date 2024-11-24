@@ -1,0 +1,153 @@
+HideDB()
+ShowUI()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Taxista "Nicole! Nossa, você está toda encharcada!{a} O que aconteceu?"
+
+Nicole "Será um incômodo para você senhor taxista?"
+
+Taxista "Claro que não, faça do meu carro sua casa."
+
+Nicole "Obrigada, tenho sorte de ter encontrado o seu táxi"
+
+Taxista "Então? Para onde vamos?"
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Nicole "Foi um caos no trabalho..."
+Estou tão estressada...
+Já é outro dia que eu não tenho uma boa noite de sono.
+
+Taxista "Parece que você teve um dia difícil."
+O que está acontecendo exatamente?
+Se sentir assim pode ser muito pesado.
+
+Nicole "A diretoria não para de fazer mudanças."
+A equipe está se desmoronando,{a} e estou assumindo as tarefas que não são minhas.
+É como se eu estivesse carregando o peso de todos, e não sei quanto mais consigo aguentar.
+
+Taxista "Eu entendo.{a} Às vezes, o trabalho pode ser esmagador."
+Mas você não deveria carregar tudo isso sozinha.
+Tem alguém que você possa conversar sobre isso?
+
+Nicole "Na verdade não E agora ainda tenho que lidar com as baleias doentes."
+As pesquisas estão todas atrasadas.
+Meu filho parece que me odeia também...
+
+HideDB()
+Wait(4)
+ShowDB()
+
+Taxista thought "Ela está muito mal, o que será que devo fazer?"
+
+Choice "O Que Fazer?"
+{
+    - Recomendar um terapeuta
+        $Luana.day5 = true
+
+        Taxista "Olha Nicole...{a} já pensou em procurar um psicólogo?
+Sei que parece difícil.
+Talvez conversar com alguém especializado possa te ajudar a lidar com tudo isso."
+
+        Nicole "Talvez.{a} Não sei.{a} Pode ser."
+
+        PlaySFX(Nicole/nicole-suspiro)
+
+        Taxista "Só acho que você não precisa carregar tudo sozinha."
+Às vezes,{a} a gente precisa de alguém pra nos ajudar a organizar as ideias,{a} sabe?
+
+        Nicole "É...{a} Eu vou pensar nisso."
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+
+        PlaySFX(Car/car-door-close)
+        ShowDB()
+
+        Taxista thought "Será que sugerir isso foi o certo?{a} Ela nem parecia ter se importado."
+
+        HideUI()
+        PlaySFX(Car/car-starting-sound)
+        Wait(4)
+
+    - Falar Que Está exagerando
+        $Luana.day5 = false
+
+        Taxista "Olha, Nicole... Eu entendo que você está passando por um momento difícil."
+Talvez você esteja exagerando um pouco, não acha?{a} Todo mundo tem dias ruins.
+
+        Nicole "Exagerando? Você não sabe pelo que estou passando!"
+
+        Taxista "Na verdade sei sim! Algumas vezes a gente acaba pensando demais."
+Sendo que nossa situação nem é tão problemática assim. É só...{a} Uma fase,{a} sabe?
+
+        Nicole "Uma fase? Você não faz ideia do que eu estou enfrentando!"
+O trabalho, meu filho...{a} tudo desmoronando e você diz que é só uma fase?
+
+        Taxista "..."
+
+        Nicole "Você não está ajudando, só está minimizando o que estou sentindo!"
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Nicole "Obrigada pela corrida, mas você só piorou a situação."
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        ShowDB()
+
+        Taxista thought "Foi tão absurdo assim o que eu falei?"
+
+        HideUI()
+        PlaySFX(Car/car-starting-sound)
+        Wait(4)
+
+    - Se Colocar no Lugar
+        $Luana.day5 = false
+
+        Taxista "Nicole, eu realmente entendo que você está passando por um momento difícil."
+Sabe, eu também tenho dias em que tudo parece dar errado.
+Às vezes, me sinto sobrecarregado com a pressão do trabalho e com as expectativas dos outros.
+É como se não houvesse saída.
+
+        Nicole "Você acha que sabe como é? Você é um taxista! Pode parar de trabalhar e ir para casa."
+Eu não tenho essa opção.{a} Estou presa nessa situação, e não é só um trabalho qualquer, é a minha vida!
+
+        Taxista "Eu só quero dizer que entendo o que você sente."
+Todos temos nossos desafios.{a} Eu tenho que lidar com passageiros difíceis e...
+
+        Nicole "Não é a mesma coisa!{a} Você não pode se colocar no meu lugar."
+Você não tem filhos,{a} não tem que lidar com demissões{a} e a pressão de ser a única responsável.
+É fácil para você dizer isso.
+
+        Taxista "Eu não queria desmerecer o que você está passando."
+Apenas pensei que,{a} se falássemos sobre isso, talvez...
+
+        Nicole "Falar não vai mudar nada! Você só está me fazendo sentir mais sozinha."
+Isso não é empatia, é só você tentando fazer o seu ponto parecer válido!
+
+        Taxista "Nicole, eu realmente lamento.{a} Só queria ajudar."
+
+        Nicole "Eu preciso ir."
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(4)
+        ShowDB()
+        
+        Taxista thought "O que eu fiz de errado?"
+
+        HideUI()
+        Wait(3)
+}
+StopSFX(RainyMood)
+Load(day5/day5_reflexao)

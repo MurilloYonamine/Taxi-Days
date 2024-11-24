@@ -1,0 +1,121 @@
+HideDB()
+ShowUI()
+PlaySFX(Telephone/telephone-vibrating)
+Wait(5)
+ShowDB()
+
+Taxista "Alô?"
+
+Luana "Oie!{a} É a Luana.{a} Pode vir me buscar, por favor?{a} Estou na esquina da Avenida Central."
+
+Taxista "Olha Luana,{a} eu não sou seu taxista pessoal."
+Não posso simplesmente ir buscar você sempre que quiser.
+
+Luana "É só uma carona rapidinha!"
+
+Taxista "Não Luana."
+
+Luana "Que exagero!{a}Bom, eu estou no mesmo Fórum da última vez,{a} estou lhe esperando!"
+
+PlaySFX(Telephone/telephone-hangUp)
+
+Taxista thought "Como ela consegue ignorar tudo o que eu falo?"
+
+PlaySFX(Car/car-speedingUp)
+HideUI()
+Wait(5)
+
+Luana "Oi!{a} Que bom que você veio me buscar!{a} Me leve para casa!"
+
+Taxista thought "Essas manchas...{a} O que será que aconteceu com ela?"
+
+Taxista "Mas e essas manchas?{a} Tudo bem?"
+
+Luana "Ah, isso?{a} É só maquiagem que borraram!{a} Não se preocupa,{a} só vou me arrumar aqui."
+
+Taxista thought "Maquiagem?{a} Estranho...{a} Bom,{a} vou ignorar,{a} sei nada sobre maquiagem."
+
+Taxista "Ok,{a} vamos lá então."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+if($Luana.day3)
+{
+    Taxista "Luana você lembra do Joseph?"
+
+    Luana "Oh, sim.{a} Me lembro muito bem!{a} Um fofo ele."
+
+    Taxista "Ele foi meu passageiro novamente hoje"
+}
+else
+{
+    Taxista "Luana eu tenho um passageiro que eu tenho recorrente como cliente."
+
+    Luana "Hm...{a} Qual o nome do passageiro?"
+
+    Taxista "O nome dele é Joseph, ele é um cara bastante legal."
+Tive uma viagem com ele hoje.
+}
+
+Taxista "Cara, ele estava tão animado!"
+Ele começou falando do Homem-Aranha,{A} mas aí já emendou no Pantera Negra, depois outros.
+Ele parecia uma enciclopédia de super-heróis,{a} sabe?
+E ele nem respirava direito!
+Tipo,{a} eu mal tinha tempo de absorver tudo.
+E ele já tava me bombardeando com informações sobre outro herói.{a} Foi engraçado.
+
+Luana "Hum,{a} legal...{a} Foi divertido falar com ele?"
+
+Taxista "Sim, e o jeito que ele falava!"
+Parecia que cada herói tinha uma história de vida que ele conhecia de cor.
+Tipo,{a} ele foi me contando umas coisas sobre o Pantera Negra
+Como ele representa um monte de coisas importantes, sabe?
+Questões de identidade,{a} representatividade,{a} tudo isso.
+E o Joseph foi ficando mais e mais empolgado.
+
+Luana "Ah, que bom pra ele."
+
+Taxista "E teve uma hora que ele começou a me recomendar quadrinhos."
+Acho que ele queria me fazer gostar tanto quanto ele!
+Só lembro que parecia super profundo, algo sobre misturar identidade com aceitação...
+Ele ficou realmente empolgado com isso.
+
+If($Joseph.invencible)
+{
+    Taxista "Ele me recomendou uma obra para eu dar uma olhada.{a} O nome é 'Invencible'."
+}
+
+Luana "Nunca te vi falando tanto...{a} Parece que vocês se divertiram bastante."
+
+Taxista "Ah, foi legal, sabe?
+Quando alguém tá tão apaixonado por um assunto.
+É meio impossível não se deixar levar.{a} Acho que ele fez meu dia melhor,{a} foi bacana."
+
+Luana "Nossa, que ótimo.{a} Ele realmente te impressionou,{a} hein?"
+
+Taxista "Sim,{a} bastante.{a} Foi uma conversa boa,{a} diferente do usual."
+
+Luana "É...{a} Dá pra ver."
+
+Taxista "Chegamos em sua casa, Luana. Foi bom conversar com você durante o caminho!"
+
+Luana "É, legal."
+
+Taxista "Fiquei feliz por você ter me ouvido.{a} Aliás! Espero que sua mãe goste do presente!"
+
+Luana "Espero que sim."
+
+Taxista "E se precisar de mais alguma coisa, sabe onde me encontrar,{a} haha!{a} Até a próxima!"
+
+Luana "Valeu."
+
+PlaySFX(Car/car-door-close)
+
+Taxista thought "Acho que é valido dizer que hoje foi um bom dia.{a} Espero que amanhã seja igual!"
+
+HideUI()
+Wait(3)
+Load(day4/day4_reflexao)

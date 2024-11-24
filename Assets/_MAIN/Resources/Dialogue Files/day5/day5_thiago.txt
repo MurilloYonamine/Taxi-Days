@@ -1,0 +1,211 @@
+HideDB()
+ShowUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Thiago "E aí meu chapa,{a} que bom te ver de novo!{a} Pronto para mais um dia de aventuras na cidade?"
+
+Taxista thought "Pelo jeito, o dia vai começar mais leve com essa energia do Thiago."
+
+HideDB()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowDB()
+
+if($Thiago.day3)
+{
+    Thiago "Estou tão feliz por ter conversado com você dias atrás!"
+Sério,{a} foi exatamente o que eu precisava.
+Sem nossa conversa.
+Talvez eu não tivesse a força para levar esses alunos para a exposição hoje.
+
+    Taxista "Fico feliz em ouvir isso! A energia deles deve ser contagiante."
+
+    Thiago "Com certeza! Hoje eles vão ver uma parte da história que poucos conhecem."
+É uma chance de despertar a curiosidade e o amor pelo aprendizado.
+E sabe o que mais?{a} Eu sempre fico animado em saber que posso ser uma influência positiva na vida deles.
+
+    Taxista "Isso é inspirador!{a} Você deve ser um professor muito bom.{a} Os alunos devem adorar suas aulas."
+
+    Thiago "Ah, faço o que posso! Mas hoje é sobre eles."
+Eu só quero vê-los empolgados e fazendo perguntas!
+Estou até pensando em algumas brincadeiras para tornar tudo mais divertido.
+Afinal, aprender pode ser uma grande aventura, né?
+
+    Taxista "Com certeza!{a} E é ótimo ter um professor como você,{a} que se importa tanto."
+
+    Thiago "Obrigado, meu amigo! Mas o crédito não é só meu."
+Tem a ver com a energia positiva que trocamos.
+Cada conversa que temos me dá um ânimo novo!
+}
+else
+{
+    Thiago "Eu consegui convencer a diretoria para levar os alunos para uma exposição."
+
+    Taxista "Sério mesmo?"
+
+    Thiago "Com certeza! Hoje eles vão ver uma parte da história que poucos conhecem."
+É uma chance de despertar a curiosidade e o amor pelo aprendizado.
+E sabe o que mais?{a} Eu sempre fico animado em saber que posso ser uma influência positiva na vida deles.
+
+    Taxista "Isso é inspirador!{a} Você deve ser um professor muito bom.{a} Os alunos devem adorar suas aulas."
+
+    Thiago "Ah, faço o que posso! Mas hoje é sobre eles."
+Eu só quero vê-los empolgados e fazendo perguntas!
+Estou até pensando em algumas brincadeiras para tornar tudo mais divertido.
+Afinal, aprender pode ser uma grande aventura, né?
+
+    Taxista "Com certeza!"
+}
+
+PlayAmbience(RainyMood -v 0,5 -l true)
+
+Taxista thought "Olha só...{a} a previsão do tempo não mentiu.{a} Começou um verdadeiro toró lá fora."
+
+Thiago "Olha essa chuva!{a} Ta parecendo um verdadeira dilúvio!"
+
+Thiago "Seu carro vai aguentar todo essa chuva?"
+
+Taxista "Não subestime a Dolores."
+
+Thiago "Dolores?"
+
+Taxita "É o nome do possante que você está dentro!"
+
+Thiago "Hahaha!{a} Tem até nome?!{a} Dolores!{a} Haha, você é bem criativo!"
+
+HideDB()
+PlaySFX(Telephone/telephone-vibrating)
+Wait(5)
+ShowDB()
+
+Thiago "Ah, é uma ligação. Espero que não seja nada ruim."
+
+HideDB()
+Wait(1)
+ShowDB()
+
+Thiago "Alô?"
+
+Random as Diretoria "Descul... Mas a dec... foi... Não vamos c... levar os alunos... tempo."
+
+Thiago "Mas isso não faz sentido!{a} É só um pouco de chuva!
+Eu me preparei para isso e os alunos estavam tão animados!{a} Não dá para cancelar assim, sem mais nem menos!"
+
+Random as Diretoria "...sua frustraWX@, não... data... reage.. A... cancelar... segurança..."
+
+Taxista thought "AAAAH, eu não consigo entender nada!"
+
+Thiago "Cancelamento?{a} Sem chance de reagendar?{a} Isso é frustrante!"
+Estamos falando de uma experiência incrível para eles!{a} Eles estavam tão empolgados!
+
+Random as Diretoria "...Thiago... a deci... já foi tom... Vam... lidar... segurança... eiro lugar."
+
+Thiago "A segurança é importante, claro, mas isso não significa que devemos deixar que uma chuva atrapalhe!"
+
+HideDB()
+Wait(5)
+ShowDB()
+
+Random as Diretoria "Desculpe Thiago... contornar... quero q... uma... os al..."
+
+HideDB()
+PlaySFX(Telephone/telephone-hangUp)
+Wait(2)
+ShowDB()
+
+Taxista thought "Thiago parece triste e irritado,{a} acho que eu deveria dizer alguma coisa."
+
+Choice "O que será que devo fazer?"
+{
+    - Ficar em silêncio
+        $Thiago.day5 = false
+        $Joseph.day5 = false
+
+        Taxista thought "Thiago parece perdido em seus próprios pensamentos."
+
+        Taxista thought "Desde a ligação ele não disse nada, acho que realmente o abalou."
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowDB()
+
+        Taxista "Chegamos Thiago!"
+
+        Thiago "Obrigado pela viagem,{a} tenha um bom dia."
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        ShowDB()
+
+        Taxista "Fico triste pela situação dele."
+Eu sinto que cometi um erro muito grande.
+Talvez eu sinta as consequências.
+
+        HideUI()
+        Wait(3)
+        Load(day5/day_joseph)
+
+    - Falar Algo
+        $Thiago.day5 = true
+        $Joseph.day5 = true
+
+        Taxista "Ei Thiago...{a} Qual era o conteúdo da chamada?{a} Parece que você está bem chateado com isso."
+
+        Thiago "Ah, é a viagem com os alunos."
+Cancelaram tudo por causa da chuva.
+Eu realmente estava contando com essa experiência para eles.{a} Sabe como é, né?
+Eles estavam tão animados e agora isso...
+
+        Thiago "Eu trabalhei duro pra isso acontecer!"
+Passei semanas pressionando a diretoria,{a} fiz reuniões,{a} apresentei todos os benefícios do passeio.
+Gastei horas planejando tudo,{a} e agora simplesmente jogam tudo fora por causa de um pouco de água?{a} É frustrante!
+
+        Taxista "Eu entendo.{a} É triste né?"
+Você estava tão animado e agora tudo caiu por água baixo,{a} literalmente!
+
+        Thiago "Sim, mas eu também entendo que a diretoria tem suas razões."
+A segurança dos alunos é prioridade e com esse toró,{a} não dá pra arriscar.
+Mas isso não torna mais fácil aceitar,{a} sabe?
+
+        Thiago "Eu só queria que eles tivessem a oportunidade de vivenciar algo diferente."
+Mas, quem sabe?{a} A gente consegue bolar algo legal para eles de qualquer jeito?
+
+        Thiago "Tem alguém acenando na janela."
+
+        HideDB()
+        PlaySFX(Car/car-window-down)
+        Wait(4)
+        ShowDB()
+
+        Load(day5/day5_thiagoJoseph)
+
+    - Tentar Deixar o Clima mais Leve
+        $Thiago.day5 = false
+        $Joseph.day5 = false
+
+        Taxista "Olha Thiago,{a} eu sei que é frustrante,{a} mas pelo menos,{a} você não está na guerra, né?"
+Essa é só uma viagem cancelada.
+
+        Thiago "Sério?{a} Você acha que eu tô exagerando?{a} Isso é importante para mim e para os meus alunos!"
+E você está fazendo piadas.
+
+        Taxista "É só um pouco de chuva!{a} No fundo, a vida é cheia de surpresas."
+Pode ser que essa chuva só tenha sido uma forma do universo dizer que vocês deveriam ficar em casa mesmo.
+
+        Thiago "Você não sabe nada sobre isso!{a} Não é só chuva,{a} é uma oportunidade perdida!"
+
+        Thiago "Vou descer aqui.{a} É melhor eu ir a pé.{a} Não estou com cabeça."
+
+        PlaySFX(Car/car-door-close)
+
+        Taxista thought "Falei merda..."
+
+        HideUI()
+        Wait(3)
+        Load(day5/day_joseph)
+}

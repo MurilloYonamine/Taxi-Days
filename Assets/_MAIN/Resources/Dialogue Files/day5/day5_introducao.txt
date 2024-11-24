@@ -1,0 +1,25 @@
+ShowUI()
+
+Taxista thought "E vamos para mais um dia."
+Oh...{a} Isso me lembra que tenho que ligar para a Luana.
+
+if($Joseph.invencible)
+{
+    Taxista thought "Tenho que falar sobre a obra que o Joseph me recomendou."
+}
+
+HideDB()
+PlaySFX(Telephone/telephone-dial-and-call)
+Wait(13)
+StopSFX(telephone-dial-and-call)
+PlaySFX(Telephone/telephone-hangUp)
+SHowDB()
+
+Taxista thought "Estranho ela não atender..."
+Bom. Depois eu tento falar com ela...
+Mãos no volante.
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+Load(day5/day5_thiago)

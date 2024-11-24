@@ -1,0 +1,54 @@
+if(!$Thiago.day5)
+{
+    Narrator thought "Eu me sinto um completo fracasso hoje."
+Parece que qualquer coisa que eu digo só piora as coisas.
+Thiago saiu do carro frustrado
+Não sei se foi mais por causa da situação ou por minha tentativa desajeitada de lidar com isso.
+Depois eu acabei conseguindo irritar o próprio Joseph.
+E agora, aqui estou, remoendo tudo.
+Parece que cada dia no volante só me lembra o quanto sou péssimo com pessoas.
+Será que sou apenas isso?{a} Um motorista que tenta entender o mundo, mas nunca consegue encontrar as palavras certas?
+Acho que eu deveria apenas me calar e dirigir.
+}
+
+if($Thiago.day5)
+{
+    Narrator thought "Hoje foi um dia interessante."
+Apesar da frustração inicial do Thiago
+Acho que consegui trazer um pouco de leveza para ele.
+Talvez ele não tenha saído do carro tão animado quanto entrou.
+Pelo menos não ficou totalmente abalado.
+E aí vem o Joseph, com seu jeito único, e de repente a energia do carro muda completamente.
+Vê-los se conectarem, rindo e conversando, me deu uma sensação boa.
+Talvez eu não seja tão inútil como penso.
+Talvez o papel que eu tenho não seja o de resolver tudo, mas de criar um espaço onde essas trocas possam acontecer.
+É...{a} quem diria que ser taxista pode ter essa profundidade?"
+}
+
+if($Luana.day2)
+{
+    Narrator thought "Eu ainda não tive nenhum sinal da Luana..."
+Será que aconteceu algo com ela?
+}
+
+if($Nicole.day5)
+{
+    Narrator thought "Recomendar um terapeuta parecia o mais sensato."
+Mas será que era o que Nicole realmente precisava ouvir agora?
+
+    Narrator thought "Talvez ela só quisesse desabafar."
+Ou alguém para validar o que estava sentindo.{a} E eu fui direto para uma solução prática,{a} sem pensar muito.
+
+    Narrator thought "Mesmo assim...{a} Se isso a fizer buscar ajuda e encontrar um pouco de paz, talvez tenha valido a pena."
+Só espero que ela encontre o que precisa.
+}
+
+if(!$Nicole.day5)
+{
+    Narrator thought "Parece que fiz a escolha errada.{a} Minhas palavras não ajudaram Nicole."
+Talvez até tenham piorado as coisas.
+
+    Narrator thought "Agora eu fico pensando se vou vê-la de novo."
+Será que ela conseguiu encontrar um pouco de alívio?
+Ou ficou ainda mais afundada nos próprios problemas por minha causa?
+}

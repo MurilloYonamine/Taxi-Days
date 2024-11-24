@@ -1,0 +1,127 @@
+ShowUI()
+
+Taxista thought "Pisei na bola sério dessa vez..."
+Hm...{a}?
+
+HideDB()
+PlaySFX(Car/car-window-down)
+Wait(4)
+ShowDB()
+
+Joseph "Oi! Olha quem está aqui de novo!{a} Fico feliz em te ver taxista!"
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Taxista "Oi Joseph.{a} Bom te ver também.{a} Como você está?"
+
+Joseph "Estou bem! Acabei de sair de um dia agitado, mas feliz por poder relaxar um pouco agora."
+E você? Parece que está com uma expressão pesada.
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Taxista "Piorei a situação com um passageiro..."
+Ao invés de ajudar, só piorei.
+Acho que ele nunca quer ver minha cara novamente
+
+Joseph "Às vezes, a gente tenta ajudar e acaba dizendo a coisa errada."
+Acontece...{a} Não temos todas as respostas.
+Você é um taxista, não um terapeuta.
+
+Taxista "Sim, mas eu realmente gostaria de ter feito a diferença. Ele estava tão animado e eu deixei tudo pior."
+
+Joseph "Ei, todo mundo passa por dias ruins. O importante é que você está aqui, ouvindo e tentando."
+A sua parte como gente boa, você fez.
+
+Taxista "Obrigado, Joseph. Suas palavras realmente ajudam."
+É bom ter alguém para conversar.{a} E para onde iremos hoje?
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Joseph "Então, você não vai acreditar!{a} Eu comprei um quadrinho novo na livraria. Quer ver?"
+
+Taxista "Opa! Me mostre sua nova aquisição!"
+
+Joseph "Aqui está! A arte é incrível, olha só esses detalhes!"
+
+Taxista thought "Ele pinta as unhas?"
+
+Taxista "Uau, realmente é lindo! O artista tem um estilo único."
+
+if($Joseph.day4)
+{
+    Taxista "Mas espera... Suas unhas estão pintadas?"
+Não sabia que gostava.
+
+    Joseph "Ah, é...{a} Eu pintei elas.{a} Estava com vontade de experimentar algo novo."
+
+    Taxista "Ficou muito legal!{a} Eu nunca tinha visto você com as unhas pintadas antes."
+
+    Joseph "Valeu!{a} Às vezes, me sinto meio inseguro sobre isso, mas é divertido."
+    E é uma forma de me expressar.
+
+    Taxista "Elas ficaram muito bonitas Joseph!"
+}
+
+Joseph "Sabe, eu realmente gosto da arte desse quadrinista.{a} Ele consegue capturar tanto com tão pouco detalhe."
+
+Taxista "É, é bonito mesmo...{a} Mas, sabe, eu não consigo parar de pensar no último passageiro."
+Eu queria ter dito algo que ajudasse, mas acabei só deixando tudo pior.
+Acho que sou péssimo em lidar com gente.
+
+Joseph "Cara você tá um porre hoje... Você ainda está pensando nisso?"
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Taxista "Sim... Ele estava tão cheio de energia, com tantas ideias..."
+E eu só... derrubei tudo.
+Eu sinto como se estivesse sempre pisando em ovos, tentando fazer a coisa certa, mas não consigo.
+
+Joseph "Às vezes, a gente realmente não tem as palavras certas, sabe?{a} Não dá pra sempre acertar."
+
+Taxista "Eu sei, mas parece que com cada passageiro é a mesma coisa."
+Eu tento entender, tento ajudar, e no final só pioro a situação.
+Ele saiu do carro tão irritado...{a} parecia que eu nunca deveria ter aberto a boca.
+
+Taxista "Eu me sinto incompetente."
+Parece que o mundo está cheio de problemas que eu não sei como resolver.
+Thiago, Nicole, até você com suas lutas... E eu aqui, só... dirigindo.
+
+HideDB()
+Wait(5)
+ShowDB()
+
+Joseph "..."
+
+Taxista "Mas e se eu nunca souber o que dizer?"
+E se eu continuar tropeçando nas palavras?
+
+Joseph "..."
+
+Taxista thought "Acho que devo ficar quieto."
+
+HideUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Joseph "Aqui está pelo serviço de hoje. Vê se não pensa demais."
+
+Taxista "Obrigado Joseph."
+
+PlaySFX(Car/car-door-close)
+
+Joseph "A gente se vê por aí."
+
+Taxista thought "Tenho que parar de pensar demais..."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+
+Load(day5/day_nicole)

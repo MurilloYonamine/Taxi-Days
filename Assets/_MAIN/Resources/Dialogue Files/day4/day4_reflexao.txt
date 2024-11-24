@@ -1,0 +1,41 @@
+ShowUI()
+
+if($Luana.day2)
+{
+Narrator thought "Hoje foi um dia interessante..."
+Comecei a manhã atendendo a Luana, que estava cheia de energia e me contando sobre suas peripécias no trabalho.
+}
+else
+{
+    Narrator thought "Hoje eu sinto que acordei com pé certo."
+Hoje o dia parece que passou mais rápido... Não sei explicar o porquê.
+Vi dois rostos já reconhecidos.
+Nicole e Joseph.
+}
+
+Narrator thought "O trabalho começou com Joseph"
+Ele estava tão animado ao falar sobre super-heróis que não pude deixar de me empolgar também.
+Ele realmente trouxe uma nova perspectiva, especialmente sobre como os heróis enfrentam suas batalhas pessoais.
+O jeito como ele fala do Homem-Aranha é contagiante.
+É ótimo ver alguém tão apaixonado pelo que ama.
+
+if($Joseph.Invencible)
+{
+    Narrator Thought "Ele até me recomendou um quadrinho!"
+Isso me fez sentir que a corrida não foi apenas mais uma, mas uma troca genuína.
+}
+
+Narrator thought "E aí teve a Nicole, com a ligação que me deixou um pouco preocupado."
+Eu poderia ver que algo estava errado, mas não consegui entender bem o que era.
+A preocupação dela com as baleias e sua ansiedade me deixaram inquieto
+Como se eu estivesse conectado a algo maior. Espero que ela esteja bem.
+
+if($Luana.day2)
+{
+    Narrator thought "Por fim, a volta com Luana foi leve, é bom ter alguem para ouvir você tagarelar."
+Falei tanto que me fez esquecer do dia cansativo.{a} Enfim, no geral, foi um dia positivo.{a} Quem sabe o que amanhã trará?
+}
+
+HideUI()
+Wait(3)
+Load(day5/day5_luana)

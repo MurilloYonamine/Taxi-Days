@@ -32,9 +32,11 @@ E os vilões? Eles têm histórias tão ricas! É tudo tão... wow!
 
 Taxista thought "Ele está animado, vou tentar continuar esse assunto."
 
-Choice ""
+Choice "O que falar?"
 {
     - Dizer Que Eu Não Entendo Muito Sobre
+
+        $Joseph.Invencible = true
         Taxista "Para ser sincero, eu não entendo muito sobre super-heróis."
 Estou meio por fora, mas estou curioso.
 
@@ -66,7 +68,7 @@ Tem tanta coisa incrível por aí!
 E o Pantera Negra mostrou que todos nós podemos ser heróis,{a} não importa de onde viemos!
 
     - Perguntar Se Ele Leu Algo Recentemente
-        Taxista "Então...{a} você já leu algum quadrinho interessante recentemente?"
+        Taxista "Então...{a} Você já leu algum quadrinho interessante recentemente?"
 
         Joseph "Na verdade, sim!{a} Eu li 'Invincible'. É uma história incrível, cheia de ação e reviravoltas!"
 Você precisa conferir!
@@ -75,7 +77,8 @@ Você precisa conferir!
 
         Joseph "Claro!{a} Tem 'Sandman', que é fantástico. E 'Watchmen', que é um clássico!"
 E não posso esquecer de 'Saga' é uma mistura perfeita de fantasia e ficção científica!
-Ah, e 'Ms. Marvel' é incrível também!{a} E tem uma nova série do 'Homem-Aranha' que tá bombando!{a} E também...!
+Ah, e 'Ms. Marvel' é incrível também!
+E tem uma nova série do 'Homem-Aranha' que tá bombando!{a} E também...!
 
         Taxista "Calma,{a} calma!{a} Um de cada vez,{a} por favor!"
 
@@ -136,9 +139,12 @@ Cada viagem que você faz aqui no táxi é uma nova chance, não acha?
         Taxista "É verdade, cada passageiro tem uma história e, de alguma forma, posso fazer parte dela."
 Às vezes, só espero que minha própria história também tenha um final positivo.
 
-        Joseph "Com certeza! E quem sabe? Talvez sua jornada ainda esteja apenas começando, assim como a do Capitão América."
+        Joseph "Com certeza! E quem sabe?"
+Talvez sua jornada ainda esteja apenas começando, assim como a do Capitão América.
 
     - Perguntar ao Joseph o Super-Herói Favorito
+        $Joseph.day4 = true
+
         Taxista "Ei, Joseph!{a} Qual é o seu super-herói favorito?"
 
         Joseph "Ah, com certeza é o Homem-Aranha!{a} Eu adoro ele!"
@@ -189,3 +195,34 @@ No fundo, todos nós temos nossas batalhas, e isso é o que nos une.
         Taxista thought "Essas palavras ecoaram em minha mente, nossa!"
 }
 
+HideUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Taxista "Chegando ao seu destino. Foi ótimo conversar com você, Joseph."
+
+Joseph "Obrigado!{a} Eu realmente gostei da nossa conversa sobre super-heróis."
+É sempre bom conversar sobre o que eu gosto.
+
+Joseph "Quem sabe a gente se encontra de novo? Até mais!"
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Taxista thought "É bom ter umas conversas descontraídas algumas vezes.."
+
+HideUI()
+PlaySFX(Car/car-speedingUp)
+Wait(5)
+
+if($Luana.day2)
+{
+        Load(day4/day4_luana)
+}
+else
+{
+        Load(day4/day4_reflexao)
+}

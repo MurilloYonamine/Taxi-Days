@@ -1,0 +1,132 @@
+Taxista "Ué, Joseph?"
+
+Joseph "Pelo amor de deus abre essa porta,{a} esse vento junto com a chuva,{a} vai me levar para longe."
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Joseph "Cara obrigado!{a} Você sempre ta por perto quando eu preciso,{a} impressionante!"
+
+Joseph "Calma,{a} eu já te vi antes...{a} Eu não tinha entrado em uma viagem com você?"
+
+Thiago "Haha, eu sou o Thiago!{a} Não se lembra de mim?"
+
+Joseph "Nem um pouco."
+
+Thiago "Haha!{a} Vou fazer você se lembrar!"
+
+Joseph "Já lembrei..."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Thiago "Então, para onde você tá indo a pé nesse toró?"
+
+Joseph "Ah, eu tava na livraria."
+Não consegui resistir a uma promoção de quadrinhos, e olha onde isso me trouxe!
+
+Joseph "Você vai rir, mas eu comprei um quadrinho sobre super-heróis."
+Ele é todo estilizado e tem uma arte incrível!{a} Quer ver?
+
+Taxista "Claro, me mostre!{a} Deixa eu aproveitar enquanto o trânsito está parado."
+
+Joseph "Aqui, olha só!"
+A arte desse quadrinho é de tirar o fôlego!{a} O cara que desenhou é um gênio.
+
+Taxista thought "Ele pinta as unhas?{a} Isso eu não sabia..."
+
+Taxista "Uau, realmente é impressionante!{a} Você tem bom gosto Joseph."
+
+Choice "Comentar Sobre as Unhas?"
+{
+    - Sim
+        Taxista "E... espera, suas unhas estão pintadas! Não sabia que você pintava as unhas."
+
+        Joseph "Ah, é... Eu pintei elas. Na verdade, eu gosto de experimentar."
+Não sei...{a} às vezes, eu fico com medo do que as pessoas vão pensar.
+
+        Thiago "Olha, eu acho muito bom quando as pessoas deixam o medo de ser elas mesmas de lado."
+Já tive vários alunos que conseguiram quebrar essa barreira e se mostraram de verdade.
+Foi liberatador para todos eles.
+
+        Joseph "Sério?{a} Você teve alunos que conseguiram se abrir assim?"
+
+        Thiago "Sim! Teve um aluno que sempre alisava o cabelo, era triste, o cabelo alisado dele era uma droga."
+Teve uma moda de corte de cabelo que ele tentou seguir para tentar ser mais bonito.
+Infelizmente isso nunca funcionou.
+Era notável a falta de autoestima dele.
+Então um dia decidi apresentar alguns videos falando sobre a diferença entre o Malcom X e Martin Lutter King.
+
+        Thiago "Não sei se vocês já viram."
+Tem um vídeo onde Malcom discursa sobre a opressão das pessoas brancas fazendo com que negros odiassem a si mesmo.
+Esse vídeo foi libertador para esse aluno, depois disso ele cortou o cabelo.
+Hoje ele tem um grandioso e belo black power.
+
+        Joseph "Isso é tão legal! Eu adoraria ter essa confiança."
+Às vezes, me sinto como se estivesse lutando contra uma tempestade só por ser eu mesmo.
+
+        Thiago "Não precisa se preocupar, Joseph. Você já está no caminho certo."
+E quem sabe, com o tempo, você pode se sentir mais confortável em ser quem você é.
+As suas unhas coloridas são uma ótima forma de se expressar!
+
+        Joseph "Po Thiago, você é uma ótima pessoa, obrigado!"
+
+        Thiago "Haha! Não há de quê!"
+
+    - Não
+        Joseph "Valeu!{a} Sabe o que é mais legal nesse quadrinho?"
+Ele é cheio de referências escondidas!
+Por exemplo, nessa página aqui...
+Olha isso!{a} É um tributo ao estilo de Jack Kirby, um dos mestres dos quadrinhos.
+
+        Taxista "Jack Kirby?{a} Quem é esse?"
+
+        Joseph "Cara, ele é basicamente um dos criadores do universo Marvel."
+Tipo, ele trabalhou no Quarteto Fantástico, Thor, Pantera Negra... sabe, os clássicos!
+E o mais incrível é como ele conseguia dar vida às páginas com sua arte dinâmica.
+
+        Thiago "Eu já li sobre ele!{a} Ele realmente mudou a forma como quadrinhos são feitos."
+Parece que ele tinha uma visão de outro mundo.
+
+        Joseph "Totalmente!"
+Você sabia que ele também teve um papel enorme na criação dos Novos Deuses da DC?
+Aquela coisa toda de Apokolips e Darkseid? É muito massa!
+
+        Taxista "Uau, parece que ele foi uma lenda mesmo."
+Eu não fazia ideia de que existia tanta história por trás disso tudo.
+
+        Joseph "É fascinante!"
+E o melhor é que hoje em dia tem tantos artistas novos trazendo ideias incríveis.
+Como esse aqui, olha só!
+
+        Taxista thought "Ele realmente se empolga falando disso."
+Acho que ele poderia falar sobre quadrinhos o dia inteiro.
+}
+
+HideUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Taxista "Chegamos, pessoal!{a} Essa é a parada."
+
+Joseph "Muito obrigado!{a} Adorei a viagem!"
+
+Thiago "Ué, vai sair aqui também?{a} Que conhencidência!"
+
+Joseph "Haha,{a} é mesmo!"
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Thiago "E aí, Joseph?{a} Que tal a gente tomar um café e bater mais um papo?"
+
+Joseph "Adoraria!{a} Vamos lá!"
+
+Taxista thought "Poxa tava querendo um café..."
