@@ -1,0 +1,30 @@
+if($Luana.day2)
+{
+    Narrator "Um bom tempo se passou."
+Eu segui com meus trabalhos.
+Mas sinto a falta de uma boa conversa em seu carro.
+Tenho suades de rostos familiares como de:
+Joseph,{a} Nicole e Thiago
+}
+
+if(!$Luana.day2)
+{
+    Narrator "Um bom tempo se passou."
+Eu segui com meus trabalhos.
+Mas sinto a falta de uma boa conversa em seu carro.
+Tenho suades de rostos familiares como de:
+Joseph,{a} Nicole,{a} Thiago e Luana
+}
+
+HideUI()
+Wait(3)
+
+if($Nicole.day5)
+{
+    Load(day6/day6_nicole)
+}
+
+if(!$Luana.day5)
+{
+    Load(day6/day6_ligacao_luana)
+}

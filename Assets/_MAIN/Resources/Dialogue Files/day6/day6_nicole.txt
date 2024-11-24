@@ -1,0 +1,352 @@
+HideDB()
+ShowUI()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Taxista "Bom noite, para onde iremos?"
+Oh...{a} Nicole?
+
+Nicole "Senhor taxista! Quanto tempo!"
+
+Taxista "Pois é!{a} São Paulo tem dessas coisas.{a} Como vai Nicole?
+
+Nicole "Anda tudo bem!{a} Como vai o seu dia senhor taxista?"
+
+Taxista "Ah, na correria de sempre.{a} A gente vai se acostumando, né?"
+
+Nicole "Imagino!{a} Acho que dirigir aqui todo dia deve ser como enfrentar uma selva."
+
+Taxista "É, São Paulo tem seus desafios...{a} Mas tem dias que surpreende.{a} E você, muito trabalho?"
+
+Nicole "Te dizer que deu uma melhorada, to até estranhando haha! Anda bem até demais.{a} Graças a você"
+
+Taxista "A mim? Como assim? O que foi que eu fiz?"
+
+Nicole "Aquela nossa conversa... Você me sugeriu procurar um terapeuta, lembra?"
+Nicole "No início, confesso que fiquei um pouco resistente.
+Não queria acreditar que precisava de ajuda.
+
+Taxista "Entendo.{a} Muita gente sente isso."
+Mas fico curioso...{a} E aí?{a} Você acabou indo?
+
+Nicole "Sim. Acabei marcando uma consulta."
+Foi estranho no começo, sabe?{a} Abrir tudo para alguém desconhecido.
+Haha!{a} apesar de ter feito isso com você.
+Mas com o tempo,{a} comecei a perceber como estava carregando mais do que precisava.
+Consegui organizar os pensamentos,{a} enxergar algumas coisas de outro ângulo.
+
+Taxista "Que bom ouvir isso, Nicole.{a} E o seu filho?{a} Como ele está?"
+
+Nicole "Ah, essa é a melhor parte."
+Eu percebi que eu poderia ter feito o mais simples.
+Sentar e conversar com ele.
+Isso me fez perceber que sou um pouco distante do meu filho.
+
+Nicole "Antes, eu ficava tão preocupada com o trabalho que acabava me distanciando."
+Agora, a gente se entende melhor.{a} As coisas ainda não são perfeitas, mas quem é, né?
+
+Taxista "Nossa,{a} Nicole.{a} Isso é incrível.{a} É tão bom ouvir que você conseguiu dar a volta por cima."
+
+Nicole "De verdade, se não fosse por aquela sugestão sua"
+Talvez eu ainda estivesse perdida. Então...{a} Obrigada.{a} De coração.
+
+Taxista "Eu que agradeço por você ter confiado e dado esse passo."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+$Nicole.dilema = 0
+
+Taxista thought "Estamos a um tempo papeando sobre a vida."
+A viagem será longa.
+
+Nicole "Esses dias, me deparei com aquele dilema clássico."
+
+Taxista "Dilema?{a} Qual dilema?"
+
+Nicole "Aquele do trem, sabe?"
+Se um trem desgovernado tivesse indo direto para um grupo de cinco pessoas nos trilhos.
+Você tem a opção de puxar a alavanca.
+Desviando o trajeto e indo em direção onde só tem uma única pessoa.
+O que você faria?
+
+Taxista thought "Do nada..."
+
+Taxista "Então se eu puxo a alavanca,{a} salvo 5 pessoas,{a} mas acabo sacrificando 1 pessoa."
+Entretanto,{a} se eu não faço nada,{a} eu mato 5 pessoas, salvando apenas uma.
+
+Nicole "Exatamente.{a} E então...{a} O que você faria?"
+
+Choice "O que eu faria?"
+{
+    - Puxar a alavanca
+        Taxista "Bom...{a} Acho que puxaria a alavanca.{a} Cinco é mais que um, não é?"
+
+        Nicole "Oh meu deus senhor taxista!{a} Você acaba de matar uma pessoa!"
+
+        Taxista "Escolhi a opção errada?!"
+
+        Nicole "Será?"
+
+        Nicole "Puxar a alavanca faz de você o responsável pela morte de uma pessoa."
+Isso pesa para muita gente.
+
+        Taxista thought "Será que sou insensível?"
+
+    - Não Puxar a alavanca
+        $Nicole.dilema += 1
+
+        Taxista "Não sei...{a} Parece um peso grande demais."
+Talvez eu não puxaria a alavanca.
+
+        Nicole "Então você acha que não é justo interferir?"
+Que,{a} talvez,{a} o curso das coisas deveria seguir sem uma intervenção humana?
+
+        Taxista thought "Agora ela me deixou mais confuso ainda..."
+
+        Taxista "Acredito que a vida seja exatamente assim."
+As vezes temos que deixar ela acontecer.
+Acho que se interferirmos de mais,{a} talvez possamos perder a graça da vida,{a} não acha?
+
+        Nicole "Que bom ponto você levantou senhor taxista!"
+Acho que você tem bastante razão!
+Acho que a gente vive com muita ansiedade,{a} não nos deixando viver direito.
+Pensamos tanto no futuro que esquecemos totalmente do presente.
+Acho que deveríamos nos deixar ser levado pela maré, me entende?
+
+        Taxista "Maré?"
+
+        Nicole "Isso! Acho que a gente só deveria entrar no mar."
+Começar a boiar e deixar a maré nos levar.
+Fazendo paralelo com a vida, devemos nos deixar ser levado pelo o que a vida deseja que seja.
+
+        Taxista "Eu nunca pensei em algo assim,{a} caramba Nicole,{a} minha cabeça agora está cheia de pensamentos."
+
+        Nicole "Haha! É isso que eu desejo!"
+
+    - Não Sei
+        Taxista "Ai Nicole...{a} Não faço ideia."
+
+        Nicole "Revirei muito a sua cabeça senhor taxista, haha!{a} Não se preocupe que tem mais!"
+}
+
+HideUI()
+PlaySFX(Car/car-speedingUp)
+Wait(5)
+ShowUI()
+
+Nicole "Tenho mais um para você.{a} Não se preocupa,{a} esse é diferente,{a} mas ainda é intrigante."
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Taxista thought "Lá vem mais algo complexo."
+
+Taxista "Manda aí.{a} Qual o dilema dessa vez?"
+
+Nicole "Esse se chama o 'Paradoxo do mentiroso'.{a} É bem simples."
+
+Nicole "Imagine alguém que diz a frase 'Eu estou mentindo'."
+Agora, a pergunta é: essa frase é verdadeira ou falsa?
+
+Taxista "Se ele diz que está mentindo..."
+Então ele está dizendo a verdade.
+Mas se é verdade, então ele está dizendo a verdad...{a} Não calma, pera que?
+
+Nicole "Haha!{a} Consegui te confundir, não é?{a} Então?{a} Qual a sua resposta?"
+
+Choice "Qual a sua resposta?"
+{
+    - Acho que Ele Está Dizendo a Verdade
+        $Nicole.dilema += 1
+
+        Taxista "Ele está mentindo certeza."
+
+        Nicole "Então, se ele está mentindo, a frase é verdadeira!"
+E se for verdadeira, então ele não está mentindo. Um verdadeiro paradoxo!
+
+        Taxista thought "Nicole e seus dilemas sem fim..."
+
+        Taxista "Nicole, você me levantou uma questão agora."
+
+        Nicole "Hmm?"
+
+        Taxista "O que leva uma pessoa a mentir? Tipo, é apenas para chamar atenção?"
+
+        Nicole "Hmm. Uma boa pergunta! Acho que "chamar a atenção" é só para quando você é uma criança."
+Acho que quando uma pessoa cresce e continua mentindo, pode ter 2 motivos.
+
+        Taxista "Quais são esses dois motivos?"
+
+        Nicole "Ela não teve uma boa educação."
+Então ela está sempre tentando chamar a atenção.
+Caso não seja isso, acredito que seja algo voltado para o medo.
+
+        Taxista "Medo? Faz sentido."
+
+        Nicole "Medo de confrontar a verdade e as consequências de seus próprios atos."
+
+        Taxista "Confrontar a verdade..."
+
+        Nicole "Confrontar a verdade sempre é um desafio, nossa mente sempre tenta fugir dela."
+Acho que desde pequeno, temos que aprender a enfrenta-la, se não quando crescemos.
+A gente acaba tendo dificuldade para vizualizar alguns elementos da vida
+E isso acaba desencadeando outros problemas, como a própria insegurança.
+
+        Taxista thought "Isso faz muito sentido...{a} Até demais..."
+
+    - Acho que Ele Está Mentindo
+        Taxista "Bom, ele está dizendo a verdade, né? Então ele está sendo honesto...{a} Ou não?"
+
+        Nicole "Mas se ele está dizendo a verdade, ele não está mentindo"
+O que significa que...{a} A frase é falsa!{a} É uma armadilha lógica.
+
+        Taxista thought "Meu cérebro vai fritar...{a} O que que ela quer dizer?"
+
+    - Não sei. Isso é Confuso de Mais
+        Taxista "Não sei...{a} Isso é confuso demais para mim."
+
+        Nicole "Tudo bem, é normal que esses paradoxos sejam confusos."
+Às vezes, as respostas não estão ai para serem resolvidas.
+
+        Nicole "Acho que lembrei de outro dilema!"
+
+        Taxista "Oh meu deus"
+}
+
+HideUI()
+PlaySFX(Car/car-speedingUp)
+Wait(5)
+ShowUI()
+
+Nicole "Essa é a última!{a} Ela é diferente, mas ainda assim intrigante!"
+
+Taxista  "Manda ai.{a} Qual o dilema dessa vez?"
+
+Nicole "Esse se chama o 'O Navio de Teseu'!"
+
+Nicole: "Imagine o seguinte: existe um navio antigo, e ao longo dos anos."
+Suas partes começam a ser substituídas uma a uma.
+Até que nenhuma das peças originais restam.{a} A pergunta é...{a} Ainda é o mesmo navio?
+
+Taxista "Então...{a} Você quer saber se o navio é o mesmo?{a} Mesmo trocando tudo?"
+
+Nicole "Exato.{a} Se um dia alguém olha para esse navio,{a} sem nenhum pessoa do original,"
+Ele ainda é o Navio de Teseu?{a} Ou é um navio completamente novo?
+
+Choice "Ele Ainda é o Mesmo Navio?"
+{
+    - É o Mesmo Navio
+        Taxista "Eu acho que sim. Ainda é o mesmo navio."
+Mesmo que as peças sejam substituídas, a ideia do navio permanece, sabe?
+É mais sobre o conceito dele do que os materiais.
+
+        Nicole "Interessante!{a} Então você acredita que a essência de algo não depende da matéria que o compõe?"
+
+        Taxista "Exatamente. Acho que as mudanças fazem parte da história dele."
+Afinal, o que seria de um navio sem a jornada que ele atravessou?
+
+        Nicole "Ótimo ponto! Às vezes, as mudanças são inevitáveis."
+E isso não tira quem ou o que somos, né?
+
+        Taxista "Exato. Talvez as mudanças só nos tornem mais fortes ou melhores."
+Assim como o navio continua navegando.
+
+        Nicole "Adorei sua visão! Talvez devêssemos pensar assim sobre nós mesmos também."
+
+    - É um Navio diferente
+        $Nicole.dilema += 1
+
+        Taxista "Não, não é o mesmo navio."
+Se você troca todas as partes, cada pedaço antigo que sai leva com ele uma parte da história original.
+O que sobra pode parecer igual, mas não é.
+
+        Nicole "Então, você acredita que as mudanças alteram a essência do que algo é?"
+
+        Taxista "Exatamente. As mudanças não só mexem no físico, mas também no que algo representa."
+É como quando a gente muda muito...{a} Às vezes, nos tornamos irreconhecíveis para nós mesmos.
+
+        Nicole "Faz sentido. Você acha que isso é algo bom ou ruim?"
+
+        Taxista "Depende. Acho que depende do motivo das mudanças.
+Se a gente muda para algo melhor, pode ser uma evolução.
+Mas se as mudanças vêm por desgaste ou por cansaço...{a} Aí, não sei.{a} Talvez a gente se perca no caminho."
+
+        Nicole "É uma visão muito humana.{a} Mas me conta, você já sentiu isso na pele?"
+
+        Taxista "Todos os dias. Às vezes, eu sinto que sou esse navio."
+Cada dia no volante tira um pedaço de quem eu era antes.
+É como se o eu que começou a faculdade de Ciência da Computação não existisse mais.
+
+        Nicole "E isso incomoda você?"
+
+        Taxista "Incomoda...{a} Porque eu olho para quem eu sou agora e me pergunto:"
+Se todas as peças mudaram, quem eu sou?
+O taxista que leva passageiros?
+Ou alguém tentando juntar os pedaços de um sonho que ficou pelo caminho?
+
+        Nicole "Talvez você esteja sendo duro consigo mesmo."
+Lembra o que falamos sobre se deixar levar pela maré?
+Talvez as mudanças estejam te levando para algo que você ainda não entende completamente.
+
+        Taxista "Talvez...{a} Mas é difícil ver isso no dia a dia."
+Cada troca de peça parece mais uma perda do que um avanço.
+
+        Nicole "Entendo. Mas pensa assim: o navio continua navegando,{a} não é?"
+E você também. Talvez a jornada seja mais importante do que as peças.
+
+        Taxista "...{a}Essa é uma boa perspectiva."
+
+    - Não sei
+        Taxista "Sinceramente? Não sei."
+Se você troca todas as partes, parece que deveria ser algo diferente, mas...
+Ainda é chamado de Navio de Teseu, né?{a} Então...{a} É confuso."
+
+        Nicole "Sim, é mesmo! E acho que essa é a beleza do paradoxo."
+}
+
+if($Nicole.dilema == 3)
+{
+    $Nicole.day6 = true
+}
+
+HideUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Nicole "Haha! Bem, foi bom conversar.{a} Você tem uma visão interessante sobre as coisas."
+
+Taxista "E você tem uma maneira única de fazer a gente pensar.{a} Foi uma boa troca."
+
+Nicole "Ah, antes de ir, posso te fazer uma última pergunta?"
+
+Taxista "Claro, manda."
+
+Nicole "A Luana está bem?"
+
+Taxista thought "Luana... Ela realmente mudou. Parece mais tranquila, mais leve."
+
+Taxista "Ela está bem, sim.{a} Tem seus altos e baixos, mas...{a} Não está mais me incomodando como antes."
+
+Nicole "Fico feliz por isso.{a} Parece que as coisas estão se ajeitando."
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Nicole "Bom, senhor taxista, obrigada pela corrida e pela conversa.{a} Quem sabe nos vemos novamente."
+
+Taxista "Quem sabe?{a} Boa noite, Nicole.{a} Cuide-se."
+
+Nicole "Boa noite."
+Wait(1)
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+Load(day6/day6_joseph)

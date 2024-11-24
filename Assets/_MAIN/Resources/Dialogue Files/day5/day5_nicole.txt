@@ -50,7 +50,7 @@ Choice "O Que Fazer?"
     - Recomendar um terapeuta
         $Luana.day5 = true
 
-        Taxista "Olha Nicole...{a} já pensou em procurar um psicólogo?
+        Taxista "Olha Nicole...{a} já pensou em procurar um terapeuta?
 Sei que parece difícil.
 Talvez conversar com alguém especializado possa te ajudar a lidar com tudo isso."
 
@@ -75,6 +75,11 @@ Talvez conversar com alguém especializado possa te ajudar a lidar com tudo isso
         HideUI()
         PlaySFX(Car/car-starting-sound)
         Wait(4)
+
+        if($Luana.day5)
+        {
+                Load(day5/day5_luana)
+        }
 
     - Falar Que Está exagerando
         $Luana.day5 = false
@@ -149,5 +154,4 @@ Isso não é empatia, é só você tentando fazer o seu ponto parecer válido!
         HideUI()
         Wait(3)
 }
-StopSFX(RainyMood)
 Load(day5/day5_reflexao)

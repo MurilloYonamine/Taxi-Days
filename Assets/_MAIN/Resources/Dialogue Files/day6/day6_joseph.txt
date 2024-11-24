@@ -1,0 +1,176 @@
+ShowUI()
+ShowDB()
+
+Taxista "Hm... Aquele não é o Joseph?"
+
+Joseph "Senhor taxista! Quanto tempo!"
+
+Taxista "Olá Joseph Como você está?"
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Joseph "Estou super bem! E você?"
+
+Taxista "Ah! Estou indo.{a} Então...{a} Para onde iremos?"
+
+Joseph "Para minha casa por favor!"
+
+Taxista "Beleza!"
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowUI()
+
+if($Joseph.Invencible)
+{
+    Taxista "Então, Joseph.{a} Eu dei uma olhada no Invincible,{a} como você recomendou."
+
+    Joseph "Sério?{a} O que achou?"
+
+    Taxista "Gostei bastante."
+    Achei interessante como o Mark lida com a ideia de ser quem ele realmente é.
+    Mesmo com tudo indo contra ele.{a} Me lembrou muito...{a} Bom, certas coisas da vida.
+
+    Joseph "É, o Mark passa por muita coisa pesada."
+Mas ele tem aquela força de continuar, sabe? Eu admiro isso.
+
+    Taxista "Sim.{a} Acho que ele meio que representa essa ideia de lutar pelo que importa."
+Mesmo quando parece que ninguém tá do seu lado."
+
+    Joseph "Ou quando o mundo inteiro parece estar contra você..."
+}
+
+Taxista "O Joseph não pintava as unhas?"
+
+Taxista "Ei, Joseph,{a} você não tinha começado a pintar as unhas?"
+Achei que fosse uma marca registrada sua.
+
+Joseph "Ah, é...{a} Eu tirei."
+Meus amigos iam se encontrar comigo outro dia.
+E eu...{a} não quis dar motivo pra comentários, sabe?
+
+Taxista "Você ficou com medo de como eles iam reagir?"
+
+Joseph "É...{a} Eles são legais, mas... eu nunca contei pra eles."
+Sobre mim, sabe? Sobre quem eu realmente sou.
+
+Taxista thought "Contar o que exatamente?{a} Que pinta as unhas?"
+
+Choice "Tenho que Perguntar"
+{
+    - Quem é você?
+        $Joseph.day6 = true
+
+        Taxista "Estou confuso...{a} Quem é você realmente então?"
+        
+        Joseph "...É, sobre isso.{a} Eu sou... bom..."
+        
+        Taxista thought "Ele parece nervoso.{a} Talvez precise de um empurrãozinho."
+
+        Taxista "Joseph, você pode me contar.{a} Eu não vou te julgar.{a} Prometo."
+
+        Joseph "...Eu sou trans."
+Eu sempre soube quem eu era por dentro.
+Só que agora tô tentando colocar isso pra fora.
+Ainda não sei como meus amigos vão reagir.{a} E isso me dá um medo absurdo.
+
+        Taxista "Ei, Joseph.{a} Isso é algo muito importante.{a} E muito corajoso também."
+Não é fácil ser a gente mesmo.{a} Mas olha, quem é amigo de verdade vai te aceitar.
+E quem não aceitar...{a} Talvez nem seja seu amigo de verdade.
+
+        Joseph "...Eu espero que você esteja certo."
+É só que, sabe, eu tenho tanto medo de perder as pessoas que eu gosto.
+
+        Taxista "Eu entendo.{a} Mas também acho que, se esconder, talvez machuque mais no longo prazo."
+
+        Joseph "É... talvez.
+Obrigado por ouvir. De verdade."
+
+        Taxista thought "Joseph é mesmo um garoto corajoso.{a} Espero que ele consiga o que merece:{a} apoio e felicidade."
+
+    - Você não acha que está exagerando?
+        $Joseph.day6 = false
+
+        Taxista "Você não acha que está exagerando um pouco?"
+        
+        Joseph "...É fácil falar isso quando não é você,{a} sabe?"
+        As pessoas dizem que são mente aberta.
+Eu já vi o jeito que olham para coisas pequenas.
+Tipo... as unhas pintadas.
+
+        Taxista "Entendi.{a} Mas e se você estiver subestimando eles?{a} Às vezes, as pessoas surpreendem."
+
+        Joseph "Talvez.{a} Mas o que acontece se eu me abrir e isso afastar eles?"
+Não tem como voltar atrás depois disso.
+
+        Taxista "Você não acha que esconder algo tão importante também pode afastar as pessoas?"
+        
+        Joseph "Eu sei...{a} Mas não é tão simples assim."
+Dá muito medo.{a} E eu ainda não sei se tenho coragem pra isso.
+        
+        Taxista "...Eu entendo.{a} Espero que você encontre o momento certo pra se abrir."
+        
+        Joseph "Obrigado.{a} Só de falar disso já ajuda um pouco."
+
+        Taxista thought "Joseph tá preso num dilema pesado.{a} Espero que ele encontre força pra lidar com isso."
+
+    - Seus amigos não são confiáveis?
+        $Joseph.day6 = false
+
+        Taxista "Seus amigos não são confiáveis?{a} Por que você acha que eles reagiriam mal?"
+        
+        Joseph "...Eles são confiáveis.{a} Mas é complicado."
+É tipo...{a} eu não sei se eles estão prontos pra lidar com algo assim.{a} Eu mal estou.
+
+        Taxista "Você acha que,{a} se fossem seus amigos de verdade,{a} eles não tentariam entender?"
+
+        Joseph "Talvez.{a} Mas e se eles não entenderem?{a} Sabe, às vezes as pessoas só... se afastam."
+        
+        Taxista "Entendo o que você quer dizer"
+Parece que você tá adivinhando antes de tentar.
+Você não acha que merece dar uma chance pra eles provarem que podem ser melhores?
+
+        Joseph "...Acho que sim.{a} Só de pensar em arriscar isso já me deixa ansioso.{a} Mas talvez você tenha razão."
+        
+        Taxista "O que importa é que você dê um passo de cada vez."
+E faça isso quando sentir que é o momento certo.
+
+        Joseph "Valeu.{a} Eu vou pensar mais sobre isso."
+
+        Taxista thought "O Joseph precisa de tempo.{a} Espero que ele consiga ver que é mais forte do que pensa."
+}
+
+HideUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Taxista "Chegamos Joseph!"
+
+Joseph "Obrigado pela viagem. Espero poder te ver em um futuro próximo."
+
+Taxista "Também espero te ver!"
+
+if($Joseph.day6)
+{
+    HideDB()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+}
+else
+{
+    HideDB()
+    PlaySFX(Car/car-door-close)
+    Wait(2)
+}
+ShowDB()
+
+Taxista "Espero ter ajudado o Joseph."
+
+HideUI()
+Wait(3)
+Load(day6/day6_reflexao)

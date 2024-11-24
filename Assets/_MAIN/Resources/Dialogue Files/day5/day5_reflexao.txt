@@ -1,3 +1,8 @@
+StopSFX(RainyMood)
+ShowUI()
+
+Narrator thought "Hoje foi um dia daqueles."
+
 if(!$Thiago.day5)
 {
     Narrator thought "Eu me sinto um completo fracasso hoje."
@@ -25,12 +30,6 @@ Talvez o papel que eu tenho não seja o de resolver tudo, mas de criar um espaç
 É...{a} quem diria que ser taxista pode ter essa profundidade?"
 }
 
-if($Luana.day2)
-{
-    Narrator thought "Eu ainda não tive nenhum sinal da Luana..."
-Será que aconteceu algo com ela?
-}
-
 if($Nicole.day5)
 {
     Narrator thought "Recomendar um terapeuta parecia o mais sensato."
@@ -52,3 +51,29 @@ Talvez até tenham piorado as coisas.
 Será que ela conseguiu encontrar um pouco de alívio?
 Ou ficou ainda mais afundada nos próprios problemas por minha causa?
 }
+
+if($Luana.day5)
+{
+    Narrator thought "Por mais que me preocupe com ela."
+Percebi que não posso carregar os fardos dela como se fossem meus.
+A Nicole...{a} ela estava na hora certa.
+Foi a voz que Luana precisava ouvir, e talvez até eu também.
+}
+
+Narrator thought "No fim, dias como hoje me fazem pensar no meu papel como taxista."
+Eu não sou só um motorista. Sou um ouvinte, im amigo momentâneo.
+E, às vezes, até alguém que ajuda, mesmo eu sem saber como.
+
+if(!Luana.day5)
+{
+    HideDB()
+    PlaySFX(Telephone/telephone-vibrating -v 0,5)
+    Wait(4)
+    Taxista "Luana está me ligando..."
+Melhor responder logo
+}
+
+HideDB()
+HideUI()
+Wait(4)
+Load(day6/day6_introducao)

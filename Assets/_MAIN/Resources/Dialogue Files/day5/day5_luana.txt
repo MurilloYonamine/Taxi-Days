@@ -1,0 +1,283 @@
+HideDB()
+ShowUI()
+PlaySFX(Telephone/telephone-vibrating)
+Wait(5)
+ShowDB()
+
+Taxista "Alô?"
+
+Luana "Oie! {a} É a Luana. {a} Pode vir me buscar, por favor?"
+Estou no restaurando ao lado do trabalho.
+
+Taxista "Luana,{a} já te disse que não sou seu motorista particular."
+
+HideDB()
+PlaySFX(Telephone/telephone-hangUp)
+Wait(2)
+ShowDB()
+
+PlaySFX(Taxista/taxista-suspiro)
+
+Taxista thought "Po...{a} de novo não..."
+
+Taxista "Senhora Nicole você tem algum problema em viagens conjuntas?"
+Vou ter que buscar uma amiga.
+
+Nicole "Não me importo."
+Quem é ela?
+
+PlaySFX(Car/car-starting-sound)
+
+Nicole "Ela parece ser alguém importante para você."
+
+Taxista "Bom, é a Luana."
+Alguém que eu conheci através das viagens.
+
+Nicole "Ah, entendi.{a} Vocês se veem com frequência?"
+
+Taxista "Mais do que eu gostaria."
+Às vezes acho que ela não percebe o quanto eu tô ocupado,{a} sabe?
+Tipo agora.{a} {a}Mas, no fundo,{a} ela é uma boa pessoa.
+
+Nicole "Hm. {a}Mas parece que você tem suas queixas sobre ela."
+
+Taxista "Bom, algumas vezes ela exagera, sabe?{a} É insistente, meio teimosa..."
+Acho que é o jeito dela de lidar com as coisas.{a} Eu tento entender.
+
+Nicole "Entendi.{a} Parece uma relação complexa.{a} Espero que ela esteja bem.
+Esse comportamento pode vir de algo mais profundo."
+
+Taxista thought "Interessante... Será que é isso mesmo?"
+
+HideUI()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Luana "Oi...{a} Obrigada por vir me buscar,{a} mesmo reclamando como sempre."
+
+Taxista "Luana, não começa..."
+
+Nicole "Luana, não é?{a} Tudo bem com você?{a} Parece um pouco abatida."
+
+Luana "Quem é você pra perguntar?{a} Aliás, o que você tá fazendo aqui?"
+
+Taxista "Nicole é minha passageira.{a} Estou trabalhando, Luana.{a} Como eu tinha dito!"
+
+Luana "Ah, claro.{a} Outro passageiro amigo seu."
+Ela deve ser incrível, né?{a} Diferente de mim, que só atrapalho.
+
+Taxista "Luana,{a} por favor de novo não."
+
+Luana "EU SOU UMA BAGUNÇA! Minha mãe sempre dizia que eu não era suficiente."
+'Por que você não pode ser mais como sua irmã? Por que você é tão emotiva?'.
+Eu tentei tanto ser perfeita...{a} Tanto...{a} Mas nunca fui.
+
+Taxista "Luana calma,{a} não precisa gritar—"
+
+Luana "Você não entende!{a} Você nunca parece tentar entender!"
+Você só me tolera porque se sente obrigado.
+Eu tento...{a} Eu realmente tento ser alguém que as pessoas gostem.
+Ninguém gosta de mim de verdade.
+Nem meu ex!{a} Ele me deixou porque eu sou assim...{a} Um desastre ambulante!
+
+PlaySFX(Luana/luana-chorando -v 0,3)
+HideDB()
+Wait(5)
+ShowDB()
+
+Taxista thought "A Luana vai me fazer peder um passageiro."
+Mas o que eu devo fazer?
+Valorizo a minha amizade com a Luana e mando a Nicole embora?
+Para evitar problemas?
+Ou mantenho a postura profissional e mando a Luana Embora?
+
+
+Choice "A Luana vai me fazer perder um passageiro. O que eu faço?"
+{
+    - Pedir para a Nicole Sair do Táxi.
+        $Luana.day5 = false
+
+        Taxista "Nicole,{a} desculpe por essa situação."
+Eu não quero que as coisas fiquem estranhas entre a gente e que você fica incomodada.
+Poderia sair do táxi?
+Gostaria de ter uma conversa à sós com a Luana.
+
+        Nicole "..."
+Tudo bem.
+
+        HideDB()
+        PlaySFX(Car/car-door-close)
+        Wait(2)
+        ShowDB()
+
+        PlaySFX(luana-chorando)
+
+        Taxista "Luana..."
+
+        Taxista "Luana, agora que estamos sozinhos...{a} Você pode me explicar por que está agindo assim?"
+
+        Luana "Você não entende!{a} Parece que ninguém entende!"
+Eu só queria alguém que me ouvisse,{a} alguém que realmente se importasse comigo...
+Mas você só fica me julgando.
+
+        Taxista "Não estou te julgando, Luana.{a} Mas suas atitudes tornam as coisas difíceis."
+Você sempre age como se tudo girasse ao seu redor.
+Eu estou tentando te ajudar,{a} mas não posso fazer isso sozinho se você não colaborar.
+
+        Luana "Você soa exatamente como meus pais!"
+'Colabore, Luana.{a} Seja perfeita, Luana.{a} Não seja um problema, Luana!'.
+Estou cansada disso!
+
+        Taxista "Eu não sou seus pais, Luana!"
+Estou aqui porque me importo,{a} porque você é minha amiga.
+Mandei meu passageiro embora, porque me importo.
+Só que essa amizade tem que ir nos dois sentidos.
+Não posso ser o único segurando o peso de tudo.
+
+        Luana "Você...{a} Se importa mesmo?{a} Mesmo quando eu sou...{a} assim? Tão difícil?"
+
+        Taxista "Sim, eu me importo. Mesmo quando você age assim."
+Eu só quero que você saiba que não está sozinha.
+Eu sempre estarei aqui para você.
+
+        Luana "Obrigada...{a} Você é a única pessoa que realmente está do meu lado."
+Mas...{a} Por favor, não desista de mim,{a} tá bom?
+
+        Taxista thought "Essas palavras deveriam me confortar..."
+Mas de alguma forma,{a} parece que estou alimentando algo que não sei se consigo sustentar.
+
+    - Pedir para a Luana sair do Táxi.
+        $Luana.day5 = true
+
+        Taxista "Luana...{a} Eu estou no meio do trabalho."
+        
+        if($Luana.day3)
+        {
+            Taxista "Eu não quero perder um passageiro novamente por culpa sua."
+        }
+
+        HideDB()
+        Wait(3)
+        ShowDB()
+        Luana "Tudo bem..."
+
+        Wait(2)
+
+        Nicole "Espere!"
+Não há a necessidade disso.
+
+        Taxista "Você tem certeza?{a} Isso não é um problema seu."
+
+        Nicole "Talvez não seja.{a} Mas, como mãe, vejo algo que me preocupa."
+Luana, posso falar com você?
+
+        Luana "Falar o quê?{a} Você nem me conhece."
+
+        Nicole "Não,{a} eu não conheço."
+Mas reconheço o olhar de alguém que está carregando um peso muito maior do que deveria.
+Eu já vi isso nos olhos do meu filho.
+
+        Luana "E o que isso tem a ver comigo?"
+
+        Nicole "Tem tudo a ver."
+Às vezes, os padrões que aprendemos em casa são tão rígidos que esquecemos de cuidar de nós mesmos.
+Parece que você foi ensinada que ser vulnerável é fraqueza
+Que precisa sempre estar no controle ou ser perfeita.
+Isso é exaustivo, não é?
+
+        Luana "...{a}Sim"
+
+        Nicole "Como mãe, já disse coisas que não deveria, esperando que fosse para o bem do meu filho."
+Mas nem sempre acertamos.
+Você já pensou em parar de tentar ser perfeita para os outros?
+E começar a ser suficiente para você mesma?
+
+        Luana "E como eu deveria fazer isso?!"
+
+        Nicole "Começa pequeno. Seja gentil consigo mesma."
+Aceite que falhar não é o fim do mundo.
+E, se puder, busque ajuda.
+Conversar com alguém, um terapeuta talvez, pode te ajudar a reorganizar esses pensamentos.
+Ninguém merece carregar tudo isso sozinha.
+
+        Taxista "Nicole está certa, Luana.{a} Você não precisa ser perfeita."
+Eu...{a} talvez não seja a melhor pessoa para dizer isso, mas você tem que se cuidar.
+Não por mim, ou por outra pessoa.{a} Mas por você.
+
+        Luana "Eu...{a} Eu vou tentar..."
+
+        HideUI()
+        Wait(2)
+        PlaySFX(Car/car-arriving)
+        Wait(7)
+        ShowUI()
+
+        Taxista "Chegamos, Luana.{a} Você está bem para ir?"
+
+        Luana "Sim...{a} Acho que sim.{a} Obrigada, Taxista."
+E obrigada, Nicole. Eu não sei como agradecer vocês por isso.
+
+        Nicole "Cuide-se, Luana.{a} Você merece isso."
+
+        Luana "Eu vou tentar.{a} Boa noite pra vocês."
+
+        HideUI()
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
+        PlaySFX(Car/car-starting-sound)
+        Wait(5)
+        ShowUI()
+        Wait(2)
+        ShowDB()
+
+        Taxista "Nicole, eu... Obrigado."
+Por tudo. Acho que, por um momento, quase cometi um erro enorme.
+
+        Nicole "Erros fazem parte de quem somos."
+Às vezes, a pressão nos faz tomar decisões precipitadas.
+Isso não te torna uma pessoa ruim, só alguém tentando lidar com o que tem à disposição.
+
+        Taxista "É que...{a} Luana depende tanto de mim que eu me sinto preso, sabe?"
+Como se fosse minha responsabilidade.
+Mas hoje percebi que talvez minha forma de lidar com isso não esteja ajudando.
+
+        Nicole "Você se importa com ela, e isso já é um grande passo."
+Mas cuidado para não carregar um peso que não é seu.
+Luana precisa encontrar forças dentro dela, e você pode ajudar, mas não pode fazer isso por ela.
+
+        Taxista "Você tem razão..."
+
+        Nicole "Que bom.{a} Tomar a decisão certa nem sempre é fácil, e às vezes a gente só descobre depois."
+Mas faz parte da vida.{a} O importante é refletir sobre isso, como você está fazendo agora.
+
+        Taxista "Valeu, Nicole. Você é boa nisso, sabia?{a} Deve ser por causa do seu filho, né?"
+
+        Nicole "Talvez. Ou talvez seja só porque, como mãe."
+A gente aprende que todo mundo merece uma segunda chance, até nós mesmos.
+
+        HideDB()
+        PlaySFX(Car/car-arriving)
+        Wait(5)
+        ShowDB()
+
+        Nicole "É aqui que fico. Mais uma vez, obrigada por me ouvir também."
+Espero que Luana encontre o caminho dela.
+
+        Taxista "Eu também. E espero que você resolva as coisas no trabalho, Nicole. Boa sorte."
+
+        Nicole "Obrigada. Cuide-se, Taxista."
+Você faz mais diferença na vida das pessoas do que imagina.
+
+        HideDB()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
+        ShowDB()
+
+        HideUI()
+        PlaySFX(Car/car-starting-sound)
+}
+
+Wait(3)
+Load(day5/day5_reflexao)

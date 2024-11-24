@@ -1,0 +1,167 @@
+HideDB()
+ShowUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+ShowDB()
+
+Taxista thought "Outro dia, outro turno.{a} Mas ultimamente, parece que algo está fora do lugar."
+Taxista thought "A Luana...{a} Tem estado diferente.{a} Mais presente do que eu esperava.{a} E não no bom sentido."
+
+HideDB()
+PlaySFX(Telephone/telephone-vibrating)
+Wait(4)
+ShowDB()
+
+Taxista thought "Falando nela..."
+
+Luaana "Oi, tudo bem? Já começou a trabalhar?'"
+
+Taxista thought "De novo? Ela tem me perguntado isso toda noite."
+
+Taxista thought "É mais fácil responder do que lidar com o silêncio depois."
+
+Taxista "Oi, Luana. Sim, acabei de começar o turno.{a} Tudo bem por aí?"
+
+Luana "Estou bem.{a} Pode vir me buscar?"
+
+Taxista "Claro."
+
+HideDB()
+ShowUI()
+PlaySFX(Car/car-speedingUp)
+Wait(5)
+ShowDB()
+
+Taxista "Oi, Luana. Pra onde vamos hoje?"
+
+Luana "Ah, ali na Paulista.{a} Tenho umas coisas pra resolver.{a} É bom que a gente conversa!"
+
+Taxista thought "Ela tá sempre por aqui. Ultimamente parece que virou parte da rotina..."
+
+HideDB()
+PlaySFX(Car/door-closing)
+Wait(4)
+ShowDB()
+
+Luana "Então, como você tá? Aposto que tá na mesma de sempre, né?"
+
+Taxista "Na mesma, é...{a} Dirigindo, rodando por São Paulo...{a} A vida de sempre."
+
+Luana "Nossa, deve ser cansativo.{a} Mas, sabe, até que você tem sorte."
+Eu não sei como você consegue dirigir tanto assim, eu acho que ficaria louca!
+
+Taxista thought "Sorte...{a} É, tá bom."
+
+Choice "Preciso dizer algo"
+{
+    - É cansativo, mas é o que resta.
+        $Luana.day6 = false
+
+        Luana "Ah, mas pelo menos você tá aí, né?"
+Trabalhando, se virando.
+Pior seria se estivesse parado em casa, sem fazer nada!
+
+        Taxista "Eu entendo... Mas sabe, tem dias que sinto que tô só... preso."
+Como se não tivesse jeito de sair disso.
+
+        Luana "Ah, não pensa assim! Pelo menos você tem um emprego."
+Imagina se você tivesse que ficar pedindo ajuda pra alguém?
+Tipo, eu dependo muito de você... Se você não me desse essas caronas, eu nem sei o que faria!"
+
+        Taxista thought "É, acho que é isso mesmo. Não posso reclamar tanto assim..."
+
+    - Sorte? Não sei se sorte é viver um rotina dessa.
+        $Luana.day6 = false
+        Luana "Ah, não fala assim!{a} Olha, tem gente que daria tudo pra ter sua rotina."
+Eu mesma, se tivesse um emprego fixo, não teria que me preocupar com tanto.
+Já que sou freelancer.
+
+        Taxista "Mas, Luana, às vezes parece que tô só vivendo no piloto automático."
+Dirigindo, ouvindo os mesmos problemas, sem fazer nada de novo na minha vida.
+
+        Luana "É, mas você é tão bom nisso, sabia?"
+Tipo, dirigir e ajudar as pessoas.
+Não sei o que faria sem você por perto.
+Acho que você é uma das únicas pessoas que me entendem de verdade!
+
+        Taxista thought "Acho que nunca paro pra pensar nisso...{a} Talvez seja suficiente só continuar assim."
+
+    - Para ser honesto, não sei por que continuo
+        $Luana.day6 = true
+
+        Taxista "Luana,{a} posso ser honesto?{a} Não sei por que continuo fazendo isso."
+
+        Luana "Você tá se sentindo mal?{a} Tipo, cansado?"
+Sabe, não precisa guardar isso só pra você.
+Sempre que quiser, pode desabafar comigo.{a} Eu tô aqui,{a} sempre tô.
+
+        Taxista "É só que...{a} sinto que nunca vou sair disso, sabe?"
+Estudei,{a} fiz faculdade,{a} tinha sonhos.
+Mas agora...{a} parece que eles estão tão distantes que nem sei mais se eram reais
+
+        Luana "Ah, mas talvez esse seja o problema..."
+Você tá pensando demais no que não tem.{a} Olha pra mim: sem as suas caronas.
+Eu não ia conseguir resolver metade das coisas que faço.
+Você já faz tanta diferença pra quem tá por perto.
+
+        Taxista "Mas será que isso basta?"
+Quero dizer...{a} ser útil pra algumas pessoas é legal, mas e eu?{a} Eu também queria ser mais.
+Trabalhar na minha área.{a} Fazer algo que tivesse a ver comigo.
+
+        Luana "Mas... E se isso nunca for suficiente?"
+Tipo, eu conheço muita gente que achava que ia ser feliz se tivesse 'algo mais'.
+Mas quando conseguiram,{a} ainda não estavam satisfeitos.
+Você tem uma coisa boa aqui.{a} Tá seguro,{a} tá estável.
+Você ajuda as pessoas.{a} Não é disso que a vida é feita?
+
+        HideDB()
+        Wait(3)
+        ShowDB()
+
+        Taxista "Às vezes,{a} penso que deveria tentar."
+Correr atrás de algo.{a} Mas é difícil,{a} sabe?
+Parece que não importa o que eu faça,{a} vou acabar falhando.
+
+        Luana "Ah, mas falhar seria pior,{a} não seria?"
+Imagina tudo que você poderia perder.
+Sua mãe já te pressiona tanto,{a} né?
+Se você tentasse e desse errado,{a} como ela ia reagir?
+Às vezes, o melhor que a gente pode fazer é aceitar as coisas como estão.
+
+        Taxista thought "Ela tem razão... Minha mãe já se decepcionou tanto comigo. Talvez seja melhor assim mesmo."
+
+        Taxista thought "Será que tô sendo ingrato?"
+Talvez seja isso.
+Eu devia parar de pensar tanto no que não tenho.
+Me contentar com o que já tá funcionando.
+
+        Luana "Você sempre diz que quer mudar..."
+Mas, sabe, eu acho que às vezes a gente só precisa de alguém pra lembrar que tá tudo bem como tá.
+E eu sempre vou estar aqui pra te lembrar disso, viu?
+
+        Taxista "Obrigado, Luana. De verdade."
+
+        Luana "Não precisa me agradecer.{a} Eu só quero o seu bem."
+}
+
+HideUI()
+HideDB()
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+ShowDB()
+
+Taxista "Chegamos Luana!"
+
+Luana "Obrigado novamente por essa boa viagem!"
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Taxista thought "Talvez eu só precise aceitar a minha atual situação para ser feliz."
+
+HideUI()
+Wait(3)
+Load(day6/day6_joseph)
