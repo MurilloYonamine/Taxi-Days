@@ -1,0 +1,69 @@
+ShowUI()
+
+PlaySFX(Telephone/telephone-dial-and-call)
+Wait(13)
+
+Taxista "Oi mãe...{a} Preciso falar com você."
+
+Mãe "Finalmente se lembrou de mim."
+Está saindo finalmente do seu emprego?
+
+Taxista "Não, não é isso.{a} Eu..." 
+
+Wait(2)
+
+Taxista "Eu..."
+
+Wait(2)
+
+Taxista "..."
+
+Taxista "Eu só queria te contar um pouco sobre como estou me sentindo."
+
+Mãe "Sobre o quê?{a} Já te falei que esse negócio de táxi não é uma solução de vida."
+
+Taxista "Eu sei, mãe...{a} Eu sei o que você pensa sobre isso."
+Mas eu...{a} Eu não sei mais o que fazer. Eu me sinto perdido.
+E eu...{a} Eu sinto que estou me afundando cada vez mais.
+
+Mãe "Perdido? Como assim Perdido?!"
+Mas você não entendeu? Eu fiz tudo por você!
+Eu trabalhei tanto para que você tivesse a oportunidade de ser alguém na vida
+E você me dá isso?
+Dúvidas?
+Perdição?
+Um salário que não dá nem para comprar uma geladeira?
+
+Taxista "Não é sobre o que você fez por mim, mãe!"
+É sobre o que você está fazendo agora!
+Não sou o que você espera que eu seja, e não é justo que eu viva com isso.
+Eu...{a} Eu estudei,{a} sonhei com outra coisa,{a} com outra vida.
+Eu nunca imaginei que estaria aqui,{a} fazendo isso.
+E você me cobra isso todos os dias.
+Como se eu fosse o culpado por não conseguir alcançar esse futuro que você criou para mim.
+Eu não estou feliz.{a} E não sei mais como lidar com isso.
+
+HideDB()
+Wait(3)
+
+Mãe "Você... Nunca me disse isso antes."
+Eu só queria que você tivesse uma vida melhor.
+Que não precisasse se preocupar,{a} que tivesse um futuro estável.
+Eu...{a} Eu não percebi...{a} 
+Eu não percebi o quanto te pressionava.
+Achava que estava fazendo o melhor por você...
+
+Mãe "Eu...{a} eu não sabia que estava fazendo isso com você."
+Eu só...{a} eu queria tanto que você fosse mais,{a} que você tivesse mais.
+Eu não percebi o quanto isso estava pesando em você.
+
+Taxista "Mãe...{a} Eu não queria te magoar."
+Eu só...{a} Não sou o que você imaginou.
+E eu sei que você queria o melhor para mim,{a} mas eu preciso encontrar meu próprio caminho.
+Eu não sei o que vai acontecer,{a} mas eu não posso continuar vivendo do jeito que estou.
+Eu só...{a} Eu só queria que você me entendesse,{a} de verdade.
+
+Mãe "Eu só...{a} quero que você seja feliz."
+Eu só...{a} quero que você esteja bem.
+
+Taxista "Obrigado Mãe."

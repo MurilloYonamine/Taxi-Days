@@ -1,0 +1,18 @@
+ShowUI()
+
+$Taxista.Count = 0
+
+Taxista thought "Hoje, não sei se vou conseguir."
+Não sei mais por quanto tempo consigo seguir assim.
+
+Taxista thought "Cada dia é igual. Cada turno uma repetição do anterior.
+A mesma rua, os mesmos passageiros...
+Até as minhas próprias palavras parecem ser as mesmas."
+
+HideDB()
+Wait(2)
+ShowDB()
+
+Taxista thought "Lá vem mais um passageiro."
+
+Load(day7/day7_luana)

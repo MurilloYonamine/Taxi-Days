@@ -143,3 +143,7 @@ Ou talvez não.{a} Talvez ele só precise do tempo dele, e eu não posso forçar
     Narrator thought "Me pergunto se ele vai conseguir superar tudo isso."
 Ou se vai ficar preso, como eu também estou.
 }
+
+HideUI()
+Wait(3)
+Load(day7/day7_introducao)

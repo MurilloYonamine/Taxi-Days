@@ -1,0 +1,160 @@
+ShowUI()
+
+if($Thiago.day5)
+{
+    $Taxista.Count += 1
+    Taxista "Espera aí... Aquele não é o Thiago? Faz tempo que não o vejo."
+
+    HideDB()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
+
+    Thiago "Caraca!{a} Você mesmo?{a} Eu não acredito!{a} Quanto tempo, meu amigo!"
+
+    Taxista "Thiago!{a} E aí, cara?{a} Tá tudo bem?"
+
+    Thiago "Tudo ótimo, pelo menos dentro do possível."
+E você?{a} Tá com uma cara meio...{a} Sei lá...{a} abatida.
+
+    Taxista "...É, tô meio pra baixo mesmo.{a} Mas bora, onde quer ir?"
+
+    Thiago "Pode me deixar em casa."
+Mas olha,{a} fala aí, o que tá pegando?{a} Sempre me ouviu, acho que é minha vez de retribuir o favor."
+
+    HideUI()
+    PlaySFX(Car/car-starting-sound)
+    Wait(4)
+    ShowUI()
+
+    Taxista "...Eu não sei, cara.{a} Tem tanta coisa na minha cabeça."
+Parece que todo mundo tá seguindo em frente, menos eu.
+
+    Thiago "Seguinte, calma aí.{a} Me explica isso direito.{a} Todo mundo quem?"
+
+    Taxista "As pessoas que passaram por aqui!"
+Cara, eu vi gente no fundo do poço, sem saber o que fazer da vida.
+Eu ouvi os problemas delas,{a} dei conselhos...
+E parece que deu certo!{a} A Luana saiu daquele relacionamento que tava destruindo ela.
+O Joseph...{a} Ele teve coragem de ser quem ele realmente é.
+A Nicole resolveu ir atrás dos sonhos dela de novo.
+Até você Thiago,{a} sempre com os dramas da escola,{a} tá aqui, rindo{a} e parecendo bem.{a} Mas eu...
+
+    HideDB()
+    Wait(2)
+    ShowDB()
+
+    Taxista "...Eu?{a} Eu continuo aqui!{a} Todo dia a mesma coisa."
+Dirigindo esse carro,{a} ouvindo os problemas dos outros,{a} ajudando quando posso.
+E eu me pergunto:
+Quem tá aqui pra me ajudar?
+Quando vai chegar a minha vez?
+Por que todo mundo parece encontrar um jeito de seguir em frente,{a} mas eu tô preso?
+Eu estudei anos pra ser um programador, cara!
+E tô aqui, lidando com buzinas e passageiro esquisito.
+Minha mãe? Ela me acha um fracasso!
+Talvez ela esteja certa.
+Talvez eu seja mesmo.
+
+    Thiago "Ei, ei, calma!{a} Respira.{a} Tá falando tudo de uma vez, parece que vai explodir."
+
+    Taxista "Como eu vou me acalmar, Thiago? Eu tô perdido!"
+É isso.{a} Eu ajudo todo mundo,{a} mas não consigo ajudar a mim mesmo.
+Eu tenho todas as respostas pras outras pessoas,{a} mas nenhuma pra mim.
+Que tipo de piada é essa?
+
+    PlaySFX(Taxata/taxista-suspiro)
+
+    HideDB()
+    Wait(2)
+    ShowDB()
+
+    Thiago "Tá melhor agora?{a} Conseguiu botar pra fora o que tava entalado?"
+
+    Taxista "Talvez...{a} Eu não sei."
+
+    Thiago "Então escuta.{a} Primeiro de tudo: você não é um fracasso,{a} beleza?"
+Você só tá preso no que eu chamo de ciclo da comparação.
+
+    Taxista "O que isso quer dizer?"
+
+    Thiago "Você tá olhando pra vida dos outros como se fosse uma régua pra medir a sua."
+Mas você não tá vendo tudo.
+Não sabe das batalhas que continuam enfrentando.
+Inclusive eu, tá?{a} Eu tô sempre rindo porque, se eu não rir, desabo.
+A escola ainda é um caos,{a} e eu ainda não sei como resolver metade dos problemas que aparecem por lá.
+
+    Taxista "Mas...{a} Você parece tão tranquilo."
+
+    Thiago "Porque eu aprendi que nem tudo precisa ter uma solução.{a} Às vezes, só ouvir ou respirar já é o suficiente."
+E sabe o que mais?
+
+    Taxista "O quê?"
+
+    Thiago "Você é um cara incrível. Pensa comigo: você ajudou essas pessoas."
+Você fez diferença na vida delas.
+Mas talvez esteja esquecendo de cuidar de si mesmo no processo.
+E sabe por onde começa?
+
+    Taxista "Por onde?"
+
+    Thiago "Encarando o que te machuca.{a} Tá na hora de ligar pra sua mãe, cara."
+Falar o que sente de verdade.{a} Você pode não conseguir mudar tudo hoje, mas vai tirar esse peso das costas.
+E quem sabe, a partir daí, as coisas comecem a se ajeitar.
+
+    Taxista "...Você acha mesmo?"
+
+    Thiago "Tenho certeza. E olha, se eu que sou professor e vivo no meio do caos consigo continuar.
+Você também consegue.{a} A vida é um processo, meu amigo.{a} Um passo de cada vez."
+
+    HideUI()
+    PlaySFX(Car/car-arriving)
+    Wait(7)
+    ShowUI()
+
+    Taxista "Chegamos."
+
+    Thiago "Valeu pela carona. E lembra:{a} um passo de cada vez.{a} E liga pra sua mãe, hein."
+
+    Taxista"Vou fazer isso.{a} Obrigado, Thiago.{a} De verdade."
+
+    Thiago "Tamo junto. Boa sorte. Você merece ser feliz também."
+
+    HideDB()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
+
+    Taxista thought "Talvez ele esteja certo."
+Não preciso ter todas as respostas agora.
+Mas posso começar por ligar pra minha mãe. Um passo de cada vez.
+}
+
+if(!$Thiago.day5)
+{
+    Taxista thought "Nossa...{a} Quem é aquele senhor?"
+Sinto que já o vi antes.
+Bom...{a} Tenho que voltar ao trabalho.
+Tenho que buscar novos passageiros.
+
+    HideUI()
+    PlaySFX(Car/car-starting-sound)
+    Wait(4)
+    ShowUI()
+}
+
+if($Taxista.Count == 4)
+{
+    load(day7/day7_aceitacao)
+}
+
+if($Taxista.Count == 0)
+{
+    load(day7/day7_frustracao)
+}
+
+if($Taxista.Count > 0)
+{
+    load(day7/day7_desconexao)
+}
+

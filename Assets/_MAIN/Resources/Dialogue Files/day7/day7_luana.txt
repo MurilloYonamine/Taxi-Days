@@ -1,0 +1,150 @@
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+if(!$Luana.day2)
+{
+    Taxista thought "Quem é essa? Sinto ter visto ela alguma vez."
+
+    Taxista "Boa noite. A onde a senhora deseja ir?"
+
+    Luana as ??? "Para o Fórum na Paulista por favor."
+
+    Taxista "Tudo bem."
+
+    HideUI()
+    PlaySFX(Car/car-starting-sound)
+    Wait(4)
+    PlaySFX(Car/car-arriving)
+    Wait(7)
+    ShowUI()
+
+    Taxista "Deu 24 reais senhora."
+
+    Luana as ??? "Aqui está."
+
+    HideDB()
+    PlaySFX(Car/car-door-close)
+    Wait(2)
+    ShowDB()
+
+    Taxista thought "Sinto que já vi ela antes..."
+Deve ser uma qualquer que já foi minha passageira.
+
+    HideUI()
+    PlaySFX(Car/car-starting-sound)
+    Wait(4)
+}
+
+if($Luana.day6)
+{
+    $Taxista.Count += 1
+    PlaySFX(Telephone/telephone-vibrating)
+    Wait(3)
+    
+    Taxista thought "De novo. Sempre me ligando no começo do turno."
+
+    Luana "Oi, você está por aí? Pode me buscar?"
+
+    Taxista "Claro, onde você está?"
+
+    Luana "Estou na esquina da Consolação, perto do metrô."
+Vem rápido, preciso chegar logo em um compromisso.
+
+    Taxista thought "Sempre assim, com ela me pedindo para apressar."
+Eu me pergunto até onde isso vai.
+
+    HideDB()
+    PlaySFX(Car/car-starting-sound)
+    Wait(4)
+    ShowDB()
+
+    Taxista "Oi, Luana.{a} Pra onde vamos?"
+
+    Luana "Ah, só me leva até a Paulista, por favor.{a} Tenho que fazer umas coisas por lá, nada de mais."
+Mas, sabe...{a} será que você poderia ir mais rápido dessa vez?
+Não tenho o dia todo.
+
+    Taxista thought "Parece que hoje será uma daquelas viagens... sem muita conversa, só pressa. Ela não percebe o quanto isso me cansa."
+
+    Taxista "Tudo bem, vou tentar acelerar."
+
+    Luana "É, tem dias que parece que você não tem noção do quanto me atrasou..."
+Ah, não estou dizendo que é culpa sua,{a} mas você me leva em qualquer lugar,{a} e eu fico perdida no meio do trânsito.
+Eu só preciso ser mais eficiente com o meu tempo.
+
+    Taxista thought "Eu já vi esse padrão antes. Mas hoje não estou com paciência para engolir tudo isso."
+
+    HideDB()
+    PlaySFX(Car/car-arriving)
+    Wait(7)
+    ShowUI()
+
+    Taxista "Chegamos, Luana. Aqui está o valor da corrida."
+
+    Luana "Tá bom, 20 reais aqui."
+
+    HideDB()
+    PlaySFX(Car/car-door-closing)
+    Wait(3)
+    ShowDB()
+
+    Taxista thought "Ela realmente não percebe como me sobrecarrega."
+}
+
+if($Luana.day5)
+{
+    Taxista thought "Quem é essa pessoa? Algo nela parece familiar, mas não consigo lembrar de onde a vi."
+
+    Taxista "Oi, para onde vamos senhorita?"
+
+    Luana "Oi, é... eu não sei como você não me reconheceu, mas sou a Luana."
+
+    Taxista "O que?!{a} Luana?"
+
+    Luana "Eu sei que estou um pouco diferente. Eu...{a} tenho vitiligo."
+Mas sabe, estou mais em paz comigo mesma agora.
+Não me escondo mais.{a} E queria agradecer...{a} de verdade, por tudo.
+
+    Taxista "Vitiligo? Eu... não sabia... Você está bem?"
+
+    Luana "Sim, eu estou.{a} Na verdade, estou muito melhor."
+Tem sido um processo,{a} mas estou aprendendo a aceitar quem sou.
+E tudo isso...{a} teve muito a ver com as conversas que tivemos.
+Mesmo que você não tenha percebido,{a} você me ajudou.
+
+    Luana "Eu estava perdida, com medo, mas você sempre foi gentil, sempre me escutou."
+Isso fez toda a diferença.
+Eu sei que talvez tenha sido um pouco...{a} chata, ou... incômoda.
+Mas foi só porque eu não sabia como lidar com tudo.
+
+    Taxista thought "Eu nunca imaginei que teria esse impacto.
+Luana parecia tão...{a} perdida."
+Mas agora, ela parece...{a} livre. Melhor.
+
+    HideDB()
+    PlaySFX(Car/car-arriving)
+    Wait(7)
+    ShowUI()
+
+    Taxista "Luana...{a} você não precisa se desculpar por nada."
+Eu fico feliz que você tenha encontrado o seu caminho.
+
+    Luana "Eu sei. E, de verdade, eu sou grata.
+Agora, tudo está mais claro.
+Eu preciso ir, mas, antes, quero agradecer mais uma vez.
+Você não sabe o quanto foi importante."
+
+    Taxista "Até mais Luana."
+
+    HideDB()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
+
+    Taxista "Ela mudou... Mudou tanto."
+}
+HideUI()
+Wait(3)
+Load(day7/day7_nicole)

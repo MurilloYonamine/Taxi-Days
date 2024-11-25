@@ -1,0 +1,80 @@
+ShowUI()
+
+if($Nicole.day5)
+{
+    $Taxista.Count += 1
+    HideDB()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
+
+    Nicole "Oi, Taxista! Como você está?"
+
+    Taxista "Oi, Nicole... Você parece diferente. Tudo bem?"
+
+    Nicole "Sim, tudo ótimo agora!{a} Eu... estou em um lugar muito melhor, sabe?"
+Resolvi a maioria dos meus problemas,{a} principalmente no trabalho.
+A pressão ainda existe, claro, mas agora eu sei como lidar com isso.
+
+    Nicole "Sabe, eu estava tão focada no estresse do meu trabalho, no atraso das entregas, nas decisões difíceis..."
+Agora entendi que, antes de tudo, eu preciso cuidar de mim mesma.
+E quando comecei a fazer isso, as coisas começaram a se ajustar, uma por uma.
+
+    Nicole "Eu também queria te agradecer."
+Lembra quando você sugeriu que eu procurasse ajuda de um terapeuta?
+Eu demorei para seguir o conselho, mas quando finalmente fui, nossa... fez toda a diferença.
+Foi um divisor de águas para mim.
+Eu consegui lidar com minhas frustrações de forma mais saudável e entender melhor minhas emoções.
+Senti que uma grande pressão foi tirada dos meus ombros.
+
+    Taxista "Fico muito feliz em ouvir isso, Nicole."
+Às vezes, a gente só precisa de uma perspectiva de fora para ver as coisas de maneira diferente.
+
+    Nicole "Sim, exatamente! Agora, estou mais tranquila e mais próxima do meu filho também."
+A nossa relação melhorou muito.
+Antes, eu estava tão imersa no trabalho que nem percebia o que estava acontecendo ao meu redor.
+Mas agora, estou aprendendo a encontrar o equilíbrio.
+
+    Nicole "Eu acho que a vida tem seus altos e baixos, mas também é sobre saber pedir ajuda quando precisamos."
+Eu sou muito grata por você ter me dado esse empurrão.
+
+    Taxista "Fico feliz por ter ajudado, mesmo que de forma pequena."
+
+    Nicole "Você foi mais importante do que imagina."
+Eu não estava percebendo o quanto eu estava sobrecarregada até que alguém me desse esse conselho.
+A terapia realmente me ajudou a encontrar a paz e a clareza que eu tanto precisava.
+
+    HideDB()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
+
+    Nicole "Até mais senhor taxista!"
+Espero que encontre a paz que tanto busca.
+
+    HideDB()
+    Wait(3)
+    ShowDB()
+    
+    Taxista thought "Também espero..."
+
+    HideUI()
+    PlaySFX(Car/car-starting-sound)
+    Wait(4)
+}
+
+if(!$Nicole.day5)
+{
+    HideDB()
+    PlaySFX(Car/car-speedingUp)
+    Wait(5)
+    ShowDB()
+
+    Taxista thought "Eu sinto um vazio estranho dentro de mim."
+Como se tivesse perdido alguma coisa importante.
+
+    Wait(3)
+    HideUI()
+}
+
+Load(day7/day7_joseph)

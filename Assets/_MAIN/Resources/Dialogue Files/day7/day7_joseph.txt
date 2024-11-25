@@ -1,0 +1,78 @@
+ShowUI()
+
+Taxista "Aquele não é o Joseph?"
+
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+if($joseph_day6)
+{
+    $Taxista.Count += 1
+    Joseph "Quanto tempo!"
+
+    Taxista "Eae Joseph! Lendo quadrinhos como sempre?"
+
+    Joseph "Oi, senhor taxista!{a} Eu estou...{a} Sabe, eu me sinto muito melhor."
+Eu finalmente consegui falar com os meus amigos.
+    
+    Taxista "Fico feliz em ouvir isso, Joseph!{a} Como foi?"
+
+    Joseph "Eu... eu me sinto livre, sabe? Finalmente fui eu mesmo, sem medo."
+Eu me senti muito bem quando contei para eles quem eu realmente sou.
+E, adivinhe, todos me aceitaram!{a} Foi a melhor decisão da minha vida.
+
+    Taxista "Eu sabia que você conseguiria, Joseph."
+Isso é muito corajoso.{a} Você deve estar se sentindo bem agora.
+
+    Joseph "Com certeza! Eu não sabia o quanto estava me escondendo de mim mesmo até agora."
+E, olha, eu realmente agradeço por ter me escutado.
+Acho que foi o empurrãozinho que eu precisava.
+
+    Taxista "Isso é ótimo, Joseph.{a} Eu estou sem palavras."
+
+    Joseph "Obrigado! Eu me sinto muito mais feliz agora. E não tenho mais medo de ser quem eu sou."
+
+    HideDB()
+    PlaySFX(Car/car-arriving)
+    Wait(7)
+    ShowDB()
+
+    Taxista "Chegamos, Joseph!{a} Espero te ver de novo em breve!"
+
+    Joseph "Eu também espero, senhor taxista!{a} Obrigado pela viagem e por tudo."
+
+}
+
+if(!$Joseph_day6)
+{
+    Taxista "Oi, Joseph! Como você está hoje?"
+
+    Joseph "Ah, oi...{a} Estou bem, sei lá. Só...{a} não estou muito animado hoje."
+
+    Taxista "O que aconteceu?{a} Algo de errado?"
+
+    Joseph "Não é nada..."
+
+    Taxista "É melhor dar um espaço..."
+
+    HideDB()
+    PlaySFX(Car/car-arriving)
+    Wait(7)
+    ShowDB()
+
+    Taxista "Deu 20 reais!"
+
+    Joseph "Aqui está"
+
+    HideDB()
+    Wait(3)
+    PlaySFX(Car/car-door-close)
+    ShowDB()
+
+    Taxista "Espero que ele melhore..."
+}
+
+HideUI()
+Load(day7/day7_thiago)
