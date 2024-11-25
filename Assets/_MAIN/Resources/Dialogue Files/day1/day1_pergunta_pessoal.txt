@@ -95,5 +95,6 @@ Luana as ??? "Oi, bom dia!{a} Pode me levar para a Avenida Paulista, por favor?"
 Taxista "Claro."
 
 PlaySFX(Car/car-starting-sound)
+Wait(4)
 
 load(day1/day1_luana)

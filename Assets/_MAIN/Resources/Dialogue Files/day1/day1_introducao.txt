@@ -19,5 +19,5 @@ Enquanto aguarda, seu telefone toca...{a}
 PlaySFX(Telephone/telephone-vibrating)
 
 É sua mãe, com uma voz carregada de frustração e ansiedade.
-
+HideUI()
 Load(day1/day1_mae)

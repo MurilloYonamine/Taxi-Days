@@ -1,33 +1,36 @@
+ShowUI()
+
 PlayAmbience(city-ambience -loop true -vol 0,2)
 
-StopSFX(Telephone/telephone-vibrating)
+StopSFX(Telephone-vibrating)
 
-Taxista "Mãe? Bom dia!"
+Taxista "Mãe?{a} Bom dia!"
 
-Mãe "Bom dia? Você já conseguiu o emprego que tanto falava?"
-
+Mãe "Bom dia?{a} Você já conseguiu o emprego que tanto falava?"
 Você sabe que nossa situação não é boa.
-
 E mesmo assim insistiu em fazer essa tal faculdade de Ciência da Computação.
-
 Eu não sei quem te convenceu de que essa 'ciência' daria dinheiro. 
 Eu não acredito que desperdicei tanto com seus estudos para você acabar assim.
 Sem trazer uma vida melhor para mim e para você...
 
+HideDB()
 Wait(2)
+ShowDB()
 
 Taxista "Mãe...{a} Eu consegui um emprego!"
 
-Mãe "Oh, sério?! Finalmente você vai trazer um pouco de alegria para essa casa!"
+Mãe "Oh, sério?!{a} Finalmente você vai trazer um pouco de alegria para essa casa!"
 Estou tão contente que você vai deixar de ser um quase vagabundo. 
 Mas e aí?{a} Quanto você vai ganhar? 
 Você disse que esse curso te garantiria um bom salário.
 
 Taxista "Na verdade..."
 
+HideDB()
 Wait(2)
+ShowDB()
 
-Eu não tenho um salário fixo e.
+Taxista "Eu não tenho um salário fixo e."
 Não estou trabalhando com o que eu realmente quero. 
 Estou empregado como taxista.
 
@@ -47,8 +50,9 @@ Taxista "Espero que hoje realmente seja um bom dia..."
 
 Wait(1)
 
-HideUI(-s 0,5), HideDB(-s 0,5)
+HideUI()
 
 PlaySFX(car/car-starting-sound)
+Wait(4)
 
 Load(day1/day1_nicole)

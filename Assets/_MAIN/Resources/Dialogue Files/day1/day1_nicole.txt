@@ -1,21 +1,17 @@
-PlaySong(driving -volume 0,1)
+ShowUI()
 
 HideDB()
 Wait(5)
-
-StopSFX(car/car-starting-sound)
 
 PlaySFX(Car/car-arriving)
 
 Wait(4)
 
-ShowDB(-s 0,5)
+ShowDB()
 
 Taxista thought "Enquanto dirijo pelas ruas movimentadas de São Paulo."
 Vejo as pessoas indo e vindo, cada uma com seu próprio destino.
 O rádio toca baixinho, mas meus pensamentos estão longe, perdidos...
-
-ShowUI(-s 0,5)
 
 Taxista "Hmmm?{a} Uma mulher está se aproximando do meu carro.{a} Ela parece estar cansada."
 
@@ -31,12 +27,12 @@ Taxista thought "Vou apenas acenar com a cabeça..."
 
 Taxista thought "Hora de começar o dia."
 
+HideDB()
+HideUI()
 PlaySFX(car/car-starting-sound)
-
-HideAll()
 Wait(3)
-
 ShowUI()
+
 Wait(1)
 ShowDB()
 
@@ -45,7 +41,7 @@ A mente dela deve estar afogada em pensamentos e preocupações.
 
 PlaySFX(Telephone/telephone-vibrating)
 Wait(2)
-StopSFX(Telephone/telephone-vibrating)
+StopSFX(telephone-vibrating)
 
 Nicole as ??? "Olá, o que há de novo?"
 
@@ -60,7 +56,7 @@ Generic as Secretaria "Senhora Nicole... descul... F... o possível p... sol..."
 
 Nicole "Deem{a} um{a} jeito."
 
-PlaySFX(Telephone/telephone-turningOff)
+PlaySFX(Telephone/telephone-hangUp)
 Wait(1)
 PlaySFX(nicole-suspiro)
 Wait(2)
@@ -129,12 +125,17 @@ Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava de v
 Taxista thought "Olho pelo retrovisor, ainda preso nesses pensamentos, quando vejo outra passageira se aproximando."
 Uma jovem com um sorriso animado... parece tão diferente.
 
-PlaySFX(porta_abrindo)
+HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
 
 Luana as ??? "Oi, bom dia! Pode me levar para a Avenida Paulista, por favor?"
 
 Taxista "Claro."
 
+HideUI()
 PlaySFX(car/car-starting-sound)
+Wait(5)
 
 load(day1/day1_luana)
