@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace COMMANDS
 {
@@ -34,6 +35,8 @@ namespace COMMANDS
             database.AddCommand("print", new Action<string[]>(PrintMessage));
 
             database.AddCommand("thought", new Action<string[]>(ThoughtDialogue));
+
+            database.AddCommand("loadscene", new Func<string[], IEnumerator>(LoadScene));
         }
         private static void PrintMessage(string message)
         {
@@ -173,6 +176,20 @@ namespace COMMANDS
             parameters.TryGetValue(PARAM_THOUGHT, out isThought, defaultValue: false);
 
             DialogueSystem.instance.dialogueContainer.DialogueContainerItalic(isThought);
+        }
+
+        private static IEnumerator LoadScene(string[] data)
+        {
+            if (data.Length > 0)
+            {
+                string sceneName = data[0];
+                AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+                while (!asyncLoad.isDone)
+                {
+                    yield return null;
+                }
+            }
         }
     }
 }

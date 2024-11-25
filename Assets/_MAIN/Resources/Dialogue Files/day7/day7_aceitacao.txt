@@ -67,3 +67,5 @@ Mãe "Eu só...{a} quero que você seja feliz."
 Eu só...{a} quero que você esteja bem.
 
 Taxista "Obrigado Mãe."
+
+LoadScene(Creditos)

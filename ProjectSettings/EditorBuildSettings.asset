@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_MAIN/Scenes/VisualNovel.unity
     guid: f778c96694d849e4b8022e33337a92e0
+  - enabled: 1
+    path: Assets/_MAIN/Scenes/Creditos.unity
+    guid: 86bf471c1e17f1edc98121e7feeaeb0a
   m_configObjects: {}

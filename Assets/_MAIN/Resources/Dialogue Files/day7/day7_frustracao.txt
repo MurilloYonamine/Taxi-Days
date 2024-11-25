@@ -26,3 +26,4 @@ Eu só quero parar de me frustrar, mas tudo parece tão sem propósito.
 Taxista thought "Eu não sei mais o que fazer da minha vida."
 Não sei se algum dia encontrarei um caminho que me faça sentir que vale a pena.
 
+LoadScene(Creditos)

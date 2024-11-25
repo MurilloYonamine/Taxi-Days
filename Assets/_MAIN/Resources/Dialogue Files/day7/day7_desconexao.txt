@@ -19,3 +19,5 @@ Eu só sigo em frente, esperando que algo mude, mas no fundo sei que não vai mu
 
 Taxista thought "Talvez isso seja tudo o que eu sou agora. Um motorista."
 Mas e o resto de mim?{a} Onde está?{a} Eu ainda sei quem sou,{a} ou isso se perdeu no caminho?
+
+LoadScene(Creditos)
