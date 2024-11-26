@@ -143,7 +143,7 @@ Tenho que buscar novos passageiros.
     Wait(4)
     ShowUI()
 }
-
+Taxista.Hide()
 if($Taxista.Count == 4)
 {
     HideBG()

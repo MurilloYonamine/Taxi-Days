@@ -1,5 +1,70 @@
 CreateCharacter(Luana)
 
+
+if($Luana.day5)
+{
+    HideUI()
+    Luana.SetSprite(-s Luana_2)
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    Luana.Show()
+    ShowUI()
+
+    Luana.Show()
+
+    Taxista thought "Quem é essa pessoa?{a} Algo nela parece familiar,{a} mas não consigo lembrar de onde a vi."
+
+    Taxista "Oi, para onde vamos senhorita?"
+
+    Luana "Oi, é... eu não sei como você não me reconheceu, mas sou a Luana."
+
+    Taxista "O que?!{a} Luana?"
+
+    Luana "Eu sei que estou um pouco diferente. Eu...{a} tenho vitiligo."
+Mas sabe, estou mais em paz comigo mesma agora.
+Não me escondo mais.{a} E queria agradecer...{a} de verdade, por tudo.
+
+    Taxista "Vitiligo? Eu... não sabia... Você está bem?"
+
+
+    Luana "Sim, eu estou.{a} Na verdade, estou muito melhor."
+Tem sido um processo,{a} mas estou aprendendo a aceitar quem sou.
+E tudo isso...{a} teve muito a ver com as conversas que tivemos.
+Mesmo que você não tenha percebido,{a} você me ajudou.
+
+    Luana "Eu estava perdida, com medo, mas você sempre foi gentil, sempre me escutou."
+Isso fez toda a diferença.
+Eu sei que talvez tenha sido um pouco...{a} chata, ou... incômoda.
+Mas foi só porque eu não sabia como lidar com tudo.
+
+    Taxista thought "Eu nunca imaginei que teria esse impacto.
+Luana parecia tão...{a} perdida."
+Mas agora, ela parece...{a} livre. Melhor.
+
+    HideUI()
+    PlaySFX(Car/car-arriving)
+    Wait(7)
+    ShowUI()
+
+    Taxista "Luana...{a} você não precisa se desculpar por nada."
+Eu fico feliz que você tenha encontrado o seu caminho.
+
+    Luana "Eu sei. E, de verdade, eu sou grata.
+Agora, tudo está mais claro.
+Eu preciso ir, mas, antes, quero agradecer mais uma vez.
+Você não sabe o quanto foi importante."
+
+    Taxista "Até mais Luana."
+
+    HideDB()
+    Luana.Hide()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
+
+    Taxista "Ela mudou... Mudou tanto."
+}
+
 if(!$Luana.day2)
 {
     HideDB()
@@ -99,69 +164,6 @@ Eu só preciso ser mais eficiente com o meu tempo.
     Taxista thought "Ela realmente não percebe como me sobrecarrega."
 }
 
-if($Luana.day5)
-{
-    HideUI()
-    Luana.SetSprite(Images/Luana_2)
-    Luana.Show()
-    PlaySFX(Car/car-door-opening-and-closing)
-    Wait(4)
-    ShowUI()
-
-    Luana.Show()
-
-    Taxista thought "Quem é essa pessoa?{a} Algo nela parece familiar,{a} mas não consigo lembrar de onde a vi."
-
-    Taxista "Oi, para onde vamos senhorita?"
-
-    Luana "Oi, é... eu não sei como você não me reconheceu, mas sou a Luana."
-
-    Taxista "O que?!{a} Luana?"
-
-    Luana "Eu sei que estou um pouco diferente. Eu...{a} tenho vitiligo."
-Mas sabe, estou mais em paz comigo mesma agora.
-Não me escondo mais.{a} E queria agradecer...{a} de verdade, por tudo.
-
-    Taxista "Vitiligo? Eu... não sabia... Você está bem?"
-
-
-    Luana "Sim, eu estou.{a} Na verdade, estou muito melhor."
-Tem sido um processo,{a} mas estou aprendendo a aceitar quem sou.
-E tudo isso...{a} teve muito a ver com as conversas que tivemos.
-Mesmo que você não tenha percebido,{a} você me ajudou.
-
-    Luana "Eu estava perdida, com medo, mas você sempre foi gentil, sempre me escutou."
-Isso fez toda a diferença.
-Eu sei que talvez tenha sido um pouco...{a} chata, ou... incômoda.
-Mas foi só porque eu não sabia como lidar com tudo.
-
-    Taxista thought "Eu nunca imaginei que teria esse impacto.
-Luana parecia tão...{a} perdida."
-Mas agora, ela parece...{a} livre. Melhor.
-
-    HideDB()
-    PlaySFX(Car/car-arriving)
-    Wait(7)
-    ShowUI()
-
-    Taxista "Luana...{a} você não precisa se desculpar por nada."
-Eu fico feliz que você tenha encontrado o seu caminho.
-
-    Luana "Eu sei. E, de verdade, eu sou grata.
-Agora, tudo está mais claro.
-Eu preciso ir, mas, antes, quero agradecer mais uma vez.
-Você não sabe o quanto foi importante."
-
-    Taxista "Até mais Luana."
-
-    HideDB()
-    Luana.Hide()
-    PlaySFX(Car/car-door-opening-and-closing)
-    Wait(4)
-    ShowDB()
-
-    Taxista "Ela mudou... Mudou tanto."
-}
 HideUI()
 Wait(3)
 Load(day7/day7_nicole)

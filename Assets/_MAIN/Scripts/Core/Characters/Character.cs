@@ -58,8 +58,8 @@ namespace CHARACTERS
             if (prefab != null)
             {
                 Transform parentPanel = (config.characterType == CharacterType.Live2D ? characterManager.characterPanelLive2D : characterManager.characterPanel);
-                
-                GameObject  ob = Object.Instantiate(prefab, parentPanel);
+
+                GameObject ob = Object.Instantiate(prefab, parentPanel);
                 ob.name = characterManager.FormatCharacterPath(characterManager.characterPrefabNameFormat, name);
                 ob.SetActive(true);
                 root = ob.GetComponent<RectTransform>();

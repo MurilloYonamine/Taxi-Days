@@ -20,8 +20,7 @@ namespace History
             state.characters = CharacterData.Capture();
             state.audio = AudioTrackData.Capture();
             state.sfx = AudioSFXData.Capture();
-            state.graphics = GraphicData.Capture();
-
+            state.graphics = GraphicData.Capture(); 
             return state;
         }
 
@@ -33,5 +32,6 @@ namespace History
             AudioSFXData.Apply(sfx);
             GraphicData.Apply(graphics);
         }
+
     }
 }

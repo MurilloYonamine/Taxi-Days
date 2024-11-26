@@ -153,4 +153,5 @@ Isso não é empatia, é só você tentando fazer o seu ponto parecer válido!
         HideUI()
         Wait(3)
 }
+Taxista.Hide()
 Load(day5/day5_reflexao)

@@ -31,11 +31,17 @@ public class BackgroundManager : MonoBehaviour
 
     private IEnumerator FadeCanvasGroups(List<CanvasGroup> groups, float targetAlpha, float duration)
     {
+        if (groups == null || groups.Count == 0)
+        {
+            yield break;
+        }
+
+        float initialAlpha = groups[0].alpha;
         float elapsed = 0f;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(groups[0].alpha, targetAlpha, elapsed / duration);
+            float alpha = Mathf.Lerp(initialAlpha, targetAlpha, elapsed / duration);
 
             foreach (var group in groups)
             {
@@ -53,4 +59,16 @@ public class BackgroundManager : MonoBehaviour
             group.blocksRaycasts = targetAlpha > 0.5f;
         }
     }
+    public List<CanvasGroup> GetCanvasGroups()
+    {
+        return canvasGroups;
+    }
+
+    public void SetAlpha(CanvasGroup canvasGroup, float alpha)
+    {
+        canvasGroup.alpha = alpha;
+        canvasGroup.interactable = alpha > 0.5f;
+        canvasGroup.blocksRaycasts = alpha > 0.5f;
+    }
+
 }

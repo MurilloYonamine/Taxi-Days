@@ -4,9 +4,7 @@ narrator "Em São Paulo, onde os sons parecem ter se perdido no vento, um jovem 
 
 Formado em Ciência da Computação, ele se vê agora conduzindo um táxi, uma profissão que não reflete suas aspirações nem suas conquistas acadêmicas.
 
-O dia amanhece nublado, e a cidade parece compartilhar sua sensação de estagnação e desencanto.
-
-Ele acorda cedo, prepara-se e se dirige ao ponto de táxi. A cidade ao seu redor parece um espelho de seu próprio estado de espírito.
+A cidade ao seu redor parece um espelho de seu próprio estado de espírito.
 
 Cinza e {a}sem vida.
 

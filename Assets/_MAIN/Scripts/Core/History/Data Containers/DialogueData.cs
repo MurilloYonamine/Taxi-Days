@@ -57,6 +57,15 @@ namespace History
             else
                 ds.dialogueContainer.nameContainer.Hide();
 
+            if (nameText.text != "Narrator")
+            {
+                ds.dialogueContainer.DialogueContainerCharacterPosition(nameText.text);
+            }
+            else
+            {
+                ds.dialogueContainer.NarratorDialogueContainer();
+            }
+            
             nameText.color = data.speakerNameColor;
             nameText.fontSize = data.speakerScale;
 

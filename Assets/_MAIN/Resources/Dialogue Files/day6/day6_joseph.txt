@@ -176,5 +176,6 @@ ShowDB()
 Taxista "Espero ter ajudado o Joseph."
 
 HideUI()
+Taxista.Hide()
 Wait(3)
 Load(day6/day6_reflexao)

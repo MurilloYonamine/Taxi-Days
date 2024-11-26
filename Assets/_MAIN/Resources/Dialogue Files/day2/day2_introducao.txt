@@ -1,5 +1,7 @@
 ShowBG()
 
+Taxista.Show()
+
 Taxista thought "Ontem foi um dia cheio.{a} Tive passageiros que trouxeram um pedaço de sua vida para o táxi."
 Será que terei a oportunidade de encontrar essas pessoas novamente?
 Veremos quais histórias cruzaram meu caminho hoje.
