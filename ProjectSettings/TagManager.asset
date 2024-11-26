@@ -38,8 +38,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Background
+    uniqueID: 598175217
     locked: 0
   - name: Interior
     uniqueID: 1578225365
@@ -64,4 +64,13 @@ TagManager:
     locked: 0
   - name: Capo e Teto
     uniqueID: 151632519
+    locked: 0
+  - name: Dialogue
+    uniqueID: 1578696911
+    locked: 0
+  - name: Interactions
+    uniqueID: 3400667495
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

@@ -5,7 +5,7 @@ PlayAmbience(city-ambience -loop true -vol 0,2)
 StopSFX(Telephone-vibrating)
 
 CreateCharacter(Taxista)
-
+Taxista.Show()
 
 Taxista "Mãe?{a} Bom dia!"
 

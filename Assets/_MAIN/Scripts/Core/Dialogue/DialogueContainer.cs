@@ -44,7 +44,7 @@ namespace DIALOGUE
                 return;
             }
 
-            Vector3 containerPosition = characterGameObject.transform.position - new Vector3(0, 1, 0);
+            Vector3 containerPosition = characterGameObject.transform.position + new Vector3(150, -150, 0);
             dialogueRect.anchoredPosition = containerPosition;
         }
         public void Clear()
@@ -56,13 +56,13 @@ namespace DIALOGUE
         {
             if (isThought)
             {
-                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.27f);
+                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.57f);
                 dialogueText.fontStyle = FontStyles.Italic;
                 nameContainer.nameText.fontStyle = FontStyles.Italic;
             }
             else
             {
-                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.67f);
+                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.87f);
                 dialogueText.fontStyle = FontStyles.Normal;
                 nameContainer.nameText.fontStyle = FontStyles.Normal;
             }
