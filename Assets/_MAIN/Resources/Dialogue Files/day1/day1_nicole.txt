@@ -1,17 +1,16 @@
+HideDB()
 ShowUI()
 
-HideDB()
-Wait(5)
-
 PlaySFX(Car/car-arriving)
-
-Wait(4)
+Wait(7)
 
 ShowDB()
 
+PlaySong(Driving -v 0,1)
+
 Taxista thought "Enquanto dirijo pelas ruas movimentadas de São Paulo."
-Vejo as pessoas indo e vindo, cada uma com seu próprio destino.
-O rádio toca baixinho, mas meus pensamentos estão longe, perdidos...
+Vejo as pessoas indo e vindo,{a} cada uma com seu próprio destino.
+Meus pensamentos estão longe,{a} perdidos...
 
 Taxista "Hmmm?{a} Uma mulher está se aproximando do meu carro.{a} Ela parece estar cansada."
 
@@ -45,14 +44,14 @@ StopSFX(telephone-vibrating)
 
 Nicole as ??? "Olá, o que há de novo?"
 
-Generic as Secretaria "Senhora Nicole, lamen... infor... mas a en...tre... da nova... para baleias... adia..."
+Generic as Secretaria "Senhora Nicole,{a} lamen... infor...{a} mas a en...tre... da nova... para baleias... adia..."
 
 Taxista thought "Nossa não consegui entender nada.{a} O nome dela é Nicole?{a} Como assim 'baleias'?"
 
-Nicole "Entendo. Mas precisamos encontrar uma solução."
+Nicole "Entendo.{a} Mas precisamos encontrar uma solução."
 Elas precisam disso urgentemente.{a} Há algo que você possa fazer para resolver isso?
 
-Generic as Secretaria "Senhora Nicole... descul... F... o possível p... sol..."
+Generic as Secretaria "Senhora Nicole...{a} descul...{a} F... o possível p... sol..."
 
 Nicole "Deem{a} um{a} jeito."
 
@@ -65,15 +64,15 @@ Nicole "Todo dia parece ter uma notícia ruim no meu trabalho..."
 
 Choice "<i>O que eu devo fazer?<i>"
 {
-    - Dizer Alguma Coisa
+    - Falar sobre a conversa anterior
         $Nicole.count += 1
         $Nicole.day1 = true
 
         Taxista "Está tudo bem, senhora?{a} Nicole, não é?{a} Ouvi pela ligação."
 Desculpe por invadir sua conversa.{a} Parece que o seu dia começou com alguns desafios.
 
-        Nicole "Isso mesmo, meu nome é Nicole, acho que você conseguiu ouvir a ligação."
-Bom, é verdade. Todo dia parece um desafio diferente no meu trabalho.
+        Nicole "Isso mesmo,{a} meu nome é Nicole,{a} acho que você conseguiu ouvir a ligação."
+Bom,{a} é verdade.{a} Todo dia parece um desafio diferente no meu trabalho.
 Muitas pessoas parecem não ter a mesma paixão que você tem, entende?{a} É um pouco desanimador...
 
         Taxista "Parece difícil encontrar quem realmente se dedique ao trabalho.{a} O verdadeiro esforço é algo raro."
@@ -82,7 +81,7 @@ Muitas pessoas parecem não ter a mesma paixão que você tem, entende?{a} É um
 É bom ouvir isso de alguém fora do meu ambiente de trabalho.
 O compromisso com o que fazemos realmente faz uma grande diferença. 
 Especialmente em áreas críticas como a proteção da vida marinha, onde cada detalhe conta.
-Às vezes, sinto que estou lutando contra um mar de indiferença.
+Às vezes,{a} sinto que estou lutando contra um mar de indiferença.
 
         Taxista "Aliás...{a} Trabalha com vida marítima, senhora Nicole?{a} Bastante interessante."
 Você deve carregar uma responsabilidade gigantesca nos ombros.
@@ -93,44 +92,57 @@ Obrigada por isso.
 
         load(Day1/day1_pergunta_pessoal)
 
-    - Tentar Aconselhar
+    - Tentar aconselhar
         $Nicole.day1 = false
 
         Taxista "É realmente difícil quando as coisas não saem como planejado."
-Especialmente quando o que está em jogo é importante. Espero que consigam resolver isso logo.
+Especialmente quando o que está em jogo é importante.{a} Espero que consigam resolver isso logo.
         
-        Nicole "Sim, eu também espero. Às vezes, parece que estamos lutando contra um mar de obstáculos."
-A dedicação é essencial, mas a logística muitas vezes pode ser um desafio.
+        Nicole "Sim,{a} eu também espero.{a} Às vezes, parece que estamos lutando contra um mar de obstáculos."
+A dedicação é essencial,{a} mas a logística muitas vezes pode ser um desafio.
 
-    - Fazer Pouco Caso
+    - Tentar puxar assunto
         $Nicole.day1 = false
 
         Taxista "Dia ruim senhora?{a} Complicado isso, não é?"
 
-        Nicole "Sim... É difícil, mas é o que resta."
+        Nicole "Sim...{a} É difícil, mas é o que resta."
 
-        Taxista thought "Ela ainda parece frustrada...{a} É difícil ajudar pessoas..."
+        Taxista thought "Ela ainda parece frustrada...{a} É difícil falar com as pessoas..."
 
         HideAll()
         Wait(3)
         ShowAll()
 }
 
+HideDB()
+Wait(3)
+ShowDB()
+
 Taxista thought "Enquanto sigo para a OVIMA,{a} me pego pensando nas batalhas diárias que as pessoas enfrentam..."
 Parece que todo mundo carrega um fardo.
+Assim como eu.
 
-Taxista thought "Assim que Nicole desaparece pelas portas da OVIMA, fico por um momento recostado, pensando."
+Wait(1)
+HideUI()
+PlaySFX(Car/car-speedingUp)
+Wait(5)
+PlaySFX(Car/car-door-close)
+Wait(2)
+ShowUI()
+
+Taxista thought "Assim que Nicole desaparece pelas portas da OVIMA,{a} fico por um momento recostado,{a} pensando."
 Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava de verdade com o que faz.
 
-Taxista thought "Olho pelo retrovisor, ainda preso nesses pensamentos, quando vejo outra passageira se aproximando."
-Uma jovem com um sorriso animado... parece tão diferente.
+Taxista thought "Olho pelo retrovisor,{a} ainda preso nesses pensamentos,{a} quando vejo outra passageira se aproximando."
+Uma jovem com um sorriso animado...{a} parece tão diferente.
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()
 
-Luana as ??? "Oi, bom dia! Pode me levar para a Avenida Paulista, por favor?"
+Luana as ??? "Oi,{a} boa noite!{a} Pode me levar para a Avenida Paulista?"
 
 Taxista "Claro."
 

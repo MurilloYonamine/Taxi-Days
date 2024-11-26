@@ -4,7 +4,7 @@ Taxista "Bom, eu não sou exatamente um exemplo de sucesso."
 Mas já tive alguns trabalhos de meio período enquanto tentava encontrar algo na minha área de estudo. 
 Me diga, como você encontrou o seu trabalho?
 
-Nicole "Eu trabalho na OVIMA, uma organização dedicada à proteção e cuidado da vida marinha."
+Nicole "Eu trabalho na OVIMA,{a} uma organização dedicada à proteção e cuidado da vida marinha."
 Sou responsável por uma equipe que se dedica a monitorar e.
 Proteger diversas espécies marinhas, especialmente baleias.
 
@@ -66,8 +66,10 @@ Taxista "Aqui estamos.{a} Boa sorte com o seu trabalho e espero que tudo se reso
 Nicole "Obrigada.{a} E boa sorte para você também.{a} Até mais!"
 HideDB()
 Wait(1)
-PlaySFX(Car/car-door-close)
-Wait(1)
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+
+ShowDB()
 
 Taxista thought "Observo Nicole entrar na OVIMA e penso..."
 Pequenos gestos... 
@@ -75,15 +77,14 @@ Conversas simples...
 É engraçado como isso pode realmente mudar o dia de alguém.
 Talvez{a} até o meu.
 
+HideUI()
 PlaySFX(Car/car-starting-sound)
+Wait(4)
 
-HideDB()
-Wait(3)
-
-ShowDB()
+ShowUI()
 
 Taxista thought "Tem uma mulher se aproximando."
-Uma jovem com um sorriso animado... Parece tão diferente.
+Uma jovem com um sorriso animado...{a} Parece tão diferente.
 HideDB()
 
 PlaySFX(Car/car-door-opening-and-closing)
@@ -93,7 +94,8 @@ ShowDB()
 Luana as ??? "Oi, bom dia!{a} Pode me levar para a Avenida Paulista, por favor?"
 
 Taxista "Claro."
-
+Wait(1)
+HideUI()
 PlaySFX(Car/car-starting-sound)
 Wait(4)
 

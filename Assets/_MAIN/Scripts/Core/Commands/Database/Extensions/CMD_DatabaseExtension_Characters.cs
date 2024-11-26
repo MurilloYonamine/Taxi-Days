@@ -32,6 +32,10 @@ namespace COMMANDS
             database.AddCommand("highlight", new Func<string[], IEnumerator>(HighlightAll));
             database.AddCommand("unhighlight", new Func<string[], IEnumerator>(UnhighlightAll));
 
+            database.AddCommand("onecharacterposition", new Action<string[]>(OneCharacterPosition));
+            database.AddCommand("doublecharacterposition", new Action<string[]>(DoubleCharacterPosition));
+            database.AddCommand("maincharacterposition", new Action<string[]>(MainCharacterPosition));
+
             //Add commands to characters
             CommandDatabase baseCommands = CommandManager.instance.CreateSubDatabase(CommandManager.DATABASE_CHARACTERS_BASE);
             baseCommands.AddCommand("move", new Func<string[], IEnumerator>(MoveCharacter));
@@ -49,6 +53,51 @@ namespace COMMANDS
             //Add character specific databases
             CommandDatabase spriteCommands = CommandManager.instance.CreateSubDatabase(CommandManager.DATABASE_CHARACTERS_SPRITE);
             spriteCommands.AddCommand("setsprite", new Func<string[], IEnumerator>(SetSprite));
+        }
+
+        private static void OneCharacterPosition(string[] data)
+        {
+            string characterName = data[0];
+            Character character = CharacterManager.instance.GetCharacter(characterName);
+
+            if (character == null)
+                return;
+
+            Vector2 position = new Vector2(0.5f, 0.5f); // Meio da tela
+            character.SetPosition(position);
+        }
+
+        private static void DoubleCharacterPosition(string[] data)
+        {
+            if (data.Length < 2)
+                return;
+
+            string characterName1 = data[0];
+            string characterName2 = data[1];
+
+            Character character1 = CharacterManager.instance.GetCharacter(characterName1);
+            Character character2 = CharacterManager.instance.GetCharacter(characterName2);
+
+            if (character1 == null || character2 == null)
+                return;
+
+            Vector2 position1 = new Vector2(0.25f, 0.5f); // Lado esquerdo do meio
+            Vector2 position2 = new Vector2(0.75f, 0.5f); // Lado direito do meio
+
+            character1.SetPosition(position1);
+            character2.SetPosition(position2);
+        }
+
+        private static void MainCharacterPosition(string[] data)
+        {
+            string characterName = data[0];
+            Character character = CharacterManager.instance.GetCharacter(characterName);
+
+            if (character == null)
+                return;
+
+            Vector2 position = new Vector2(0.9f, 0.5f); // Posição na direita da tela
+            character.SetPosition(position);
         }
 
         #region Global Commands
@@ -72,7 +121,7 @@ namespace COMMANDS
                 character.isVisible = true;
             else
                 character.Show();
-                
+
         }
 
         private static void Sort(string[] data)
@@ -163,7 +212,7 @@ namespace COMMANDS
             {
                 CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
                 {
-                    foreach(Character character in characters)
+                    foreach (Character character in characters)
                         character.isVisible = true;
                 });
 
@@ -396,7 +445,7 @@ namespace COMMANDS
                 CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.FaceRight(immediate: true); });
                 yield return character.FaceRight(speed, immediate);
             }
-                
+
         }
 
         private static void Animate(string[] data)
@@ -647,7 +696,7 @@ namespace COMMANDS
                         if (!int.TryParse(v[0], out pairLayer))
                             pairLayer = layerCounter++;
                     }
-                    
+
                     assignments.Add((pairSprite, pairLayer));
                 }
             }
@@ -659,7 +708,7 @@ namespace COMMANDS
             //We need to add a termination command that can run on every single expression layer reference
             CommandManager.instance.AddTerminationActionToCurrentProcess(
                 () =>
-                { 
+                {
                     if (character != null)
                     {
                         foreach (var pair in assignments)

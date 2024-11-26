@@ -114,7 +114,7 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 0}
+    voice: {fileID: 8300000, guid: b485a117e786b6cfda3207b085ea82d2, type: 3}
     sprites:
       _serializedList:
       - Key: Guard
@@ -158,7 +158,7 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 8300000, guid: dfcebec261a7f1c0e92009f4c9e82e92, type: 3}
+    voice: {fileID: 8300000, guid: bbc27e86c94e53838b71d9d893b0fb81, type: 3}
     sprites:
       _serializedList: []
   - name: Nicole
@@ -170,7 +170,7 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 8300000, guid: 5b367446a23452ccc88ebe7b3732d8ce, type: 3}
+    voice: {fileID: 8300000, guid: 691e5591e9b99987f8ec7db9335f054f, type: 3}
     sprites:
       _serializedList: []
   - name: Luana
@@ -182,7 +182,7 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 0}
+    voice: {fileID: 8300000, guid: 5d0a814e6f46a8235bf50516640fa683, type: 3}
     sprites:
       _serializedList: []
   - name: Thiago
@@ -194,7 +194,7 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 8300000, guid: 2ba1cb756e46fe429bcc623973bc8e02, type: 3}
+    voice: {fileID: 8300000, guid: e21e95d1c77a9bd9b81b598184af56ab, type: 3}
     sprites:
       _serializedList: []
   - name: Joseph
@@ -206,7 +206,7 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 8300000, guid: 2eeb752961a9708b59617b8c95d91349, type: 3}
+    voice: {fileID: 8300000, guid: e73efb24cd5ce46fcaccac3db424040a, type: 3}
     sprites:
       _serializedList: []
   - name: "M\xE3e"
@@ -218,6 +218,6 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
     nameFontScale: 1
     dialogueFontScale: 1
-    voice: {fileID: 8300000, guid: ba0699c4ad19c47b9ad6104fd7e0a87d, type: 3}
+    voice: {fileID: 8300000, guid: b485a117e786b6cfda3207b085ea82d2, type: 3}
     sprites:
       _serializedList: []

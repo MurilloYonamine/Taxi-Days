@@ -4,6 +4,9 @@ PlayAmbience(city-ambience -loop true -vol 0,2)
 
 StopSFX(Telephone-vibrating)
 
+CreateCharacter(Taxista)
+
+
 Taxista "Mãe?{a} Bom dia!"
 
 Mãe "Bom dia?{a} Você já conseguiu o emprego que tanto falava?"
@@ -26,9 +29,7 @@ Você disse que esse curso te garantiria um bom salário.
 
 Taxista "Na verdade..."
 
-HideDB()
 Wait(2)
-ShowDB()
 
 Taxista "Eu não tenho um salário fixo e."
 Não estou trabalhando com o que eu realmente quero. 

@@ -14,9 +14,9 @@ O sol ainda está baixo no horizonte, e as ruas estão desertas, aumentando a se
 
 A primeira chamada do dia chega, e ele dirige até o local de embarque.
 
-Enquanto aguarda, seu telefone toca...{a} 
+Enquanto aguarda, seu telefone toca...
 
-PlaySFX(Telephone/telephone-vibrating)
+PlaySFX(Telephone/telephone-vibrating -v 0,5 -l true)
 
 É sua mãe, com uma voz carregada de frustração e ansiedade.
 HideUI()
