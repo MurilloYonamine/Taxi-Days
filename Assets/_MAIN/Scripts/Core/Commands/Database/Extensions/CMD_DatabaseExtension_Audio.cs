@@ -28,6 +28,7 @@ namespace COMMANDS
 
             database.AddCommand("stopsong", new Action<string>(StopSong));
             database.AddCommand("stopambience", new Action<string>(StopAmbience));
+            
         }
 
         private static void PlaySFX(string[] data)

@@ -1,4 +1,5 @@
 using DIALOGUE;
+using History;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -81,6 +82,7 @@ namespace COMMANDS
                 DialogueSystem.instance.conversationManager.Enqueue(newConversation);
             else
                 DialogueSystem.instance.conversationManager.StartConversation(newConversation);
+                
         }
 
         private static IEnumerator Wait(string data)

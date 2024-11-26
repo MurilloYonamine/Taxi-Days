@@ -76,7 +76,7 @@ Choice "Devo manter o silêncio ou tentar dizer alguma coisa?"
 Cada um tem suas próprios problemas.
 
         Taxista thought "Luana parece um pouco mais tranquila agora.{a} Ela observa a cidade passar pela janela." 
-As luzes e os sons de São Paulo a envolvem,{a} e consigo ver que ela se perde em seus próprios pensamentos.<
+As luzes e os sons de São Paulo a envolvem,{a} e consigo ver que ela se perde em seus próprios pensamentos.
 Espero que o dia dela seja tão perfeito quanto ela deseja.
 
         Taxista thought "O trânsito pode ser caótico, mas é bom ver que,{a} pelo menos,{a} ela parece mais relaxada agora."
@@ -84,12 +84,10 @@ Espero que o dia dela seja tão perfeito quanto ela deseja.
         Wait(5)
         ShowDB()
 
-        Taxista thought "Após alguns minutos, finalmente chegamos ao destino.{a}Luana nota que estamos lá."
+        Taxista thought "Após alguns minutos, finalmente chegamos ao destino.{a} Luana nota que estamos lá."
 Para minha surpresa,{a} um sorriso de satisfação aparece em seu rosto.
 
-        Luana "Finalmente cheguei! Obrigada pela viagem tranquila senhor taxista!"
-
-        Luana.Hide()
+        Luana "Finalmente cheguei,{a} Obrigada pela viagem tranquila senhor taxista!"
 
         HideDB()
         PlaySFX(Car/car-door-opening-and-closing)

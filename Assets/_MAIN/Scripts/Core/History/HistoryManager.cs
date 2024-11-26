@@ -48,7 +48,7 @@ namespace History
             state.Load();
         }
 
-        public void GoForward() => navigation.GoForward();
-        public void GoBack() => navigation.GoBack();
+        //public void GoForward() => navigation.GoForward();
+        //public void GoBack() => navigation.GoBack();
     }
 }

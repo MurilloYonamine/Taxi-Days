@@ -15,12 +15,13 @@ ShowDB()
 
 PlaySFX(Luana/luana-chorando -l true -v 0,1)
 
-Luana "Boa noite. Você pode me levar para Rua dos Jasmins, por favor?"
+Luana "Boa noite.{a} Você pode me levar para Rua dos Jasmins, por favor?"
 
-Taxista thought "Ela se senta no banco de trás, enxugando as lágrimas com um lenço."
-O ambiente no táxi está carregado de tristeza.
+Taxista "Ok."
 
-Taxista thought "Ela tenta se compor, mas as lágrimas continuam a escorregar."
+Taxista thought "Tem lágrimas saindo do olho dela.{a} O que será que aconteceu?"
+
+Taxista thought "Ela tenta se compor,{a} mas as lágrimas continuam a escorregar."
 O que pode ter acontecido com ela?
 
 Taxista thought "Ela parece estar tirando algo do bolso..."
@@ -31,39 +32,37 @@ Wait(6)
 Wait(13)
 ShowDB()
 
-Taxista thought "Meu Deus? Novamente viva voz?"
+Taxista thought "Meu Deus?{a} Novamente viva voz?"
 
-Namorado as Ex-Namorado "Luana, de novo?! Não tenho mais nada a dizer. A gente terminou, lembra?"
+Namorado as Ex-Namorado "Luana, de novo?!{a} Não tenho mais nada a dizer! A gente terminou,{a} lembra?"
 
 Luana "Eu não consigo pensar em uma vida sem você, por favor, não termine comigo..."
 
 Namorado as Ex-Namorado "Eu já te disse que não quero mais saber disso."
 Eu não te aguento mais, você é uma pessoa triste, que deixa as pessoas tristes sem pensar.
-A sua falta de confiança e segurança te torna insuportável de se ter por perto. 
-Para de me chamar, já não quero mais nada com você.
+A sua falta de confiança e segurança te torna insuportável de se ter por perto!
+Para de me chamar,{a} já não quero mais nada com você!
 
 PlaySFX(Telephone/telephone-hangUp)
 
 Taxista thought "O jeito que ele fala com ela é cruel..."
-
-Taxista thought "Ela está em choque. O que ela deve estar sentindo?"
 
 HideDB()
 PlaySFX(Telephone/telephone-dial-and-call -v 0,5)
 Wait(13)
 ShowDB()
 
-Amiga "Luana, de novo?!{a} É a quinta vez que você me liga para falar sobre o mesmo assunto."
-Eu tenho mais coisas para fazer do que ficar te ouvindo dizer a MESMA COISA.
+Amiga "Luana, de novo?!{a} É a quinta vez que você me liga para falar sobre o mesmo assunto!"
+Eu tenho mais coisas para fazer do que ficar te ouvindo dizer a MESMA COISA!
 Vai procurar outra pessoa para desabafar!
 
 PlaySFX(Telephone/telephone-hangUp)
 
 Luana "MAS EU NÃO TENHO MAIS NINGUÉM PARA FALAR SOBRE!"
 
-Taxista thought "Acho que ela realmente se sente sozinha. Isso me pegou de surpresa, quase perdi o controle do táxi."
+Taxista thought "Acho que ela realmente se sente sozinha. Isso me pegou de surpresa,{a} quase perdi o controle do táxi."
 
-Taxista thought "Ela está chorando ainda mais agora. Como posso ajudar?"
+Taxista thought "Ela está chorando ainda mais agora.{a} Como posso ajudar?"
 
 Choice "Será que devo dizer alguma coisa?"
 {
@@ -111,7 +110,7 @@ Não quero minimizar o que você está passando.
 
         Taxista thought "Parece que meu conselho só a deixou mais irritada. O silêncio volta a dominar o carro enquanto continuo dirigindo."
 
-        Taxista thought "Ela está tão abalada, olhando pela janela, as lágrimas secando lentamente."
+        Taxista thought "Ela está tão abalada,{a} olhando pela janela,{a} as lágrimas secando lentamente."
 
         Taxista thought "O táxi finalmente chega ao destino. Ela parece tão furiosa agora."
 

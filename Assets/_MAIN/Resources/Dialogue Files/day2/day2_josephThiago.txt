@@ -84,8 +84,8 @@ Taxista "É verdade.{a} A cidade parece estar sempre em obras ou com algum probl
 Thiago "Exatamente!{a} E o pior é que parece que ninguém faz nada para resolver."
 O pessoal só fica reclamando e nada muda.{a} Você já ouviu alguma promessa nova sobre melhorias no transporte?
 
-Taxista "Ah, sempre tem algo novo sendo anunciado. 
-As mudanças reais parecem demorar uma eternidade para acontecer."
+Taxista "Ah, sempre tem algo novo sendo anunciado."
+As mudanças reais parecem demorar uma eternidade para acontecer.
 É frustrante ver tanto esforço para nada mudar.
 
 Wait(1)
