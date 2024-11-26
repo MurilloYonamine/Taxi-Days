@@ -1,4 +1,5 @@
 ShowUI()
+ShowBG()
 
 PlaySFX(Telephone/telephone-dial-and-call)
 Wait(13)

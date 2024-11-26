@@ -105,8 +105,8 @@ E quem sabe, a partir daí, as coisas comecem a se ajeitar.
 
     Taxista "...Você acha mesmo?"
 
-    Thiago "Tenho certeza. E olha, se eu que sou professor e vivo no meio do caos consigo continuar.
-Você também consegue.{a} A vida é um processo, meu amigo.{a} Um passo de cada vez."
+    Thiago "Tenho certeza. E olha, se eu que sou professor e vivo no meio do caos consigo continuar."
+Você também consegue.{a} A vida é um processo, meu amigo.{a} Um passo de cada vez.
 
     HideUI()
     PlaySFX(Car/car-arriving)
@@ -122,6 +122,7 @@ Você também consegue.{a} A vida é um processo, meu amigo.{a} Um passo de cada
     Thiago "Tamo junto. Boa sorte. Você merece ser feliz também."
 
     HideDB()
+    Thiago.Hide()
     PlaySFX(Car/car-door-opening-and-closing)
     Wait(4)
     ShowDB()

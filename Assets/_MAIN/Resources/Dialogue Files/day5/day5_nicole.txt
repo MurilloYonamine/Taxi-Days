@@ -49,11 +49,11 @@ Taxista thought "Ela está muito mal, o que será que devo fazer?"
 Choice "O Que Fazer?"
 {
     - Recomendar um terapeuta
-        $Luana.day5 = true
+        $Nicole.day5 = true
 
-        Taxista "Olha Nicole...{a} já pensou em procurar um terapeuta?
+        Taxista "Olha Nicole...{a} já pensou em procurar um terapeuta?"
 Sei que parece difícil.
-Talvez conversar com alguém especializado possa te ajudar a lidar com tudo isso."
+Talvez conversar com alguém especializado possa te ajudar a lidar com tudo isso.
 
         Nicole "Talvez.{a} Não sei.{a} Pode ser."
 
@@ -72,13 +72,13 @@ Talvez conversar com alguém especializado possa te ajudar a lidar com tudo isso
 
         Taxista thought "Será que sugerir isso foi o certo?{a} Ela nem parecia ter se importado."
 
-        if($Luana.day5)
+        if($Luana.day2)
         {
                 Load(day5/day5_luanaNicole)
         }
 
     - Falar Que Está exagerando
-        $Luana.day5 = false
+        $Nicole.day5 = false
 
         Taxista "Olha, Nicole... Eu entendo que você está passando por um momento difícil."
 Talvez você esteja exagerando um pouco, não acha?{a} Todo mundo tem dias ruins.
@@ -115,7 +115,7 @@ O trabalho, meu filho...{a} tudo desmoronando e você diz que é só uma fase?
         Wait(4)
 
     - Se Colocar no Lugar
-        $Luana.day5 = false
+        $Nicole.day5 = false
 
         Taxista "Nicole, eu realmente entendo que você está passando por um momento difícil."
 Sabe, eu também tenho dias em que tudo parece dar errado.

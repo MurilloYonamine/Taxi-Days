@@ -1,3 +1,6 @@
+ShowUI()
+ShowBG()
+
 if($Luana.day3)
 {
     Taxista thought "Fiquei um bom tempo falando com a Luana."
@@ -143,7 +146,7 @@ Elas precisam de nós.
         ShowDB()
 
     - Não Dizer Nada e Esperar com que Nicole Diga Algo
-        $Nicole.day4 = true
+        $Nicole.day4 = false
 
         Nicole "..."
 

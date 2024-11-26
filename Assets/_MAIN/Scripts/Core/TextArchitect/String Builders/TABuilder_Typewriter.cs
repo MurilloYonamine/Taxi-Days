@@ -56,7 +56,7 @@ public class TABuilder_Typewriter : TABuilder
             {
                 if (sound != null)
                 {
-                    AudioManager.instance.PlayVoice(sound, 0.2f);
+                    AudioManager.instance.PlayVoice(sound, 0.1f);
                 }
 
                 wordIndex++; // Avança para a próxima palavra

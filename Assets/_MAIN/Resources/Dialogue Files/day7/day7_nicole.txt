@@ -63,6 +63,8 @@ Espero que encontre a paz que tanto busca.
     HideUI()
     PlaySFX(Car/car-starting-sound)
     Wait(4)
+
+    Load(day7/day7_joseph)
 }
 
 if(!$Nicole.day5)

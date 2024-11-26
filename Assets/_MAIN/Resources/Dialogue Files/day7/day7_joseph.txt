@@ -1,15 +1,15 @@
 ShowUI()
 
-Taxista "Aquele não é o Joseph?"
-
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
-CreateCharacter(Joseph), Joseph.Show()
+CreateCharacter(Joseph)
 Wait(4)
 ShowDB()
 
-if($joseph_day6)
+if($Joseph.day6)
 {
+    Taxista "Aquele não é o Joseph?"
+    Joseph.Show()
     $Taxista.Count += 1
     Joseph "Quanto tempo!"
 
@@ -49,10 +49,14 @@ Acho que foi o empurrãozinho que eu precisava.
     PlaySFX(Car/car-door-opening-and-closing)
     Wait(4)
     ShowDB()
+
+    Load(day7/day7_thiago)
 }
 
-if(!$Joseph_day6)
+if(!$Joseph.day6)
 {
+    Taxista "Aquele não é o Joseph?"
+    Joseph.Show()
     Taxista "Oi, Joseph! Como você está hoje?"
 
     Joseph "Ah, oi...{a} Estou bem, sei lá. Só...{a} não estou muito animado hoje."
@@ -70,7 +74,7 @@ if(!$Joseph_day6)
 
     Taxista "Deu 20 reais!"
 
-    Joseph "Aqui está"
+    Joseph "Aqui está!"
 
     HideDB()
     Wait(3)
@@ -79,7 +83,9 @@ if(!$Joseph_day6)
     ShowDB()
 
     Taxista "Espero que ele melhore..."
+
+    Load(day7/day7_thiago)
 }
+    Load(day7/day7_thiago)
 
 HideUI()
-Load(day7/day7_thiago)

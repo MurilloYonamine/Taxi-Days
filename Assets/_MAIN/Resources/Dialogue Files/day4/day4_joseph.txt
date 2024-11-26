@@ -33,6 +33,8 @@ E os vilões? Eles têm histórias tão ricas! É tudo tão... wow!
 
 Taxista thought "Ele está animado, vou tentar continuar esse assunto."
 
+$Joseph.Invencible = false
+
 Choice "O que falar?"
 {
     - Dizer Que Eu Não Entendo Muito Sobre

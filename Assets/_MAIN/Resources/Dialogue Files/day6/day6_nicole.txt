@@ -1,6 +1,7 @@
 HideDB()
 ShowUI()
-CreateCharacter(Luana)
+CreateCharacter(Nicole)
+CreateCharacter(Taxista), Taxista.Show()
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()
@@ -8,7 +9,6 @@ Nicole.Show()
 
 Taxista "Bom noite, para onde iremos?"
 Oh...{a} Nicole?
-
 
 Nicole "Senhor taxista! Quanto tempo!"
 
@@ -273,9 +273,9 @@ O que sobra pode parecer igual, mas não é.
 
         Nicole "Faz sentido. Você acha que isso é algo bom ou ruim?"
 
-        Taxista "Depende. Acho que depende do motivo das mudanças.
+        Taxista "Depende. Acho que depende do motivo das mudanças."
 Se a gente muda para algo melhor, pode ser uma evolução.
-Mas se as mudanças vêm por desgaste ou por cansaço...{a} Aí, não sei.{a} Talvez a gente se perca no caminho."
+Mas se as mudanças vêm por desgaste ou por cansaço...{a} Aí, não sei.{a} Talvez a gente se perca no caminho.
 
         Nicole "É uma visão muito humana.{a} Mas me conta, você já sentiu isso na pele?"
 

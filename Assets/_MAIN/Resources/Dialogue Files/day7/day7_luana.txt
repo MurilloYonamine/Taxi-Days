@@ -3,6 +3,7 @@ CreateCharacter(Luana)
 
 if($Luana.day5)
 {
+    $Taxista.Count += 1
     HideUI()
     Luana.SetSprite(-s Luana_2)
     PlaySFX(Car/car-door-opening-and-closing)
@@ -10,6 +11,7 @@ if($Luana.day5)
     Luana.Show()
     ShowUI()
 
+    OneCharacterPosition(Luana)
     Luana.Show()
 
     Taxista thought "Quem é essa pessoa?{a} Algo nela parece familiar,{a} mas não consigo lembrar de onde a vi."
@@ -26,7 +28,6 @@ Não me escondo mais.{a} E queria agradecer...{a} de verdade, por tudo.
 
     Taxista "Vitiligo? Eu... não sabia... Você está bem?"
 
-
     Luana "Sim, eu estou.{a} Na verdade, estou muito melhor."
 Tem sido um processo,{a} mas estou aprendendo a aceitar quem sou.
 E tudo isso...{a} teve muito a ver com as conversas que tivemos.
@@ -37,8 +38,8 @@ Isso fez toda a diferença.
 Eu sei que talvez tenha sido um pouco...{a} chata, ou... incômoda.
 Mas foi só porque eu não sabia como lidar com tudo.
 
-    Taxista thought "Eu nunca imaginei que teria esse impacto.
-Luana parecia tão...{a} perdida."
+    Taxista thought "Eu nunca imaginei que teria esse impacto."
+Luana parecia tão...{a} perdida.
 Mas agora, ela parece...{a} livre. Melhor.
 
     HideUI()
@@ -49,10 +50,10 @@ Mas agora, ela parece...{a} livre. Melhor.
     Taxista "Luana...{a} você não precisa se desculpar por nada."
 Eu fico feliz que você tenha encontrado o seu caminho.
 
-    Luana "Eu sei. E, de verdade, eu sou grata.
+    Luana "Eu sei. E, de verdade, eu sou grata."
 Agora, tudo está mais claro.
 Eu preciso ir, mas, antes, quero agradecer mais uma vez.
-Você não sabe o quanto foi importante."
+Você não sabe o quanto foi importante.
 
     Taxista "Até mais Luana."
 
@@ -63,47 +64,10 @@ Você não sabe o quanto foi importante."
     ShowDB()
 
     Taxista "Ela mudou... Mudou tanto."
-}
-
-if(!$Luana.day2)
-{
-    HideDB()
-    Luana.Show()
-    PlaySFX(Car/car-door-opening-and-closing)
-    Wait(4)
-    ShowDB()
-
-    Taxista thought "Quem é essa? Sinto ter visto ela alguma vez."
-
-    Taxista "Boa noite. A onde a senhora deseja ir?"
-
-    Luana as ??? "Para o Fórum na Paulista por favor."
-
-    Taxista "Tudo bem."
 
     HideUI()
-    PlaySFX(Car/car-starting-sound)
-    Wait(4)
-    PlaySFX(Car/car-arriving)
-    Wait(7)
-    ShowUI()
-
-    Taxista "Deu 24 reais senhora."
-
-    Luana as ??? "Aqui está."
-
-    HideDB()
-    Luana.Hide()
-    PlaySFX(Car/car-door-close)
-    Wait(2)
-    ShowDB()
-
-    Taxista thought "Sinto que já vi ela antes..."
-Deve ser uma qualquer que já foi minha passageira.
-
-    HideUI()
-    PlaySFX(Car/car-starting-sound)
-    Wait(4)
+    Wait(3)
+    Load(day7/day7_nicole)
 }
 
 if($Luana.day6)
@@ -162,8 +126,50 @@ Eu só preciso ser mais eficiente com o meu tempo.
     ShowDB()
 
     Taxista thought "Ela realmente não percebe como me sobrecarrega."
+
+    Wait(2)
+    Load(day7/day7_nicole)
 }
+
+HideDB()
+Luana.Show()
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+ShowDB()
+
+Taxista thought "Quem é essa? Sinto ter visto ela alguma vez."
+
+Taxista "Boa noite. A onde a senhora deseja ir?"
+
+Luana as ??? "Para o Fórum na Paulista por favor."
+
+Taxista "Tudo bem."
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+PlaySFX(Car/car-arriving)
+Wait(7)
+ShowUI()
+
+Taxista "Deu 24 reais senhora."
+
+Luana as ??? "Aqui está."
+
+HideDB()
+Luana.Hide()
+PlaySFX(Car/car-door-close)
+Wait(2)
+ShowDB()
+
+Taxista thought "Sinto que já vi ela antes..."
+Deve ser uma qualquer que já foi minha passageira.
+
+HideUI()
+PlaySFX(Car/car-starting-sound)
+Wait(4)
+Load(day7/day7_nicole)
+
 
 HideUI()
 Wait(3)
-Load(day7/day7_nicole)

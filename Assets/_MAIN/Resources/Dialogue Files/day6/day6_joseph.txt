@@ -1,3 +1,4 @@
+Taxista.Show()
 ShowUI()
 ShowDB()
 
@@ -34,8 +35,8 @@ if($Joseph.Invencible)
     Joseph "Sério?{a} O que achou?"
 
     Taxista "Gostei bastante."
-    Achei interessante como o Mark lida com a ideia de ser quem ele realmente é.
-    Mesmo com tudo indo contra ele.{a} Me lembrou muito...{a} Bom, certas coisas da vida.
+Achei interessante como o Mark lida com a ideia de ser quem ele realmente é.
+Mesmo com tudo indo contra ele.{a} Me lembrou muito...{a} Bom, certas coisas da vida.
 
     Joseph "É, o Mark passa por muita coisa pesada."
 Mas ele tem aquela força de continuar, sabe? Eu admiro isso.
@@ -100,7 +101,7 @@ Obrigado por ouvir. De verdade."
         Taxista "Você não acha que está exagerando um pouco?"
         
         Joseph "...É fácil falar isso quando não é você,{a} sabe?"
-        As pessoas dizem que são mente aberta.
+As pessoas dizem que são mente aberta.
 Eu já vi o jeito que olham para coisas pequenas.
 Tipo... as unhas pintadas.
 

@@ -1,31 +1,31 @@
 StopAmbience(city-ambience)
 
-Taxista thought "Eu não consigo mais ver a diferença entre o que eu queria e o que tenho."
+Narrator thought "Eu não consigo mais ver a diferença entre o que eu queria e o que tenho."
 Meus próprios sentimentos,{a} minhas frustrações...
 Tudo parece um grande vazio.
 Não há mais um caminho claro à frente.
 Eu só...{a} sigo em frente, sem saber para onde.
 
-Taxista thought "Hoje não foi um bom dia."
+Narrator thought "Hoje não foi um bom dia."
 Eu tentei, eu realmente tentei, mas sempre parece que nada nunca é suficiente.
 Eu me esforço, mas as coisas simplesmente não acontecem como eu queria.
 
-Taxista thought "Eu me sinto um fracasso. Como se o que eu faço não importa."
+Narrator thought "Eu me sinto um fracasso. Como se o que eu faço não importa."
 Eu trabalho tanto para não ser reconhecido,{a} para ser ignorado.
 E nem mesmo isso me dá algum tipo de satisfação.
 Eu não sou bom o suficiente para minha mãe,{a} nem para mim mesmo.
 
-Taxista thought "Eu tenho que largar isso.Não sei mais como continuar assim."
-Eu não aguento mais.{a} Estou cansado dessa vida de taxista.
+Narrator thought "Eu tenho que largar isso. Não sei mais como continuar assim."
+Eu não aguento mais.{a} Estou cansado dessa vida de Narrator.
 Eu só quero escapar.{a} Mas o que vem depois?
 O que eu faço se eu realmente deixar tudo isso para trás?
 
-Taxista thought "Eu sei que tenho que fazer algo, mas não sei o que."
+Narrator thought "Eu sei que tenho que fazer algo, mas não sei o que."
 Tudo o que sei é que estou cansado de tentar agradar os outros,
 De me perder em algo que nem faz sentido.
 Eu só quero parar de me frustrar, mas tudo parece tão sem propósito.
 
-Taxista thought "Eu não sei mais o que fazer da minha vida."
+Narrator thought "Eu não sei mais o que fazer da minha vida."
 Não sei se algum dia encontrarei um caminho que me faça sentir que vale a pena.
 
 LoadScene(Creditos)

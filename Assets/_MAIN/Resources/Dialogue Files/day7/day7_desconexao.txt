@@ -1,25 +1,25 @@
 StopAmbience(city-ambience)
 
-Taxista thought "O dia passou, mas, sinceramente, eu não sei o que ele significou para mim."
+Narrator thought "O dia passou, mas, sinceramente, eu não sei o que ele significou para mim."
 Não tem sido fácil. O trabalho parece ser apenas uma repetição interminável.
 Eu vejo os rostos dos passageiros, escuto suas histórias, mas... não consigo me conectar com nada disso. Eu não sinto nada.
 
-Taxista thought "Eu não sei mais o que estou fazendo aqui."
+Narrator thought "Eu não sei mais o que estou fazendo aqui."
 Eu dirijo, eu escuto, eu tento entender.
 Mas nada disso me faz sentir que estou realmente vivendo.
 É tudo tão vazio.
 
-Taxista thought "Essas pessoas entram no meu carro, desabafam e depois vão embora."
+Narrator thought "Essas pessoas entram no meu carro, desabafam e depois vão embora."
 E eu fico aqui.
 No mesmo lugar.
 Sem saber o que fazer com as minhas próprias frustrações.
 
-Taxista thought "Eu sinto que estou preso, e nem mesmo os outros conseguem me ajudar a sair disso."
+Narrator thought "Eu sinto que estou preso, e nem mesmo os outros conseguem me ajudar a sair disso."
 Essas conversas, essas trocas, me fazem perceber o quanto estou distante de tudo.
 Estou tão desconectado de mim mesmo, que até as pessoas ao meu redor parecem só...{a} figuras.
 Eu só sigo em frente, esperando que algo mude, mas no fundo sei que não vai mudar.
 
-Taxista thought "Talvez isso seja tudo o que eu sou agora. Um motorista."
+Narrator thought "Talvez isso seja tudo o que eu sou agora. Um motorista."
 Mas e o resto de mim?{a} Onde está?{a} Eu ainda sei quem sou,{a} ou isso se perdeu no caminho?
 
 LoadScene(Creditos)

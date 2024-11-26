@@ -17,13 +17,12 @@ Joseph,{a} Nicole,{a} Thiago e Luana
 }
 
 HideUI()
-Wait(3)
 
-if($Nicole.day5)
+if(!$Luana.day2)
 {
     PlayAmbience(city-ambience -loop true -vol 0,2)
     ShowBG()
-    Load(day6/day6_nicole)
+    Load(day6/day6_joseph)
 }
 
 if(!$Luana.day5)
@@ -32,3 +31,11 @@ if(!$Luana.day5)
     ShowBG()
     Load(day6/day6_ligacao_luana)
 }
+else
+{
+    PlayAmbience(city-ambience -loop true -vol 0,2)
+    ShowBG()
+    Load(day6/day6_nicole)
+}
+
+

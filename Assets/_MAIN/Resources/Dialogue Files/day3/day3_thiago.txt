@@ -69,17 +69,17 @@ Lembre-se de por que começou a ensinar.{a} Talvez isso te ajude a ver as coisas
 No fim das contas, é só uma escola, e os alunos vão seguir suas vidas, independente do que acontece lá. 
 Às vezes, a pressão pode nos fazer perder a perspectiva, não acha?
 
-        Thiago "Não é só uma escola! É sobre muito mais do que isso.
+        Thiago "Não é só uma escola! É sobre muito mais do que isso."
 O que acontece lá pode impactar o futuro deles de uma maneira que você não consegue imaginar. 
-E, sim, eu me importo com isso.{a} Isso deve significar algo."
+E, sim, eu me importo com isso.{a} Isso deve significar algo.
 
-        Taxista  "Calma, Thiago,{a} não quis desmerecer seu trabalho.{a} Às vezes, as coisas podem parecer pesadas.
-A gente acaba levando tudo muito a sério.{a} Você está fazendo o melhor que pode,{a} certo?"
+        Taxista  "Calma, Thiago,{a} não quis desmerecer seu trabalho.{a} Às vezes, as coisas podem parecer pesadas."
+A gente acaba levando tudo muito a sério.{a} Você está fazendo o melhor que pode,{a} certo?
 
         PlaySFX(Thiago/thiago-suspiro)
 
-        Thiago "É...{a} eu só sinto que, mesmo quando a gente se dedica, parece que as coisas não mudam.
-Vejo alunos cheios de potencial,{a} mas as circunstâncias podem ser tão..."
+        Thiago "É...{a} eu só sinto que, mesmo quando a gente se dedica, parece que as coisas não mudam."
+Vejo alunos cheios de potencial,{a} mas as circunstâncias podem ser tão...
 
         Thiago "Às vezes, sinto que estou lutando contra moinhos de vento."
 Eu quero que eles tenham um futuro melhor, mas, sei lá, parece que a realidade está sempre um passo à frente.

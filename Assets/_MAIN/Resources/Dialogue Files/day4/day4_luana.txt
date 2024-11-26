@@ -15,7 +15,7 @@ Luana "É só uma carona rapidinha!"
 
 Taxista "Não Luana."
 
-Luana "Que exagero!{a}Bom, eu estou no mesmo Fórum da última vez,{a} estou lhe esperando!"
+Luana "Que exagero!{a} Bom, eu estou no mesmo Fórum da última vez,{a} estou lhe esperando!"
 
 PlaySFX(Telephone/telephone-hangUp)
 
@@ -26,7 +26,7 @@ HideUI()
 Wait(5)
 
 PlaySFX(Car/car-door-opening-and-closing)
-CreateCharacter(Luana), Luana.Show()
+CreateCharacter(Luana), OneCharacterPosition(Luana), Luana.Show()
 Wait(4)
 ShowUI()
 
@@ -47,26 +47,16 @@ PlaySFX(Car/car-starting-sound)
 Wait(4)
 ShowUI()
 
-if($Luana.day3)
-{
-    Taxista "Luana você lembra do Joseph?"
 
-    Luana "Oh, sim.{a} Me lembro muito bem!{a} Um fofo ele."
+Taxista "Luana você lembra do Joseph?"
 
-    Taxista "Ele foi meu passageiro novamente hoje"
-}
-else
-{
-    Taxista "Luana eu tenho um passageiro que eu tenho recorrente como cliente."
+Luana "Hm..."
 
-    Luana "Hm...{a} Qual o nome do passageiro?"
+Taxista "Ele foi meu passageiro novamente hoje"
 
-    Taxista "O nome dele é Joseph, ele é um cara bastante legal."
-Tive uma viagem com ele hoje.
-}
 
 Taxista "Cara, ele estava tão animado!"
-Ele começou falando do Homem-Aranha,{A} mas aí já emendou no Pantera Negra, depois outros.
+Ele começou falando do Homem-Aranha,{a} mas aí já emendou no Pantera Negra, depois outros.
 Ele parecia uma enciclopédia de super-heróis,{a} sabe?
 E ele nem respirava direito!
 Tipo,{a} eu mal tinha tempo de absorver tudo.
@@ -88,7 +78,7 @@ Acho que ele queria me fazer gostar tanto quanto ele!
 Só lembro que parecia super profundo, algo sobre misturar identidade com aceitação...
 Ele ficou realmente empolgado com isso.
 
-If($Joseph.invencible)
+if($Joseph.invencible)
 {
     Taxista "Ele me recomendou uma obra para eu dar uma olhada.{a} O nome é 'Invencible'."
 }

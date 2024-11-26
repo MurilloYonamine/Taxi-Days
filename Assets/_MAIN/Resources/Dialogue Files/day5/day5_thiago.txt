@@ -142,7 +142,7 @@ Choice "O que será que devo fazer?"
         Thiago "Obrigado pela viagem,{a} tenha um bom dia."
 
         HideDB()
-        Thigo.Hide()
+        Thiago.Hide()
         PlaySFX(Car/car-door-close)
         ShowDB()
 
@@ -156,7 +156,6 @@ Talvez eu sinta as consequências.
 
     - Falar Algo
         $Thiago.day5 = true
-        $Joseph.day5 = true
 
         Taxista "Ei Thiago...{a} Qual era o conteúdo da chamada?{a} Parece que você está bem chateado com isso."
 

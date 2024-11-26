@@ -1,5 +1,6 @@
 HideDB()
 ShowUI()
+Taxista.Show()
 PlaySFX(Car/car-starting-sound)
 Wait(4)
 ShowDB()
@@ -31,8 +32,8 @@ Wait(2)
 PlaySFX(Car/car-arriving)
 Wait(5)
 PlaySFX(Car/car-door-opening-and-closing)
-CreateCharacter(Luana), Luana.Show()
-ShowDB()
+CreateCharacter(Luana), Luana.Show(), OneCharacterPosition(Luana)
+ShowUI()
 
 Taxista "Oi, Luana.{a} Pra onde vamos hoje?"
 

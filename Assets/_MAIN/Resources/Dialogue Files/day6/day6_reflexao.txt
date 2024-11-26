@@ -28,76 +28,70 @@ Mas, às vezes, é tudo o que você precisa para começar a enxergar o caminho c
 
     Narrator thought "Se Nicole conseguiu enfrentar os medos dela e se conectar com quem ama..."
 Talvez eu também consiga resgatar o eu que achei que tinha perdido.
-    Ou, quem sabe, descobrir que ele nunca foi embora. Apenas mudou de forma.
+Ou, quem sabe, descobrir que ele nunca foi embora. Apenas mudou de forma.
 
     Narrator thought "Enquanto o carro segue pela cidade, um pensamento permanece comigo."
 A jornada importa mais do que as peças.
 E enquanto eu estiver em movimento, ainda há esperança.
 }
 
-if(!$Nicole.day6)
-{
-    Narrator thought "Tive uma viagem longa com a Nicole."
-Foi bem confusa, minha cabeça está processando até agora tudo.
-}
-
 if($Luana.day6)
 {
-    Taxista thought "Luana foi direta hoje.{a} Ela não me deixou fugir da verdade, e talvez eu tenha entendido mais do que esperava."
+    Narrator thought "Luana foi direta hoje.{a} Ela não me deixou fugir da verdade, e talvez eu tenha entendido mais do que esperava."
 
-    Taxista thought "Ela falou sobre não se apegar ao que falta, mas ao que já temos."
+    Narrator thought "Ela falou sobre não se apegar ao que falta, mas ao que já temos."
 Eu sempre me foquei no que não consegui, no que não alcancei.
 A vida que eu queria não parecia mais alcançável.
 
-    Taxista thought "Mas talvez ela esteja certa."
+    Narrator thought "Mas talvez ela esteja certa."
 Talvez eu esteja procurando um 'algo mais' onde, na verdade,{a} o que eu preciso é aceitar o que já tenho.
 A vida que estou levando não é a ideal,{a} mas é a que tenho.
 
-    Taxista thought "Eu sou taxista. Sim, não era isso que planejei."
+    Narrator thought "Sim, não era isso que planejei."
 Não era o sonho que imaginei para minha vida. Mas é o que eu sou agora.
 E não é tão ruim assim. Me ajuda. Faz diferença.
 
-    Taxista thought "Talvez eu tenha que parar de me martelar por não ter alcançado o que eu achava que deveria."
+    Narrator thought "Talvez eu tenha que parar de me martelar por não ter alcançado o que eu achava que deveria."
 Talvez o que importa agora seja ser grato pelas pequenas coisas que tenho.
 
-    Taxista thought "A gratidão por tudo que já conquistei, mesmo que tenha sido diferente do esperado, é o que realmente vai me ajudar a seguir em frente."
+    Narrator thought "A gratidão por tudo que já conquistei, mesmo que tenha sido diferente do esperado, é o que realmente vai me ajudar a seguir em frente."
 
-    Taxista thought "Eu não preciso ser perfeito."
+    Narrator thought "Eu não preciso ser perfeito."
 Não preciso ter a carreira dos meus sonhos para ser feliz.
 O que eu faço, da forma como faço, já importa para alguém.
 E isso, talvez, seja o suficiente.
 
-    Taxista thought "A verdade é que, talvez, eu precise aprender a me aceitar mais."
+    Narrator thought "A verdade é que, talvez, eu precise aprender a me aceitar mais."
 Aceitar o que sou, o que tenho.
 E ser grato por isso.
 Talvez o caminho para encontrar a paz seja esse: aceitar o presente e aprender a valorizar o que já é real.
 
-    Taxista thought "Hoje, sinto que algo mudou.
+    Narrator thought "Hoje, sinto que algo mudou."
 Não foi uma revelação grandiosa, mas uma pequena aceitação.
 Um passo mais perto de entender que a felicidade não está em mudar o que não podemos controlar,
 Mas em aceitar o que já temos.
 }
 
-if(!$Luana.day6)
+if(!$Luana.day6 && $luana.day2)
 {
-    Taxista thought "A viagem com Luana hoje foi... bem, mais do mesmo."
+    Narrator thought "A viagem com Luana hoje foi... bem, mais do mesmo."
     Ela parecia estar ali, como sempre.
 
-    Taxista thought "Eu já devia saber que ela tem esse jeito de falar.
+    Narrator thought "Eu já devia saber que ela tem esse jeito de falar."
 
-    Taxista thought "Eu não sou um herói, nem quero ser.{a} Mas, às vezes, parece que sou só um pedaço de mobília na vida dela."
+    Narrator thought "Eu não sou um herói, nem quero ser.{a} Mas, às vezes, parece que sou só um pedaço de mobília na vida dela."
 Um facilitador.{a} Algo que ela pode contar para carregar seu peso.
 E eu... estou aqui, carregando o meu, mas será que ela percebe?
 
-    Taxista thought "Ela tem razão em algumas coisas.{a} Eu ajudo,{a} faço,{a} sou presente.{a} Mas o que sobra para mim?"
+    Narrator thought "Ela tem razão em algumas coisas.{a} Eu ajudo,{a} faço,{a} sou presente.{a} Mas o que sobra para mim?"
 Depois de tudo, o que é que eu realmente tenho?
 Uma vida de rotinas repetitivas e um sentimento de que talvez eu esteja me perdendo nisso tudo.
 
-    Taxista thought "É como se eu fosse o motorista dela.{a} Mas quem é o meu motorista?"
+    Narrator thought "É como se eu fosse o motorista dela.{a} Mas quem é o meu motorista?"
 
-    Taxista thought "Eu deveria em conformor com o que tenho."
+    Narrator thought "Eu deveria em conformor com o que tenho."
 
-    Taxista thought "Será que eu também estou tentando convencer a mim mesmo que está tudo bem?"
+    Narrator thought "Será que eu também estou tentando convencer a mim mesmo que está tudo bem?"
 Porque, no fundo, eu sei que não está.
 }
 

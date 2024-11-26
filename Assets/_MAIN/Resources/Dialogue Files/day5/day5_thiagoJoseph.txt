@@ -4,7 +4,7 @@ Joseph "Pelo amor de deus abre essa porta,{a} esse vento junto com a chuva,{a} v
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
-CreateCharacter(Joseph), DoubleCharacterPosition(Thiago, Joseph), Joseph.Show()
+CreateCharacter(Joseph), DoubleCharacterPosition(Thiago Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -45,6 +45,7 @@ Taxista "Uau, realmente é impressionante!{a} Você tem bom gosto Joseph."
 Choice "Comentar Sobre as Unhas?"
 {
     - Sim
+        $Joseph.day5 = true
         Taxista "E... espera, suas unhas estão pintadas! Não sabia que você pintava as unhas."
 
         Joseph "Ah, é... Eu pintei elas. Na verdade, eu gosto de experimentar."
@@ -79,6 +80,7 @@ As suas unhas coloridas são uma ótima forma de se expressar!
         Thiago "Haha! Não há de quê!"
 
     - Não
+        $Joseph.day5 = false
         Joseph "Valeu!{a} Sabe o que é mais legal nesse quadrinho?"
 Ele é cheio de referências escondidas!
 Por exemplo, nessa página aqui...

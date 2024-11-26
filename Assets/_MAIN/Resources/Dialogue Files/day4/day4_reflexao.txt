@@ -1,5 +1,6 @@
 StopAmbience(city-ambience)
 ShowUI()
+Taxista.Hide()
 HideBG()
 
 if($Luana.day2)
@@ -23,7 +24,7 @@ O jeito como ele fala do Homem-Aranha é contagiante.
 
 if($Joseph.Invencible)
 {
-    Narrator Thought "Ele até me recomendou um quadrinho!"
+    Narrator thought "Ele até me recomendou um quadrinho!"
 Isso me fez sentir que a corrida não foi apenas mais uma, mas uma troca genuína.
 }
 

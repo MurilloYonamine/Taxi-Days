@@ -18,7 +18,7 @@ Taxista thought "Aquele não é o garoto do outro dia?{a} Joseph o nome."
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
-CreateCharacter(Joseph), Joseph.Show()
+CreateCharacter(Joseph), Joseph.Show(), onecharacterposition(Joseph)
 Wait(4)
 ShowDB()
 

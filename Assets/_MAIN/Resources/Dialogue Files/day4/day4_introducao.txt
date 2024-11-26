@@ -32,7 +32,7 @@ Não recebi nenhuma mensagem ou ligação dela.
 
     Luana "Que bom que você perguntou!{a} Aperte os cintos,{a} que irei continuar o que estava falando ontem!"
 
-    Taxista: "Mal posso esperar...{a} Seja rápida,{a} aqui a pouco já vou começar o trabalho!"
+    Taxista "Mal posso esperar...{a} Seja rápida,{a} aqui a pouco já vou começar o trabalho!"
 }
 else
 {

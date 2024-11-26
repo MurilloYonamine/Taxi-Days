@@ -12,7 +12,7 @@ Joseph "Oi! Olha quem está aqui de novo!{a} Fico feliz em te ver taxista!"
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
-CreateCharacter(Joseph), Joseph.Show()
+CreateCharacter(Joseph), OneCharacterPosition(Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 

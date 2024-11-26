@@ -1,5 +1,8 @@
 HideDB()
 ShowUI()
+CreateCharacter(Taxista), Taxista.Show()
+CreateCharacter(Nicole), Nicole.Show()
+ShowBG()
 PlaySFX(Telephone/telephone-vibrating)
 Wait(5)
 ShowDB()
@@ -153,19 +156,20 @@ Mas...{a} Por favor, não desista de mim,{a} tá bom?
         Taxista thought "Essas palavras deveriam me confortar..."
 Mas de alguma forma,{a} parece que estou alimentando algo que não sei se consigo sustentar.
 
+
+        Luana "Boa noite senhor taxista."
+
+        HideDB()
+        Luana.Hide()
+        PlaySFX(Car/car-door-opening-and-closing)
+        Wait(4)
+        ShowDB()
+
     - Pedir para a Luana sair do Táxi.
         $Luana.day5 = true
 
         Taxista "Luana...{a} Eu estou no meio do trabalho."
-        
-        if($Luana.day3)
-        {
-            Taxista "Eu não quero perder um passageiro novamente por culpa sua."
-        }
 
-        HideDB()
-        Wait(3)
-        ShowDB()
         Luana "Tudo bem..."
 
         Wait(2)
@@ -230,8 +234,10 @@ E obrigada, Nicole. Eu não sei como agradecer vocês por isso.
 
         HideUI()
         HideDB()
+        Luana.Hide()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(4)
+        OneCharacterPosition(Nicole)
         PlaySFX(Car/car-starting-sound)
         Wait(5)
         ShowUI()
@@ -277,6 +283,7 @@ Espero que Luana encontre o caminho dela.
 Você faz mais diferença na vida das pessoas do que imagina.
 
         HideDB()
+        Nicole.Hide()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(4)
         ShowDB()
