@@ -14,7 +14,7 @@ ShowDB()
 
 Taxista thought "Falando nela..."
 
-Luaana "Oi, tudo bem? Já começou a trabalhar?'"
+Luana "Oi, tudo bem? Já começou a trabalhar?'"
 
 Taxista thought "De novo? Ela tem me perguntado isso toda noite."
 
@@ -26,22 +26,19 @@ Luana "Estou bem.{a} Pode vir me buscar?"
 
 Taxista "Claro."
 
-HideDB()
-ShowUI()
-PlaySFX(Car/car-speedingUp)
+HideUI()
+Wait(2)
+PlaySFX(Car/car-arriving)
 Wait(5)
+PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Luana), Luana.Show()
 ShowDB()
 
-Taxista "Oi, Luana. Pra onde vamos hoje?"
+Taxista "Oi, Luana.{a} Pra onde vamos hoje?"
 
 Luana "Ah, ali na Paulista.{a} Tenho umas coisas pra resolver.{a} É bom que a gente conversa!"
 
 Taxista thought "Ela tá sempre por aqui. Ultimamente parece que virou parte da rotina..."
-
-HideDB()
-PlaySFX(Car/door-closing)
-Wait(4)
-ShowDB()
 
 Luana "Então, como você tá? Aposto que tá na mesma de sempre, né?"
 
@@ -156,6 +153,7 @@ Taxista "Chegamos Luana!"
 Luana "Obrigado novamente por essa boa viagem!"
 
 HideDB()
+Luana.Hide()
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()

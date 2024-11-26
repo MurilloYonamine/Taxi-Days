@@ -1,4 +1,7 @@
 ShowUI()
+ShowBG()
+
+CreateCharacter(Taxista), Taxista.Show()
 
 Taxista thought "E vamos para mais um dia."
 Oh...{a} Isso me lembra que tenho que ligar para a Luana.

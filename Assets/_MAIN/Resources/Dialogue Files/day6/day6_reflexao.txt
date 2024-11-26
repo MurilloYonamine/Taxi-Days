@@ -1,4 +1,5 @@
 ShowUI()
+HideBG()
 StopAmbience(city-ambience)
 Taxista "Hoje foi um dia longo."
 

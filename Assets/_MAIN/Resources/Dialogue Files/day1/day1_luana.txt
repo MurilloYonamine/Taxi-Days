@@ -90,6 +90,7 @@ Para minha surpresa,{a} um sorriso de satisfação aparece em seu rosto.
         Luana "Finalmente cheguei,{a} Obrigada pela viagem tranquila senhor taxista!"
 
         HideDB()
+        Luana.Hide()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(4)
         ShowDB()
@@ -118,8 +119,9 @@ Será que era melhor eu ter ficado quieto?
         Taxista thought "Luana pega sua bolsa.{a} A animação dela parece ter se transformado em irritação."
 
         HideDB()
-        PlaySFX(Car/car-door-opening-and-closing)
-        Wait(4)
+        Luana.Hide()
+        PlaySFX(Car/car-door-close)
+        Wait(2)
 
         ShowDB()
 
@@ -129,4 +131,5 @@ Fico me perguntando{a} se a minha tentativa de ajudar foi um erro.
 Wait(1)
 HideUI()
 Wait(3)
+Taxista.Hide()
 Load(day1/day1_reflexao)

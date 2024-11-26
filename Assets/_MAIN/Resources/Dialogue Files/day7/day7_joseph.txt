@@ -4,6 +4,7 @@ Taxista "Aquele não é o Joseph?"
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -12,7 +13,7 @@ if($joseph_day6)
     $Taxista.Count += 1
     Joseph "Quanto tempo!"
 
-    Taxista "Eae Joseph! Lendo quadrinhos como sempre?"
+    Taxista "Eae Joseph!{a} Lendo quadrinhos como sempre?"
 
     Joseph "Oi, senhor taxista!{a} Eu estou...{a} Sabe, eu me sinto muito melhor."
 Eu finalmente consegui falar com os meus amigos.
@@ -43,6 +44,11 @@ Acho que foi o empurrãozinho que eu precisava.
 
     Joseph "Eu também espero, senhor taxista!{a} Obrigado pela viagem e por tudo."
 
+    HideDB()
+    Joseph.Hide()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
 }
 
 if(!$Joseph_day6)
@@ -68,6 +74,7 @@ if(!$Joseph_day6)
 
     HideDB()
     Wait(3)
+    Joseph.Hide()
     PlaySFX(Car/car-door-close)
     ShowDB()
 

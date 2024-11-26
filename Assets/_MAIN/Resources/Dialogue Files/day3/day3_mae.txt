@@ -18,7 +18,7 @@ ShowDB()
 
 Taxista "Oh, será ela?"
 
-Taxista thought "Ah, claro... era só o que faltava.{a} Já sei como essa conversa vai acabar.{a} Sempre é do mesmo jeito."
+Taxista thought "Ah, claro...{a} Era só o que faltava.{a} Já sei como essa conversa vai acabar.{a} Sempre é do mesmo jeito."
 
 Taxista "Oi, mãe."
 
@@ -59,4 +59,5 @@ else
     Taxista "Poxa mãe, o dia estava até bom hoje..."
 }
 
+Taxista.Hide()
 Load(day3/day3_reflexao)

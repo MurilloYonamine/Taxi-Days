@@ -1,5 +1,6 @@
 StopAmbience(city-ambience)
 ShowUI()
+HideBG()
 
 if(!$Thiago.day2) 
 {

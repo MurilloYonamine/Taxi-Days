@@ -4,6 +4,7 @@ Joseph "Pelo amor de deus abre essa porta,{a} esse vento junto com a chuva,{a} v
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Joseph), DoubleCharacterPosition(Thiago, Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -122,6 +123,8 @@ Joseph "Haha,{a} é mesmo!"
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+Joseph.Hide()
+Thiago.Hide()
 Wait(4)
 ShowDB()
 
@@ -130,3 +133,5 @@ Thiago "E aí, Joseph?{a} Que tal a gente tomar um café e bater mais um papo?"
 Joseph "Adoraria!{a} Vamos lá!"
 
 Taxista thought "Poxa tava querendo um café..."
+
+Load(day5/day5_nicole)

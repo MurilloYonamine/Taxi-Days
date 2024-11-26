@@ -1,3 +1,4 @@
+CreateCharacter(Taxista), Taxista.Show()
 ShowUI()
 
 Taxista thought "O dia está começando a avançar."
@@ -8,9 +9,10 @@ Noto as pessoas andando apressadas pelas calçadas, cada uma imersa em seu próp
 
 Taxista thought "Tem alguém se aproximando..."
 
-PlaySFX(Car/car-door-opening-and-closing)
 HideDB()
+PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
+CreateCharacter(Joseph), Joseph.Show()
 ShowDB()
 
 Joseph as ??? "Boa tarde.{a} Pode me levar para o centro, por favor?{a} Tenho que encontrar alguém lá."
@@ -57,6 +59,7 @@ Joseph as ??? "Não me importo..."
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Thiago), DoubleCharacterPosition(Joseph Thiago), Thiago.Show()
 Wait(4)
 ShowDB()
 
@@ -70,10 +73,10 @@ Thiago "Esse trânsito está um caos. Só espero que eu consiga chegar a tempo."
 
 Wait(2)
 HideUI()
-Wait(5)
+Wait(3)
 ShowUI()
 
-Taxista thought "Após 10 minutos de puro silêncio, noto que Thiago está inquieto. Ele parece querer conversar."
+Taxista thought "Após 10 minutos de puro silêncio, noto que Thiago está inquieto.{a} Ele parece querer conversar."
 
 Thiago "Olha isso! O trânsito tá parando a cada esquina."
 E olha que nem é hora de pico ainda!{a} Parece que o governador não tá nem aí para a situação. 
@@ -172,6 +175,8 @@ Joseph "Bom, aqui é onde eu vou descer.{a} Agradeço muito pela conversa.{a} Aq
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+Joseph.Hide()
+OneCharacterPosition(Thiago)
 Wait(4)
 
 HideUI()
@@ -231,6 +236,7 @@ A pressão para manter o emprego pode ser avassaladora, especialmente em uma ár
 
     HideDB()
     PlaySFX(Car/car-door-close)
+    Thiago.Hide()
     Wait(4)
 
     Taxista thought "Acho que pisei na bola com o Thiago..."
@@ -252,6 +258,7 @@ Tentando proteger um aluno e ainda se preocupar com seu próprio emprego.{a} Dev
 
     HideDB()
     PlaySFX(Car/car-door-close)
+    Thiago.Hide()
     Wait(4)
 
     - Continuar Ouvindo
@@ -282,6 +289,7 @@ Me colocar em uma posição ainda mais difícil.
 
     HideDB()
     PlaySFX(Car/car-door-opening-and-closing)
+    Thiago.Hide()
     Wait(4)
     ShowDB()
 }

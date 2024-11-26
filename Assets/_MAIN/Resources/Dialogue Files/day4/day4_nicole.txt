@@ -19,6 +19,7 @@ Taxista thought "Vamos ver o que o dia reserva."
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Nicole), Nicole.Show()
 Wait(4)
 ShowDB()
 
@@ -136,6 +137,7 @@ Elas precisam de nós.
         Taxista "Por favor, faça isso.{a} Estou na torcida por você!"
 
         HideDB()
+        Nicole.Hide()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(4)
         ShowDB()
@@ -152,6 +154,7 @@ Acho que não foi uma boa opção ficar calado, agora já era.
         PlaySFX(Car/car-arriving)
         Wait(7)
 
+        Nicole.Hide()
         PlaySFX(Car/car-door-close)
         Wait(2)
         ShowUI()
@@ -160,4 +163,4 @@ Acho que não foi uma boa opção ficar calado, agora já era.
 }
 HideUI()
 Wait(2)
-Load(day4/day_joseph)
+Load(day4/day4_joseph)

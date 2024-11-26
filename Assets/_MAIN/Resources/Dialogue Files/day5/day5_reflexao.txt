@@ -1,6 +1,7 @@
 StopSFX(RainyMood)
-StopAmbience(city-ambience)
-ShowUI()
+Taxista.Hide()
+HideUI()
+HideBG()
 
 Narrator thought "Hoje foi um dia daqueles."
 

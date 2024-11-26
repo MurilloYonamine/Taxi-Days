@@ -10,6 +10,7 @@ Lágrimas incontroléveis escorrem pelo seu rosto.
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Luana), Luana.Show()
 Wait(4)
 ShowDB()
 
@@ -80,6 +81,7 @@ Choice "Será que devo dizer alguma coisa?"
         HideDB()
         StopSFX(luana-chorando)
         PlaySFX(Car/car-door-close)
+        Luana.Hide()
         Wait(4)
         ShowDB()
 
@@ -118,6 +120,7 @@ Não quero minimizar o que você está passando.
 
         HideDB()
         PlaySFX(Car/car-door-close)
+        Luana.Hide()
         Wait(4)
         ShowDB()
 
@@ -225,9 +228,11 @@ Você...
 
         HideDB()
         PlaySFX(Car/car-door-opening-and-closing)
+        Luana.Hide()
         Wait(5)
 }
 HideUI()
 ShowDB()
 Wait(2)
+Taxista.Hide()
 Load(day2/day2_reflexao)

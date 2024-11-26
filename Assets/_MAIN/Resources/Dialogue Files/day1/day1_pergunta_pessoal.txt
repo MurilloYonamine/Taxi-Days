@@ -67,6 +67,7 @@ Taxista "Aqui estamos.{a} Boa sorte com o seu trabalho e espero que tudo se reso
 Nicole "Obrigada.{a} E boa sorte para você também.{a} Até mais!"
 HideDB()
 Wait(1)
+Nicole.Hide()
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 
@@ -90,6 +91,7 @@ HideDB()
 
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
+CreateCharacter(Luana), Luana.Show()
 ShowDB()
 
 Luana as ??? "Oi, bom dia!{a} Pode me levar para a Avenida Paulista, por favor?"

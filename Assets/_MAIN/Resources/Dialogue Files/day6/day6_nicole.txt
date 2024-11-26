@@ -1,11 +1,14 @@
 HideDB()
 ShowUI()
+CreateCharacter(Luana)
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()
+Nicole.Show()
 
 Taxista "Bom noite, para onde iremos?"
 Oh...{a} Nicole?
+
 
 Nicole "Senhor taxista! Quanto tempo!"
 
@@ -334,6 +337,7 @@ Taxista "Ela está bem, sim.{a} Tem seus altos e baixos, mas...{a} Não está ma
 Nicole "Fico feliz por isso.{a} Parece que as coisas estão se ajeitando."
 
 HideDB()
+Nicole.Hide()
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()

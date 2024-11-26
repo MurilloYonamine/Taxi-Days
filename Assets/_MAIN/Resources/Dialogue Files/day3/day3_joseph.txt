@@ -1,5 +1,7 @@
 ShowUI()
 
+CreateCharacter(Taxista), Taxista.Show()
+
 Taxista "Hoje foi um dia ótimo!{a} Tive bastante passageiros."
 Nenhum deles parecia querer conversar.
 Apesar de ver tantas pessoas hoje.
@@ -16,6 +18,7 @@ Taxista thought "Aquele não é o garoto do outro dia?{a} Joseph o nome."
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -94,6 +97,7 @@ Você tá pensando demais.{a} Foca no que já conquistou.
 
         HideDB()
         PlaySFX(Car/car-door-opening-and-closing)
+        Joseph.Hide()
         Wait(3)
         ShowDB()
 
@@ -122,6 +126,7 @@ Você tá pensando demais.{a} Foca no que já conquistou.
         Joseph "Bem, é aqui.{a} Obrigado pela corrida!"
 
         HideDB()
+        Joseph.Hide()
         PlaySFX(Car/car-door-close)
         Wait(3)
 }

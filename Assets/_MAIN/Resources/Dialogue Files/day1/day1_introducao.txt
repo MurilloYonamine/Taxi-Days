@@ -1,3 +1,5 @@
+HideBG()
+
 narrator "Em São Paulo, onde os sons parecem ter se perdido no vento, um jovem taxista começa seu dia com um sentimento de desilusão."
 
 Formado em Ciência da Computação, ele se vê agora conduzindo um táxi, uma profissão que não reflete suas aspirações nem suas conquistas acadêmicas.

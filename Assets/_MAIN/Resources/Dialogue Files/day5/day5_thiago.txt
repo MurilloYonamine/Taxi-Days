@@ -3,6 +3,7 @@ ShowUI()
 PlaySFX(Car/car-arriving)
 Wait(7)
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Thiago), Thiago.Show()
 Wait(4)
 ShowDB()
 
@@ -60,6 +61,8 @@ Afinal, aprender pode ser uma grande aventura, né?
 
     Taxista "Com certeza!"
 }
+
+StopAmbience(city-ambience)
 
 PlayAmbience(RainyMood -v 0,5 -l true)
 
@@ -139,6 +142,7 @@ Choice "O que será que devo fazer?"
         Thiago "Obrigado pela viagem,{a} tenha um bom dia."
 
         HideDB()
+        Thigo.Hide()
         PlaySFX(Car/car-door-close)
         ShowDB()
 
@@ -148,7 +152,7 @@ Talvez eu sinta as consequências.
 
         HideUI()
         Wait(3)
-        Load(day5/day_joseph)
+        Load(day5/day5_joseph)
 
     - Falar Algo
         $Thiago.day5 = true
@@ -201,11 +205,12 @@ Pode ser que essa chuva só tenha sido uma forma do universo dizer que vocês de
 
         Thiago "Vou descer aqui.{a} É melhor eu ir a pé.{a} Não estou com cabeça."
 
+        Thiago.Hide()
         PlaySFX(Car/car-door-close)
 
         Taxista thought "Falei merda..."
 
         HideUI()
         Wait(3)
-        Load(day5/day_joseph)
+        Load(day5/day5_joseph)
 }

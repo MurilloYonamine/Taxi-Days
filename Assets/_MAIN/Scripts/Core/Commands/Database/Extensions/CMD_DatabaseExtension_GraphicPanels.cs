@@ -22,6 +22,7 @@ namespace COMMANDS
         {
             database.AddCommand("setlayermedia", new Func<string[], IEnumerator>(SetLayerMedia));
             database.AddCommand("clearlayermedia", new Func<string[], IEnumerator>(ClearLayerMedia));
+
         }
 
         private static IEnumerator SetLayerMedia(string[] data)
@@ -110,6 +111,7 @@ namespace COMMANDS
 
         private static IEnumerator ClearLayerMedia(string[] data)
         {
+            Debug.Log("Clearing layer media");
             //Parameters available to function
             string panelName = "";
             int layer = 0;

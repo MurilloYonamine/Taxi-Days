@@ -38,6 +38,9 @@ namespace COMMANDS
             database.AddCommand("thought", new Action<string[]>(ThoughtDialogue));
 
             database.AddCommand("loadscene", new Func<string[], IEnumerator>(LoadScene));
+
+            database.AddCommand("showbg", new Func<string[], IEnumerator>(ShowBackground));
+            database.AddCommand("hidebg", new Func<string[], IEnumerator>(HideBackground));
         }
         private static void PrintMessage(string message)
         {
@@ -53,6 +56,33 @@ namespace COMMANDS
             Debug.Log(messageToShow);
         }
 
+        private static IEnumerator ShowBackground(string[] data)
+        {
+            float speed;
+            var parameters = ConvertDataToParameters(data);
+            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 0.5f);
+
+            BackgroundManager manager = GameObject.FindObjectOfType<BackgroundManager>();
+            if (manager != null)
+            {
+                manager.ShowAll(speed);
+            }
+            yield return null;
+        }
+
+        private static IEnumerator HideBackground(string[] data)
+        {
+            float speed;
+            var parameters = ConvertDataToParameters(data);
+            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 0.5f);
+
+            BackgroundManager manager = GameObject.FindObjectOfType<BackgroundManager>();
+            if (manager != null)
+            {
+                manager.HideAll(speed);
+            }
+            yield return null;
+        }
 
         private static void LoadNewDialogueFile(string[] data)
         {
@@ -82,7 +112,7 @@ namespace COMMANDS
                 DialogueSystem.instance.conversationManager.Enqueue(newConversation);
             else
                 DialogueSystem.instance.conversationManager.StartConversation(newConversation);
-                
+
         }
 
         private static IEnumerator Wait(string data)

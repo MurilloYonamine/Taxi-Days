@@ -12,6 +12,7 @@ Joseph "Oi! Olha quem está aqui de novo!{a} Fico feliz em te ver taxista!"
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -114,6 +115,7 @@ Joseph "Aqui está pelo serviço de hoje. Vê se não pensa demais."
 
 Taxista "Obrigado Joseph."
 
+Joseph.Hide()
 PlaySFX(Car/car-door-close)
 
 Joseph "A gente se vê por aí."
@@ -124,4 +126,4 @@ HideUI()
 PlaySFX(Car/car-starting-sound)
 Wait(4)
 
-Load(day5/day_nicole)
+Load(day5/day5_nicole)

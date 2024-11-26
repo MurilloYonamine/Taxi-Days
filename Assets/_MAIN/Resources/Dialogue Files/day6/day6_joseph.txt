@@ -3,12 +3,14 @@ ShowDB()
 
 Taxista "Hm... Aquele não é o Joseph?"
 
+CreateCharacter(Joseph)
 Joseph "Senhor taxista! Quanto tempo!"
 
 Taxista "Olá Joseph Como você está?"
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -158,12 +160,14 @@ Taxista "Também espero te ver!"
 if($Joseph.day6)
 {
     HideDB()
+    Joseph.Hide()
     PlaySFX(Car/car-door-opening-and-closing)
     Wait(4)
 }
 else
 {
     HideDB()
+    Joseph.Hide()
     PlaySFX(Car/car-door-close)
     Wait(2)
 }

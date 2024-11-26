@@ -1,6 +1,7 @@
 HideDB()
 ShowUI()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Nicole), Nicole.Show()
 Wait(4)
 ShowDB()
 
@@ -64,21 +65,16 @@ Talvez conversar com alguém especializado possa te ajudar a lidar com tudo isso
         Nicole "É...{a} Eu vou pensar nisso."
 
         HideDB()
-        PlaySFX(Car/car-arriving)
-        Wait(7)
+        PlaySFX(Car/car-speedingUp)
+        Wait(5)
 
-        PlaySFX(Car/car-door-close)
         ShowDB()
 
         Taxista thought "Será que sugerir isso foi o certo?{a} Ela nem parecia ter se importado."
 
-        HideUI()
-        PlaySFX(Car/car-starting-sound)
-        Wait(4)
-
         if($Luana.day5)
         {
-                Load(day5/day5_luana)
+                Load(day5/day5_luanaNicole)
         }
 
     - Falar Que Está exagerando
@@ -107,7 +103,9 @@ O trabalho, meu filho...{a} tudo desmoronando e você diz que é só uma fase?
         Nicole "Obrigada pela corrida, mas você só piorou a situação."
 
         HideDB()
+        Nicole.Hide()
         PlaySFX(Car/car-door-close)
+        Wait(3)
         ShowDB()
 
         Taxista thought "Foi tão absurdo assim o que eu falei?"
@@ -145,8 +143,9 @@ Isso não é empatia, é só você tentando fazer o seu ponto parecer válido!
         Nicole "Eu preciso ir."
 
         HideDB()
+        Nicole.Hide()
         PlaySFX(Car/car-door-close)
-        Wait(4)
+        Wait(3)
         ShowDB()
         
         Taxista thought "O que eu fiz de errado?"

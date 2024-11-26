@@ -5,10 +5,11 @@ if($Nicole.day5)
     $Taxista.Count += 1
     HideDB()
     PlaySFX(Car/car-door-opening-and-closing)
+    CreateCharacter(Nicole), Nicole.Show()
     Wait(4)
     ShowDB()
 
-    Nicole "Oi, Taxista! Como você está?"
+    Nicole "Oi, Taxista!{a} Como você está?"
 
     Taxista "Oi, Nicole... Você parece diferente. Tudo bem?"
 
@@ -45,6 +46,7 @@ Eu não estava percebendo o quanto eu estava sobrecarregada até que alguém me 
 A terapia realmente me ajudou a encontrar a paz e a clareza que eu tanto precisava.
 
     HideDB()
+    Nicole.Hide()
     PlaySFX(Car/car-door-opening-and-closing)
     Wait(4)
     ShowDB()

@@ -5,6 +5,7 @@ Parece que estou preso em uma fila interminável de carros.
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -208,6 +209,7 @@ Joseph "Obrigado!{a} Eu realmente gostei da nossa conversa sobre super-heróis."
 Joseph "Quem sabe a gente se encontra de novo? Até mais!"
 
 HideDB()
+Joseph.Hide()
 PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()

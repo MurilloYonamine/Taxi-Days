@@ -52,6 +52,10 @@ Taxista thought "Interessante... Será que é isso mesmo?"
 HideUI()
 PlaySFX(Car/car-arriving)
 Wait(7)
+
+PlaySFX(Car/car-door-opening-and-closing)
+Wait(4)
+CreateCharacter(Luana), DoubleCharacterPosition(Nicole Luana), Luana.Show()
 ShowUI()
 
 Luana "Oi...{a} Obrigada por vir me buscar,{a} mesmo reclamando como sempre."
@@ -108,6 +112,8 @@ Tudo bem.
 
         HideDB()
         PlaySFX(Car/car-door-close)
+        Nicole.Hide()
+        OneCharacterPosition(Nicole)
         Wait(2)
         ShowDB()
 

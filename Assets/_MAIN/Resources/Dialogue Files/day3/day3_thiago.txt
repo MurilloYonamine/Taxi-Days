@@ -4,6 +4,7 @@ Taxista thought "Quase terminando o dia, só mais um passageiro e vou pra casa."
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Thiago), Thiago.Show()
 Wait(3)
 ShowDB()
 
@@ -54,6 +55,7 @@ Lembre-se de por que começou a ensinar.{a} Talvez isso te ajude a ver as coisas
         Taxista "Chegamos."
 
         HideDB()
+        Thiago.Hide()
         PlaySFX(Car/car-door-close)
         Wait(2)
         ShowDB()
@@ -103,6 +105,7 @@ Eu quero que eles tenham um futuro melhor, mas, sei lá, parece que a realidade 
         Thiago "Obrigado pela corrida."
         
         HideDB()
+        Thiago.Hide()
         PlaySFX(Car/car-door-close)
         Wait(2)
         ShowDB()
@@ -168,6 +171,7 @@ Mas que nunca vão ter as mesmas oportunidades que os alunos da parti--
 É como a minha Tia dizia: 'Reclamar é bom de mais' HAHA.
 
         HideDB()
+        Thiago.Hide()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(3)
         ShowDB()

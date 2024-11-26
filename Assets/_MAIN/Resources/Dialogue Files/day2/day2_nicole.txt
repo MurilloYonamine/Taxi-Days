@@ -1,3 +1,5 @@
+ShowBG()
+
 Taxista thought "Outro dia começando..."
 A cidade já acordou.{a} Gente indo e vindo,{a} o barulho do trânsito subindo.{a} Nada de novo.
 Hmm...?{a} Aquele ali é um rosto que eu reconheço.{a} É a mulher de ontem, aquela preocupada com o trabalho. 
@@ -5,13 +7,14 @@ Ela está vindo em direção ao táxi,{a} ela aparenta meio surpresa, meio alivi
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Nicole), Nicole.Show()
 Wait(4)
 ShowDB()
 
 Nicole "Que surpresa te ver novamente!{a} Eu estava esperando um táxi há algum tempo."
 Você pode me levar para casa, por favor?
 
-Taxista "Bom dia, Nicole! Tudo bem?"
+Taxista "Bom dia, Nicole!{a} Tudo bem?"
 
 HideDB()
 PlaySFX(Car/nicole-suspiro)
@@ -58,6 +61,7 @@ Essa não parece ter sido a melhor resposta.
         Taxista "Fico feliz.{a} Até a próxima."
 
         PlaySFX(Car/car-door-close)
+        Nicole.Hide()
         Wait(1)
 
         - Conselho sobre dar mais espaço
@@ -110,6 +114,7 @@ Uma sensação de esperança e de progresso.
 
         HideDB()
         PlaySFX(Car/car-door-opening-and-closing)
+        Nicole.Hide()
         Wait(4)
         ShowDB()
 
@@ -155,7 +160,9 @@ Sem encontrar a solução que estava buscando.
 
         Taxista "Fico feliz em poder ajudar. Até a próxima."
 
+        Nicole.Hide()
         PlaySFX(Car/car-door-close)
+        Wait(1)
 
         Taxista thought "Acho que a deixei com mais dúvidas ainda..." 
 }

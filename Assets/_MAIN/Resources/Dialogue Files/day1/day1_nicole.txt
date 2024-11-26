@@ -30,7 +30,7 @@ Taxista thought "Hora de começar o dia."
 HideDB()
 HideUI()
 PlaySFX(car/car-starting-sound)
-Wait(3)
+Wait(4)
 ShowUI()
 
 Wait(1)
@@ -91,7 +91,7 @@ Consigo imaginar mais ainda as suas frustrações.
         Nicole "Exatamente.{a} É reconfortante ouvir alguém que me entenda.{a} Mesmo que seja apenas uma conversa rápida."
 Obrigada por isso.
 
-        load(Day1/day1_pergunta_pessoal)
+        load(day1/day1_pergunta_pessoal)
 
     - Tentar aconselhar
         $Nicole.day1 = false
@@ -128,18 +128,22 @@ Wait(1)
 HideUI()
 PlaySFX(Car/car-speedingUp)
 Wait(5)
+Nicole.Hide()
 PlaySFX(Car/car-door-close)
 Wait(2)
 ShowUI()
 
-Taxista thought "Assim que Nicole desaparece pelas portas da OVIMA,{a} fico por um momento recostado,{a} pensando."
-Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava de verdade com o que faz.
+Taxista thought "Quando vi a Nicole desaparecendo pelas portas da OVIMA, fiquei pensando..."
+Não sei muito sobre o mundo marinho,{a} mas era claro que ela se importava com o que ela faz.
+Mesmo eu não conhecendo ela muito bem.
 
-Taxista thought "Olho pelo retrovisor,{a} ainda preso nesses pensamentos,{a} quando vejo outra passageira se aproximando."
-Uma jovem com um sorriso animado...{a} parece tão diferente.
+Taxista thought "Não paro de pensar nisso...{a} Hmm?"
+Tem uma mulher se aproximando.
+Ela está com um sorriso animado...{a} Parece tão diferente.
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Luana), Luana.Show()
 Wait(4)
 ShowDB()
 

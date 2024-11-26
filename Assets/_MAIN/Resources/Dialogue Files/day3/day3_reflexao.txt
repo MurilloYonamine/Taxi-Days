@@ -1,3 +1,5 @@
+ShowUI()
+HideBG()
 StopAmbience(city-ambience)
 
 if($Luana.day3)
@@ -78,3 +80,4 @@ Isso me fez pensar que,{a} às vezes,{a} só precisamos de um dia bom para nos r
 
         Narrator thought "Não conversei tanto com ele, mas foi uma viagem calma."
 }
+Load(day4/day4_introducao)

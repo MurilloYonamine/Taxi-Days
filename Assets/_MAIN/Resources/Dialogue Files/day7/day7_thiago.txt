@@ -3,9 +3,10 @@ ShowUI()
 if($Thiago.day5)
 {
     $Taxista.Count += 1
-    Taxista "Espera aí... Aquele não é o Thiago? Faz tempo que não o vejo."
+    Taxista "Espera aí...{a} Aquele não é o Thiago?{a} Faz tempo que não o vejo."
 
     HideDB()
+    CreateCharacter(Thiago), Thiago.Show()
     PlaySFX(Car/car-door-opening-and-closing)
     Wait(4)
     ShowDB()
@@ -145,16 +146,19 @@ Tenho que buscar novos passageiros.
 
 if($Taxista.Count == 4)
 {
+    HideBG()
     load(day7/day7_aceitacao)
 }
 
 if($Taxista.Count == 0)
 {
+    HideBG()
     load(day7/day7_frustracao)
 }
 
 if($Taxista.Count > 0)
 {
+    HideBG()
     load(day7/day7_desconexao)
 }
 

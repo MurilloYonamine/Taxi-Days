@@ -1,4 +1,10 @@
-Taxista thought "Esperei tanto pela minha noite... Dormi muito mal."
+ShowBG()
+
+PlayAmbience(city-ambience -loop true -vol 0,2)
+
+CreateCharacter(Taxista), Taxista.Show()
+
+Taxista thought "Esperei tanto pela minha noite...{a} Dormi muito mal."
 
 PlaySFX(Taxista/taxista-suspiro)
 
@@ -32,11 +38,9 @@ Taxista "Ela sempre me deixa com esse gosto amargo na boca."
 print("Luana: $Luana.day2")
 if($Luana.day2)
 {
-    PlayAmbience(city-ambience -loop true -vol 0,2)
     Load(day3/day3_luana)
 }
 else 
 {
-    PlayAmbience(city-ambience -loop true -vol 0,2)
     Load(day3/day3_joseph)
 }

@@ -1,5 +1,6 @@
 StopAmbience(city-ambience)
 ShowUI()
+HideBG()
 
 if($Luana.day2)
 {
@@ -39,4 +40,4 @@ Falei tanto que me fez esquecer do dia cansativo.{a} Enfim, no geral, foi um dia
 
 HideUI()
 Wait(3)
-Load(day5/day5_luana)
+Load(day5/day5_introducao)

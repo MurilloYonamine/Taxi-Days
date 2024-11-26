@@ -1,3 +1,9 @@
+PlayAmbience(city-ambience -loop true -vol 0,2)
+
+ShowBG()
+
+CreateCharacter(Taxista), Taxista.Show()
+
 if($Luana.day3)
 {
     Taxista thought "Ontem foi um dia cansativo. Cada passageiro traz uma nova história"
@@ -34,5 +40,4 @@ else
 Espero que hoje possa ser igual.
 }
 
-PlayAmbience(city-ambience -loop true -vol 0,2)
 Load(day4/day4_nicole)

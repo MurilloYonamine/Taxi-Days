@@ -8,7 +8,9 @@ public class GraphicPanelManager : MonoBehaviour
 
     public const float DEFAULT_TRANSITION_SPEED = 1f;
 
-    [field:SerializeField] public GraphicPanel[] allPanels { get; private set; }
+    [field: SerializeField] public GraphicPanel[] allPanels { get; private set; }
+
+    private CanvasGroupController cgController;
 
     private void Awake()
     {
@@ -19,7 +21,7 @@ public class GraphicPanelManager : MonoBehaviour
     {
         name = name.ToLower();
 
-        foreach (var panel in allPanels) 
+        foreach (var panel in allPanels)
         {
             if (panel.panelName.ToLower() == name)
                 return panel;

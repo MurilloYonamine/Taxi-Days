@@ -12,6 +12,7 @@ Taxista "Aquele não é o garoto do outro dia?{a} Joseph o nome."
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Joseph), Joseph.Show()
 Wait(4)
 ShowDB()
 
@@ -125,6 +126,7 @@ Taxista thought "Ela tá acenando e com um sorriso gigante no rosto. O que será
 
 HideDB()
 PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Luana), DoubleCharacterPosition(Joseph Luana), Luana.Show()
 Wait(4)
 ShowDB()
 
@@ -182,6 +184,8 @@ Choice "Preciso fazer alguma coisa"
         Joseph "Eu disse que vou descer."
 
         HideDB()
+        Joseph.Hide()
+        OneCharacterPosition(Luana)
         PlaySFX(Car/car-door-close)
         Wait(8)
 
@@ -222,6 +226,7 @@ Não tenha medo de me ligar a noite, ok? Minha relação com você não mudou.
         Taxista "Até Luana."
 
         HideDB()
+        Luana.Hide()
         PlaySFX(Car/car-door-close)
         Wait(8)
         ShowDB()
@@ -285,6 +290,8 @@ Ao mesmo tempo sinto que ainda tenho um longo caminho a percorrer.
         Luana "Até logo, gente!{a} Obrigada por tudo." 
 
         HideDB()
+        Luana.Hide()
+        OneCharacterPosition(Joseph)
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(4)
 
@@ -346,6 +353,7 @@ Vou refletir sobre o que você falou.{a} Obrigado Joseph,{a} suas palavras ajuda
         ShowDB()
 
         HideDB()
+        Joseph.Hide()
         PlaySFX(Car/car-door-opening-and-closing)
         Wait(3)
         ShowDB()
@@ -379,6 +387,8 @@ Ele tá me fuzilando com os olhos.{a} O que eu faço agora?{a} Não faço ideia 
         Luana "Obrigada pela viagem..." 
 
         HideDB()
+        Luana.Hide()
+        OneCharacterPosition(Joseph)
         PlaySFX(Car/car-door-close)
         Wait(2)
         ShowDB()
@@ -422,6 +432,7 @@ Pense antes de abrir a boca.
 
         HideDB()
         PlaySFX(Car/car-door-close)
+        Joseph.Hide()
         Wait(2)
         ShowDB()
 

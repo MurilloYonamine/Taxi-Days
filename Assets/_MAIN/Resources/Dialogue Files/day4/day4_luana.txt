@@ -25,6 +25,11 @@ PlaySFX(Car/car-speedingUp)
 HideUI()
 Wait(5)
 
+PlaySFX(Car/car-door-opening-and-closing)
+CreateCharacter(Luana), Luana.Show()
+Wait(4)
+ShowUI()
+
 Luana "Oi!{a} Que bom que você veio me buscar!{a} Me leve para casa!"
 
 Taxista thought "Essas manchas...{a} O que será que aconteceu com ela?"
@@ -112,10 +117,13 @@ Taxista "E se precisar de mais alguma coisa, sabe onde me encontrar,{a} haha!{a}
 
 Luana "Valeu."
 
+
+Luana.Hide()
 PlaySFX(Car/car-door-close)
 
 Taxista thought "Acho que é valido dizer que hoje foi um bom dia.{a} Espero que amanhã seja igual!"
 
 HideUI()
 Wait(3)
+Taxista.Hide()
 Load(day4/day4_reflexao)

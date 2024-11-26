@@ -1,5 +1,6 @@
 StopAmbience(city-ambience)
 ShowUI()
+HideBG()
 
 if ($Nicole.day1 && $Luana.day1)
 {
@@ -7,7 +8,6 @@ if ($Nicole.day1 && $Luana.day1)
     
     Narrator thought "Enquanto dirijo pela cidade, percebo como as pessoas carregam seus próprios fardos."
     Narrator thought "Cada passageiro tem uma história, e eu me pergunto: quantos de nós conseguimos realmente deixar esses problemas para trás por um momento, mesmo que seja dentro de um táxi?"
-
     Narrator thought "Aquela mulher, Nicole acho que era o nome dela. Entrou com aquela aura distante. Eu tentei, mas acho que não consegui me conectar com ela da forma que gostaria."
 
     Narrator thought "Ela parecia tão preocupada, com os olhos refletindo a carga de um dia difícil, como se estivesse carregando o peso do mundo. Me pergunto se ela vai conseguir resolver os problemas que a afligem."

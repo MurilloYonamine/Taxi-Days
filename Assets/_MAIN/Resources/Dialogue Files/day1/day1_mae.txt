@@ -1,3 +1,4 @@
+ShowBG()
 ShowUI()
 
 StopSFX(Telephone-vibrating)

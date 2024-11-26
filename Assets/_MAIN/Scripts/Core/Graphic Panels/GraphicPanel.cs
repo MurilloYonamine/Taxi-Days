@@ -20,13 +20,14 @@ public class GraphicPanel
                 return layers[i];
         }
 
-        if (createIfDoesNotExist) 
-        {       
+        if (createIfDoesNotExist)
+        {
             return CreateLayer(layerDepth);
         }
 
         return null;
     }
+
 
     private GraphicLayer CreateLayer(int layerDepth)
     {
@@ -58,7 +59,7 @@ public class GraphicPanel
 
     public void Clear(float transitionSpeed = 1, Texture blendTexture = null, bool immediate = false)
     {
-        foreach(var layer in layers)
+        foreach (var layer in layers)
             layer.Clear(transitionSpeed, blendTexture, immediate);
     }
 }

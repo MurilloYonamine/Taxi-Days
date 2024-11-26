@@ -1,10 +1,13 @@
-HideDB()
-PlaySFX(Car/car-door-opening-and-closing)
-Wait(4)
-ShowDB()
+CreateCharacter(Luana)
 
 if(!$Luana.day2)
 {
+    HideDB()
+    Luana.Show()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowDB()
+
     Taxista thought "Quem é essa? Sinto ter visto ela alguma vez."
 
     Taxista "Boa noite. A onde a senhora deseja ir?"
@@ -25,6 +28,7 @@ if(!$Luana.day2)
     Luana as ??? "Aqui está."
 
     HideDB()
+    Luana.Hide()
     PlaySFX(Car/car-door-close)
     Wait(2)
     ShowDB()
@@ -55,10 +59,11 @@ Vem rápido, preciso chegar logo em um compromisso.
     Taxista thought "Sempre assim, com ela me pedindo para apressar."
 Eu me pergunto até onde isso vai.
 
-    HideDB()
-    PlaySFX(Car/car-starting-sound)
+    HideUI()
+    Luana.Show()
+    PlaySFX(Car/car-door-opening-and-closing)
     Wait(4)
-    ShowDB()
+    ShowUI()
 
     Taxista "Oi, Luana.{a} Pra onde vamos?"
 
@@ -86,6 +91,7 @@ Eu só preciso ser mais eficiente com o meu tempo.
     Luana "Tá bom, 20 reais aqui."
 
     HideDB()
+    Luana.Hide()
     PlaySFX(Car/car-door-closing)
     Wait(3)
     ShowDB()
@@ -95,7 +101,16 @@ Eu só preciso ser mais eficiente com o meu tempo.
 
 if($Luana.day5)
 {
-    Taxista thought "Quem é essa pessoa? Algo nela parece familiar, mas não consigo lembrar de onde a vi."
+    HideUI()
+    Luana.SetSprite(Images/Luana_2)
+    Luana.Show()
+    PlaySFX(Car/car-door-opening-and-closing)
+    Wait(4)
+    ShowUI()
+
+    Luana.Show()
+
+    Taxista thought "Quem é essa pessoa?{a} Algo nela parece familiar,{a} mas não consigo lembrar de onde a vi."
 
     Taxista "Oi, para onde vamos senhorita?"
 
@@ -108,6 +123,7 @@ Mas sabe, estou mais em paz comigo mesma agora.
 Não me escondo mais.{a} E queria agradecer...{a} de verdade, por tudo.
 
     Taxista "Vitiligo? Eu... não sabia... Você está bem?"
+
 
     Luana "Sim, eu estou.{a} Na verdade, estou muito melhor."
 Tem sido um processo,{a} mas estou aprendendo a aceitar quem sou.
@@ -139,6 +155,7 @@ Você não sabe o quanto foi importante."
     Taxista "Até mais Luana."
 
     HideDB()
+    Luana.Hide()
     PlaySFX(Car/car-door-opening-and-closing)
     Wait(4)
     ShowDB()

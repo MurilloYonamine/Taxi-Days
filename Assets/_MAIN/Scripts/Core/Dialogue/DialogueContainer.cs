@@ -44,8 +44,8 @@ namespace DIALOGUE
                 return;
             }
 
-            Vector3 containerPosition = characterGameObject.transform.position + new Vector3(150, -150, 0);
-            dialogueRect.anchoredPosition = containerPosition;
+            Vector3 containerPosition = characterGameObject.transform.position - new Vector3(0, 1.5f);
+            root.transform.position = containerPosition;
         }
         public void Clear()
         {
