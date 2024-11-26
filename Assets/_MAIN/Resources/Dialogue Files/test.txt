@@ -1,0 +1,14 @@
+HideDB()
+CreateCharacter(Nicole)
+
+Nicole.Show()
+
+CreateCharacter(Taxista)
+
+Taxista.Show()
+
+CreateCharacter(Luana)
+
+Luana.Show()
+
+DoubleCharacterPosition(Nicole Luana)

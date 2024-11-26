@@ -13,7 +13,7 @@ TagManager:
   - UI
   - UI - Live2D
   - UI - Model3D
-  - 
+  - Characters
   - 
   - 
   - 
@@ -40,4 +40,28 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Interior
+    uniqueID: 1578225365
+    locked: 0
+  - name: Banco Traseiro
+    uniqueID: 2452782115
+    locked: 0
+  - name: Lateira
+    uniqueID: 4186810153
+    locked: 0
+  - name: Character
+    uniqueID: 356793265
+    locked: 0
+  - name: Banco Frontal
+    uniqueID: 167806789
+    locked: 0
+  - name: Objetos
+    uniqueID: 2554876631
+    locked: 0
+  - name: Jogador
+    uniqueID: 4025093283
+    locked: 0
+  - name: Capo e Teto
+    uniqueID: 151632519
     locked: 0

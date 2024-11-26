@@ -151,7 +151,7 @@ MonoBehaviour:
       _serializedList: []
   - name: Taxista
     alias: taxista
-    characterType: 0
+    characterType: 1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
@@ -163,7 +163,7 @@ MonoBehaviour:
       _serializedList: []
   - name: Nicole
     alias: nicole
-    characterType: 0
+    characterType: 1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
@@ -175,7 +175,7 @@ MonoBehaviour:
       _serializedList: []
   - name: Luana
     alias: luana
-    characterType: 0
+    characterType: 1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
@@ -187,7 +187,7 @@ MonoBehaviour:
       _serializedList: []
   - name: Thiago
     alias: thiago
-    characterType: 0
+    characterType: 1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}
@@ -199,7 +199,7 @@ MonoBehaviour:
       _serializedList: []
   - name: Joseph
     alias: joseph
-    characterType: 0
+    characterType: 1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     dialogueColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 11400000, guid: 6de9008877246117bba44b6ce2007bd8, type: 2}

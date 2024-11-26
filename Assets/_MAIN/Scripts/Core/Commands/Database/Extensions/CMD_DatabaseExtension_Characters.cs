@@ -81,8 +81,8 @@ namespace COMMANDS
             if (character1 == null || character2 == null)
                 return;
 
-            Vector2 position1 = new Vector2(0.25f, 0.5f); // Lado esquerdo do meio
-            Vector2 position2 = new Vector2(0.75f, 0.5f); // Lado direito do meio
+            Vector2 position1 = new Vector2(0.35f, 0.2f);
+            Vector2 position2 = new Vector2(0.65f, 0.2f);
 
             character1.SetPosition(position1);
             character2.SetPosition(position2);
