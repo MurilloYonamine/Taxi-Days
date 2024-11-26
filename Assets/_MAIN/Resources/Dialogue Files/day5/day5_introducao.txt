@@ -22,4 +22,5 @@ Mãos no volante.
 HideUI()
 PlaySFX(Car/car-starting-sound)
 Wait(4)
+PlayAmbience(city-ambience -loop true -vol 0,2)
 Load(day5/day5_thiago)

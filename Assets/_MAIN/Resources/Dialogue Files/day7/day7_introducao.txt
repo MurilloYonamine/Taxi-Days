@@ -15,4 +15,5 @@ ShowDB()
 
 Taxista thought "Lá vem mais um passageiro."
 
+PlayAmbience(city-ambience -loop true -vol 0,2)
 Load(day7/day7_luana)

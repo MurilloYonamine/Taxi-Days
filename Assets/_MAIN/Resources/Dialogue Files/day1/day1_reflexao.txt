@@ -1,3 +1,4 @@
+StopAmbience(city-ambience)
 ShowUI()
 
 if ($Nicole.day1 && $Luana.day1)

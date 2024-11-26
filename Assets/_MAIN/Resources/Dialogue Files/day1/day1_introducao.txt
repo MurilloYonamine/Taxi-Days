@@ -20,4 +20,6 @@ PlaySFX(Telephone/telephone-vibrating -v 0,5 -l true)
 
 É sua mãe, com uma voz carregada de frustração e ansiedade.
 HideUI()
+
+PlayAmbience(city-ambience -loop true -vol 0,2)
 Load(day1/day1_mae)

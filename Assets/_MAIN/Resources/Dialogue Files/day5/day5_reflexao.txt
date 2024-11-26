@@ -1,4 +1,5 @@
 StopSFX(RainyMood)
+StopAmbience(city-ambience)
 ShowUI()
 
 Narrator thought "Hoje foi um dia daqueles."

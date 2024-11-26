@@ -1,3 +1,5 @@
+StopAmbience(city-ambience)
+
 if($Luana.day3)
 {
         Narrator thought "Luana parece buscar o conforto nas nossas conversas, mas eu me pergunto se realmente consigo ajudá-la."

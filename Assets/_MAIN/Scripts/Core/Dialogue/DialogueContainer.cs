@@ -56,7 +56,7 @@ namespace DIALOGUE
         {
             if (isThought)
             {
-                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.57f);
+                root.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.65f);
                 dialogueText.fontStyle = FontStyles.Italic;
                 nameContainer.nameText.fontStyle = FontStyles.Italic;
             }

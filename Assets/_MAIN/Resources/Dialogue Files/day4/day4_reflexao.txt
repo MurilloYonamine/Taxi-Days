@@ -1,3 +1,4 @@
+StopAmbience(city-ambience)
 ShowUI()
 
 if($Luana.day2)

@@ -1,4 +1,5 @@
 ShowUI()
+StopAmbience(city-ambience)
 Taxista "Hoje foi um dia longo."
 
 if($Nicole.day6)

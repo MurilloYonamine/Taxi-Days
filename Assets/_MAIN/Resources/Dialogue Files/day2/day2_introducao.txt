@@ -9,4 +9,5 @@ Taxista thought "Ontem foi um dia cheio.{a} Tive passageiros que trouxeram um pe
 Será que terei a oportunidade de encontrar essas pessoas novamente?
 Veremos quais histórias cruzaram meu caminho hoje.
 
+PlayAmbience(city-ambience -loop true -vol 0,2)
 Load(day2/day2_nicole)

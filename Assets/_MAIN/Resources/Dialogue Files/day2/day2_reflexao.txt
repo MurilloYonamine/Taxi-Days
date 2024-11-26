@@ -1,3 +1,4 @@
+StopAmbience(city-ambience)
 ShowUI()
 
 if(!$Thiago.day2) 

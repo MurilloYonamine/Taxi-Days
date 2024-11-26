@@ -1,7 +1,5 @@
 ShowUI()
 
-PlayAmbience(city-ambience -loop true -vol 0,2)
-
 StopSFX(Telephone-vibrating)
 
 CreateCharacter(Taxista)
@@ -43,7 +41,10 @@ Mãe "{a}..."
 
 Taxista "Tenho que desligar agora, mãe."
 
+HideDB()
+Wait(1)
 PlaySFX(Taxista/taxista-suspiro)
+ShowDB()
 
 Wait(1)
 

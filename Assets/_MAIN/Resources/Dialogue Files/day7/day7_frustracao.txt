@@ -1,3 +1,5 @@
+StopAmbience(city-ambience)
+
 Taxista thought "Eu não consigo mais ver a diferença entre o que eu queria e o que tenho."
 Meus próprios sentimentos,{a} minhas frustrações...
 Tudo parece um grande vazio.

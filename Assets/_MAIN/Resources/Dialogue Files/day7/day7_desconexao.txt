@@ -1,3 +1,5 @@
+StopAmbience(city-ambience)
+
 Taxista thought "O dia passou, mas, sinceramente, eu não sei o que ele significou para mim."
 Não tem sido fácil. O trabalho parece ser apenas uma repetição interminável.
 Eu vejo os rostos dos passageiros, escuto suas histórias, mas... não consigo me conectar com nada disso. Eu não sinto nada.

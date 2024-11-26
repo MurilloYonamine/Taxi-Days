@@ -21,10 +21,12 @@ Wait(3)
 
 if($Nicole.day5)
 {
+    PlayAmbience(city-ambience -loop true -vol 0,2)
     Load(day6/day6_nicole)
 }
 
 if(!$Luana.day5)
 {
+    PlayAmbience(city-ambience -loop true -vol 0,2)
     Load(day6/day6_ligacao_luana)
 }

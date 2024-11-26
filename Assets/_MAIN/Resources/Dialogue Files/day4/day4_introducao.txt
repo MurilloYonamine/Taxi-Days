@@ -34,4 +34,5 @@ else
 Espero que hoje possa ser igual.
 }
 
+PlayAmbience(city-ambience -loop true -vol 0,2)
 Load(day4/day4_nicole)

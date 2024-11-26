@@ -1,9 +1,9 @@
 HideDB()
-ShowUI()
-
+CreateCharacter(Taxista), Taxista.Show()
 PlaySFX(Car/car-arriving)
 Wait(7)
 
+ShowUI()
 ShowDB()
 
 PlaySong(Driving -v 0,1)
@@ -20,9 +20,10 @@ PlaySFX(Car/car-door-opening-and-closing)
 Wait(4)
 ShowDB()
 
-??? as Nicole "Bom dia.{a} Você poderia me levar até a OVIMA, por favor?"
+CreateCharacter(Nicole)
+Nicole.Show()
 
-Taxista thought "Vou apenas acenar com a cabeça..."
+Nicole as ??? "Bom dia.{a} Você poderia me levar até a OVIMA, por favor?"
 
 Taxista thought "Hora de começar o dia."
 
