@@ -111,7 +111,7 @@ namespace CHARACTERS
         {
             CharacterConfigData config = info.config;
 
-            switch(config.characterType)
+            switch (config.characterType)
             {
                 case Character.CharacterType.Text:
                     return new Character_Text(info.name, config);

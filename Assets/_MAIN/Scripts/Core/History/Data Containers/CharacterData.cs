@@ -75,7 +75,7 @@ namespace History
                 entry.priority = character.priority;
                 entry.isFacingLeft = character.isFacingLeft;
                 entry.isHighlighted = character.highlighted;
-                entry.position = new Vector3(character.root.position.x, character.root.position.y, 0f); // Garante que o Z capturado seja 0.
+                entry.position = character.root.position;
                 entry.characterConfig = new CharacterConfigCache(character.config);
                 entry.animationJSON = GetAnimationData(character);
 
@@ -161,7 +161,7 @@ namespace History
                 else
                     character.FaceRight(immediate: true);
 
-                character.root.position = new Vector3(characterData.position.x, characterData.position.y, 0f);
+                character.root.position = new Vector3(characterData.position.x, characterData.position.y, character.root.position.z);
 
                 character.isVisible = characterData.enabled;
 

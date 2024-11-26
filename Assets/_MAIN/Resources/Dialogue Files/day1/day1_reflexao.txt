@@ -1,5 +1,5 @@
-StopAmbience(city-ambience)
 ShowUI()
+StopAmbience(city-ambience)
 HideBG()
 
 if ($Nicole.day1 && $Luana.day1)
